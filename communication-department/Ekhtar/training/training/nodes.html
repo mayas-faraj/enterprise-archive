@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Report Stream" />
+		<meta name="author" content="CD" />
+		<title>جهات إخطار</title>
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/materialize.new.min.css">
+		<link rel="stylesheet" href="css/materialize-rtl.css">
+		<link rel="stylesheet" href="css/materialize-child.min.css">
+		<link rel="stylesheet" href="css/material-icons.css">
+		<link rel="stylesheet" href="css/rotating.css">
+		<script src="scripts/jquery/jquery-3.3.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/old/stropheAccess.js"></script>
+		<script src="scripts/old/stropheSession.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/materialize.new.min.js"></script>
+		<script src="scripts/leaflet.js"></script>	
+		<script src="scripts/master.js"></script>
+		<script src="scripts/jscolor.js"></script>
+		<script src="scripts/moment.js"></script>
+		<script src="scripts/imageUpload.js"></script>
+		<script src="scripts/validator.js"></script>
+		<script src="scripts/searchField.js"></script>
+		<script src="scripts/old/setManager.js"></script>
+		<script src="js/old/nodes.js"></script>
+	</head>
+	<body id="body" dir="rtl">
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="center">
+					<h4>جهات إخطار</h4>
+				</div>
+			</div>
+			<div class="col s12 m6 l5">
+				<div class="row">
+					<div class="col s12">
+						<div class="content-block">
+							<div class="content-header">
+								<i class="material-icons">edit</i>
+								<label>تحرير جهة</label>
+							</div>
+							<div class="row">
+								<div class="col s12 m12 l6">
+									<input id="nodeId" type="hidden">
+									<div class="input-field" style="width: 90%">
+										<i class="material-icons prefix">group</i>
+										<input id="nameText" type="text" class="validate" data-button="#saveButton">
+										<label for="nameText">اسم الجهة</label>
+										<span id="esText" style="position: absolute;left: -22px;top: 5px;font-size: 22px;" class="">-es</span>
+									</div>	
+									<div class="input-field">
+										<i class="material-icons prefix">comment</i>
+										<input id="descriptionText" type="text" class="validate"  data-button="#saveButton">
+										<label for="descriptionText">وصف الجهة</label>
+									</div>
+									<div class="input-field">
+										<i class="material-icons prefix">vpn_key</i>
+										<input id="passwordText" type="password" class="validate" data-button="#saveButton">
+										<label for="passwordText">كلمة المرور</label>
+									</div>
+									<div class="input-field">
+										<i class="material-icons prefix">vpn_key</i>
+										<input id="confirmPasswordText" type="password" class="validate" data-button="#saveButton">
+										<label for="confirmPasswordText">تأكيد كلمة المرور</label>
+									</div>
+									<div class="input-field">
+										<i class="material-icons prefix">color_lens</i>
+										<select id="colorSelect">
+											<option data-color="#A00" data-i="brush" value="#A00">أحمر</option>
+											<option data-color="#AA0" data-i="brush" value="#AA0">ذهبي</option>
+											<option data-color="#0A0" data-i="brush" value="#0A0">أخضر</option>
+											<option data-color="#0AA" data-i="brush" value="#0AA">تركواز</option>
+											<option data-color="#00A" data-i="brush" value="#00A">أزرق</option>
+											<option data-color="#A0A" data-i="brush" value="#A0A">أرجواني</option>
+											<option data-color="#000" data-i="brush" value="#000">ﺃسود</option>
+										</select>
+										<label>تحديد لون الجهة</label>
+									</div>
+								</div>
+								<div class="col s12 m12 l6 content-file-upload">
+									<img id='image' class='primary-border' src='imgs/users.png'>
+									<div class="file-field">
+										<div class="btn primary-control">
+											<span>تحميل</span>
+											<input id="imageButton" type="file" accept="image/*">
+										</div>
+										<div class="file-path-wrapper">
+											<input class="file-path validate" type="text">
+										</div>
+									</div>
+								</div>
+								<div class="row col s12 m12 l12">
+									<div class="col s12 m6 l3">
+										<a id="createButton" class="waves-effect waves-light btn primary-control">
+											<i class="material-icons">group_add</i>
+											جديد	
+										</a>
+									</div>
+									<div class="col s12 m6 l3"> 
+										<a id="saveButton" class="waves-effect waves-light btn primary-control">
+											<i class="material-icons">save</i>
+											حفظ	
+										</a>
+									</div>
+									<div class="col s12 m6 l3">
+										<a id="viewButton" class="waves-effect waves-light btn primary-control">
+											<i class="material-icons">open_in_new</i>
+											عرض
+										</a>
+									</div>
+									<div class="col s12 m6 l3"> 
+										<a id="deleteButton" class="waves-effect waves-light btn primary-control modal-trigger" href="#deleteModal">
+											<i class="material-icons red-text">delete_forever</i>
+											حذف
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 hide">
+						 <div class="content-block">
+							<div class="content-header">
+								<i class="material-icons">done</i>
+								<label>تعليمات الاستخدام</label>
+							</div>
+							<div class="content-instruction">
+								<p><i class="material-icons">add_box</i><span>لإضافة جهة, اضغط على زر (جديد) في قسم (تحرير جهة).</span></p>
+								<p><i class="material-icons">edit</i><span>لتعديل جهة, يجب اختيار جهة من قسم (الجهات) من ثم اجراء التعديلات في قسم (تحرير جهة) وضغط زر (حفظ).</span></p>
+								<p id="successLabel"><i class="material-icons green-text">done</i><span>تمت العملية بنجاح.</span></p>
+								<p id="errorLabel"><i class="material-icons red-text">error</i><span>خطأ أثناء اتمام العملية.</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m6 l7">
+				<div class="content-block">
+					<div class="content-header">
+						<i class="material-icons">group</i>
+						<label>جهات إخطار</label>
+						<span class="content-header-right search-field" data-search=".content-icon">
+							<input id="searchText" type="text">
+							<a href="#!" class="btn"><i class="material-icons">search</i></a>
+						</span>
+
+					</div>
+					<div class="content-icon-sets">
+						<div class="content-icon">
+							<img src="imgs/users.png"/>
+							<label>الجهة</label>
+							<input id="id" type="hidden">
+							<input id="description" type="hidden">
+							<input id="color" type="hidden">
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal Structure -->
+		<div id="deleteModal" class="modal">
+			<div class="modal-content">
+				<h4>تأكيد حذف جهة <span></span></h4>
+				<p>عملية حذف الجهة (<span></span>) لا يمكن التراجع عنها.</p>
+				<div id="deleteProgress" class="progress">
+					<div class="determinate" style="width: 0%"></div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" id="confirmDeleteButton" class="waves-effect waves-green btn-flat">موافق</a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat">إلغاء</a>
+			</div>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,253 @@
+@media only screen and (min-width: 993px)
+{
+	.row .col.offset-l4 
+	{
+		margin-right: 33.3333333333% !important;
+		margin-left: 0px;
+
+	}
+}
+
+.input-field label {
+	right: 0.75rem;
+}
+
+.input-field
+{
+	/*width: 90%;*/
+}
+
+.input-field .prefix ~ input,
+.input-field .prefix ~ textarea,
+.input-field .prefix ~ button,
+.input-field .prefix ~ div>input {
+	margin-right: 3rem;
+	width: calc(100% - 3rem);
+}
+
+.input-field .prefix ~ label {
+	margin-right: 3rem;
+}
+
+.collapsible-header i {
+	float: right;
+}
+
+form p {
+	text-align: right;
+}
+
+[type="checkbox"] {
+	/* checkbox aspect */
+}
+
+[type="checkbox"] + label {
+	padding-right: 35px;
+}
+
+[type="checkbox"] + label:before {
+	right: 0;
+}
+
+[type="checkbox"]:checked {
+	/* checkbox aspect */
+}
+
+[type="checkbox"]:checked + label:before {
+	right: 10px;
+}
+
+[type="checkbox"].filled-in + label:before {
+	right: 10px;
+}
+
+[type="checkbox"].filled-in + label:after {
+	right: 0;
+}
+
+[type="checkbox"]+span:not(.lever),
+[type="radio"]:not(:checked)+span, [type="radio"]:checked+span {
+	padding-right: 35px;
+	padding-left: 0px !important;
+}
+
+[type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after, 
+[type="radio"]+span:before, [type="radio"]+span:after {
+
+	right: 0px;
+}
+
+
+[type="radio"] {
+	/* radio aspect */
+	/* radio aspect */
+}
+
+[type="radio"] + label {
+	padding-right: 35px;
+}
+
+[type="radio"] + label:before {
+	right: 0;
+}
+
+[type="radio"] + label:after {
+	right: 0;
+}
+
+[type="radio"] + span>img
+{
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.row .col {
+	float: right;
+}
+
+.file-field .file-path-wrapper {
+	padding-right: 10px;
+}
+
+.file-field .btn {
+	float: right;
+}
+
+span.badge {
+	left: 15px;
+	right: inherit;
+}
+
+.dropdown-content li {
+	text-align: right;
+}
+
+.secondary-content {
+	float: left;
+}
+
+.breadcrumb:before {
+	content: '\E5CB';
+}
+
+.collection.with-header .collection-item.avatar
+{
+	padding-left: 0;
+	padding-right: 72px;
+}
+
+.collection .collection-item.avatar .circle {
+	right: 15px;
+	left: auto;
+}
+
+.collection .collection-item.avatar .secondary-content {
+	left: 16px;
+	right: auto;
+}
+
+.collection.avatar {
+	padding-right: 72px;
+	padding-left: auto;
+}
+
+.collection.avatar .secondary-content {
+	left: 16px;
+}
+
+.select-wrapper span.caret {
+	right: auto;
+	left: 0;
+}
+
+.chip img {
+	float: right;
+	margin: 0 -8px 0 12px;
+}
+
+.chip i.material-icons {
+	float: left;
+	padding-right: 8px;
+	padding-left: 0;
+}
+
+blockquote {
+	margin: 20px 0;
+	padding-right: 1.5rem;
+	border-right: 5px solid #ee6e73;
+}
+
+.input-field input[type=search] {
+	padding-right: 4rem;
+	width: calc(100% - 8rem);
+}
+
+.table-of-contents a.active {
+	padding-right: 18px;
+	border-right: 2px solid #ea4a4f;
+	border-left: none;
+}
+
+.table-of-contents a {
+	padding-right: 20px;
+}
+
+.table-of-contents a:hover {
+	padding-right: 19px;
+	border-left: none;
+	border-right: 1px solid #ea4a4f;
+}
+
+td, th {
+	text-align: right;
+}
+
+i.material-icons
+{
+	vertical-align: middle;
+}
+
+input.validate[type="text"]:not(.browser-default) + label {
+	width: 60%;
+}
+
+.select-wrapper .caret {
+	right: unset;
+	left: 0px; 
+}
+
+ul:not(.browser-default)
+{
+	padding-right: 0px;
+}
+
+ul.dropdown-content
+{
+	padding-right: 0px;
+}
+
+span.badge
+{
+	margin-right: 14px;
+	margin-left: 0px;
+	float: left;
+}
+
+span.badge.new:after
+{
+	content: " غير مقروء";
+}
+
+.sidenav li>a>i,
+.sidenav li>a>[class^="mdi-"],
+.sidenav li>a li>a>[class*="mdi-"],
+.sidenav li>a>i.material-icons
+{
+	float: right;
+	margin: 0 0 0 32px;
+}
+
+.switch
+{
+	direction: ltr;
+}

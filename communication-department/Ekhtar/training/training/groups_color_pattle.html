@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Report Stream" />
+		<meta name="author" content="CD" />
+		<title>مجموعات المستخدمين</title>
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/materialize.new.min.css">
+		<link rel="stylesheet" href="css/materialize-rtl.css">
+		<link rel="stylesheet" href="css/materialize-child.min.css">
+		<link rel="stylesheet" href="css/material-icons.css">
+		<script src="scripts/jquery/jquery-3.3.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/old/stropheSession.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/materialize.new.min.js"></script>
+		<script src="scripts/leaflet.js"></script>	
+		<script src="scripts/master.js"></script>
+		<script src="scripts/jscolor.js"></script>
+		<script src="scripts/imageUpload.js"></script>
+		<script src="scripts/formValidation.js"></script>
+		<script src="scripts/old/setManager.js"></script>
+		<script src="js/old/groups.js"></script>
+	</head>
+	<body id="body" dir="rtl">
+		<div class="row" style="margin-top: 40px;">
+			<div class="col s12 m12 l12">
+				<div class="page-title-blue">
+					<h1>مجموعات المستخدمين</h1>
+				</div>
+			</div>
+			<div class="col s12 m6 l5">
+				<div class="row">
+					<div class="col s12">
+						<div class="content-block">
+							<div class="content-header">
+								<i class="material-icons">edit</i>
+								<label>تحرير مجموعة</label>
+							</div>
+							<div class="row">
+								<div class="col s12 m12 l6">
+									<input id="groupId" type="hidden">
+									<div class="input-field">
+										<i class="material-icons prefix">group</i>
+										<input id="nameText" type="text" class="validate">
+										<label for="nameText">اسم المجموعة</label>
+									</div>	
+									<div class="input-field">
+										<i class="material-icons prefix">comment</i>
+										<input id="descriptionText" type="text" class="validate">
+										<label for="descriptionText">وصف المجموعة</label>
+									</div>
+									<div class="input-field">
+										<i class="material-icons prefix">color_lens</i>
+										<button id="groupColor" class="btn waves-effect waves-light jscolor" value="#007528" spellcheck="false"/>
+									</div>
+								</div>
+								<div class="col s12 m12 l6 content-file-upload">
+									<img id='image' class='primary-border' src='imgs/users.png'>
+									<div class="file-field">
+										<div class="btn primary-control">
+											<span>تحميل</span>
+											<input id="imageButton" type="file">
+										</div>
+										<div class="file-path-wrapper">
+											<input class="file-path validate" type="text">
+										</div>
+									</div>
+								</div>
+								<div class="row col s12 m12 l12">
+									<div class="col s12 m6 l3">
+										<a id="createButton" class="waves-effect waves-light btn primary-control">
+											<i class="material-icons">group_add</i>
+											جديد	
+										</a>
+									</div>
+									<div class="col s12 m6 l3"> 
+										<a id="saveButton" class="waves-effect waves-light btn primary-control">
+											<i class="material-icons">save</i>
+											حفظ	
+										</a>
+									</div>
+									<div class="col s12 m6 l3">
+										<a id="viewButton" class="waves-effect waves-light btn primary-control">
+											<i class="material-icons">open_in_new</i>
+											عرض
+										</a>
+									</div>
+									<div class="col s12 m6 l3"> 
+										<a id="deleteButton" class="waves-effect waves-light btn primary-control modal-trigger" href="#deleteModal">
+											<i class="material-icons red-text">delete_forever</i>
+											حذف
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col s12">
+						 <div class="content-block">
+							<div class="content-header">
+								<i class="material-icons">done</i>
+								<label>المهام</label>
+							</div>
+							<div class="content-instruction">
+								<p><i class="material-icons">add_box</i><span>لإضافة مجموعة, اضغط على زر (جديد) في قسم (تحرير مجموعة).</span></p>
+								<p><i class="material-icons">edit</i><span>لتعديل مجموعة, يجب اختيار مجموعة من قسم (المجموعات) من ثم اجراء التعديلات في قسم (تحرير مجموعة) وضغط زر (حفظ).</span></p>
+								<p id="successLabel"><i class="material-icons green-text">done</i><span>تمت العملية بنجاح.</span></p>
+								<p id="errorLabel"><i class="material-icons red-text">error</i><span>خطأ أثناء اتمام العملية.</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m6 l7">
+				<div class="content-block">
+					<div class="content-header">
+						<i class="material-icons">group</i>
+						<label>المجموعات</label>
+					</div>
+					<div class="content-icon-sets">
+						<div class="content-icon">
+							<img src="imgs/users.png"/>
+							<label>مجموعة</label>
+							<input id="id" type="hidden">
+							<input id="description" type="hidden">
+							<input id="color" type="hidden">
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal Structure -->
+		<div id="deleteModal" class="modal">
+			<div class="modal-content">
+				<h4>تأكيد حذف مجموعة</h4>
+				<p>عملية حذف المجموعة لا يمكن التراجع عنها.</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" id="confirmDeleteButton" class="modal-close waves-effect waves-green btn-flat">موافق</a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat">إلغاء</a>
+			</div>
+		</div>
+	</body>
+</html>
+

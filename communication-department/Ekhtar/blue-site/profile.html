@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Ekhtar main page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/w3.css">
+<link rel="stylesheet" href="assets/css/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="assets/css/css.css">
+<link rel="stylesheet" href="assets/css/font-awesome.css">
+<link rel="stylesheet" href="css/basic.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+<script src="scripts/strophe/strophe.min.js"></script>
+<script src="scripts/interfaceAccess.js"></script>
+<script src="scripts/stropheAccess.js"></script>
+<script src="scripts/sessionAccess.js"></script>
+<script src="scripts/dataAccess.js"></script>
+<script src="scripts/master.js"></script>
+<script src="scripts/geocooder.js"></script>
+<script src="scripts/report.js"></script>
+<script src="scripts/document.js"></script>
+<script src="js/profile.js"></script>
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+</style>
+</head><body class="w3-theme-l5" dir="rtl" lang="ar">
+
+<!-- Navbar -->
+<div id="banner"></div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div id="rss" class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3" style="position:fixed;left:1%">
+      <!-- Profile -->
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 id="userName" class="w3-center">user name</h4>
+         <p class="w3-center"><img id="userImage" src="assets/img/user.png" style="height:106px;width:106px" alt="avatar"></p>
+	 <p id="nameLabel" style="text-align: center; font-size: 0.9em;line-height:.8;">&nbsp;</p>
+	 <p id="nodeLabel" style="text-align: center; font-size: 0.9em;line-height:.8;">&nbsp;</p>
+	 <div id="commandButton" class="input-ballon-button">
+        	<img class="input-ballon-button-image" src="imgs/command.png">
+	</div>
+         <hr>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card-2 w3-round" style="overflow: auto; height: 310px;">
+        <div class="w3-white">
+          <button onclick="displayPanel('simDiv')" style="text-align:right" class="w3-button w3-block w3-theme-l1"><i class="fa  w3-margin-right"><img src="assets/img/group.png" width="15px" height="15px"/></i>شرائح الإتصال</button>
+          <div id="simDiv" class="w3-show w3-hide w3-container">
+          </div>
+ 	<button onclick="displayPanel('deviceDiv')" style="text-align:right" class="w3-button w3-block w3-theme-l1"><i class="fa  w3-margin-right"><img src="assets/img/group.png" width="15px" height="15px"/></i>الأجهزة المستخدمة</button>
+          <div id="deviceDiv" class="w3-show w3-hide w3-container">
+          </div>
+	<button onclick="displayPanel('locationDiv')" style="text-align:right" class="w3-button w3-block w3-theme-l1"><i class="fa  fa-fw w3-margin-right"><img src="assets/img/group.png" width="15px" height="15px"/></i> الإجراء </button>
+          <div id="locationDiv" class="w3-show w3-hide w3-container w3-show">
+          </div>
+
+        </div>      
+      </div>
+      <br>
+
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7" style="position:relative; left: 20%;width:76%;margin-left:20px;">
+      <iframe id="navigationDiv" style="display:none;width:95%;height:600px;">
+      </iframe>
+      <div id="reports" style="margin-right:150px;margin-left:50px;"></div>
+
+      
+    <!-- End Middle Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<div id="footer"></div>
+</body></html>

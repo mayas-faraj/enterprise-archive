@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Manage ekhtar users" />
+		<meta name="author" content="CD" />
+		<title>عناصر شبكة إخطار</title>
+		<link rel="stylesheet" href="css/basic.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/imageCover.js"></script>
+		<script src="scripts/formValidation.js"></script>
+		<script src="scripts/master.js"></script>
+		<script src="js/browseUsers.js"></script>
+	</head>
+	<body id="body">
+		<div id="containerDiv" class="input-container">
+			<div id="usersDiv" class="input-icons-wide box-glass">
+				<img id="nodeIcon" src="imgs/node/es-cd.png" class="box-logo">
+				<div class="input-header">جهة إخطار</div>
+				<div id="iconsArea" class="input-area">
+					<div id="icon" class="input-icon input-icon-fixed">
+						<a href="#">
+							<img id="iconImage" src="imgs/admin.png" class="input-icon-image"/>
+							<div class="input-icon-offline"></div>
+							<label class="input-icon-text input-text-jid">مستخدم</label>
+							<input type="hidden"/>
+							<input type="hidden"/>
+						</a>
+						<div class="input-ballon">
+							<div class="input-ballon-info">
+								<img src='imgs/phone.png' class='input-ballon-info-icon'/>
+								<label class="input-ballon-text"></label>
+								<img src='imgs/name.png' class='input-ballon-info-icon'/>
+								<label class="input-ballon-text"></label>
+								<img src='imgs/add_node.png' class='input-ballon-info-icon'/>
+								<label class="input-ballon-text"></label>
+								<img src='imgs/home.png' class='input-ballon-info-icon'/>
+								<label class="input-ballon-text"></label>
+							</div>
+							<label class="input-ballon-status">
+								غير متصل
+							</label>
+							<div class="input-ballon-button">
+								<a href="underDesign.htm">
+									<img class="input-ballon-button-image" src="imgs/command.png"/>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="searchDiv" class="page-sidebar box-glass">
+			<div id="toggleDiv" class="page-sidebar-toggle">
+				<img src="imgs/search.png" class="page-sidebar-toggle-image"/>
+			</div>
+			<div>
+				<img id="searchButton" src="imgs/magnifier.png" class="input-form-icon"/>
+				<input id="searchText" class="input-box" type="text" placeholder="كلمات للبحث"/>
+			</div>
+			<div id="resultDiv" class="input-search-result">
+			</div>
+		</div>
+	</body>
+</html>

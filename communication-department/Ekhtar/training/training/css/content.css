@@ -1,0 +1,148 @@
+a:link
+{
+	text-decoration: none;
+}
+
+.login_box, .info_box, .login_background, .info_background
+{
+	position: fixed;
+	top:30%;
+	padding: 20px;
+}	
+
+.login_background, .info_background
+{
+	opacity: .4;
+	background: #cfcfcf;
+	border-radius: 15px;
+	box-shadow: 3px 3px 10px #000;
+}
+
+.login_box, .login_background
+{
+	width:30%;
+	height:280px;
+	left:10%;	
+}
+
+.info_box, .info_background
+{
+	width:40%;
+	height:280px;
+	right:10%;	
+}
+
+.info_box, .login_box
+{
+	z-index: 100;
+}
+
+#banner
+{
+	margin-bottom: 50px;
+}
+
+#footer
+{
+	margin-top: 40px;
+}
+
+.banner_head
+{
+	position: absolute;
+	right: 0px;
+}
+
+.banner_tools
+{
+	position: absolute;
+	left: 0px;
+}
+
+.banner, .footer
+{
+	position: fixed;
+	width: 100%;
+	background: #4d636f;
+	color: white;
+}
+
+.banner
+{
+	top: 0px;
+	height: 50px;
+}
+
+.footer
+{
+	bottom: 0px;
+	height: 40px;
+}
+
+.section-header
+{
+	clear: right;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.section-content
+{
+	clear: right;	
+}
+
+.section-element
+{
+	float: right;
+}
+
+.section-logo
+{
+	width: 100px;
+	height: 100px;
+	display: block;
+	margin: 15px;
+}
+
+.section-link
+{
+}
+
+.section-text
+{
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.section-footer
+{
+	width: 80%;
+	color: red;
+	border-width: 4px;
+	clear: right;
+}
+
+.input_box
+{
+	background: #cccccc;
+	opacity: 0.9;
+	border-radius: 5px;
+	float: right;
+	margin: 20px;
+	padding: 10px;
+}
+
+.image_box
+{
+	background: #dddddd;
+	border-radius: 5px;
+	border-color: blue;
+	border-thin: 2px;
+}
+
+.button_box
+{
+	float: right;
+	clear: right;
+}
+

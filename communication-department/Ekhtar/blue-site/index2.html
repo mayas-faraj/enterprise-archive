@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="CD Admin Panel" />
+		<meta name="author" content="CD" />
+		<title>الصفحة الرئيسية</title>
+		<link rel="stylesheet" href="css/basic.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/imageCover.js"></script>
+		<script src="scripts/master.js"></script>
+		<script src="js/index2.js"></script>
+	</head>
+	<body id="body" class="background-full">
+		<div id="banner" class="page-banner">
+		</div>
+		<div class="page-main">
+			<div id="nodeDiv" class="box-glass section-box section-line">
+				<img class="box-logo" src="imgs/add_node.png"/>
+				<div class="input-area">
+					<div class="input-header">إدارة جهات إخطار</div>
+					<div id="addNodeDiv" class="section-element">
+						<a class="section-link" href="manageNode.html">
+							<img class="section-logo" src="imgs/add_node.png"/>
+							<span class="section-text">إضافة جهة إخطار</span>
+						</a>
+					</div>
+					<!--bulk div, replacint #,*-->
+					<div id="editNodeDiv" class="section-elemen">
+						<a class="section-link" href="nodes.html">
+							<img class="section-logo" src="imgs/edit_node.png"/>
+							<span class="section-text">تعديل جهة إخطار</span>
+						</a>
+					</div>
+					<div class="section-footer"></div>
+				</div>
+			</div>
+			<div id="adminDiv" class="section-box box-glass">
+				<img class="box-logo" src="imgs/add_admin.png"/>
+				<div class="input-area">	
+					<div class="input-header">مستخدمو المقر الرئيسي</div>
+					<div id="addAdminDiv" class="section-element">
+						<a class="section-link" href="manageAdmin.html">
+							<img class="section-logo" src="imgs/add_admin.png"/>
+							<span class="section-text">إضافة مستخدم مقر</span>
+						</a>
+					</div>
+					<div id="editAdminDiv" class="section-element">
+						<a class="section-link" href="admins.html">
+							<img class="section-logo" src="imgs/edit_admin.png"/>
+							<span class="section-text">تعديل مستخدم مقر</span>
+						</a>
+					</div>
+					<div id="settingsDiv" class="section-element">
+						<a class="section-link" href="underDesign.html">
+							<img class="section-logo" src="imgs/setting.png"/>
+							<span class="section-text">إعدادات إدارية</span>
+						</a>
+					</div>
+					<div class="section-footer"></div>
+				</div>
+			</div>
+			<div id="userDiv" class="section-box section-line box-glass">
+				<img class="box-logo" src="imgs/manage_user.png"/>
+				<div class="input-area">
+					<div class="input-header">مستخدمو شبكة إخطار</div>
+					<div id="usersDiv" class="section-element">
+						<a class="section-link" href="users.html">
+							<img class="section-logo" src="imgs/add_user.png"/>
+							<span class="section-text">إدارة مستخدمو الشبكة</span>
+						</a>
+					</div>
+					<div id="browseUsersDiv" class="section-element">
+						<a class="section-link" href="browseUsers.html">
+							<img class="section-logo" src="imgs/users.png"/>
+							<span class="section-text">عناصر الشبكة</span>
+						</a>
+					</div>
+					<div id="mapUsersDiv" class="section-element">
+						<a class="section-link" href="mapUsers.html">
+							<img class="section-logo" src="imgs/map_user.png"/>
+							<span class="section-text">خارطة المستخدمين</span>
+						</a>
+					</div>
+					<div id="presenceUsersDiv" class="section-element">
+						<a class="section-link" href="underDesign.html">
+							<img class="section-logo" src="imgs/map_user.png"/>
+							<span class="section-text">خارطة توزع المستخدمين</span>
+						</a>
+					</div>
+					<div class="section-footer"></div>
+				</div>
+			</div>
+			<div id="dataDiv" class="section-box box-glass">
+				<img class="box-logo" src="imgs/map_notification.png"/>
+				<div class="input-area">
+					<div class="input-header">بلاغات إخطار</div>
+					<div id="notificationDiv" class="section-element">
+						<a class="section-link" href="notify.html">
+							<img class="section-logo" src="imgs/map_notification.png"/>
+							<span class="section-text">خارطة الإشعارات</span>
+						</a>
+					</div>
+					<div id="mapSearchDiv" class="section-element">
+						<a class="section-link" href="search.html">
+							<img class="section-logo" src="imgs/map_search.png"/>
+							<span class="section-text">البحث الجغرافي</span>
+						</a>
+					</div>
+					<div id="streamDiv" class="section-element">
+						<a class="section-link" href="stream.html">
+							<img class="section-logo" src="imgs/stream.png"/>
+							<span class="section-text">عرض البلاغات</span>
+						</a>
+					</div>
+					 <div id="commandDiv" class="section-element">
+						<a class="section-link" href="commands.html">
+							<img class="section-logo" src="imgs/commands.png"/>
+							<span class="section-text">المراسلات</span>
+						</a>
+					</div>
+					<div class="section-footer"></div>
+				</div>
+			</div>
+		</div>
+		<div id="footer" class="page-footer page-footer-text"><label id="statusLabel" class="page-footer-status"></label>إدارة الاتصالات - CD 2017</div>
+	</body>
+</html>

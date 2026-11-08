@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Mayas Test</title>
+<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+<script src="scripts/imageUpload.js"></script>
+</head>
+<body>
+<h1><center>Hi Mezzo</center></h1>
+<button id="mainButton">Main Button</button>
+<button id="mainButton2">Main Button</button>
+<script>
+	$(document).ready(function() 
+	{
+		console.log('done');
+		ImageUpload.saveImage('imgs/admin/new2.txt','data: new, hi how are youxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',function(v) {console.log(v);});
+	});
+	
+		 	
+	function callback(value) { alert(value);}
+</script>
+</body>
+</html>

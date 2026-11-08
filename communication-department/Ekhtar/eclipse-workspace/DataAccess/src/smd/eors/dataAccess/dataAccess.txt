@@ -1,0 +1,573 @@
+package smd.eors.dataaccess;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+
+import org.apache.hadoop.hbase.util.Bytes;
+
+import smd.eors.dataAccess.entity.master.Command;
+import smd.eors.dataAccess.entity.master.CoverageCell;
+import smd.eors.dataAccess.entity.master.ExtendedReport;
+import smd.eors.dataAccess.entity.master.Keyword;
+import smd.eors.dataAccess.entity.master.Navigation;
+import smd.eors.dataAccess.entity.master.Report;
+import smd.eors.dataAccess.entity.master.ReportPreview;
+import smd.eors.dataAccess.entity.master.User;
+import smd.eors.dataAccess.entity.slave.Classify;
+import smd.eors.dataAccess.entity.slave.Device;
+import smd.eors.dataAccess.entity.slave.Action;
+import smd.eors.dataAccess.entity.slave.Location;
+import smd.eors.dataAccess.entity.slave.CellLocation;
+import smd.eors.dataAccess.entity.slave.Sim;
+import smd.eors.dataAccess.entity.slave.Word;
+import smd.eors.dataaccess.common.ImportanceComparator;
+
+
+public final class DataAccess
+{  
+    //public methods region
+    public static User[] loadUsers()
+    {
+        return DataAdapter.loadUsers(null, null);   
+    }
+    
+    public static User[] loadUsersPage(byte[] startRow, int offset)
+    {
+        return DataAdapter.loadUsers(startRow, null, DataAdapter.getFilterPage(offset));   
+    }
+     
+    public static Location[] loadUserLocations(String userName)
+    {
+        return DataAdapter.loadUserLocations(userName);
+    }
+  
+    public static Navigation[] loadUsersLastLocation()
+    {
+        User[] users=loadUsers();
+        List<Navigation> navigations=null;
+        
+        if(users!=null && users.length>0)
+        {
+            navigations=new ArrayList<Navigation>(users.length);
+            for(int i=0;i<users.length;i++)
+            {
+                Location lastPoint=DataAdapter.loadUserLastLocation(users[i].getName());
+                
+                if(lastPoint!=null)
+                {
+                    Navigation navigation=new Navigation();
+                    navigation=new Navigation();
+                    navigation.setUser(users[i].getName());
+                    navigation.setCoordinate(lastPoint.getCoordinate());
+                    navigation.setDate(lastPoint.getDate());
+                    
+                    navigations.add(navigation);
+                }
+            }
+        }
+ 
+        return navigations.toArray(new Navigation[0]);
+    }
+    
+    public static Navigation[] loadUsersLastLocation(double startLongitude, double startLatitude, double endLongitude, double endLatitude)
+    {
+        Navigation[] navigations=loadUsersLastLocation();
+
+        List<Navigation> selectedNavigation=new ArrayList<Navigation>();
+        
+        for(Navigation navigation:navigations)
+            if(navigation.getCoordinate()!=null &&
+               navigation.getCoordinate().getLongitude()>=startLongitude &&
+               navigation.getCoordinate().getLongitude()<endLongitude &&
+               navigation.getCoordinate().getLatitude()>=startLatitude &&
+               navigation.getCoordinate().getLatitude()<endLatitude)
+            {
+                selectedNavigation.add(navigation);
+            }
+        
+        return selectedNavigation.toArray(new Navigation[0]);    
+    }
+
+    public static Command[] loadCommandsPage(byte[] startRow, int offset)
+    {
+        return DataAdapter.loadCommands(startRow, null, DataAdapter.getFilterPage(offset));
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByImportanceRange(byte[] startRow, int offset, float lowestImportance, float maxImportance)
+    {
+        //load historical reports page
+        ExtendedReport[] historicalReports=DataAdapter.loadExtendedReports(startRow, null, DataAdapter.getFilterExtendedReportByImportanceRange(lowestImportance, maxImportance), DataAdapter.getFilterPage(offset));
+        
+        ExtendedReport blankReport=new ExtendedReport();
+        blankReport.setRowKey(historicalReports[historicalReports.length-1].getRowKey());
+        
+        //detect importance rage
+        float minRtImportance=historicalReports[historicalReports.length-1].getImportance();
+        float maxRtImportance=historicalReports[0].getImportance();
+        
+        //load real time reports with the same importance rage
+        ExtendedReport[] realtimeReports=DataAdapter.loadExtendedReports(null, null
+                , DataAdapter.getFilterExtendedReportByImportanceRange(minRtImportance, maxRtImportance));
+        
+        //merge and sort
+        List<ExtendedReport> reports=new ArrayList<ExtendedReport>(historicalReports.length+realtimeReports.length);
+        reports.addAll(Arrays.asList(realtimeReports));
+        reports.addAll(Arrays.asList(historicalReports));
+        
+        reports.sort(new ImportanceComparator());
+        
+        //add last historical report key
+        reports.add(blankReport);
+       
+        return reports.toArray(new ExtendedReport[0]);
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByClassification(String classify, byte[] startRow, int offset)
+    {
+        return DataAdapter.loadExtendedReports(startRow, null, DataAdapter.getFilterExtendedReportByClassification(classify), DataAdapter.getFilterPage(offset));
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByReviewState(boolean reviewed, boolean processed, byte[] startRow, int offset)
+    {
+        return DataAdapter.loadExtendedReports(startRow, null, DataAdapter.getFilterExtendedReportByReview(reviewed, processed), DataAdapter.getFilterPage(offset)); 
+    }
+    
+    /*
+    public static ExtendedReport[] loadExtendedReportsByKeywords(String text, byte[] startRow, int offset)
+    { 
+        int historicalOffset=offset/2;
+        int realtimeOffset=offset/2;
+        
+        if(offset!=0 && offset%2==1)
+            historicalOffset++; 
+
+        ExtendedReport[] realtimeReports=DataAdapter.loadRealtimeExtendedReports(startRow, null, DataAdapter.getFilterPage(realtimeOffset), DataAdapter.getFilterExtendedReportByText(text));
+        ExtendedReport[] historicalReports=DataAdapter.loadExtendedReports(startRow, null, DataAdapter.getFilterPage(historicalOffset), DataAdapter.getFilterExtendedReportByText(text));
+      
+        return mergeArray(realtimeReports, historicalReports); 
+    }
+    */
+    
+    public static ExtendedReport[] loadRealtimeReports(double startLongitude, double startLatitude, double endLongitude, double endLatitude)
+    {
+        return DataAdapter.loadRealtimeExtendedReports(null, null, DataAdapter.getFilterExtendedReportByCoordinate(startLongitude, startLatitude, endLongitude, endLatitude));
+    } 
+    
+    //public static ExtendedReport[] loadRealtimeReportsPage(double startLongitude, double startLatitude, double endLongitude, double endLatitude, byte[] startRow, int offset)
+    //{
+    //    return DataAdapter.loadRealtimeExtendedReports(startRow, null, DataAdapter.getFilterPage(offset), DataAdapter.getFilterExtendedReportByCoordinate(startLongitude, startLatitude, endLongitude, endLatitude));
+    //} 
+    
+    public static ExtendedReport[] loadRealtimeReportsMapNotification(double startLongitude, double startLatitude, double endLongitude, double endLatitude, byte[] endrow)
+    {
+        return DataAdapter.loadRealtimeExtendedReports(null, endrow, DataAdapter.getFilterExtendedReportByCoordinateIncludeEmpty(startLongitude, startLatitude, endLongitude, endLatitude));
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByArgs(String text, long minTimestamp, long maxTimestamp, double startLongitude, double startLatitude, double endLongitude, double endLatitude, byte[] startRow, int offset)
+    {
+        int historicalOffset=offset/2;
+        int realtimeOffset=offset/2;
+
+        if(offset%2==1)
+            realtimeOffset++;
+        
+        ExtendedReport[] realtimeReports=DataAdapter.loadRealtimeExtendedReports(startRow, null, DataAdapter.getFilterExtendedReportByDate(minTimestamp, maxTimestamp) ,DataAdapter.getFilterCommandByText(text), DataAdapter.getFilterExtendedReportByCoordinate(startLongitude, startLatitude, endLongitude, endLatitude), DataAdapter.getFilterPage(realtimeOffset));
+        
+        if(offset!=1)
+        {
+            ExtendedReport[] historicalReports=DataAdapter.loadExtendedReports(startRow, null, DataAdapter.getFilterExtendedReportByDate(minTimestamp, maxTimestamp), DataAdapter.getFilterExtendedReportByText(text), DataAdapter.getFilterExtendedReportByCoordinate(startLongitude, startLatitude, endLongitude, endLatitude), DataAdapter.getFilterPage(historicalOffset));
+            return mergeArray(realtimeReports, historicalReports);
+        }
+        else
+            return realtimeReports;
+         
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsStream(byte[] startRow, int offset, String keyword)
+    {
+        //load historical reports page
+        ExtendedReport[] historicalReports=DataAdapter.loadExtendedReports(startRow, null, DataAdapter.getFilterPage(offset));
+        
+        ExtendedReport blankReport=new ExtendedReport();
+        blankReport.setRowKey(historicalReports[historicalReports.length-1].getRowKey());
+        
+        //detect importance rage
+        float minImportance=historicalReports[historicalReports.length-1].getImportance();
+        float maxImportance=historicalReports[0].getImportance();
+        
+        //load real time reports with the same importance rage
+        ExtendedReport[] realtimeReports=DataAdapter.loadRealtimeExtendedReports(null, null
+                , DataAdapter.getFilterExtendedReportByImportanceRange(minImportance, maxImportance)
+                , DataAdapter.getFilterExtendedReportByText(keyword));
+        
+        //merge and sort
+        List<ExtendedReport> reports=new ArrayList<ExtendedReport>(historicalReports.length+realtimeReports.length);
+        reports.addAll(Arrays.asList(realtimeReports));
+        reports.addAll(Arrays.asList(historicalReports));
+        
+        reports.sort(new ImportanceComparator());
+        
+        //add last historical report key
+        reports.add(blankReport);
+       
+        return reports.toArray(new ExtendedReport[0]);
+    }
+    
+    public static ReportPreview[] loadReportPreviewsByUser(byte[] startRow, int offset, String name)
+    {
+        //precondition: none
+        if(name!=null)
+        {
+            //load real time reports
+            ReportPreview[] realtimeReports=null;
+                
+            if(startRow==null)
+            {
+                ExtendedReport[] realtimeExtendedReports=DataAdapter.loadRealtimeExtendedReports(null, null, DataAdapter.getFilterExtendedReportByUser(name));
+                realtimeReports=new ReportPreview[realtimeExtendedReports.length];
+                
+                for(int i=0;i<realtimeReports.length;i++)
+                    realtimeReports[i]=realtimeExtendedReports[i].getPreview();   
+            }
+            
+            //load historical reports preview
+            ReportPreview preview=new ReportPreview();
+            preview.setUserName(name);
+            
+            //detect row key range
+            preview.setDate(new Date(Long.MAX_VALUE));
+            byte[] userStartRow=preview.designRowKey();
+            
+            preview.setDate(new Date(0));
+            byte[] userEndRow=preview.designRowKey();
+            
+            if(startRow==null)
+                startRow=userStartRow;
+            else
+                if(Bytes.compareTo(startRow, userStartRow)<0)
+                    startRow=userStartRow;
+
+            ReportPreview[] historicalReports=DataAdapter.loadReportsPreview(startRow, userEndRow, DataAdapter.getFilterPage(offset));
+            
+            //return result
+            if(realtimeReports==null)
+                return historicalReports;
+            else
+            {
+                return mergeArray(realtimeReports, historicalReports);
+            }
+        }
+        else
+            return null;
+        //return: null is there is no user's reports with in startRow and offset, else
+        //        return the required reports
+    }
+    
+    public static Keyword[] loadKeyword()
+    {
+        Keyword[] keyword=DataAdapter.loadKeywords(null, null);
+        
+        if(keyword!=null)    
+            for(Keyword kw:keyword)
+                kw.setWords(DataAdapter.loadKeywordWords(kw.getName()));
+        
+        return keyword;
+    }
+    
+    public static CoverageCell[] loadCoverageCells()
+    {
+        return DataAdapter.loadCoverageCells(null ,null);
+    }
+    
+    public static Command[] loadCommands(byte[] startRow, int offset)
+    {
+        return DataAdapter.loadCommands(startRow, null, DataAdapter.getFilterPage(offset));
+    }
+
+    public static boolean saveCommand(Command command)
+    {
+        //precondition: none
+        return DataAdapter.saveCommand(command);
+    }
+    
+    public static boolean saveReport(ReportPreview report)
+    {
+        //precondition: none
+        return DataAdapter.saveReport(report);
+    }
+      
+    public static boolean saveReport(ExtendedReport report)
+    {
+        //precondition: none
+        boolean result=DataAdapter.saveReport(report);
+        
+        if(report.getClassifies()!=null)
+            for(Classify classify:report.getClassifies())
+                result &= DataAdapter.saveClassify(classify);
+        
+        //saving preview & SIM & device
+        result &= DataAdapter.saveReport(report.getPreview());
+        
+        if(report.getSim()!=null)
+            result &= DataAdapter.saveSim(report.getSim());
+        
+        if(report.getDevice()!=null)
+            result &= DataAdapter.saveDevice(report.getDevice());
+        
+        return result;
+    }
+    
+    public static boolean saveBatchReports(ReportPreview[] reports)
+    {
+        //precondition: none
+        return DataAdapter.saveBatchReports(reports);
+    }
+    
+    public static boolean saveBatchReports(ExtendedReport[] reports)
+    {
+        //precondition: none
+        
+        //save the reports
+        boolean result = DataAdapter.saveBatchReports(reports);
+        
+        //save the reports classifies
+        List<Classify> classifies=new ArrayList<Classify>();
+        
+        for(ExtendedReport report:reports)
+            if(report.getClassifies()!=null)
+                for(Classify classify:report.getClassifies())
+                    classifies.add(classify);
+        
+        if(classifies.size()>0)
+            result &= DataAdapter.saveBatchClassifies(classifies.toArray(new Classify[0]));
+        
+        //saving reports preview 
+        List<ReportPreview> reportPreviewList=new ArrayList<ReportPreview>(reports.length);
+        
+        for(int i=0;i<reports.length;i++)
+               reportPreviewList.add((reports[i]).getPreview());
+        
+        if(reportPreviewList.size()>0)
+            result &= DataAdapter.saveBatchReports(reportPreviewList.toArray(new Report[0]));
+        
+        //saving user SIM & device
+        HashMap<String, Sim> sim=new HashMap<String, Sim>();
+        HashMap<String, Device> devices=new HashMap<String, Device>();
+        
+        
+        User user=new User();
+        Sim reportSim;
+        Device reportDevice;
+        
+        for(ExtendedReport report:reports)
+        {
+            reportSim=report.getSim();
+            reportDevice=report.getDevice();
+            
+            //fetch SIM list from reports
+            if(reportSim!=null && reportSim.getSsn()!=null && reportSim.getSsn()!="")
+                if(sim.get(reportSim.getSsn())==null)
+                {
+                    user.setName(report.getUserName());
+                    reportSim.setRowKey(user.designRowKey());
+                    sim.put(reportSim.getSsn(), reportSim);
+                }
+            
+            //fetch device list from reports
+            if(reportDevice!=null && reportDevice.getMac()!=null && reportDevice.getMac()!="")
+                if(devices.get(reportDevice.getMac())==null)
+                {
+                    user.setName(report.getUserName());
+                    reportDevice.setRowKey(user.designRowKey());
+                    devices.put(reportDevice.getMac(), reportDevice);
+                }
+        }
+                  
+        if(sim.size()>0)
+            result &= DataAdapter.saveBatchSim(sim.values().toArray(new Sim[0]));
+            
+        if(devices.size()>0)
+            result &= DataAdapter.saveBatchDevices(devices.values().toArray(new Device[0]));
+
+        //return the result
+        return result;
+    }
+    
+    public static boolean saveBatchNavigations(Navigation[] navigations)
+    {
+        //precondition: none
+        
+        //saving the navigations
+        boolean result = DataAdapter.saveBatchNavigations(navigations);
+        
+        //saving the navigations into user location
+        HashMap<String, User> users=new HashMap<String, User>();
+        List<Location> locations=new ArrayList<Location>(navigations.length);
+        
+        User user;
+        
+        for(int i=0;i<navigations.length;i++)
+            if(navigations[i]!=null)
+            { 
+               if(users.get(navigations[i].getUser())==null)
+               {
+                   user=new User();
+                   user.setName(navigations[i].getUser());
+                   users.put(user.getName(), user);  
+               }
+               else
+                   user=users.get(navigations[i].getUser());
+               
+               if(navigations[i].getCoordinate()!=null && 
+                       navigations[i].getCoordinate().getLongitude()!=0 && 
+                       navigations[i].getCoordinate().getLatitude()!=0)
+               {
+                   Location location=new Location(user.designRowKey());
+                   location.setCoordinate(navigations[i].getCoordinate());
+                   location.setDate(navigations[i].getDate());
+                   
+                   locations.add(location);
+               }
+            }
+           
+        result &= DataAdapter.saveBatchUsers(users.values().toArray(new User[0]));
+        result &= DataAdapter.saveBatchLocations(locations.toArray(new Location[0]));
+        
+        return result;
+    }
+    
+    public static boolean saveKeyword(Keyword keyword)
+    {
+        //precondition: none 
+        boolean result=DataAdapter.saveKeyword(keyword);
+        
+        if(result)
+            for(Word word:keyword.getWords())
+                result &= DataAdapter.saveWord(word);
+
+        return result;
+    }
+    
+    public static boolean saveNavigation(Navigation navigation)
+    {
+        //precondition: none 
+        
+        
+        boolean result=DataAdapter.saveNavigation(navigation);
+        
+        User user=new User();
+        user.setName(navigation.getUser());
+        user.setRowKey(user.designRowKey());
+        
+        result &= DataAdapter.saveUser(user);
+      
+        Location location=new Location(user);
+        location.setCoordinate(navigation.getCoordinate());
+        location.setDate(navigation.getDate());
+        
+        result &= DataAdapter.saveLocation(location);
+
+        return result;
+    }
+    
+    public static User findUser(byte[] rowKey)
+    {
+        User user=DataAdapter.findUser(rowKey);
+        
+        if(user!=null)
+        {
+            Sim[] sim=DataAdapter.loadUserSim(rowKey);
+            Device[] devices=DataAdapter.loadUserDevices(rowKey);
+            Location[] locations=DataAdapter.loadUserLocations(rowKey);
+            
+            user.setSims(sim);
+            user.setDevices(devices);
+            user.setLocations(locations);
+        }
+        
+        return user;
+    }
+    
+    public static User findUser(String name)
+    {
+        User user=DataAdapter.findUser(name);
+        
+        if(user!=null)
+        {
+            Sim[] sim=DataAdapter.loadUserSim(name);
+            Device[] devices=DataAdapter.loadUserDevices(name);
+            Location[] locations=DataAdapter.loadUserLocations(name);
+            
+            user.setSims(sim);
+            user.setDevices(devices);
+            user.setLocations(locations);
+        }
+        
+        return user;
+    }
+    
+    public static CoverageCell findCell(String cgi)
+    {
+        return DataAdapter.findCoverageCell(Bytes.toBytes(cgi));
+    } 
+    
+    public static boolean truncateRealtimeReports()
+    {
+       return DataAdapter.truncateRealtimeExtendedReport();
+    }
+    
+    public static boolean truncateRealtimeNavigation()
+    {
+       return DataAdapter.truncateRealtimeNavigation();
+    }
+    
+    public static boolean truncateRealtimeUser()
+    {
+       return DataAdapter.truncateRealtimeUser();
+    }
+    
+    
+    public static void setZookeeperAddress(String zookeeperAddress)
+    {
+        DataAdapter.setZookeeperAddress(zookeeperAddress);
+    }
+    
+    public static void setLogFilePath(String logFilePath)
+    {
+        DataAdapter.setLogFilePath(logFilePath);
+    } 
+    
+    //private static methods region
+    private static ExtendedReport[] mergeArray(ExtendedReport[] array1, ExtendedReport[] array2)
+    {
+        ExtendedReport[] reports=new ExtendedReport[array1.length+array2.length];     
+        
+        for(int i=0;i<array1.length;i++)
+            reports[i]=array1[i];
+        
+        for(int i=0;i<array2.length;i++)
+            reports[array1.length+i]=array2[i];
+
+        return reports;
+    }
+    
+    private static ReportPreview[] mergeArray(ReportPreview[] array1, ReportPreview[] array2)
+    {
+        ReportPreview[] reports=new ReportPreview[array1.length+array2.length];     
+        
+        for(int i=0;i<array1.length;i++)
+            reports[i]=array1[i];
+        
+        for(int i=0;i<array2.length;i++)
+            reports[array1.length+i]=array2[i];
+
+        return reports;
+    }
+    
+   
+    
+ 
+}

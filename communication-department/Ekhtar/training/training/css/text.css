@@ -1,0 +1,26 @@
+.primary_text
+{
+	font-size: 2em;
+	font-family: Impact;
+	color: #103030;
+	font-weight: bold;
+	margin: 5px;
+}
+
+.secondary_text
+{
+	font-size: 1.5em;
+	font-family: arial;
+	color: #103030;
+	font-weight: bold;
+	margin: 3px; 
+}
+
+.info_text
+{
+	font-size: 1.2em;
+	font-family: arial;
+	color: #103030;
+	margin: 1px;
+	font-weight: bold;
+}

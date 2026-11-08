@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="CD Admin Panel" />
+		<meta name="author" content="CD" />
+		<title>الأوامر</title>
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/lightbox.min.css">
+		<link rel="stylesheet" href="css/materialize.new.min.css">
+		<link rel="stylesheet" href="css/materialize-rtl.css">
+		<link rel="stylesheet" href="css/materialize-child.min.css">
+		<link rel="stylesheet" href="css/material-icons.css">
+		<link rel="stylesheet" href="css/rotating.css">
+
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/lightbox.min.js"></script>
+		<script src="scripts/materialize.new.min.js"></script>
+		<script src="scripts/materialize-child.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/strophe/strophe.pubsub.min.js"></script>
+		<script src="scripts/mediaAccess.js"></script>
+		<script src="scripts/stropheAccess.js?v19.0"></script>
+		<script src="scripts/stropheSession.js?v19.0"></script>
+		<script src="scripts/sessionAccess.js?v19.0"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/smsAccess.js"></script>
+		<script src="scripts/formValidation.js"></script>
+		<script src="scripts/validator.js"></script>
+		<script src="scripts/moment.js"></script>
+		<script src="scripts/master.js?v19.0"></script>
+		<script src="scripts/setManager.js?v19.0"></script>
+		<script src="scripts/reportGenerator.js?v19.0"></script>
+		<script src="scripts/interfaceAccess.js?v19.0"></script>
+		<script src="scripts/colorProcessor.js"></script>
+		<script src="js/old/commands.js?v19.0.0.1"></script>
+	</head>
+	<body id="body" class="background-full">
+		<div class="row no-margin">
+			<div class="col s12 m12 l2">
+				<div id="userToolDiv" class="row z-depth-1 no-margin" style="height: 75px">
+					<div class="col s3">
+						<label>
+							<input id="selectAllCheckbox" type="checkbox" />
+							<span style="margin-top: 34px; padding-right: 22px;">الكل</span>
+						</label>
+					</div>
+					<div class="col s6">
+						<div class="input-field">
+							<i class="material-icons prefix">search</i>
+							<input id="idText" type="text" class="validate">
+							<label for="idText">بحث</label>
+						</div>	
+					</div>
+					<div class="col s3">
+						<a class="btn-floating waves-effect waves-light btn modal-trigger" href="#publishModal" style="margin-top: 25px"><i class="material-icons">settings_remote</i></a>
+					</div>
+				</div>
+				<div class="row content-items content-scrollable card-panel z-depth-1 no-margin" style="height: calc(100vh - 152px);width: 100%;">
+					<ul class="tabs">
+						<li id="userTab" class="tab col s6"><a class="active no-padding" href="#userListElement">المستخدمين<span class="command-badge hide">0</span></a></li>
+						<li id="setTab" class="tab col s6"><a href="#setListElement" class="no-padding"><span class="set-theTypes">المجموعات</span><span class="command-badge hide">0</span></a></li>
+					</ul>
+					<div id="userListElement" class="content-items content-scrollable">
+						<ul class="collection with-header">
+							<li class="collection-header content-list-header">العمليات</li>
+							<li class="collection-item avatar">
+								<img id="userImage" src="imgs/admin.png" class="circle responsive-img profile-image"></i>
+								<span id="idLabel">941000200</span>
+								<p id="nameLabel" class="truncate ultra-small">مستخدم أول</p>
+								<div id="statusDiv" class="command-selector-offline"></div>
+							</li>
+						</ul>
+					</div>
+					<div id="setListElement" class="setListItem content-items content-scrollable">
+						<ul class="collection">
+							<li class="collection-item avatar">
+								<img id="setImage" src="imgs/admin.png" class="circle responsive-img profile-image"></i>
+								<span id="nameLabel">مجموعة ١</span>
+								<p id="countDiv" class="truncate grey-text ultra-small">15 مستخدم</p>
+								<input id="idLabel" type="hidden">
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m12 l10 no-margin">
+				<div class="row z-depth-1 no-margin">
+					<div id="commandListContainer" class="col s12 m7 z-depth-1" style="transition: width .8s">
+						<div class="row no-margin">
+							<div class="col s6 l2 input-field">
+								<i class="material-icons prefix">edit</i>
+								<input id="commandSearchText" type="text" class="validate" data-button="#commandSearchButton">
+								<label for="commandSearchText">بحث</label>
+							</div>
+							<div class="col s6 l2 input-field">
+								<i class="material-icons prefix">date_range</i>
+								<input id="commandSearchFromDate" type="text" class="datepicker" data-timepicker="#commandSearchFromTime">
+								<label for="commandSearchFromDate">من</label>
+							</div>
+							<div class="col s6 l2 input-field">
+								<i class="material-icons prefix">access_time</i>
+								<input id="commandSearchFromTime" type="text" class="timepicker" disabled>
+								<label for="commandSearchFromTime">الساعة</label>
+							</div>
+							<div class="col s6 l2 input-field">
+								<i class="material-icons prefix">date_range</i>
+								<input id="commandSearchToDate" type="text" class="datepicker" data-timepicker="#commandSearchToTime">
+								<label for="commandSearchToDate">حتى</label>
+							</div>
+							<div class="col s6 l2 input-field">
+								<i class="material-icons prefix">access_time</i>
+								<input id="commandSearchToTime" type="text" class="timepicker" disabled>
+								<label for="commandSearchToTime">الساعة</label>
+							</div>
+							<div class="col s6 l2 input-field">
+								<div id="ehqOption" class="switch vertical inline tooltipped" data-tooltip="أوامر مدير إخطار فقط">
+									<label>
+										<input id="ehqCheckbox" type="checkbox" checked/>
+										<span class="lever"></span>
+									</label>
+								</div>
+								<a id="commandSearchButton" class="btn waves-effect waves-light"  style="padding:0px 6px"><i class="material-icons">search</i></a>
+								<a id="resetCommandButton" class="waves-effect waves-light button-close"><i class="material-icons">close</i></a>
+							</div>
+						</div>
+						<div id="commandListElement" class="content-items content-scrollable" style="height: calc(100vh - 225px)">
+							<ul class="collection">
+								<li id="commandElement" class="collection-item avatar" style="padding-bottom: 34px">
+									<img id="commandImageElement" src="imgs/admin.png" class="circle responsive-img profile-image"/>
+									<div id="commandTextElement" class="command-text">جاري تحميل الرسائل...</div>
+									<p class="command-time"><i class="material-icons">access_time</i><span id="commandDateElement" class="timer tooltipped"></span></p>
+									<p class="command-sender"><i class="material-icons reverse">send</i><span id="commandEsElement">ehq</span></p>
+									<p class="command-receiver" style="display: none"><i class="material-icons">done_all</i><span id="commandReceiverElement">4</span> مستلم</p>
+									<p class="command-receiver-none" style="display: none"><i class="material-icons">done</i><span id="commandNonReceiverElement">2</span> غير مستلم</p>
+								</li>
+							</ul>
+							<div id="moreDiv" class="content-block z-depth-2 box-padding center">
+								<a href="#!"><i class="material-icons">sync</i><span>لا يوجد المزيد من الأوامر, المحاولة مجدداً!</span></a>
+							</div>
+						</div>
+					</div>
+					<div id="reportListContainer" class="col s12 m5"  style="transition-property: visibility; transition-delay: 0.8s;">
+						<div class="row  no-margin" style="overflow: hidden">
+							<div class="col s12">
+								<h5>المرسل إليهم
+									<a id="closeCommandStateButton" href="#!" class="left"><i class="material-icons">close</i></a>
+								</h5>
+							</div>
+							<div class="col s12 m12 l4 input-field no-margin">
+								<i class="material-icons prefix">edit</i>
+								<input id="reportSearchText" type="text" class="validate" data-button="#reportSearchButton">
+								<label for="reportSearchText">بحث</label>
+							</div>
+							<div class="col s12 m6 l4 input-field no-margin">
+								<i class="material-icons prefix">date_range</i>
+								<input id="reportSearchFromDate" type="text" class="datepicker" data-timepicker="#reportSearchFromTime">
+								<label for="reportSearchFromDate">من</label>
+							</div>
+							<div class="col s12 m6 l4 input-field no-margin">
+								<i class="material-icons prefix">access_time</i>
+								<input id="reportSearchFromTime" type="text" class="timepicker" disabled>
+								<label for="reportSearchFromTime">الساعة</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 m6 l3 input-field no-margin">
+								<i class="material-icons prefix">date_range</i>
+								<input id="reportSearchToDate" type="text" class="datepicker" data-timepicker="#reportSearchToTime">
+								<label for="reportSearchToDate">حتى</label>
+							</div>
+							<div class="col s12 m6 l3 input-field no-margin">
+								<i class="material-icons prefix">access_time</i>
+								<input id="reportSearchToTime" type="text" class="timepicker" disabled>
+								<label for="reportSearchToTime">الساعة</label>
+							</div>
+							<div class="col s12 m6 l3 input-field no-margin">
+								<i class="material-icons prefix">person</i>
+								<input id="reportSearchUserText" type="text" class="validate" data-button="#reportSearchButton">
+								<label for="reportSearchUserText">مستخدم</label>
+							</div>
+
+							<div class="col s12 m6 l3 input-field  no-margin">
+								<div class="switch vertical inline tooltipped" data-tooltip="عرض الردود فقط.">
+									<label>
+										<input id="reportReplayCheckbox" type="checkbox" checked/>
+										<span class="lever"></span>
+									</label>
+								</div>
+
+								<a id="reportSearchButton" class="btn waves-effect waves-light" style="padding:0px 6px"><i class="material-icons">search</i></a>
+								<a id="resetReportButton" class="waves-effect waves-light button-close"><i class="material-icons">close</i></a>
+							</div>
+						</div>
+						<div id="receiverListElement" class="content-items content-scrollable" style="height: calc(100vh - 322px)">
+							<div id="receiverElement" class="command-state">
+								<div class="row">
+									<img id="receiverImageElement" src="imgs/admin.png" class="col s3 circle"/>
+									<a id="receiverNameElement" class="col s5 command-state-name tooltipped">اسم المتسخدم</a>
+									<div class="col s4">
+										<span id="receiverReplayLabel" class="command-state-badge command-state-button" style="cursor: pointer">3 ردود</span>
+										<span id="receiverStateLabel" class="command-state-badge tooltipped" data-position="bottom" data-delay="50" data-tooltip="تم استقبال البلاغ بتاريخ 23/4/2018 12:34:00"><i class="material-icons">done</i></span>
+									</div>
+								</div>
+								<div id="replayListElement" class="section-toggle">
+									<div class="content-replay row">
+										<hr>
+										<a href="reports.html" class="col s12">
+											<span class="command-text">
+												<i class="material-icons">chat</i>
+												<span id="replayTextLabel">
+													تم الرد على البلاغ رقم ١٠٠
+												</span>
+											</span>
+										</a>
+										<span class="col s6 command-state-time"><i class="material-icons">access_time</i><span id="replayDateLabel" class="timer tooltipped">منذ ٢ ساعات</span></span>
+										<a data-lightbox="" class="col s6 command-state-attachment"><i class="material-icons">attach_file</i><span id="replayMediaLabel">0</span> مرفق</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="z-depth-1" style="height: 75px">
+					<div class="row no-margin">
+						<div class="col s12 m12 l7 input-field">
+							<textarea id="messageText" class="command-textarea" data-button="#messageButton"></textarea>
+							<label for="messageText">كتابة أمر</label>
+						</div>
+						<div class="col s12 m12 l5" style="margin-top: 23px">
+							<a id="messageButton" class="waves-effect waves-light btn disabled"><i class="material-icons left reverse">send</i>ارسال</a>
+							<a class="waves-effect waves-light btn modal-trigger" href="#replayModal"><i class="material-icons left">chat</i>ردود سريعة</a>
+							<a id="configureButton" class="waves-effect waves-light btn dropdown-trigger" href="#" data-target="configureUl"></a>
+							<ul id="configureUl" class="dropdown-content">
+								<li data-mode="2" class="tooltipped" data-tooltip="الإرسال باستخدام شبكة الأنترنت" data-position="top"><a href="#!"><i class="material-icons">wifi</i></a></li>
+								<li data-mode="3" class="tooltipped" data-tooltip="الإرسال باستخدام الرسائل النصية القصيرة" data-position="top"><a href="#!"><i class="material-icons">sms</i></a></li>
+								<li data-mode="4" class="tooltipped" data-tooltip="الإرسال باستخدام شبكة الأنترنت للمستخدمين المتصلين والرسائل النصية القصيرة للمستخدمين غير المتصلين" data-position="top"><a href="#!"><i class="material-icons">wifi</i><i class="material-icons">sms</i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Modals Structure -->
+		<div id="publishModal" class="modal">
+			 <div class="modal-content">
+                                <h4>نشر لجميع مستخدمي اخطار</h4>
+				<p>
+					<div class="input-field">
+						<textarea id="publishText" class="command-textarea" data-button="#publishMessageButton"></textarea>
+						<label for="publishText">نص الرسالة</label>
+					</div>
+				</p>
+                        </div>
+                        <div class="modal-footer">
+				<a id="publishMessageButton" href="#!" class="waves-effect waves-green btn-flat tooltipped" data-tooltip="نشر الأمر"><i class="material-icons green-text">settings_remote</i></a>
+				<a id="closePublishButton" href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="اغلاق"><i class="material-icons red-text">close</i></a>
+                        </div>
+		</div>
+		<div id="replayModal" class="modal">
+                        <div class="modal-content">
+                                <h4>ردود سريعة</h4>
+                                <p><button class="waves-effect waves-light btn modal-close"><i class="material-icons green-text">chat</i>يطلب إرسال حالة جاهزية كل عنصر فور استقبال الرسالة.</button></p>
+				<p><button class="waves-effect waves-light btn modal-close"><i class="material-icons green-text">chat</i>يطلب ارسال تفاصيل أكثر عن البلاغ السابق.</button></p>
+				<p><button class="waves-effect waves-light btn modal-close"><i class="material-icons green-text">chat</i>يطلب إليكم الانتباه والمراقبة في حال حصول أي أمر طارئ.</button></p>
+				<p><button class="waves-effect waves-light btn modal-close"><i class="material-icons green-text">chat</i>تم استلام البلاغ.</button></p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="اغلاق"><i class="material-icons red-text">close</i></a>
+                        </div>
+		</div>
+	</body>
+</html>

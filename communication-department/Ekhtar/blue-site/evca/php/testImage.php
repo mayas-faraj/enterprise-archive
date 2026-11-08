@@ -1,0 +1,26 @@
+<?php
+	$_POST['op']='saveImage';
+	$_POST['data']='data, hi mayas sldakfjsalkfjaslkjf';
+	$_POST['path']='imgs/admin/file5.txt';
+
+	if(isset($_POST['op']) AND isset($_POST['data']) AND isset($_POST['path']))
+	{
+		switch($_POST['op'])
+		{
+			case 'saveImage':
+				$data = $_POST['data'];
+				$path = $_POST['path'];
+				echo file_put_contents($path, base64_decode(explode(',',$data)[1]));
+				break;
+			case 'deleteImage':
+				$path = $_POST['path'];
+				echo unlink($path);
+				break;
+			default:
+				echo "unsupported image operation!";
+		}
+	}
+	else
+		echo "no data to save";
+
+?>

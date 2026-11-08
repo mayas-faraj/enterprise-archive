@@ -1,0 +1,30 @@
+INSERT INTO vcard_search
+(username, lusername, fn, lfn, family, lfamily, given, lgiven, locality, llocality, orgname, lorgname, nickname, lnickname, middle, lmiddle, bday, lbday, ctry, lctry, email, lemail, orgunit, lorgunit)
+SELECT
+username,
+username,
+EXTRACTVALUE(vcard, '/vCard/FN'),
+LOWER(EXTRACTVALUE(vcard, '/vCard/FN')),
+EXTRACTVALUE(vcard, '/vCard/N/FAMILY'),
+LOWER(EXTRACTVALUE(vcard, '/vCard/N/FAMILY')),
+EXTRACTVALUE(vcard, '/vCard/N/GIVEN'),
+LOWER(EXTRACTVALUE(vcard, '/vCard/N/GIVEN')),
+EXTRACTVALUE(vcard, '/vCard/City'),
+LOWER(EXTRACTVALUE(vcard, '/vCard/City')),
+EXTRACTVALUE(vcard, '/vCard/ADR/Work01'),
+LOWER(EXTRACTVALUE(vcard, '/vCard/ADR/Work01')),
+'',
+'',
+'',
+'',
+'',
+'',
+'',
+'',
+'',
+'',
+'',
+''
+FROM vcard;
+
+

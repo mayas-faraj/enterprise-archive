@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/materialize.new.min.css">
+		<link rel="stylesheet" href="css/materialize-rtl.css">
+		<link rel="stylesheet" href="css/materialize-child.min.css">
+		<link rel="stylesheet" href="css/material-icons.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/materialize.new.min.js"></script>
+		<script src="js/old/header.js"></script>
+	</head>
+	<body id="body">
+		<div class="navbar-fixed" style="z-index: 1001;">
+			<nav>
+				<div class="nav-wrapper">
+					<a href="#!" data-target="mainSidenav" class="right sidenav-toggler show-on-large"><img class="header-logo" src="imgs/ekhtar_grey.png"></a>
+					<a href="#!" class="right hide header-reconnect">إعادة الاتصال</a>
+				
+					<a class="left waves-effect waves-block waves-light dropdown-trigger header-profile" data-target="profileDropdown"><i class="material-icons">account_circle</i><span id="headerUserFullNameLabel">مدير إخطار</span></a>
+						<ul id="profileDropdown" class="dropdown-content collection with-header">
+							<li class="collection-header no-padding">
+								<a><i class="material-icons">face</i><span id="headerUserNameLabel">user@ekhtar.sy</span></a>
+							</li>
+							<li class="divider"></li>
+							<li class="collection-item no-padding">
+								<a href="password.html"><i class="material-icons">lock_outline</i>تغيير كلمة المرور</a>
+							</li>
+							<li class="divider"></li>
+							<li id="logoutBarLi" class="collection-item no-padding">
+								<a href="#!"><i class="material-icons reverse">keyboard_tab</i>تسجيل الخروج</a>
+							</li>
+						</ul>
+					</a>
+					<ul class="left hide-on-med-and-down">
+						<li>
+							<a id="fullScreenButton" class="tooltipped" data-tooltip="<i class='material-icons'>info</i>ملئ الشاشة" class="waves-effect waves-block waves-light"><i class="material-icons">settings_overscan</i></a>
+						</li>
+						<li>
+							<a href="index.html" class="tooltipped" data-tooltip="<i class='material-icons'>info</i>لوحة التحكم"><i class="material-icons">dashboard</i></a>
+						</li>
+						<li id="mapUsersBarLi">
+							<a href="mapUsers.html" class="tooltipped" data-tooltip="<i class='material-icons'>info</i>خارطة المستخدمين"><i class="material-icons">person_pin_circle</i></a>
+						</li>
+						<li id="reportsBarLi">
+                                                        <a href="reports.html" class="tooltipped" data-tooltip="<i class='material-icons'>info</i>بلاغات إخطار"><i class="material-icons">view_list</i></a>
+                                                </li>
+					</ul>
+					<ul class="left hide-on-small-and-down">
+						<li id="commandBarLi">
+							<a data-tooltip="<i class='material-icons'>info</i>الأوامر المرسلة المرسلة" class="waves-effect waves-block waves-light dropdown-trigger tooltipped" data-target="notifyCommandDropdown"><i class="material-icons">mail</i><i class="material-icons icon-extend">arrow_drop_down</i></a>
+							<ul id="notifyCommandDropdown" class="dropdown-content collection with-header width-medium">
+								<li class="collection-header" style="cursor: default">
+                                                                        <span style="padding: 9px">الأوامر المرسلة الأخيرة</span></span>
+                                                                </li>
+                                                                <li class="divider">
+                                                                </li>
+                                                                <li id="notifyCommandDropdownItem" class="collection-item avatar">
+                                                                        <a href="commands.html"i class="no-padding">
+										
+										<img id="notifyCommandImage" class="circle responsive-img profile-image" src="imgs/ekhtar.png"></span>
+										<div id="notifyCommandTextLabel" class="notify-text">نص الأمر</div>
+										<p class="notify-time"><i class="material-icons">access_time</i><span id="notifyCommandDateLabel" class="tooltipped timer">منذ ٣ أيام</span></p>
+										<span id="notifyCommandReceiverLabel" class="notify-receiver"><i class="material-icons">done_all</i><span>0</span> مستلم</span>
+										<span id="notifyCommandNonReceiverLabel" class="notify-receiver-none"><i class="material-icons">done</i><span>0</span> غير مستلم</span>
+									</a>
+                                                                </li>
+                                                                <li class="divider">
+                                                                </li>
+                                                                <li id="notificationShowMoreLi" class="collection-header" style="display: none">
+                                                                        <a href="#!"><i class="material-icons" style="margin-right: -20px">sync</i>مشاهدة المزيد</a>
+                                                                </li>
+							</u>
+						</li>
+						<li id="notificationBarLi">
+							<a  data-tooltip="<i class='material-icons'>info</i>الاشعارات الجديدة" class="waves-effect waves-block waves-light dropdown-trigger tooltipped" data-target="notificationDropdown"><i class="material-icons">notifications_none</i><i class="material-icons icon-extend">arrow_drop_down</i><small id="notificationCountLabel" class="notification-badge"></small></a>
+							<ul id="notificationDropdown" class="dropdown-content collection with-header width-medium">
+								<li class="collection-header" style="cursor: default">
+									<span style="padding: 9px">آخر الإشعارات<span id="notificationBadgeLabel" class="new badge"></span></span><a href="#visibilityAllModal" class="notify-allseen modal-trigger"><i class="material-icons">visibility</i>الكل كمقروء</label>
+								</li>
+								<li class="divider">
+								</li>
+								<li id="notificationDropdownItem" class="collection-item avatar">
+									<a href="reports.html?map">
+										<img id="notificationUserImage" class="circle responsive-img profile-image" src="imgs/admin.png"></span>
+										<div id="notificationTextLabel" class="notify-text"><i class="material-icons blue-text">call_missed</i><span>نص البلاغ</span></div>
+
+										<!--p id="notificationUserLabel">اسم المستخدم</p-->
+										<span class="notify-time"><i class="material-icons">access_time</i><span id="notificationDateLabel" class="tooltipped timer">10-12-2018</span></span>
+										<span class="notify-user"><i class="material-icons">person</i><span id="notificationUserLabel">مرسل البلاغ</span>
+										<span class="notify-unseen"><i class="material-icons">visibility_off</i></span>
+								</li>
+								<li class="divider">
+								</li>
+								<li id="notificationShowMoreLi" class="collection-header" style="display: none">
+									<a href="#!"><i class="material-icons" style="margin-right: -20px">sync</i>مشاهدة المزيد</a>
+								</li>
+
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div> 
+			<aside>
+				<ul id="mainSidenav" class="sidenav" style="z-index: 9999;">
+					<li>
+						<div class="user-view" style="height: 180px">
+							<div class="background" style="opacity: .9">
+								<img src="imgs/cover4.jpg">
+							</div>
+						</div>
+					</li>
+					<li id="ehqLi" class="no-padding">
+						<ul class="collapsible">
+							<li class="bold">
+								<a class="collapsible-header waves-effect waves-light">
+									<i class="material-icons">location_city</i>
+									<span class="nav-text">المقر الرئيسي</span>
+								</a>
+								<div class="collapsible-body">
+									<ul class="collapsible">
+										<li id="adminsLi">
+											<a href="admins.html">
+												<i class="material-icons">face</i>
+												<span>مستخدمو المقر الرئيسي</span>
+											</a>
+										</li>	
+									</ul>
+								</div>
+							</li>
+						</ul>
+					<li>
+					<li id="dataLi" class="no-padding">
+						<ul class="collapsible">
+							<li class="bold">
+								<a class="collapsible-header waves-effect waves-light">
+									<i class="material-icons">assignment</i>
+									<span class="nav-text">البلاغات</span>
+								</a>
+								<div class="collapsible-body">
+									<ul class="collapsible">
+										<li id="reportsLi">
+											<a href="reports.html">
+												<i class="material-icons">view_list</i>
+												<span>قائمة البلاغات</span>
+											</a>
+										</li>
+										<li id="commandLi">
+											<a href="commands.html">
+												<i class="material-icons">mail</i>
+												<span>الأوامر المرسلة</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li id="mapLi" class="no-padding">
+						<ul class="collapsible">
+							<li class="bold">
+								<a class="collapsible-header waves-effect waves-light">
+									<i class="material-icons">public</i>
+									<span class="nav-text">خرائط</span>
+								</a>
+								<div class="collapsible-body">
+									<ul class="collapsible">
+										<li id="mapUsersLi">
+											<a href="mapUsers.html">
+												<i class="material-icons">person_pin_circle</i>
+												<span>خارطة المستخدمين</span>
+											</a>
+										</li>
+										<li id="reportsLi">
+											<a href="reports.html?map">
+												<i class="material-icons">pin_drop</i>
+												<span>خارطة البلاغات</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					<li>
+					</li>
+					<li id="usersLi" class="no-padding">
+						<ul class="collapsible">
+							<li class="bold">
+								<a class="collapsible-header waves-effect waves-light">
+									<i class="material-icons">group</i>
+									<span class="nav-text">شبكات إخطار</span>
+								</a>
+								<div class="collapsible-body">
+									<ul class="collapsible">
+										<li id="userLi">
+											<a href="users.html">
+												<i class="material-icons">person_outline</i>
+												<span>المستخدمون</span>
+											</a>
+										</li>
+										<li id="groupLi">
+											<a href="groups.html">
+												<i class="material-icons">people_outline</i>
+												<span>المجموعات</span>
+											</a>
+										</li>
+										<li id="nodesLi">
+											<a href="nodes.html">
+												<i class="material-icons">recent_actors</i>
+												<span>جهات إخطار</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li id="toolsLi" class="no-padding">
+						<ul class="collapsible">
+							<li class="bold">
+								<a class="collapsible-header waves-effect waves-light">
+									<i class="material-icons">widgets</i>
+									<span class="nav-text">إدارة أخطار</span>
+								</a>
+								<div class="collapsible-body">
+									<ul class="collapsible">
+										<li>
+											<a href="index.html">
+												<i class="material-icons">dashboard</i>
+												<span>لوحة التحكم</span>
+											</a>
+										</li>
+										<li id="settingLi">
+											<a href="setting.html">
+												<i class="material-icons">settings</i>
+												<span>الإعدادات</span>
+											</a>
+										</li>
+										<li id="supportLi">
+											<a href="update.html">
+												<i class="material-icons">system_update</i>
+												<span>تحديث التطبيق</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</aside>
+		</div>
+
+		<div id="visibilityAllModal" class="modal">
+			<div class="modal-content">
+				<h4>تأكيد تعيين جميع البلاغات كمقروءة</h4>
+				<p>سوف يتم تعيين جميع البلاغات المستقبلة في نظام إخطار كمقروءة وعددها <span id="allseenConfirmReadLabel">23</span> بلاغ.</p>
+			</div>
+			<div class="modal-footer">
+				<a id="visibilityAllButton" href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="موافق"><i class="material-icons green-text">done</i></a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="إلغاء"><i class="material-icons red-text">close</i></a>
+			</div>
+		</div>
+	</body>
+</html>

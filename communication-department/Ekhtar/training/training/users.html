@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Report Stream" />
+		<meta name="author" content="CD" />
+		<title>إدارة مستخدمو الشبكة</title>
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/materialize.new.min.css">
+		<link rel="stylesheet" href="css/materialize-rtl.css">
+		<link rel="stylesheet" href="css/materialize-child.min.css">
+		<link rel="stylesheet" href="css/material-icons.css">
+		<link rel="stylesheet" href="css/rotating.css">
+		<script src="scripts/jquery/jquery-3.3.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/stropheSession.js"></script>
+		<script src="scripts/smsAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/xmppAccess.js"></script>
+		<script src="scripts/materialize.new.min.js"></script>
+		<script src="scripts/materialize-child.js"></script>
+                <script src="scripts/moment.js"></script>
+		<script src="scripts/master.js"></script>
+		<script src="scripts/validator.js"></script>
+		<script src="scripts/setManager.js?v=1.2"></script>
+		<script src="scripts/reportGenerator.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/searchField.js"></script>
+		<script src="js/old/users.js?v=1.0"></script>
+	</head>
+	<body id="body" dir="rtl">
+		<div class="row" style="margin-top: 20px;">
+			<div class="col s12 m12 l12">
+				<div class="z-depth-2 box-padding content-block">
+					<div class="row no-padding">
+						<div class="col s12 l1 center">
+							<img src="imgs/group.png" class="content-set-card-image">
+						</div>
+						<div class="col s12 m6 l5">
+							<div class="box-padding box-info center">
+								<h4 id="titleCardLabel" class="no-margin">مستخدمو شبكة إخطار</h4>
+								<p id="descriptionCardLabel" class="no-margin">وصف المجموعة</p>
+							</div>
+						</div>
+						<div class="col s12 m6 l3">
+							<div class="box-padding box-remark">
+								<i class="material-icons">person_outline</i>
+								عدد المستخدمين: <span id="userCardCountLabel">0</span><br>
+								<i class="material-icons">person</i>
+								المستخدمين المسجلين: <span id="registeredCardCountLabel">0</span><br>
+							</div>
+						</div>
+						<div class="col s12 m6 l3">
+							<div class="box-padding box-remark">
+								<i class="material-icons">flash_on</i>
+								المستخدمين المتصلين: <span id="onlineCardCountLabel">0</span><br>
+								<span id="dateCardLabel">
+									<i class="material-icons">access_time</i>
+									زمن الإنشاء: <span id="dateValueCardLabel" class="tooltipped" data-tooltip="">#</span><br>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="editUserDiv" class="col s12 m6 l5">
+				<div class="content-block" style="min-height: 407px">
+					<div class="content-header">
+						<i class="material-icons">edit</i>
+						<label>تحرير مستخدم<label>
+					</div>
+					<div class="row">
+						<div class="col s12 m12 l6">
+							<div class="input-field">
+								<i class="material-icons prefix">phone_android</i>
+								<input id="idText" type="text" class="validate" maxlength="9" data-button="#saveButton">
+								<label for="idText">معرف المستخدم</label>
+							</div>	
+							<div class="input-field">
+								<i class="material-icons prefix">account_box</i>
+								<input id="nameText" type="text" class="validate" maxlength="30" data-button="#saveButton">
+									<label for="nameText">اسم المستخدم</label>
+								</div>
+								<div class="input-field">
+									<i class="material-icons prefix">group</i>
+									<select id="groupSelect">
+										<option value="" selected>تحديد مجموعة</option>
+										<option value="1" data-icon="imgs/users.png" class="left circle">مجموعة ١</option>
+										<option value="2" data-icon="imgs/users.png" class="left circle">مجموعة ٢</option>
+										<option value="3" data-icon="imgs/users.png" class="left circle">مجموعة ٣</option>
+									</select>
+									<label>المجموعة</label>
+								</div>
+								<label id="resultLabel" class="content-result">&nbsp;</label>
+							</div>
+							<input id="selectedIdInput" type="hidden"/>
+							<input id="selectedNameInput" type="hidden"/>
+							<input id="selectedGroupInput" type="hidden"/>
+
+							<div class="col s12 m12 l6">
+								<img id='userImage' class='primary-border content-input-image' src='imgs/admin.png'>
+							</div>
+							<div class="row col s12 m12 l12">
+								<div class="col s12 m6 l4">
+									<a id="createButton" class="waves-effect waves-light btn primary-control">
+										<i class="material-icons">group_add</i>
+										جديد	
+									</a>
+								</div>
+								<div class="col s12 m6 l4"> 
+									<a id="saveButton" class="waves-effect waves-light btn primary-control">
+										<i class="material-icons">save</i>
+										حفظ	
+									</a>
+								</div>
+								<div class="col s12 m6 l4"> 
+									<a id="deleteButton" class="waves-effect waves-light btn primary-control modal-trigger" href="#deleteModal">
+										<i class="material-icons red-text">delete_forever</i>
+										إزالة	
+									</a>
+									<a id="unblockButton" class="waves-effect waves-light btn primary-control">
+										<i class="material-icons red-text">lock_open</i>
+										استعادة	
+									</a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="selectUserDiv" class="col s12 m6 l7">
+					<div class="content-block">
+						<div class="content-header">
+							<i class="material-icons">group</i>
+							<label>مستخدمو الشبكة</label>
+							<span class="content-header-right search-field tooltipped" data-tooltip="ترشيح المستخدمين حسب الأسم أو الرقم" data-search=".content-icon">
+								<a href="#!" class="btn waves-effect waves-light"><i class="material-icons">search</i></a>
+								<input id="searchText" type="text">
+							</span>
+							<span class="content-header-right filter-field tooltipped" data-tooltip="عرض أو اخفاء المجموعات" data-search=".content-icon" data-filter="#setListElement>li" data-prefix="set_">
+								<a href="#!" class="btn waves-effect waves-light"><i class="material-icons">people</i></a>
+								<select multiple id="filterSetSelect" class="select-all">
+									<option value="1" data-icon="imgs/users.png" class="left circle" selected="selected">مجموعة ١</option>
+									<option value="2" data-icon="imgs/users.png" class="left circle" selected="selected">مجموعة ٢</option>
+									<option value="3" data-icon="imgs/users.png" class="left circle" selected="selected">مجموعة ٣</option>
+								</select>
+							</span>
+
+							<span class="content-header-right tooltipped" data-tooltip="عرض أو اخفاء قسم تعديل المستخدم">
+								<a id="editButton" class="btn waves-effect waves-light" href="#!"><i class="material-icons">edit</i></a>
+							</span>
+
+						</div>
+						<div class="content-icon-users">
+							<ul id="setListElement" class="collapsible content-collapsible">
+								<li id="setElement">
+									<div class="collapsible-header" style="display: block">
+										<label id="setName">اسم المجموعة</label>
+
+										<a id="setReportButton" class="btn left content-collapsible-button tooltipped" data-tooltip="عرض بلاغات مستخدمي المجموعة" href="reports.html"><i class="material-icons">view_list</i></a>
+										<a id="setCommandButton" class="btn left content-collapsible-button modal-trigger tooltipped" data-tooltip="إرسال أمر لجميع مستخدمي المجموعة" href="#sendCommandModal"><i class="material-icons">mail</i></a>
+										<span class="left"><i class="material-icons">person</i><span id="setUserCountLabel">0</span> مستخدم</span>
+										<span class="left"><i class="material-icons">flash_on</i><span id="setOnlineUserCountLabel">0</span> متصل</span>
+										<span class="left orange-text"><i class="material-icons orange-text">filter_list</i><span id="setSearchUserCountLabel">0</span> نتيجة</span>
+									</div>
+									<div id="userListElement" class="collapsible-body">
+										<div class="content-icon">
+											<img src="imgs/admin.png"/>
+											<div id="statusDiv" class="content-icon-offline"></div>
+											<div id="panelDiv" class="content-icon-panel">
+												<a id="reportsButton" class="btn panel-button" href="#!"><i class="material-icons">assignment_ind</i></a>
+												<a id="commandButton" class="btn panel-button modal-trigger" href="#sendCommandModal" data-user=""><i class="material-icons">mail</i></a>
+											</div>
+											<label class="tooltipped" data-tooltip="<i class='material-icons'>person</i>9XXxxxxxx">اسم المستخدم</label>
+											<input type="hidden"/>
+										</div>	
+									</div>
+								</li>
+							</ul>
+							<div id="displayAllDiv" class="z-depth-2 box-padding center content-block report-box">
+								<a href="#!">
+									<i class="material-icons">sync</i>عرض جميع <span>المجموعات</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- modals region -->
+		<div id="deleteModal" class="modal">
+			<div class="modal-content">
+				<h4>تأكيد إزالة المستخدم <span></span></h4>
+				<p>عملية إزالة المستخدم (<span></span>) من شبكة إخطار.</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" id="confirmDeleteButton" class="modal-close waves-effect waves-green btn-flat">موافق</a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat">إلغاء</a>
+			</div>
+		</div>
+
+		<div id="sendCommandModal" class="modal">
+			 <div class="modal-content">
+                                <h4>ارسال أمر</h4>
+				<div class="row">
+					<div class="col s12" style="font-size: 1.1em">المرسل إليه: <span id="commandUserLabel" data-user="" data-set=""></span></div>
+					<div class="col s9">
+						<div class="input-field">
+							<textarea id="commandText" data-button="#sendCommandButton" class="command-textarea"></textarea>
+							<label for="commandText">نص الرسالة</label>
+						</div>
+					</div>
+					<div class="col s3">
+						<a id="configureButton" class="waves-effect waves-light btn command-configure dropdown-trigger" href="#" data-target="configureUl"></a>
+						<ul id="configureUl" class="dropdown-content">
+								<li data-mode="1" class="tooltipped" data-tooltip="الإرسال باستخدام شبكة الأنترنت" data-position="top"><a href="#!"><i class="material-icons">wifi</i></a></li>
+								<li data-mode="2" class="tooltipped" data-tooltip="الإرسال باستخدام الرسائل النصية القصيرة" data-position="top"><a href="#!"><i class="material-icons">sms</i></a></li>
+								<!--li data-mode="3" class="tooltipped" data-tooltip="الإرسال باستخدام شبكة الأنترنت في حال كان المستخدم متصل أو الرسائل القصيرة في حال المستخدم غير متصل." data-position="top"><a href="#!"><i class="material-icons">wifi</i><i class="material-icons">sms</i></a></li-->
+						</ul>
+
+					</div>
+				</div>
+                        </div>
+                        <div class="modal-footer">
+				<a id="sendCommandButton" href="#!" class="waves-effect waves-green btn-flat tooltipped reverse" data-tooltip="إرسال الأمر"><i class="material-icons green-text">send</i></a>
+				<a id="closeCommandButtom" href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="اغلاق"><i class="material-icons red-text">close</i></a>
+                        </div>
+		</div>
+	</body>
+</html>
+

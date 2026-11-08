@@ -1,0 +1,1 @@
+$(document).ready(function(){Master.getMainContent(function(a){$("body").after(a)})});

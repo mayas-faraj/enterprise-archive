@@ -1,0 +1,18 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+body .wrapper {
+ height: auto !important;
+  width:100%;
+  position: relative;    overflow: hidden;
+}
+
+div#table-1_wrapper {
+    width: 100%;
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: visible;
+}

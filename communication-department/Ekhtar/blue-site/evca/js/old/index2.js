@@ -1,0 +1,23 @@
+$(document).ready(function()
+{
+	SessionAccess.getSessionRoleId(function(value)
+	{
+		console.log(value);
+		if(value=="1")
+		{
+			$('#usersDiv').remove();
+		}
+		else if(value=="2")
+		{
+			$('#usersDiv').remove();
+			$('#nodeDiv').remove();
+			$('#adminDiv').remove();
+			$('#commandDiv').remove();
+		}
+		else
+		{
+			$('#nodeDiv').remove();
+			$('#adminDiv').remove();
+		}
+	});
+});

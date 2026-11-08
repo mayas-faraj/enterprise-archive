@@ -1,0 +1,27 @@
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000001","location":{"x":36.299015,"y":33.516214,"a":64.0,"time":1508688000000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404286140","publisher":"941000001","location":{"x":36.277482,"y":33.513808,"a":64.0,"time":1508698800000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404302442","publisher":"941000001","cell":{"cgi":"417-01-9067-14211","cid":14211,"lac":9067,"azimuth":65.0,"height":22.0,"cellX":36.248633,"cellY":33.497536,"siteName":"sana"},"timestamp":1508700600000}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000001","location":{"x":36.184248,"y":33.461824,"a":64.0,"time":1508702400000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507877872442","publisher":"941000002","cell":{"cgi":"417-01-9067-14211","cid":14211,"lac":9067,"azimuth":65.0,"height":22.0,"cellX":36.299015,"cellY":33.516214,"siteName":"sana"},"timestamp":1508688000000}}
+{"payload":{"id":"es-br225*1507487786140","publisher":"941000002","location":{"x":36.277482,"y":33.513808,"a":64.0,"time":1508698800000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404786139","publisher":"941000002","location":{"x":36.248633,"y":33.497536,"a":64.0,"time":1508700600000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000002","location":{"x":36.305639,"y":33.488117,"a":64.0,"time":1508702400000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000003","location":{"x": 36.299015,"y":33.516214,"a":64.0,"time":1508688000000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000003","location":{"x":36.289166,"y":33.509353,"a":64.0,"time":1508698800000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507877872442","publisher":"941000003","cell":{"cgi":"417-01-9067-14211","cid":14211,"lac":9067,"azimuth":65.0,"height":22.0,"cellX":36.286961,"cellY":33.488854,"siteName":"sana"},"timestamp":1508700600000}}
+{"payload":{"id":"es-br225*1507877872442","publisher":"941000003","cell":{"cgi":"417-01-9067-14211","cid":14211,"lac":9067,"azimuth":65.0,"height":22.0,"cellX":36.244994,"cellY":33.432405,"siteName":"sana"},"timestamp":1508702400000}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000001","location":{"x":36.184248,"y":33.461824,"a":64.0,"time":1508760000000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404286140","publisher":"941000001","location":{"x":36.248633,"y":33.497536,"a":64.0,"time":1508760900000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404302442","publisher":"941000001","cell":{"cgi":"417-01-9067-14211","cid":14211,"lac":9067,"azimuth":65.0,"height":22.0,"cellX":36.277482,"cellY":33.513808,"siteName":"sana"},"timestamp":1508761800000}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000001","location":{"x":36.299015,"y":33.516214,"a":64.0,"time":1508762700000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000002","location":{"x":36.305639,"y":33.488117,"a":64.0,"time":1508760000000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507487786140","publisher":"941000002","location":{"x":36.248633,"y":33.497536,"a":64.0,"time":1508760900000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404786139","publisher":"941000002","location":{"x":36.277482,"y":33.513808,"a":64.0,"time":1508761800000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000002","location":{"x":36.299015,"y":33.516214,"a":64.0,"time":1508762700000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000003","location":{"x": 36.244994,"y":33.432405,"a":64.0,"time":1508760000000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000003","location":{"x":36.286961,"y":33.488854,"a":64.0,"time":1508760900000,"type":"GPS"}}}
+{"payload":{"id":"es-br225*1507877872442","publisher":"941000003","cell":{"cgi":"417-01-9067-14211","cid":14211,"lac":9067,"azimuth":65.0,"height":22.0,"cellX":36.289166,"cellY":33.509353,"siteName":"sana"},"timestamp":1508761800000}}
+{"payload":{"id":"es-br225*1507404286139","publisher":"941000003","location":{"x": 36.299015,"y":33.516214,"a":64.0,"time":1508762700000,"type":"GPS"}}}
+
+
+

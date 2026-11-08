@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Update version" />
+		<meta name="author" content="CD" />
+		<title>تحديث اصدار التطبيق</title>
+		<link rel="stylesheet" href="css/basic.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/imageCover.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/master.js"></script>
+		<script src="js/old/update.js"></script>
+	</head>
+	<body id="body" class="background-full">
+		<div class="input-main box-glass">
+			<center><h2>تحميل ملف التحديث</h2></center>
+			<div id="uploadDiv" class="input-box">
+				<input id="uploadText" class="input-file input-control-inline" type="text"/>
+				<label for="uploadButton" class="input-upload input-upload-wide input-control-inline">تحميل ملف</label>
+				<input id="uploadButton" class="input-file" type="file" accept=".apk"/>
+			</div>
+			<div class="input-box input-button-box">
+				<button id="updateButton" class="input-control-inline">تحميل التحديث وارسال أمر تحديث</button>
+				<input id="userText" type="text" class="input-control-inline" placeholder="جميع المستخدمين"></input>
+				<button id="sendUpdateButton" class="input-control-inline">ارسال أمر تحديث</button>
+				<label id="resultLabel" class="input-result"/>
+			</div>
+		</div>			
+		<div id="rolesDiv" class="input-icons-full box-glass">
+			<textarea id="jsonText" class="input-textarea ltr">
+{
+	"version":"1.0.0.6",
+	"url":"http://www.imei.sy/dist/ekhtar/stable/Ekhtar_1.5.apk",
+	"descriton":"sms version",
+	"nessecity":"mandatory"
+}
+			</textarea>
+			<button id="reloadButton" class="input-control-inline">اعادة تحميل الملف</button>
+			<button id="saveButton" class="input-control-inline">حفظ التعديلات</button>
+		</div>
+	</body>
+</html>

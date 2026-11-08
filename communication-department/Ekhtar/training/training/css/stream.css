@@ -1,0 +1,218 @@
+div>i,
+span>i,
+label>i
+{
+	vertical-align: middle;
+}
+
+.stream-box
+{
+	margin-top: 10px;
+	background: white;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	border-radius: 8px;
+	padding: 5px;
+	text-align: center;
+}
+
+.stream-logo-caption
+{
+}
+
+.stream-logo-image
+{
+	width: 140px;
+}
+
+.stream-logo-info
+{
+	margin-top: 5px;
+	text-align: right;
+	display: table;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.stream-logo-label
+{
+}
+
+.stream-logo-button
+{
+	width: 190px;
+	font-size: 1em;
+}
+
+.stream-map
+{
+	width: 100%;
+	height: 400px;
+}
+
+.stream-label
+{
+	font-size: 18px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+.stream-button
+{
+	background-color: #019c50;
+	color: white;
+}
+
+.stream-button-top
+{
+	position: fixed !important;
+	bottom: 35px;
+}
+
+.stream-button-option
+{
+	width: 200px;
+	margin: 3px;
+	background-color: #b3c4ff !important;
+	color: #130060 !important;
+}
+
+.stream-input-container
+{
+	direction: ltr;
+	width: 270px;
+	text-align: right;
+}
+
+.stream-input-container i
+{
+	color: #b3c4ff !important;
+	cursor: pointer;
+}
+
+.stream-input-container>input
+{
+	direction: rtl;
+	border-bottom-color: #b3c4ff !important;
+	box-shadow: 0 1px 0 0 #5373E1 !important;
+}
+
+.stream-input-container .lever
+{
+	float: left !important;
+}
+
+.stream-input-container>label
+{
+	color: #586db9 !important;
+	font-size: +1.1em;
+}
+
+.stream-datepicker
+{
+	width: 160px !important;
+}
+
+.stream-fixed
+{
+	position: fixed;
+}
+
+.stream-content-status
+{
+	text-align: center;
+	font-size: 1.1em;
+	cursor: pointer;
+	position: relative;
+}
+
+.stream-content-status > i
+{
+}
+
+.stream-report
+{
+	text-align: right !important;
+	font-size: 1.3em;
+}
+
+.stream-report-image-div
+{
+	text-align: center;
+}
+
+.stream-report-image 
+{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.stream-report-details
+{
+	text-size: 1.4em;
+}
+
+.stream-report-phone 
+{
+	font-weight: bold;
+}
+
+.stream-report-hr
+{
+	width: 92%;
+	border-top: 0px;
+	border-color: #039be5;
+}
+
+.stream-report-image-new
+{
+	cursor: pointer;
+	float: left;
+	left: -13px;
+	top: -42px;
+	position: relative;
+}
+
+.stream-report-carousel
+{
+	height: 200px !important;
+}
+
+.stream-report-carousel .carousel-item > img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.stream-report-carousel-arrow-left,
+.stream-report-carousel-arrow-right
+{
+	cursor: pointer;
+	font-size: 40px !important;
+	font-weight: bold;
+	margin-top: 60px;
+	width: 50px;
+}
+
+
+.stream-report-carousel-arrow-left:hover,
+.stream-report-carousel-arrow-right:hover
+{
+        color: #26a69a;
+}
+
+.stream-report-carousel-arrow-left
+{
+        float:left;
+        text-align: left;
+}
+
+.stream-report-carousel-arrow-right
+{
+        float:right;
+}
+
+.stream-report-carousel-image-offset
+{
+        left: 60px !important;
+}
+

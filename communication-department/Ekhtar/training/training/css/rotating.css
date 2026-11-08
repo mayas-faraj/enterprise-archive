@@ -1,0 +1,90 @@
+@-webkit-keyframes oscillating /* Safari and Chrome */ 
+{
+	from
+	{
+		-webkit-transform: rotate(-30deg);
+		-o-transform: rotate(-30deg);
+		transform: rotate(-30deg);
+	}
+	to
+	{
+		-webkit-transform: rotate(30deg);
+		-o-transform: rotate(30deg);
+		transform: rotate(30deg);
+	}
+}
+
+@keyframes oscillating
+{
+	from
+	{
+		-ms-transform: rotate(-30deg);
+		-moz-transform: rotate(-30deg);
+		-webkit-transform: rotate(-30deg);
+		-o-transform: rotate(-30deg);
+		transform: rotate(-30deg);
+	}
+	to 
+	{
+		-ms-transform: rotate(30deg);
+		-moz-transform: rotate(30deg);
+		-webkit-transform: rotate(30deg);
+		-o-transform: rotate(30deg);
+		transform: rotate(30deg);
+	}
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */
+{
+	from
+	{
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to
+	{
+		-webkit-transform: rotate(359deg);
+		-o-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+@keyframes rotating
+{
+	from
+	{
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0eg);
+		-webkit-transform: rotate(0eg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to
+	{
+		-ms-transform: rotate(359deg);
+		-moz-transform: rotate(359deg);
+		-webkit-transform: rotate(359deg);
+		-o-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+
+.oscillating
+{
+	-webkit-animation: oscillating 1s alternate infinite;
+	-moz-animation: oscillating 1s alternate infinite;
+	-ms-animation: oscillating 1s alternate infinite;
+	-o-animation: oscillating 1s alternate infinite;
+	animation: oscillating 1s alternate infinite;
+}
+
+.rotating
+{
+	-webkit-animation: rotating 0.8s linear infinite;
+	-moz-animation: rotating 0.8s linear infinite;
+	-ms-animation: rotating 0.8s linear infinite;
+	-o-animation: rotating 0.8s linear infinite;
+	animation: rotating 0.8s linear infinite;
+}

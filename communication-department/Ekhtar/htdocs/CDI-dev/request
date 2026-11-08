@@ -1,0 +1,21 @@
+post http://localhost/cdi-dev/e-sms
+
+User-Agent: Fiddler
+Content-Type: application/json
+Host: localhost
+Content-Length: 81
+content-type: application/json
+
+
+
+
+{
+"sender":"1594876230",
+"date":"20160102131511",
+"body" :" this is a text"
+}
+
+
+hs	=>			i=>	is		=>			cd
+	send date	insertdate(smscdarw)  sysdate(isdate)		Inseertdate
+    

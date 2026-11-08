@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="CD Admin Panel" />
+		<meta name="author" content="CD" />
+		<title>تعديل مستخدم مقر</title>
+		<link rel="stylesheet" href="css/basic.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/imageCover.js"></script>
+		<script src="scripts/formValidation.js"></script>
+		<script src="scripts/imageUpload.js"></script>
+		<script src="scripts/master.js"></script>
+		<script src="js/admins.js"></script>
+	</head>
+	<body id="body">
+		<div class="input-main box-glass">	
+			<div id="addAdminDiv" class="input-box">
+				<input id="idText" type="hidden"/>
+				<input id="nameText" type="text" class="input-readonly"  placeholder="اسم المدير" readonly="true"/>
+				<input id="fullNameText" type="text"   placeholder="الاسم الكامل"/>
+				<input id="descriptionText" type="text"   placeholder="الوصف"/>
+				<input id="passwordText" type="password"   placeholder="كلمة المرور"/>
+				<input id="confirmPasswordText" type="password"   placeholder="تأكيد كلمة المرور"/>
+			</div>
+			 <div id="imageAdminDiv" class="input-box">
+                                <img id="image" src="imgs/admin.png" class="input-image"/>
+				<label id="roleName" class="input-note"></label>
+                                <label for="imageButton" class="input-upload">تحميل</label>
+                                <input id="imageButton" class="input-file" type="file" accept="image/*"/>
+                        </div>
+
+			<div class="input-box input-button-box">
+				<button id="editButton" class="input-button">حفظ التعديلات</button>
+				<button id="deleteButton" class="input-button">حذف المدير</button>
+			</div> 
+			<label id="resultLabel" class="input-result"/>
+		</div>
+		<div id="adminsDiv" class="input-icons-full box-glass">
+			<div id="icon" class="input-icon">
+				<img id="iconImage" class="input-icon-image"/>
+				<img class="input-icon-logo"/>
+				<label class="input-icon-text input-text-jid">عنوان</label>
+				<input type="hidden"/>
+				<input type="hidden"/>
+				<input type="hidden"/>
+				<input type="hidden"/>
+			</div>
+		</div>
+	</body>
+</html>

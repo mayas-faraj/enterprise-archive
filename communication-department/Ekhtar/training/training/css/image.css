@@ -1,0 +1,55 @@
+.full-background 
+{
+	background-size: cover;
+	//background-color: #e0e0e0;
+	background-repeat: no-repeat;
+	//background-blend-mode: overlay;
+}
+
+.transparent
+{
+	opacity: .4;
+}
+
+.logo
+{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	box-shadow: 10px 10px 30px #000;
+	opacity: .8;
+}
+
+.text_icon
+{
+	display: block;
+	width: 18px;
+	height: 18px;
+	float: right;
+	margin: 20px 0px 0px 0px;
+}
+
+.status
+{
+	width: 25px;
+	height: 25px;
+	margin: 10px;
+	float: left;
+}
+
+.header
+{
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+}
+
+.banner_image
+{
+	width: 25px;
+	height: 25px;
+	margin: 15px 15px 15px 15px;
+	border-radius: 50%;
+	vertical-align: middle;
+}

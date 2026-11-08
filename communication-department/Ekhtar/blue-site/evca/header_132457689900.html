@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/basic.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/imageCover.js"></script>
+	</head>
+	<body id="body" class="background-full">
+		<div class="page-banner">
+			<div class="page-banner-head page-banner-text">
+				<a class="page-banner-link" href="index.html">
+					<img class="page-banner-icon" src="imgs/ekhtar.png"/>
+					<label id="headerMainLabel">الرئيسية</label>
+				</a>
+			</div>
+			<div id="headerAdminDiv" class="page-banner-header">
+				<label id='headerUserFullNameLabel' class='page-banner-admin-name'></label>
+				<img id="headerAdminImage" class="page-banner-icon" src="imgs/admin.png"/>
+				<div id="headerUserList" class="page-banner-drop">
+					<label id="headerUserNameLabel" class="page-banner-item"></label>
+					<a class="page-banner-item" href="password.html">تغيير كلمة المرور</a>
+					<label id="headerLogout" class="page-banner-item">تسجيل الخروج</label>
+				</div>
+			</div>
+			<a id="headerSettingLink" class="page-banner-link" href="underDesign.html">
+				<img class="page-banner-icon" alt="الإعدادات" title="الإعدادات" src="imgs/setting.png"/>
+			</a>
+			<a id="headerStreamLink" class="page-banner-link" href="stream.html">
+				<img class="page-banner-icon" alt="عرض التقارير" title="عرض التقارير" src="imgs/rss.png"/>
+			</a>
+			<a id="headerNotifyLink" class="page-banner-link" href="notify.html">
+				<img  class="page-banner-icon" alt="خارطة الاشعارات" title="خارطة الاشعارات" src="imgs/map.png"/>
+			</a>
+			<div id="headerCommandDiv" class="page-banner-link" href="commands.html">
+				<img  class="page-banner-icon" alt="الرسائل المرسلة" title="الرسائل المرسلة"  src="imgs/command.png"/>
+				<div id="headerCommandList"  class="page-banner-drop">
+				</div>
+			</div>
+			<div id="headerNotifyDiv" class="page-banner-link" href="#">
+				<img class="page-banner-icon" title="الاشعارات" alt="الإشعارات" src="imgs/notification.png"/>
+				<label id="headerNotifyCount" class="page-banner-counter"></label>
+				<div id="headerNotifyList" class="page-banner-drop">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

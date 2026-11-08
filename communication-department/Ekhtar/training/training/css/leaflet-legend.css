@@ -1,0 +1,38 @@
+.legend-container #legend {
+  background-color: rgba(255, 255, 255, 1.0);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+
+.legend-container
+{
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  background: rgba(53, 53, 53, 0.86);
+  border-radius: 5px;
+  -webkit-border-radius: 4px;
+}
+
+.legend-container .legend-toggle {
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  font-family: times new roman;
+  font-weight: bold;
+  padding-right: 13px;
+  font-size: 26px;
+}
+.legend-container .legend-toggle-icon {
+  /*optionally use an icon image for the toggle button*/
+  /*background: url('images/layers.png') no-repeat center center;*/
+}
+.legend-collapsed #legend {
+  display: none;
+}
+.legend-collapsed .legend-toggle {
+  display: block;
+}
+

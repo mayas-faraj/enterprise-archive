@@ -1,0 +1,2040 @@
+package smd.eors.dataAccess;
+
+import java.io.IOException;
+import java.util.NavigableMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
+import org.apache.hadoop.hbase.client.Delete;
+import org.apache.hadoop.hbase.client.Get;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.filter.FilterList;
+import org.apache.hadoop.hbase.filter.FilterList.Operator;
+import org.apache.hadoop.hbase.filter.PageFilter;
+import org.apache.hadoop.hbase.filter.SubstringComparator;
+import org.apache.hadoop.hbase.filter.SingleColumnValueFilter;
+import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
+
+import smd.eors.dataAccess.entity.Navigation;
+import smd.eors.dataAccess.entity.Report;
+import smd.eors.dataAccess.entity.ReportImportanceComparator;
+import smd.eors.dataAccess.entity.ReportTimeComparator;
+import smd.eors.dataAccess.entity.User;
+import smd.eors.dataAccess.entity.Command;
+import smd.eors.dataAccess.entity.CoverageCell;
+import smd.log.LogStream;
+import smd.log.Parameter;
+
+public class DataAccess 
+{
+    //public methods region
+    public static Report getReport(String hexReportId)
+    {
+        //precondition: reportTable is not null
+        byte[] reportId=bytesFromHex(hexReportId);
+        
+        if(reportId==null)
+            return null;
+        
+        Get get=new Get(reportId);
+        
+        if(get!=null)
+        {
+            try
+            {
+                //detect report if it is on a real time
+                Result reportResult;
+                
+                if(isRealtimeReport(reportId))
+                    reportResult=reportRealtimeTable.get(get);
+                else
+                    reportResult=reportTable.get(get);
+                
+                //process the report result
+                if(reportResult!=null && !reportResult.isEmpty())
+                    //critical operation
+                    return valueOfReport(reportResult);
+            }
+            catch (IOException ex)
+            {
+                if(logStream!=null)
+                    logStream.writeLog(ex, new Parameter("hexReportId",hexReportId));
+            }
+        }
+        
+        //report is not exist
+        return null;
+    }
+    
+    public static Report[] getReportsByImportance(float lowestImportance)
+    {
+        return getReports(null, null, 0, 0, "", "", "", ReportState.unprocessed, 0, 0, 0, 0, lowestImportance, false, false, false);
+    }
+    
+    public static Report[] getReportsByCommand(String commandId)
+    {
+        return getReports(null, null, 0, 0, commandId, "", "", ReportState.all, 0, 0, 0, 0, 0, false, false, false);
+    }
+    
+    public static Report[] getReportsByUser(String userId)
+    {
+        return getReports(null, null, 0, 0, "", userId, "", ReportState.all, 0, 0, 0, 0, 0, false, false, false);
+    }
+    
+    public static Report[] getReportsByCoordinate(double startLongitude, double startLatitude, double endLongitude, double endLatitude, boolean realtimeOnly)
+    {
+        return getReports(null,null,0,0,"","","",ReportState.unprocessed,startLongitude,startLatitude,endLongitude,endLatitude,0,realtimeOnly, false, false);
+    }
+    
+    public static Report[] getReportsByArgs(String keywords, long startTimestamp, long endTimestamp, double startLongitude, double startLatitude, double endLongitude, double endLatitude, boolean unprocessedOnly, boolean realtimeOnly)
+    {
+        ReportState state;
+        
+        if(unprocessedOnly)
+            state=ReportState.unprocessed;
+        else
+            state=ReportState.all;
+            
+        return getReports(null,null,startTimestamp,endTimestamp,"","",keywords,state,startLongitude,startLatitude,endLongitude,endLatitude,0,realtimeOnly,false,true);
+    }
+    
+    public static Report[] getReports(String hexStartRow, String hexStopRow, long startTimestamp, long endTimestamp, String commandId, String userId, String keyword, ReportState processedState, double startLongitude, double startLatitude, double endLongitude, double endLatitude, float lowestImportance, boolean realtimeOnly, boolean sortByDate, boolean reverseSort)
+    {
+        //precondition: reportTable is not null
+        
+        //scan start and stop processing
+        byte[] startRow=bytesFromHex(hexStartRow);
+        byte[] stopRow=bytesFromHex(hexStopRow);
+        
+        Scan scan=setupScan(startRow, stopRow, startTimestamp, endTimestamp);
+        scan.setReversed(reverseSort);
+        
+        FilterList filters=new FilterList(Operator.MUST_PASS_ALL);
+        
+        //setup command filter
+        if(commandId!=null && commandId!="")
+        {
+            SingleColumnValueFilter commandFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_COMMAND), CompareOp.EQUAL, Bytes.toBytes(commandId));
+            commandFilter.setFilterIfMissing(true);
+            filters.addFilter(commandFilter);
+        }
+        
+        //setup user filter
+        if(userId!=null && userId!="")
+        {
+            SingleColumnValueFilter userFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_USER), CompareOp.EQUAL, Bytes.toBytes(userId));
+            userFilter.setFilterIfMissing(true);
+            filters.addFilter(userFilter);
+        }
+        
+        //setup keyword filter
+        if(keyword!=null && keyword!="")
+        {
+            //TODO change TEXT info KEYWORDS
+            SingleColumnValueFilter keywordFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_TEXT), CompareOp.EQUAL, new SubstringComparator(keyword));
+            keywordFilter.setFilterIfMissing(true);
+            filters.addFilter(keywordFilter);
+        }
+        
+        //setup processed filter
+        if(processedState==ReportState.processed)  
+        {
+            SingleColumnValueFilter processedFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_PROCESSED), CompareOp.EQUAL, Bytes.toBytes(true));
+            processedFilter.setFilterIfMissing(true);
+            filters.addFilter(processedFilter);
+        }
+        else if(processedState==ReportState.unprocessed)
+        {
+            SingleColumnValueFilter processedFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_PROCESSED), CompareOp.NOT_EQUAL, Bytes.toBytes(true));
+            processedFilter.setFilterIfMissing(false);
+            filters.addFilter(processedFilter);
+        }
+        
+        //setup lower importance filter
+        if(lowestImportance>0)
+        {
+            //TODO replace by search on report id value
+            SingleColumnValueFilter importanceFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_CATEGORY), Bytes.toBytes(DataSchema.REPORT_CATEGORY_IMPORTANCE), CompareOp.GREATER_OR_EQUAL, Bytes.toBytes(lowestImportance));
+            importanceFilter.setFilterIfMissing(true);
+            filters.addFilter(importanceFilter);
+        }
+        
+        //setup coordinate filter
+        if(startLongitude!=0 || endLongitude!=0 || startLatitude !=0 || endLatitude!=0)
+        {
+            SingleColumnValueFilter startLogitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_LONGITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLongitude));
+            SingleColumnValueFilter endLongitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_LONGITUDE),CompareOp.LESS,Bytes.toBytes(endLongitude));
+            SingleColumnValueFilter startLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_LATITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLatitude));
+            SingleColumnValueFilter endLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_LATITUDE),CompareOp.LESS,Bytes.toBytes(endLatitude));
+            SingleColumnValueFilter startCellLogitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELLLONGITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLongitude));
+            SingleColumnValueFilter endCellLongitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELLLONGITUDE),CompareOp.LESS,Bytes.toBytes(endLongitude));
+            SingleColumnValueFilter startCellLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELLLATITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLatitude));
+            SingleColumnValueFilter endCellLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELLLATITUDE),CompareOp.LESS,Bytes.toBytes(endLatitude));
+        
+            startLogitudeFilter.setFilterIfMissing(true);
+            endLongitudeFilter.setFilterIfMissing(true);
+            startLatitudeFilter.setFilterIfMissing(true);
+            endLatitudeFilter.setFilterIfMissing(true);
+            startCellLogitudeFilter.setFilterIfMissing(true);
+            endCellLongitudeFilter.setFilterIfMissing(true);
+            startCellLatitudeFilter.setFilterIfMissing(true);
+            endCellLatitudeFilter.setFilterIfMissing(true);
+            
+            FilterList gpsFilters=new FilterList(Operator.MUST_PASS_ALL);
+            FilterList cellFilters=new FilterList(Operator.MUST_PASS_ALL);
+            
+            gpsFilters.addFilter(startLogitudeFilter);
+            gpsFilters.addFilter(endLongitudeFilter);
+            gpsFilters.addFilter(startLatitudeFilter);
+            gpsFilters.addFilter(endLatitudeFilter);
+            cellFilters.addFilter(startCellLogitudeFilter);
+            cellFilters.addFilter(endCellLongitudeFilter);
+            cellFilters.addFilter(startCellLatitudeFilter);
+            cellFilters.addFilter(endCellLatitudeFilter);
+    
+            FilterList coodinateFilter=new FilterList(Operator.MUST_PASS_ONE);
+            coodinateFilter.addFilter(gpsFilters);
+            coodinateFilter.addFilter(cellFilters);
+            
+            filters.addFilter(coodinateFilter);
+        }
+        
+        //setup filters
+        if(filters.getFilters()!=null && !filters.getFilters().isEmpty())
+            scan.setFilter(filters);
+
+        //getting result
+        List<Report> realtimeReports=new ArrayList<Report>();
+        
+        //fetch real time reports
+        try
+        {
+            ResultScanner results=reportRealtimeTable.getScanner(scan);
+            
+            if(results!=null)
+                for(Result result:results)
+                    realtimeReports.add(valueOfReport(result));   
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+            {
+                String startValue=(startRow==null)?"null":startRow.toString();
+                String stopValue=(stopRow==null)?"null":stopRow.toString();
+                logStream.writeLog(ex, new Parameter("startRow",startValue), new Parameter("stopRow",stopValue), new Parameter("startTimestamp",String.valueOf(startTimestamp)), new Parameter("endTimestamp",String.valueOf(endTimestamp))
+                        , new Parameter("commandId",commandId), new Parameter("userId",userId), new Parameter("keyword",keyword), new Parameter("startlongitude",String.valueOf(startLongitude))
+                        , new Parameter("endLongitude",String.valueOf(endLongitude)), new Parameter("startLatitude",String.valueOf(startLatitude)), new Parameter("endLatitude",String.valueOf(endLatitude))
+                        , new Parameter("lowestImportance",String.valueOf(lowestImportance)), new Parameter("realtimeOnly",String.valueOf(realtimeOnly)), new Parameter("processedState",processedState.name()));
+            }
+        }
+        
+        if(!realtimeOnly)
+        {
+            List<Report> historicalReports=new ArrayList<Report>();
+            
+            //fetch historical reports
+            try
+            {
+                ResultScanner results=reportTable.getScanner(scan);
+                
+                if(results!=null)
+                    for(Result result:results)
+                        historicalReports.add(valueOfReport(result));   
+            }
+            catch (IOException ex)
+            {
+                if(logStream!=null)
+                {
+                    String startValue=(startRow==null)?"null":startRow.toString();
+                    String stopValue=(stopRow==null)?"null":stopRow.toString();
+                    logStream.writeLog(ex, new Parameter("startRow",startValue), new Parameter("stopRow",stopValue), new Parameter("startTimestamp",String.valueOf(startTimestamp)), new Parameter("endTimestamp",String.valueOf(endTimestamp))
+                            , new Parameter("commandId",commandId), new Parameter("userId",userId), new Parameter("keyword",keyword), new Parameter("startlongitude",String.valueOf(startLongitude))
+                            , new Parameter("endLongitude",String.valueOf(endLongitude)), new Parameter("startLatitude",String.valueOf(startLatitude)), new Parameter("endLatitude",String.valueOf(endLatitude))
+                            , new Parameter("lowestImportance",String.valueOf(lowestImportance)), new Parameter("realtimeOnly",String.valueOf(realtimeOnly)), new Parameter("processedState",processedState.name()));
+                }
+            }
+  
+          //merge reports
+          realtimeReports.addAll(historicalReports);
+        }
+        
+        //sorting report
+        if(sortByDate)
+        {
+            Collections.sort(realtimeReports, new ReportTimeComparator());
+            if(reverseSort)
+                Collections.reverse(realtimeReports);
+        }
+        else
+            Collections.sort(realtimeReports, new ReportImportanceComparator());
+              
+        return realtimeReports.toArray(new Report[0]);   
+    }
+    
+    public static boolean putReport(Report report)
+    {
+        //row key design: importance + real time byte flag + time stamp
+        byte[] rowId=report.designRowId();
+        
+        report.setRowId(rowId);
+ 
+        //put the result
+        Put put=new Put(report.getRowId());
+
+        //putting the report info
+        put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_ID),Bytes.toBytes(report.getId()));
+        
+        if(report.getUser()!=null && report.getUser()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_USER),Bytes.toBytes(report.getUser()));
+        
+        if(report.getCommand()!=null && report.getCommand()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_COMMAND),Bytes.toBytes(report.getCommand()));
+        
+        if(report.getText()!=null && report.getText()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_TEXT),Bytes.toBytes(report.getText()));
+         
+        put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_TRUSTY),Bytes.toBytes(report.getTrusty()));
+        
+        if(report.getIp()!=null && report.getIp()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_IP),Bytes.toBytes(report.getIp()));
+        
+        if(report.getCellInfo()!=null && report.getCellInfo()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELL_INFO),Bytes.toBytes(report.getCellInfo()));
+
+        if(report.getImei()!=null && report.getImei()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_IMEI),Bytes.toBytes(report.getImei()));
+        
+        if(report.getImsi()!=null && report.getImsi()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_IMSI),Bytes.toBytes(report.getImsi()));
+        
+        if(report.getSsn()!=null && report.getSsn()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_SSN),Bytes.toBytes(report.getSsn()));
+        
+        if(report.getMac()!=null && report.getMac()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_MAC),Bytes.toBytes(report.getMac()));
+        
+        if(report.getDeviceType()!=null && report.getDeviceType()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_DEVICE_TYPE),Bytes.toBytes(report.getDeviceType()));
+        
+        if(report.getOs()!=null && report.getOs()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_OS_VERSION),Bytes.toBytes(report.getOs()));
+        
+        if(report.getComment()!=null && report.getComment()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_COMMENT),Bytes.toBytes(report.getComment()));
+        
+        if(report.getKeyword()!=null && report.getKeyword()!="")
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_KEYWORDS),Bytes.toBytes(report.getKeyword()));
+
+        if(report.isProcessed())
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_PROCESSED),Bytes.toBytes(report.isProcessed()));
+
+        if(report.getGpsLongitude()!=0)
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_LONGITUDE),Bytes.toBytes(report.getGpsLongitude()));
+
+        if(report.getGpsLatitude()!=0)
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_LATITUDE),Bytes.toBytes(report.getGpsLatitude()));
+
+        if(report.getCellLongitude()!=0)
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELLLONGITUDE),Bytes.toBytes(report.getCellLongitude()));
+
+        if(report.getCellLatitude()!=0)
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELLLATITUDE),Bytes.toBytes(report.getCellLatitude()));
+
+        if(report.getGpsDate()!=null)
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_GPS_DATE),Bytes.toBytes(report.getGpsDate().getTime()));
+
+        if(report.getDate()!=null)
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_DATE),Bytes.toBytes(report.getDate().getTime()));
+
+        //putting the report categories
+        put.addColumn(Bytes.toBytes(DataSchema.REPORT_CATEGORY),Bytes.toBytes(DataSchema.REPORT_CATEGORY_IMPORTANCE),Bytes.toBytes(report.getImportance()));
+
+        for(String key:report.getCategories().keySet())
+            put.addColumn(Bytes.toBytes(DataSchema.REPORT_CATEGORY),Bytes.toBytes(key),Bytes.toBytes(report.getCategories().get(key)));
+
+        //put the report info table
+        try
+        {
+            reportTable.put(put);
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex, new Parameter("hexRowId",report.getHexRowId()),new Parameter("user",report.getUser())
+                        , new Parameter("command",report.getCommand()), new Parameter("reportId",String.valueOf(report.getId()))
+                        , new Parameter("text",report.getText()), new Parameter("trusty",String.valueOf(report.getTrusty())));
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public static boolean updateReportPriority(String hexRowId, float priority)
+    {  
+        byte[] rowId=bytesFromHex(hexRowId);
+        
+        if(rowId==null)
+            return false;
+        
+        //detect the target report table, real time of historical
+        Table targetReportTable;
+ 
+        if(isRealtimeReport(rowId))
+            targetReportTable=reportRealtimeTable;
+        else
+            targetReportTable=reportTable;
+        
+        try
+        {
+            if(priority!=0)
+            {
+                Put put=new Put(rowId);
+                put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_PRIORITY),Bytes.toBytes(priority));
+                targetReportTable.put(put);
+            }
+            else
+            {
+                Delete delete=new Delete(rowId);
+                delete.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_PRIORITY));
+                targetReportTable.delete(delete);
+            }
+            
+            return true;
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex, new Parameter("hexRowId",hexRowId), new Parameter("prioriry",String.valueOf(priority)));
+
+            return false;
+        }
+    }
+    
+    public static boolean updateReportState(String hexRowId, boolean isProcessed)
+    {  
+        byte[] rowId=bytesFromHex(hexRowId);
+        
+        if(rowId==null)
+            return false;
+        
+        //detect the target report table, real time of historical
+        Table targetReportTable;
+ 
+        if(isRealtimeReport(rowId))
+            targetReportTable=reportRealtimeTable;
+        else
+            targetReportTable=reportTable;
+        
+        try
+        {
+            if(isProcessed)
+            {
+                Put put=new Put(rowId);
+                put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_PROCESSED),Bytes.toBytes(true));
+                targetReportTable.put(put);
+            }
+            else
+            {
+                Delete delete=new Delete(rowId);
+                delete.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_PROCESSED));
+                targetReportTable.delete(delete);
+            }
+            
+            return true;
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex, new Parameter("hexRowId",hexRowId), new Parameter("isProcessed",String.valueOf(isProcessed)));
+
+            return false;
+        }
+    }
+    
+    public static boolean updateReportComment(String hexRowId, String comment)
+    {  
+        byte[] rowId=bytesFromHex(hexRowId);
+        
+        if(rowId==null)
+            return false;
+          
+        //detect the target report table, real time of historical
+        Table targetReportTable;
+ 
+        if(isRealtimeReport(rowId))
+            targetReportTable=reportRealtimeTable;
+        else
+            targetReportTable=reportTable;
+        
+        try
+        {
+            if(comment!=null && comment!="")
+            {
+                Put put=new Put(rowId);
+                put.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_COMMENT),Bytes.toBytes(comment));
+                targetReportTable.put(put);
+            }
+            else
+            {
+                Delete delete=new Delete(rowId);
+                delete.addColumn(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_COMMENT));
+                targetReportTable.delete(delete);
+            }
+            
+            return true;
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex, new Parameter("hexRowId",hexRowId), new Parameter("comment",comment));
+
+            return false;
+        }
+    }
+    
+    public static boolean putCommand(Command command)
+    {
+      //precondition: commandTable is not null
+        
+        //row key design
+        byte[] rowId=command.designRowId();
+        command.setRowId(rowId);
+        
+        //put the value
+        Put put=new Put(command.getRowId());
+        
+        put.addColumn(Bytes.toBytes(DataSchema.COMMAND_INFO), Bytes.toBytes(DataSchema.COMMAND_INFO_ID), Bytes.toBytes(command.getCommandId()));
+        put.addColumn(Bytes.toBytes(DataSchema.COMMAND_INFO), Bytes.toBytes(DataSchema.COMMAND_INFO_ADMIN), Bytes.toBytes(command.getAdmin()));
+        put.addColumn(Bytes.toBytes(DataSchema.COMMAND_INFO), Bytes.toBytes(DataSchema.COMMAND_INFO_TEXT), Bytes.toBytes(command.getText()));
+        put.addColumn(Bytes.toBytes(DataSchema.COMMAND_INFO), Bytes.toBytes(DataSchema.COMMAND_INFO_USERS), Bytes.toBytes(command.getUsers()));
+           
+        //put the navigation info table
+        try
+        {
+            commandTable.put(put);
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex,new Parameter("commandId",command.getCommandId())
+                        , new Parameter("admin",command.getAdmin()), new Parameter("text",command.getText())
+                        , new Parameter("date",command.getDate().toString()), new Parameter("users",command.getUsers()));
+            return false;
+        }
+        
+        return true;
+    }
+   
+    public static boolean putCommandReader(String commandId, String user, Date date)
+    {
+        //precondition: commandTable is not null
+        
+        //put the value
+        Put put=new Put(Bytes.toBytes(commandId));
+        
+        put.addColumn(Bytes.toBytes(DataSchema.COMMAND_READER), Bytes.toBytes(user), Bytes.toBytes(date.getTime()));
+                
+        //put the navigation info table
+        try
+        {
+            commandTable.put(put);
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex,new Parameter("commandId",commandId)
+                        , new Parameter("date",date.toString()), new Parameter("user",user));
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public static boolean putNavigation(Navigation navigation)
+    {        
+        //precondition: none
+        
+        //row key design
+        byte[] rowId=navigation.designRowId();
+        
+        navigation.setRowId(rowId);
+        
+        //put the value
+        Put put=new Put(navigation.getRowId());
+        
+        put.addColumn(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_USER), Bytes.toBytes(navigation.getUser()));
+        put.addColumn(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_LONGITUDE), Bytes.toBytes(navigation.getLongitude()));
+        put.addColumn(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_LATITUDE), Bytes.toBytes(navigation.getLatitude()));
+        put.addColumn(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_DATE), Bytes.toBytes(navigation.getDate().getTime()));
+        
+        if(navigation.isGps())
+            put.addColumn(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_ACCURACY), Bytes.toBytes(navigation.getAccuracy()));
+        else
+        {
+            put.addColumn(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_CGI), Bytes.toBytes(navigation.getCgi()));
+            put.addColumn(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_AZIMUTH), Bytes.toBytes(navigation.getAzimuth()));
+            put.addColumn(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_HEIGHT), Bytes.toBytes(navigation.getHeight()));
+            
+        }
+        
+        //put the navigation info table
+        try
+        {
+            navigationTable.put(put);
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex,new Parameter("user",navigation.getUser())
+                        , new Parameter("longitude",String.valueOf(navigation.getLongitude())), new Parameter("latitude",String.valueOf(navigation.getLatitude()))
+                        , new Parameter("accuracy",String.valueOf(navigation.getAccuracy())), new Parameter("date",String.valueOf(navigation.getDate()))
+                        , new Parameter("cgi",String.valueOf(navigation.getCgi())), new Parameter("azimuth",String.valueOf(navigation.getAzimuth()))
+                        , new Parameter("height",String.valueOf(navigation.getHeight())));
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public static Navigation getNavigation(String hexNavigationId, boolean isRealtime)
+    {
+        //precondition: navigationTable is not null
+        byte[] navigationId=bytesFromHex(hexNavigationId);
+        
+        if(navigationId==null)
+            return null;
+        
+        Get get=new Get(navigationId);
+        
+        if(get!=null)
+        {
+            try
+            {
+                //detect navigation if it is on a real time
+                Table currentTable;
+                
+                if(isRealtime)
+                    currentTable=navigationRealtimeTable;
+                else
+                    currentTable=navigationTable;
+                
+
+                Result navigationResult=currentTable.get(get);
+                
+                //process the report result
+                if(navigationResult!=null && !navigationResult.isEmpty())
+                    //critical operation
+                    return valueOfNavigation(navigationResult);
+            }
+            catch (IOException ex)
+            {
+                if(logStream!=null)
+                    logStream.writeLog(ex, new Parameter("hexNavigationId",hexNavigationId), new Parameter("isRealtime",String.valueOf(isRealtime)));
+            }
+        }
+        
+        //report is not exist
+        return null;
+    }
+
+    public static Navigation[] getNavigations(String hexStartRow, String hexStopRow, long startTimestamp, long endTimestamp, String userId, double startLongitude, double startLatitude, double endLongitude, double endLatitude, LocationState locationState, boolean realtimeOnly, boolean lastUserPoint, boolean reverseSort)
+    {
+        //precondition: navigationTable is not null
+        
+        //scan start and stop processing
+        byte[] startRow=bytesFromHex(hexStartRow);
+        byte[] stopRow=bytesFromHex(hexStopRow);
+        
+        Scan scan=setupScan(startRow, stopRow, startTimestamp, endTimestamp);
+        scan.setReversed(reverseSort);
+        
+        FilterList filters=new FilterList(Operator.MUST_PASS_ALL);
+        
+        //setup user filter
+        if(userId!=null && userId!="")
+        {
+            SingleColumnValueFilter userFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_USER), CompareOp.EQUAL, Bytes.toBytes(userId));
+            userFilter.setFilterIfMissing(true);
+            filters.addFilter(userFilter);
+        }
+        
+        //setup location state filter
+        if(locationState==LocationState.cell)  
+        {
+            SingleColumnValueFilter locationFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_CGI), CompareOp.NOT_EQUAL, Bytes.toBytes(""));
+            locationFilter.setFilterIfMissing(true);
+            filters.addFilter(locationFilter);
+        }
+        else if(locationState==LocationState.gps)
+        {
+            SingleColumnValueFilter locationFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_ACCURACY), CompareOp.NOT_EQUAL, Bytes.toBytes(0f));
+            locationFilter.setFilterIfMissing(true);
+            filters.addFilter(locationFilter);
+        }
+        
+        //setup coordinate filter
+        if(startLongitude!=0 || endLongitude!=0 || startLatitude !=0 || endLatitude!=0)
+        {
+            SingleColumnValueFilter startLogitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO),Bytes.toBytes(DataSchema.NAVIGATION_INFO_LONGITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLongitude));
+            SingleColumnValueFilter endLongitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO),Bytes.toBytes(DataSchema.NAVIGATION_INFO_LONGITUDE),CompareOp.LESS,Bytes.toBytes(endLongitude));
+            SingleColumnValueFilter startLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO),Bytes.toBytes(DataSchema.NAVIGATION_INFO_LATITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLatitude));
+            SingleColumnValueFilter endLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO),Bytes.toBytes(DataSchema.NAVIGATION_INFO_LATITUDE),CompareOp.LESS,Bytes.toBytes(endLatitude));
+            
+            startLogitudeFilter.setFilterIfMissing(true);
+            endLongitudeFilter.setFilterIfMissing(true);
+            startLatitudeFilter.setFilterIfMissing(true);
+            endLatitudeFilter.setFilterIfMissing(true);
+            FilterList locationFilter=new FilterList(Operator.MUST_PASS_ALL);
+             
+            locationFilter.addFilter(startLogitudeFilter);
+            locationFilter.addFilter(endLongitudeFilter);
+            locationFilter.addFilter(startLatitudeFilter);
+            locationFilter.addFilter(endLatitudeFilter);
+ 
+            filters.addFilter(locationFilter);
+        }
+        
+        //setup filters
+        if(filters.getFilters()!=null && !filters.getFilters().isEmpty())
+            scan.setFilter(filters);
+
+        //getting result
+        //List<Navigation> navigations=new ArrayList<Navigation>();
+        HashMap<String, Navigation> navigations=new HashMap<String, Navigation>();
+        
+        //fetch real time navigation 
+        try
+        {
+            ResultScanner results=navigationRealtimeTable.getScanner(scan);
+            Navigation tempNavigation;
+            
+            if(results!=null)
+                for(Result result:results)
+                {
+                    tempNavigation=valueOfNavigation(result);
+                    String saltKey;
+                    
+                    if(lastUserPoint)
+                        saltKey=tempNavigation.getUser();
+                    else
+                        saltKey=Bytes.toString(result.getRow());
+   
+                    //critical operation
+                    navigations.put(saltKey,tempNavigation);  
+                }
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+            {
+                String startValue=(startRow==null)?"null":startRow.toString();
+                String stopValue=(stopRow==null)?"null":stopRow.toString();
+                logStream.writeLog(ex, new Parameter("startRow",startValue), new Parameter("stopRow",stopValue), new Parameter("startTimestamp",String.valueOf(startTimestamp)), new Parameter("endTimestamp",String.valueOf(endTimestamp))
+                        , new Parameter("userId",userId), new Parameter("locationState",locationState.name()), new Parameter("startlongitude",String.valueOf(startLongitude))
+                        , new Parameter("endLongitude",String.valueOf(endLongitude)), new Parameter("startLatitude",String.valueOf(startLatitude)), new Parameter("endLatitude",String.valueOf(endLatitude))
+                        , new Parameter("lastUserPoint",String.valueOf(lastUserPoint)), new Parameter("realtimeOnly",String.valueOf(realtimeOnly)), new Parameter("reverseSort",String.valueOf(reverseSort)));
+            }
+        }
+        
+        //fetch historical navigation
+        if(!realtimeOnly)
+        {
+            try
+            {
+                ResultScanner results=navigationTable.getScanner(scan);
+                Navigation tempNavigation;
+                
+                if(results!=null)
+                    for(Result result:results)
+                    {
+                        tempNavigation=valueOfNavigation(result);
+                        String saltKey;
+                        
+                        if(lastUserPoint)
+                            saltKey=tempNavigation.getUser();
+                        else
+                            saltKey=Bytes.toString(result.getRow());
+       
+                        //critical operation
+                        navigations.put(saltKey,tempNavigation);  
+                    }
+            }
+            catch (IOException ex)
+            {
+                if(logStream!=null)
+                {
+                    String startValue=(startRow==null)?"null":startRow.toString();
+                    String stopValue=(stopRow==null)?"null":stopRow.toString();
+                    logStream.writeLog(ex, new Parameter("startRow",startValue), new Parameter("stopRow",stopValue), new Parameter("startTimestamp",String.valueOf(startTimestamp)), new Parameter("endTimestamp",String.valueOf(endTimestamp))
+                            , new Parameter("userId",userId), new Parameter("locationState",locationState.name()), new Parameter("startlongitude",String.valueOf(startLongitude))
+                            , new Parameter("endLongitude",String.valueOf(endLongitude)), new Parameter("startLatitude",String.valueOf(startLatitude)), new Parameter("endLatitude",String.valueOf(endLatitude))
+                            , new Parameter("lastUserPoint",String.valueOf(lastUserPoint)), new Parameter("realtimeOnly",String.valueOf(realtimeOnly)), new Parameter("reverseSort",String.valueOf(reverseSort)));
+                }
+            }
+        }
+        
+        return navigations.values().toArray(new Navigation[0]);
+    }
+    
+    public static Navigation[] getUserNavigations(String user, long startTimestamp, long endTimestamp, double startLongitude, double startLatitude, double endLongitude, double endLatitude, LocationState locationState)
+    {
+        Navigation[] n1=getUserNavigations(user, startTimestamp, endTimestamp, startLongitude, startLatitude, endLongitude, endLatitude, locationState, true);
+        Navigation[] n2=getUserNavigations(user, startTimestamp, endTimestamp, startLongitude, startLatitude, endLongitude, endLatitude, locationState, false);
+        Navigation[] n=new Navigation[n1.length+n2.length];
+        
+        for(int i=0;i<n1.length;i++)
+            n[i]=n1[i];
+        
+        for(int i=0;i<n2.length;i++)
+            n[i+n1.length]=n2[i];
+        
+        return n;
+    }
+
+    public static Navigation[] getUserNavigations(String user, long startTimestamp, long endTimestamp, double startLongitude, double startLatitude, double endLongitude, double endLatitude, LocationState locationState, boolean realtime)
+    {
+        //precondition: navigationTable is not null
+        if(user==null)
+            return null;
+         
+        //define start and stop row
+        byte[] userHash=Bytes.toBytes(user.hashCode());
+        
+        byte[] startRow=Bytes.padTail(userHash, Bytes.SIZEOF_LONG);
+        byte[] stopRow=new byte[startRow.length];
+
+        int offset=Bytes.putBytes(stopRow, 0, userHash, 0, userHash.length);
+        Bytes.putBytes(stopRow, offset, Bytes.toBytes(Long.MAX_VALUE), 0 ,Bytes.SIZEOF_LONG);
+        
+        //setup scan
+        Scan scan=setupScan(startRow, stopRow, startTimestamp, endTimestamp);
+        FilterList filters=new FilterList(Operator.MUST_PASS_ALL);
+    
+        //setup location state filter
+        if(locationState==LocationState.cell)  
+        {
+            SingleColumnValueFilter locationFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_CGI), CompareOp.NOT_EQUAL, Bytes.toBytes(""));
+            locationFilter.setFilterIfMissing(true);
+            filters.addFilter(locationFilter);
+        }
+        else if(locationState==LocationState.gps)
+        {
+            SingleColumnValueFilter locationFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_ACCURACY), CompareOp.NOT_EQUAL, Bytes.toBytes(0f));
+            locationFilter.setFilterIfMissing(true);
+            filters.addFilter(locationFilter);
+        }
+        
+        //setup coordinate filter
+        if(startLongitude!=0 || endLongitude!=0 || startLatitude !=0 || endLatitude!=0)
+        {
+            SingleColumnValueFilter startLogitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO),Bytes.toBytes(DataSchema.NAVIGATION_INFO_LONGITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLongitude));
+            SingleColumnValueFilter endLongitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO),Bytes.toBytes(DataSchema.NAVIGATION_INFO_LONGITUDE),CompareOp.LESS,Bytes.toBytes(endLongitude));
+            SingleColumnValueFilter startLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO),Bytes.toBytes(DataSchema.NAVIGATION_INFO_LATITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLatitude));
+            SingleColumnValueFilter endLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.NAVIGATION_INFO),Bytes.toBytes(DataSchema.NAVIGATION_INFO_LATITUDE),CompareOp.LESS,Bytes.toBytes(endLatitude));
+            
+            startLogitudeFilter.setFilterIfMissing(true);
+            endLongitudeFilter.setFilterIfMissing(true);
+            startLatitudeFilter.setFilterIfMissing(true);
+            endLatitudeFilter.setFilterIfMissing(true);
+            FilterList locationFilter=new FilterList(Operator.MUST_PASS_ALL);
+             
+            locationFilter.addFilter(startLogitudeFilter);
+            locationFilter.addFilter(endLongitudeFilter);
+            locationFilter.addFilter(startLatitudeFilter);
+            locationFilter.addFilter(endLatitudeFilter);
+ 
+            filters.addFilter(locationFilter);
+        }
+        
+        //setup filters
+        if(filters.getFilters()!=null && !filters.getFilters().isEmpty())
+            scan.setFilter(filters);
+  
+        //fetch navigations
+        List<Navigation> navigations=new ArrayList<Navigation>();
+        
+        try
+        {
+            Table currentNavigationTable;
+            
+            if(realtime)
+                currentNavigationTable=navigationRealtimeTable;
+            else
+                currentNavigationTable=navigationTable;
+                    
+            ResultScanner results=currentNavigationTable.getScanner(scan);
+            Navigation tempNavigation;
+            
+            if(results!=null)
+                for(Result result:results)
+                {
+                    tempNavigation=valueOfNavigation(result);
+                    
+                    //critical operation
+                    navigations.add(tempNavigation);              
+                }
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex,new Parameter("user",user),new Parameter("realtime",String.valueOf(realtime)));
+        }
+        
+        return navigations.toArray(new Navigation[0]); 
+    }
+    
+    public static User[] getUsersNavigations(String hexStartRow, String hexStopRow, long startTimestamp, long endTimestamp, double startLongitude, double startLatitude, double endLongitude, double endLatitude, LocationState locationState, boolean realtimeOnly, NavigationType navigationType)
+    {
+        //precondition: navigationTable and navigationRealtimeTable are not null and sorted as row key designed
+
+        //initialize variables
+        HashMap<String, User> users=new HashMap<String, User>();
+
+        //for each state, real time and batch phase
+        boolean[] phases=realtimeOnly? new boolean[] {true}:new boolean[] {true,false};
+        
+        for(boolean realtimePhase:phases)
+        { 
+            byte[] startRow=bytesFromHex(hexStartRow);
+            byte[] stopRow=bytesFromHex(hexStopRow);
+            
+            //main loop
+            Result firstRow;
+
+            while((firstRow=getNavigationRow(startRow, stopRow, realtimePhase))!=null)
+            {
+                //extract user name
+                byte[] userByte=firstRow.getValue(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_USER));
+                if(userByte!=null)
+                {
+                    String user=Bytes.toString(userByte);
+                    
+                    //extract navigations
+                    Navigation[] navigations=new Navigation[0];
+                    
+                    if(navigationType!=NavigationType.userName)
+                    {
+                        if(navigationType==NavigationType.lastPoint)
+                        {
+                            Navigation navigation=valueOfNavigation(firstRow);
+                            
+                            //check conditions
+                            boolean startTimeRange=(startTimestamp==0 || navigation.getTimpstamp()>=startTimestamp);
+                            boolean endTimeRange=(endTimestamp==0 || navigation.getTimpstamp()<endTimestamp);
+                            boolean noCoordinate=(startLongitude==0 && endLongitude==0 && startLatitude==0 && endLatitude==0);
+                            boolean latitudeRange=(navigation.getLatitude() >=startLatitude && navigation.getLatitude()< endLatitude);
+                            boolean longitudeRange=(navigation.getLongitude() >=startLongitude && navigation.getLongitude()< endLongitude);
+                            
+                            if(startTimeRange && endTimeRange && (noCoordinate || (latitudeRange && longitudeRange)))
+                                navigations=new Navigation[] {navigation};     
+                        }
+                        else
+                            navigations=getUserNavigations(user, startTimestamp, endTimestamp, startLongitude, startLatitude, endLongitude, endLatitude, locationState, realtimePhase);
+
+                        //check unique user in hash map
+                        if(users.containsKey(user))
+                        {
+                            User userObject=users.get(user);
+
+                            if(navigationType==NavigationType.lastPoint)
+                            {
+                                //depending on pre_sorted rows by inverse time stamp
+                                if((navigations.length>0 && realtimePhase) || userObject.getNavigations().length==0)
+                                    userObject.setNavigations(navigations);
+                            }
+                            else
+                            {
+                                Navigation[] allNavigations=new Navigation[userObject.getNavigations().length+navigations.length];
+
+                                for(int i=0;i<userObject.getNavigations().length;i++)
+                                    allNavigations[i]=userObject.getNavigations()[i];
+
+                                for(int i=0;i<navigations.length;i++)
+                                    allNavigations[i+userObject.getNavigations().length]=navigations[i];
+
+                                userObject.setNavigations(allNavigations);
+                            }     
+                        }
+                        else
+                        {
+                            User userObject=new User();
+                            userObject.setName(user);
+                            userObject.setNavigations(navigations);
+                            users.put(user, userObject);
+                        }  
+                    }
+                    else
+                    {
+                        User userObject=new User();
+                        userObject.setName(user);
+                        users.put(user, userObject);
+                    }
+                    
+                    //new offset value
+                    startRow=Bytes.padTail(Bytes.toBytes(user.hashCode()+1), Bytes.SIZEOF_LONG);
+                }
+            }   
+        }
+        
+        return users.values().toArray(new User[0]);
+    }
+    
+    public static CoverageCell getCell(String cgi)
+    {  
+        //precondition: reportTable is not null 
+        Get get=new Get(Bytes.toBytes(cgi));
+        
+        if(get!=null)
+        {
+            try
+            {
+                //detect cell if it is on a real time
+                Result cellResult=cellularTable.get(get);
+                
+                //process the report result
+                if(cellResult!=null && !cellResult.isEmpty())
+                    //critical operation
+                    return valueOfCell(cellResult);
+            }
+            catch (IOException ex)
+            {
+                if(logStream!=null)
+                    logStream.writeLog(ex, new Parameter("cgi",cgi));
+            }
+        }
+        
+        //report is not exist
+        return null;
+        
+    }
+    
+    
+    public static boolean putCell(CoverageCell cell)
+    {
+        //precondition: cellularTable is not null
+        
+        //row key design
+        byte[] rowId=cell.designRowId();
+        
+        cell.setRowId(rowId);
+        
+        //put the value
+        Put put=new Put(cell.getRowId());
+        
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_CID), Bytes.toBytes(cell.getCid()));
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_LAC), Bytes.toBytes(cell.getLac()));
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_MNC), Bytes.toBytes(cell.getMnc()));
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_CGI), Bytes.toBytes(cell.getCellGlobalId()));
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_CELL_NAME), Bytes.toBytes(cell.getCellName()));
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_SITE_CODE), Bytes.toBytes(cell.getSiteCode()));
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_SITE_NAME), Bytes.toBytes(cell.getSiteName()));
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_AZIMUTH), Bytes.toBytes(cell.getAzimuth()));
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_X), Bytes.toBytes(cell.getLongitude()));
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_Y), Bytes.toBytes(cell.getLatitude()));
+        put.addColumn(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_HEIGHT), Bytes.toBytes(cell.getHeight()));
+
+        //put the cell into table
+        try
+        {
+            cellularTable.put(put);
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex,new Parameter("CellGlobalId",cell.getCellGlobalId())
+                        , new Parameter("Lac",String.valueOf(cell.getLac())), new Parameter("Mnc",String.valueOf(cell.getMnc()))
+                        , new Parameter("X",String.valueOf(cell.getLongitude())), new Parameter("Y",String.valueOf(cell.getLatitude()))
+                        , new Parameter("Height",String.valueOf(cell.getHeight())), new Parameter("azimuth",String.valueOf(cell.getAzimuth()))
+                        , new Parameter("CellName",cell.getCellName()), new Parameter("SiteCode",cell.getSiteCode())
+                        , new Parameter("SiteName",cell.getSiteName()));
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public static CoverageCell[] getCells()
+    {
+        //precondition: navigationTable is not null
+        Scan scan=new Scan();
+
+        //getting result
+        List<CoverageCell> cells=new ArrayList<CoverageCell>();
+        
+        try
+        {
+            ResultScanner results=cellularTable.getScanner(scan);
+            
+            if(results!=null)
+                for(Result result:results)
+                    //critical operation
+                    cells.add(valueOfCell(result));  
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex);
+        }
+        
+        return cells.toArray(new CoverageCell[0]);
+    }
+    
+    public static LogStream getLogStream()
+    {
+        return logStream;
+    }
+
+    public static void setLogStreamPath(String filePath)
+    {
+        DataAccess.logStream = new LogStream(filePath);
+    }
+    
+    public static void setZookeeperAddress(String ipAddress)
+    {
+        Configuration configuration=new Configuration();
+        configuration.set("hbase.zookeeper.quorum", ipAddress);
+        try
+        {
+            connection=ConnectionFactory.createConnection(configuration);
+            
+            reportTable=connection.getTable(TableName.valueOf(DataSchema.REPORT_TABLE));
+            reportRealtimeTable=connection.getTable(TableName.valueOf(DataSchema.REPORT_TABLE+DataSchema.REAL_TIME_SUFFIX));
+            commandTable=connection.getTable(TableName.valueOf(DataSchema.COMMAND_TABLE));
+            cellularTable=connection.getTable(TableName.valueOf(DataSchema.CELLULAR_TABLE));
+            navigationTable=connection.getTable(TableName.valueOf(DataSchema.NAVIGATION_TABLE));
+            navigationRealtimeTable=connection.getTable(TableName.valueOf(DataSchema.NAVIGATION_TABLE+DataSchema.REAL_TIME_SUFFIX));
+            keywordTable=connection.getTable(TableName.valueOf(DataSchema.KEYWORD_TABLE));
+        }
+        catch (IOException ex)
+        {
+            if(getLogStream()!=null)
+                getLogStream().writeLog(ex, new Parameter("ipAddress",ipAddress));
+        }   
+    }
+ 
+    
+    //private constructors region
+    private DataAccess() {}
+    
+    //private static methods region
+    private static Result getNavigationRow(byte[] startRow, byte[] stopRow, boolean isRealtime)
+    {
+        //precondition: navigationTable and navitationRealtimeTable is not null
+        Table currentNavigationTable;
+        
+        if(isRealtime)
+            currentNavigationTable=navigationRealtimeTable;
+        else
+            currentNavigationTable=navigationTable;
+        
+        Scan scan=setupScan(startRow, stopRow, 0 ,0);
+        PageFilter filter=new PageFilter(1);
+        
+        scan.setFilter(filter);
+        
+        ResultScanner rs;
+        try
+        {
+            rs = currentNavigationTable.getScanner(scan);
+            
+            if(rs!=null)
+                return rs.next();
+        }
+        catch (IOException ex)
+        {
+            if(getLogStream()!=null)
+            {
+                String stringOffset=(startRow==null)?"<Null>":startRow.toString();
+                getLogStream().writeLog(ex, new Parameter("stringOffset",stringOffset),new Parameter("isRealtime",String.valueOf(isRealtime)));
+            }
+        }
+        
+        return null;   
+    }
+    
+    private static Scan setupScan(byte[] startRow, byte[] stopRow, long startTimestamp, long endTimestamp)
+    {
+        Scan scan=new Scan();
+        
+        if(startRow!=null)
+            scan.setStartRow(startRow);
+        
+        if(stopRow!=null)
+            scan.setStopRow(stopRow);
+        
+        try
+        {
+            if(startTimestamp>0)
+                if(endTimestamp>0)
+                    scan.setTimeRange(startTimestamp, endTimestamp);
+                else
+                    scan.setTimeRange(startTimestamp, Long.MAX_VALUE);
+            else
+                if(endTimestamp>0)
+                    scan.setTimeRange(0, endTimestamp);
+        }
+        catch(IOException ex)
+        {
+            if(getLogStream()!=null)
+                getLogStream().writeLog(ex, new Parameter("startTimestamp",String.valueOf(startTimestamp)),new Parameter("endTimestamp",String.valueOf(endTimestamp)));
+        }
+        
+        return scan;
+    }
+    
+    private static Report valueOfReport(Result result)
+    {
+        //precondition: none
+        if(result==null) 
+            return null;
+        
+        Report report=new Report();
+        
+        //extract report id
+        report.setRowId(result.getRow());
+
+        //getting values into report
+        report.setId(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_ID)),0l));
+        report.setUser(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_USER)),""));
+        report.setCommand(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_COMMAND)),""));
+        report.setText(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_TEXT)),""));
+        report.setPriority(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_PRIORITY)),0f));
+        report.setTrusty(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_TRUSTY)),0));
+        report.setIp(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_IP)),""));
+        report.setCellInfo(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_CELL_INFO)),""));
+        report.setImei(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_IMEI)),""));
+        report.setImsi(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_IMSI)),""));
+        report.setSsn(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_SSN)),""));
+        report.setMac(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_MAC)),""));
+        report.setGpsLatitude(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_LATITUDE)),0d));
+        report.setGpsLongitude(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_LONGITUDE)),0d));
+        report.setCellLatitude(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_CELLLATITUDE)),0d));
+        report.setCellLongitude(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_CELLLONGITUDE)),0d));
+        report.setDeviceType(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_DEVICE_TYPE)),""));
+        report.setOs(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_OS_VERSION)),""));
+        report.setComment(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_COMMENT)),""));
+        report.setKeyword(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_KEYWORDS)),""));
+        report.setProcessed(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_PROCESSED)),false));
+        report.setGpsDate(new Date(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_GPS_DATE)),0l)));
+        
+        //extract date
+        long timestamp=valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_DATE)),0l);
+        
+        Cell cell=result.getColumnLatestCell(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_TEXT));
+        
+        if(cell!=null)
+            report.setTimpstamp(cell.getTimestamp());
+        
+        
+        if(timestamp==0)
+            timestamp=report.getTimpstamp();
+        
+        report.setDate(new Date(timestamp));
+
+        //getting category info
+        NavigableMap<byte[], byte[]> familyMap = result.getFamilyMap(Bytes.toBytes(DataSchema.REPORT_CATEGORY));
+
+        if(familyMap!=null && familyMap.keySet()!=null)
+            for(byte[] key : familyMap.keySet())
+            {
+                String keyString=Bytes.toString(key);
+    
+                if(keyString.equals(DataSchema.REPORT_CATEGORY_IMPORTANCE))
+                {
+                    float value=valueOfBytes(familyMap.get(key), 0f);
+                    report.setImportance(value);
+                }
+                else
+                {
+                    int value=valueOfBytes(familyMap.get(key), 0);
+                    report.getCategories().put(keyString, value);
+                }
+            }
+        
+        return report;
+    }
+ 
+    private static Navigation valueOfNavigation(Result result)
+    {
+        //precondition: none
+        if(result==null) 
+            return null;
+        
+        Navigation navigation=new Navigation();
+         
+        //extract report id
+        navigation.setRowId(result.getRow());
+
+        //getting values into report
+        navigation.setUser(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_USER)),""));
+        navigation.setLongitude(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_LONGITUDE)),0d));
+        navigation.setLatitude(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_LATITUDE)),0d));
+        navigation.setAccuracy(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_ACCURACY)),-1f));
+        navigation.setDate(new Date(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_DATE)),0l)));
+        navigation.setCgi(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_CGI)),""));
+        navigation.setAzimuth(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_AZIMUTH)),0f));
+        navigation.setHeight(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_HEIGHT)),0f));
+        
+        //extract time stamp
+        Cell cell=result.getColumnLatestCell(Bytes.toBytes(DataSchema.NAVIGATION_INFO), Bytes.toBytes(DataSchema.NAVIGATION_INFO_USER));
+        
+        if(cell!=null)
+            navigation.setTimpstamp(cell.getTimestamp());
+        
+        return navigation;
+    }
+   
+    private static CoverageCell valueOfCell(Result result)
+    {
+        //precondition: none
+        if(result==null) 
+            return null;
+        
+        CoverageCell cell=new CoverageCell();
+         
+        //extract report id
+        cell.setRowId(result.getRow());
+        
+        //getting values into report
+        cell.setCid(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_CID)),0));
+        cell.setLac(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_LAC)),0));
+        cell.setMnc(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_MNC)),0));
+        cell.setCellGlobalId(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_CGI)),""));
+        cell.setCellName(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_CELL_NAME)),""));
+        cell.setSiteCode(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_SITE_CODE)),""));
+        cell.setSiteName(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_SITE_NAME)),""));
+        cell.setAzimuth(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_AZIMUTH)),0f));
+        cell.setLongitude(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_X)),0d));
+        cell.setLatitude(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_Y)),0d));
+        cell.setHeight(valueOfBytes(result.getValue(Bytes.toBytes(DataSchema.CELLULAR_INFO), Bytes.toBytes(DataSchema.CELLULAR_INFO_HEIGHT)),0f));
+
+        return cell;
+    }
+   
+    private static String valueOfBytes(byte[] value, String defaultValue)
+    {
+        if(value!=null)
+        {
+            try
+            {
+                return Bytes.toString(value);
+            }
+            catch(Exception ex)
+            {
+                if(logStream!=null)
+                    logStream.writeLog(ex,new Parameter("value",value.toString()),new Parameter("defaultValue", defaultValue));
+                
+            }
+        }
+        
+        return defaultValue;
+    }
+    
+    
+    private static double valueOfBytes(byte[] value, double defaultValue)
+    {
+        if(value!=null)
+        {
+            try
+            {
+                return Bytes.toDouble(value);
+            }
+            catch(Exception ex)
+            {
+                if(logStream!=null)
+                    logStream.writeLog(ex,new Parameter("value",value.toString()),new Parameter("defaultValue", String.valueOf(defaultValue)));    
+            }
+        }
+        
+        return defaultValue;
+    }
+    
+    
+    private static float valueOfBytes(byte[] value, float defaultValue)
+    {
+        if(value!=null)
+        {
+            try
+            {
+                return Bytes.toFloat(value);
+            }
+            catch(Exception ex)
+            {
+                if(logStream!=null)
+                    logStream.writeLog(ex,new Parameter("value",value.toString()),new Parameter("defaultValue", String.valueOf(defaultValue)));    
+            }
+        }
+        
+        return defaultValue;
+    }
+    
+   
+    private static int valueOfBytes(byte[] value, int defaultValue)
+    {
+        if(value!=null)
+        {
+            try
+            {
+                return Bytes.toInt(value);
+            }
+            catch(Exception ex)
+            {
+                if(logStream!=null)
+                    logStream.writeLog(ex,new Parameter("value",value.toString()),new Parameter("defaultValue", String.valueOf(defaultValue)));    
+            }
+        }
+        
+        return defaultValue;
+    }
+    
+    
+    private static long valueOfBytes(byte[] value, long defaultValue)
+    {
+        {
+            try
+            {
+                return Bytes.toLong(value);
+            }
+            catch(Exception ex)
+            {
+                String valueString=(value==null)?"<NULL>":value.toString();
+                
+                if(logStream!=null)
+                    logStream.writeLog(ex,new Parameter("value",valueString),new Parameter("defaultValue", String.valueOf(defaultValue)));    
+            }
+        }
+        
+        return defaultValue;
+    }
+    
+    private static boolean valueOfBytes(byte[] value, boolean defaultValue)
+    {
+        try
+        {
+            return Bytes.toBoolean(value);
+        }
+        catch(Exception ex)
+        {
+            String valueString=(value==null)?"<NULL>":value.toString();
+
+            if(logStream!=null)
+                logStream.writeLog(ex,new Parameter("value",valueString),new Parameter("defaultValue", String.valueOf(defaultValue)));    
+        }
+
+        return defaultValue;
+    }
+    
+   
+    private static byte[] bytesFromHex(String hexValue)
+    {
+        if(hexValue==null || hexValue=="" || hexValue=="0")
+            return null;
+        
+        try
+        {
+            return Bytes.fromHex(hexValue);
+        }
+        catch(Exception ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex, new Parameter("hexValue",hexValue));
+            return null;
+        }
+    }
+    
+    
+    private static boolean isRealtimeReport(byte[] rowId)
+    {
+        //precondition: rowId is not null
+        try
+        {
+            return rowId[Bytes.SIZEOF_FLOAT]!=0;
+        }
+        catch(Exception ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex,new Parameter("rowId",(rowId==null)?"<NULL>":rowId.toString()));
+            
+            return false;
+        }
+    }
+    
+    
+    //private fields region
+    private static Connection connection;
+    private static Table reportTable;
+    private static Table reportRealtimeTable;
+    private static Table commandTable;
+    private static Table cellularTable;
+    private static Table navigationTable;
+    private static Table navigationRealtimeTable;    
+    private static Table keywordTable;
+    private static LogStream logStream;
+    
+    
+    static
+    {
+        try
+        {
+            connection=ConnectionFactory.createConnection();
+            
+            reportTable=connection.getTable(TableName.valueOf(DataSchema.REPORT_TABLE));
+            reportRealtimeTable=connection.getTable(TableName.valueOf(DataSchema.REPORT_TABLE+DataSchema.REAL_TIME_SUFFIX));
+            commandTable=connection.getTable(TableName.valueOf(DataSchema.COMMAND_TABLE));
+            cellularTable=connection.getTable(TableName.valueOf(DataSchema.CELLULAR_TABLE));
+            navigationTable=connection.getTable(TableName.valueOf(DataSchema.NAVIGATION_TABLE));
+            navigationRealtimeTable=connection.getTable(TableName.valueOf(DataSchema.NAVIGATION_TABLE+DataSchema.REAL_TIME_SUFFIX));
+            keywordTable=connection.getTable(TableName.valueOf(DataSchema.KEYWORD_TABLE));
+        }
+        catch (IOException ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex);
+            ex.printStackTrace();
+        }   
+    }
+    
+    
+    public enum ReportState 
+    {
+        all,
+        processed,
+        unprocessed
+    }
+    
+    
+    public enum LocationState
+    {
+        all,
+        gps,
+        cell
+    }
+    
+    public enum NavigationType
+    {
+        all,
+        userName,
+        lastPoint
+    }
+}
+
+   /*
+    public static final String IMSI = "IMSI";
+    public static final String IMEI = "IMEI";
+    public static final String SSN = "SimSerialNumber";
+    public static final String MAC = "Macaddress";
+    public static final String LONGITUDE = "Longitude";
+    public static final String LATITUDE = "Latitude";
+    public static final String CELL_LONGITUDE = "CellLongitude";
+    public static final String CELL_LATITUDE = "CellLatitude";
+    public static final String DEVICE_TYPE = "DeviceType";
+    public static final String OS_VERSION = "Osversion";
+    public static final String COMMENTS = "Comments";
+
+    public static final String PROCESSED = "Processed";
+    public static final String LOCATION_TIME = "LocationTime";
+    public static final String DATE = "Date";
+    public static final String TIMESTAMP = "Timestamp";
+    public static final String CATEGORIES = "Categories";
+    public static final String IMPORTANCE = "Importance";
+    public static final String USE_JPS = "UseJps";
+    */
+    
+        public static Report[] loadReportsByAdmin(String userAdmin, byte[] startRow, int offset, double startLongitude, double startLatitude, double endLongitude, double endLatitude)
+    {
+        Report report=new Report();
+        report.setUserAdmin(userAdmin);
+        
+        if(Bytes.compareTo(startRow, report.getAdminStartKey())<0)
+            startRow=report.getAdminStartKey();
+        
+        return dataImplement.load(report, startRow, report.getAdminEndKey(), offset, dataImplement.getReportCoordinateFilter(startLongitude, startLatitude, endLongitude, endLatitude)).toArray(new Report[0]);
+    }
+
+     if(dictionaries!=null)
+                                        for(Dictionary dic:dictionaries)
+                                        {
+                                            try
+                                            {
+                                                int matching=matchingText(reportwords, dic);
+
+                                                if(matching>0)
+                                                    classification.add(new Classify(report.getRowKey(), dic.getName(), matching));
+                                            }
+                                            catch(Exception ex)
+                                            {
+                                                ex.printStackTrace();
+                                            }
+                                        }
+
+                                    if(classification.size()>0)
+                                        report.setClassifies(classification.toArray(new Classify[0]));
+    
+    
+    ////////////////
+    public Filter getUserSectionFilter(String section)
+    {
+        if(section!=null && section!="")
+        {
+            SingleColumnValueFilter result=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.USER_INFO), Bytes.toBytes(DataSchema.USER_INFO_SECTION), CompareOp.EQUAL, Bytes.toBytes(section));
+            result.setFilterIfMissing(true);
+            return result;
+        }
+        else
+            return null;
+    }
+    
+    public Filter getUserAdminFilter(String admin)
+    {
+        if(admin!=null && admin!="")
+        {
+            SingleColumnValueFilter result=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.USER_INFO), Bytes.toBytes(DataSchema.USER_INFO_ADMIN), CompareOp.EQUAL, Bytes.toBytes(admin));
+            result.setFilterIfMissing(true);
+            return result;
+        }
+        else
+            return null;
+    }
+    
+    public Filter getCommandAdminFilter(String admin)
+    {
+        if(admin!=null && admin!="")
+        {
+            SingleColumnValueFilter result=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.COMMAND_INFO), Bytes.toBytes(DataSchema.COMMAND_INFO_ADMIN), CompareOp.EQUAL, Bytes.toBytes(admin));
+            result.setFilterIfMissing(true);
+            return result;
+        }
+        else
+            return null;
+    }
+    
+    public Filter getExtendedReportKeywordsFilter(String keywords)
+    {
+        if(keywords!=null && keywords!="")
+        {
+            SingleColumnValueFilter keywordFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_KEYWORDS), CompareOp.EQUAL, new SubstringComparator(keywords));
+            keywordFilter.setFilterIfMissing(true);
+            return keywordFilter;
+        }
+        else
+            return null;
+    }
+    
+    public Filter getExtendedReportImportanceFilter(float lowestImportance)
+    {
+        if(lowestImportance>0)
+        {
+            SingleColumnValueFilter importanceFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_COMMAND_ID), CompareOp.GREATER_OR_EQUAL, Bytes.toBytes(lowestImportance));
+            importanceFilter.setFilterIfMissing(true);
+            return importanceFilter;
+        }
+        return null;
+    }
+    
+    public Filter getExtendedReportClassificationFilter(String classification)
+    {
+        if(classification!=null && classification!="")
+        {
+            SingleColumnValueFilter importanceFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_CATEGORY), Bytes.toBytes(classification), CompareOp.NOT_EQUAL, Bytes.toBytes(""));
+            importanceFilter.setFilterIfMissing(true);
+            return importanceFilter;
+        }
+        return null;
+    }
+    
+    public Filter getExtendedReportCommandFilter(String commandId)
+    {
+        if(commandId!=null && commandId!="")
+        {
+            SingleColumnValueFilter commandFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_COMMAND_ID), CompareOp.EQUAL, Bytes.toBytes(commandId));
+            commandFilter.setFilterIfMissing(true);
+            return commandFilter;
+        }
+        return null;
+    }
+    
+    public Filter getExtendedReportReviewFilter(boolean reviewed, boolean processed)
+    {
+        //precondition: none
+        if(reviewed || processed)
+        {
+            SingleColumnValueFilter processedFilter=null;
+            SingleColumnValueFilter commentFilter=null;
+
+            if(processed)
+            {
+                processedFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_PROCESSED), CompareOp.EQUAL, Bytes.toBytes(true));
+                processedFilter.setFilterIfMissing(true);
+            }
+            else
+            {
+                processedFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_PROCESSED), CompareOp.NOT_EQUAL, Bytes.toBytes(true));
+                processedFilter.setFilterIfMissing(false);
+            }
+            
+            if(reviewed)
+            {
+                commentFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_COMMENT), CompareOp.NOT_EQUAL, Bytes.toBytes(""));
+                processedFilter.setFilterIfMissing(true);
+            }
+            
+            FilterList filters=new FilterList(Operator.MUST_PASS_ALL);
+            filters.addFilter(processedFilter);
+            filters.addFilter(commentFilter);
+            return filters;       
+        }
+        else
+            return null;
+        //return: reivewd       processed       result
+        //           F              F           all
+        //           F              T           processed only
+        //           T              F           not processed
+        //           T              T           processed or commented
+    }
+    
+    public Filter getExtendedReportUserFilter(String userName)
+    {
+        if(userName!=null && userName!="")
+        {
+            SingleColumnValueFilter keywordFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO), Bytes.toBytes(DataSchema.REPORT_INFO_USER_NAME), CompareOp.EQUAL, Bytes.toBytes(userName));
+            keywordFilter.setFilterIfMissing(true);
+            return keywordFilter;
+        }
+        else
+            return null;
+    }
+    
+    public Filter getExtendedReportCoordinateFilter(double startLongitude, double startLatitude, double endLongitude, double endLatitude)
+    {
+        //precondition: none
+        if(startLongitude!=0 || endLongitude!=0 || startLatitude !=0 || endLatitude!=0)
+        {
+            //check value range
+            if(startLongitude>endLongitude)
+            {
+                double temp=startLongitude;
+                startLongitude=endLongitude;
+                endLongitude=temp;
+            }
+            
+            if(startLatitude>endLatitude)
+            {
+                double temp=startLatitude;
+                startLatitude=endLatitude;
+                endLatitude=temp;
+            }
+            
+            //setup coordinate filter
+            SingleColumnValueFilter startLogitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_LONGITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLongitude));
+            SingleColumnValueFilter endLongitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_LONGITUDE),CompareOp.LESS,Bytes.toBytes(endLongitude));
+            SingleColumnValueFilter startLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_LATITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLatitude));
+            SingleColumnValueFilter endLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_LATITUDE),CompareOp.LESS,Bytes.toBytes(endLatitude));
+            SingleColumnValueFilter startCellLogitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELLLONGITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLongitude));
+            SingleColumnValueFilter endCellLongitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELLLONGITUDE),CompareOp.LESS,Bytes.toBytes(endLongitude));
+            SingleColumnValueFilter startCellLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELLLATITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLatitude));
+            SingleColumnValueFilter endCellLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_INFO),Bytes.toBytes(DataSchema.REPORT_INFO_CELLLATITUDE),CompareOp.LESS,Bytes.toBytes(endLatitude));
+        
+            startLogitudeFilter.setFilterIfMissing(true);
+            endLongitudeFilter.setFilterIfMissing(true);
+            startLatitudeFilter.setFilterIfMissing(true);
+            endLatitudeFilter.setFilterIfMissing(true);
+            startCellLogitudeFilter.setFilterIfMissing(true);
+            endCellLongitudeFilter.setFilterIfMissing(true);
+            startCellLatitudeFilter.setFilterIfMissing(true);
+            endCellLatitudeFilter.setFilterIfMissing(true);
+            
+            FilterList gpsFilters=new FilterList(Operator.MUST_PASS_ALL);
+            FilterList cellFilters=new FilterList(Operator.MUST_PASS_ALL);
+            
+            gpsFilters.addFilter(startLogitudeFilter);
+            gpsFilters.addFilter(endLongitudeFilter);
+            gpsFilters.addFilter(startLatitudeFilter);
+            gpsFilters.addFilter(endLatitudeFilter);
+            cellFilters.addFilter(startCellLogitudeFilter);
+            cellFilters.addFilter(endCellLongitudeFilter);
+            cellFilters.addFilter(startCellLatitudeFilter);
+            cellFilters.addFilter(endCellLatitudeFilter);
+    
+            FilterList coordinateFilter=new FilterList(Operator.MUST_PASS_ONE);
+            coordinateFilter.addFilter(gpsFilters);
+            coordinateFilter.addFilter(cellFilters);
+            
+            return coordinateFilter;
+        }
+        else
+            return null;
+    }
+
+    
+    public Filter getReportPreviewCoordinateFilter(double startLongitude, double startLatitude, double endLongitude, double endLatitude)
+    {
+        //precondition: none
+        if(startLongitude!=0 || endLongitude!=0 || startLatitude !=0 || endLatitude!=0)
+        {
+            //check value range
+            if(startLongitude>endLongitude)
+            {
+                double temp=startLongitude;
+                startLongitude=endLongitude;
+                endLongitude=temp;
+            }
+            
+            if(startLatitude>endLatitude)
+            {
+                double temp=startLatitude;
+                startLatitude=endLatitude;
+                endLatitude=temp;
+            }
+            
+            //setup coordinate filter
+            SingleColumnValueFilter startLogitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO),Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO_LONGITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLongitude));
+            SingleColumnValueFilter endLongitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO),Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO_LONGITUDE),CompareOp.LESS,Bytes.toBytes(endLongitude));
+            SingleColumnValueFilter startLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO),Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO_LATITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLatitude));
+            SingleColumnValueFilter endLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO),Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO_LATITUDE),CompareOp.LESS,Bytes.toBytes(endLatitude));
+            SingleColumnValueFilter startCellLogitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO),Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO_CELLLONGITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLongitude));
+            SingleColumnValueFilter endCellLongitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO),Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO_CELLLONGITUDE),CompareOp.LESS,Bytes.toBytes(endLongitude));
+            SingleColumnValueFilter startCellLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO),Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO_CELLLATITUDE),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLatitude));
+            SingleColumnValueFilter endCellLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO),Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO_CELLLATITUDE),CompareOp.LESS,Bytes.toBytes(endLatitude));
+        
+            startLogitudeFilter.setFilterIfMissing(true);
+            endLongitudeFilter.setFilterIfMissing(true);
+            startLatitudeFilter.setFilterIfMissing(true);
+            endLatitudeFilter.setFilterIfMissing(true);
+            startCellLogitudeFilter.setFilterIfMissing(true);
+            endCellLongitudeFilter.setFilterIfMissing(true);
+            startCellLatitudeFilter.setFilterIfMissing(true);
+            endCellLatitudeFilter.setFilterIfMissing(true);
+            
+            FilterList gpsFilters=new FilterList(Operator.MUST_PASS_ALL);
+            FilterList cellFilters=new FilterList(Operator.MUST_PASS_ALL);
+            
+            gpsFilters.addFilter(startLogitudeFilter);
+            gpsFilters.addFilter(endLongitudeFilter);
+            gpsFilters.addFilter(startLatitudeFilter);
+            gpsFilters.addFilter(endLatitudeFilter);
+            cellFilters.addFilter(startCellLogitudeFilter);
+            cellFilters.addFilter(endCellLongitudeFilter);
+            cellFilters.addFilter(startCellLatitudeFilter);
+            cellFilters.addFilter(endCellLatitudeFilter);
+    
+            FilterList coordinateFilter=new FilterList(Operator.MUST_PASS_ONE);
+            coordinateFilter.addFilter(gpsFilters);
+            coordinateFilter.addFilter(cellFilters);
+            
+            return coordinateFilter;
+        }
+        else
+            return null;
+    }
+
+    public Filter getReportPreviewUserFilter(String userName)
+    {
+        if(userName!=null && userName!="")
+        {
+            SingleColumnValueFilter keywordFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO), Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO_USER_NAME), CompareOp.EQUAL, Bytes.toBytes(userName));
+            keywordFilter.setFilterIfMissing(true);
+            return keywordFilter;
+        }
+        else
+            return null;
+    }
+    
+    public Filter getReportPreviewKeywordsFilter(String keywords)
+    {
+        if(keywords!=null && keywords!="")
+        {
+            SingleColumnValueFilter keywordFilter=new SingleColumnValueFilter(Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO), Bytes.toBytes(DataSchema.REPORT_PREVIEW_INFO_KEYWORDS), CompareOp.EQUAL, new SubstringComparator(keywords));
+            keywordFilter.setFilterIfMissing(true);
+            return keywordFilter;
+        }
+        else
+            return null;
+    }
+    
+   public static ExtendedReport[] loadExtendedReportsByCommand(String commandId, byte[] startRow, int offset, boolean isRealtime)
+    {
+        ExtendedReport report=new ExtendedReport();
+        report.setRealtime(isRealtime);
+       
+        return dataImplement.load(report, startRow, null, offset, getFilterExtendedReportByCommand(commandId)).toArray(new ExtendedReport[0]);
+    }  
+    
+    public static ExtendedReport[] loadExtendedReportsByClassification(String classification, byte[] startRow, int offset, boolean isRealtime)
+    {
+        ExtendedReport report=new ExtendedReport();
+        report.setRealtime(isRealtime);
+       
+        return dataImplement.load(report, startRow, null, offset, getFilterExtendedReportByClassification(classification)).toArray(new ExtendedReport[0]);
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByImportance(float lowestImportance, byte[] startRow, int offset, boolean isRealtime)
+    {
+        ExtendedReport report=new ExtendedReport();
+        report.setRealtime(isRealtime);
+       
+        return dataImplement.load(report, startRow, null, offset, getFilterExtendedReportByImportance(lowestImportance)).toArray(new ExtendedReport[0]);
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByReviewState(boolean reviewed, boolean processed, byte[] startRow, int offset, boolean isRealtime)
+    {
+        ExtendedReport report=new ExtendedReport();
+        report.setRealtime(isRealtime);
+       
+        return dataImplement.load(report, startRow, null, offset, getFilterExtendedReportByReview(reviewed, processed)).toArray(new ExtendedReport[0]);
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByDate(long minTimestamp, long maxTimestamp ,byte[] startRow, int offset, boolean isRealtime)
+    { 
+        ExtendedReport report=new ExtendedReport();
+        report.setRealtime(isRealtime);
+       
+        return dataImplement.load(report, startRow, null, minTimestamp, maxTimestamp, offset, null).toArray(new ExtendedReport[0]);
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByKeywords(String keyword, byte[] startRow, int offset, boolean isRealtime)
+    {
+        ExtendedReport report=new ExtendedReport();
+        report.setRealtime(isRealtime);
+       
+        return dataImplement.load(report, startRow, null, offset, getFilterExtendedReportByText(keyword)).toArray(new ExtendedReport[0]);
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByCoordinate(double startLongitude, double startLatitude, double endLongitude, double endLatitude, byte[] startRow, int offset, boolean isRealtime)
+    {
+        ExtendedReport report=new ExtendedReport();
+        report.setRealtime(isRealtime);
+     
+        return dataImplement.load(report, startRow, null, 0, 0, offset, getFilterExtendedReportByCoordinate(startLongitude, startLatitude, endLongitude, endLatitude)).toArray(new ExtendedReport[0]);
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByRealtime(double startLongitude, double startLatitude, double endLongitude, double endLatitude, byte[] endrow)
+    {
+        ExtendedReport report=new ExtendedReport();
+        report.setRealtime(true);
+     
+        return dataImplement.load(report, null, endrow, 0, 0, 0, getFilterExtendedReportByCoordinate(startLongitude, startLatitude, endLongitude, endLatitude)).toArray(new ExtendedReport[0]);
+    }
+    
+    public static ExtendedReport[] loadExtendedReportsByArgs(String keywords, long minTimestamp, long maxTimestamp, double startLongitude, double startLatitude, double endLongitude, double endLatitude, byte[] startRow, int offset, boolean isRealtime)
+    {
+        ExtendedReport report=new ExtendedReport();
+        report.setRealtime(isRealtime);
+        
+        Filter filters=null;
+        
+        Filter coordinateFilter=getFilterExtendedReportByCoordinate(startLongitude, startLatitude, endLongitude, endLatitude);
+        Filter textFilter=getFilterExtendedReportByText(keywords);
+          
+        if(coordinateFilter!=null && textFilter!=null)
+        {
+            filters=new FilterList(Operator.MUST_PASS_ALL);
+            ((FilterList)filters).addFilter(coordinateFilter);
+            ((FilterList)filters).addFilter(textFilter);
+        }
+        else if(coordinateFilter!=null)
+            filters=coordinateFilter;
+        else if(textFilter!=null)
+            filters=textFilter;
+        
+        return dataImplement.load(report, startRow, null, minTimestamp, maxTimestamp, offset, filters).toArray(new ExtendedReport[0]);
+    }
+    
+    
+    //precondition: none
+        if(entityType!=null && (startLatitude!=0 || startLatitude!=0 || endLongitude!=0 || endLatitude!=0))
+        {
+            String family;
+            String qualifierLongitude;
+            String qualifierLatitude;
+            String qualifierCellLongitude;
+            String qualifierCellLatitude;
+
+            if(entityType instanceof ExtendedReport)
+            {
+                family = DataSchema.REPORT_INFO;
+
+                qualifierLongitude=DataSchema.REPORT_INFO_LONGITUDE;
+                qualifierLatitude=DataSchema.REPORT_INFO_LATITUDE;
+                qualifierCellLongitude=DataSchema.REPORT_INFO_CELLLONGITUDE;
+                qualifierCellLatitude=DataSchema.REPORT_INFO_CELLLATITUDE;
+            }
+            else if(entityType instanceof ReportPreview)
+            {
+                family = DataSchema.REPORT_PREVIEW_INFO;
+
+                qualifierLongitude=DataSchema.REPORT_PREVIEW_INFO_LONGITUDE;
+                qualifierLatitude=DataSchema.REPORT_PREVIEW_INFO_LATITUDE;
+                qualifierCellLongitude=DataSchema.REPORT_PREVIEW_INFO_CELLLONGITUDE;
+                qualifierCellLatitude=DataSchema.REPORT_PREVIEW_INFO_CELLLATITUDE;
+            }
+            else if(entityType instanceof Navigation)
+            {
+                family = DataSchema.NAVIGATION_INFO;
+
+                qualifierLongitude=DataSchema.NAVIGATION_INFO_LONGITUDE;
+                qualifierLatitude=DataSchema.NAVIGATION_INFO_LATITUDE;
+                qualifierCellLongitude="";
+                qualifierCellLatitude="";
+            }
+            else
+                return null;
+
+            //setup coordinate filter
+            SingleColumnValueFilter startLogitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(family),Bytes.toBytes(qualifierLongitude),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLongitude));
+            SingleColumnValueFilter endLongitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(family),Bytes.toBytes(qualifierLongitude),CompareOp.LESS,Bytes.toBytes(endLongitude));
+            SingleColumnValueFilter startLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(family),Bytes.toBytes(qualifierLatitude),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLatitude));
+            SingleColumnValueFilter endLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(family),Bytes.toBytes(qualifierLatitude),CompareOp.LESS,Bytes.toBytes(endLatitude));
+
+            startLogitudeFilter.setFilterIfMissing(true);
+            endLongitudeFilter.setFilterIfMissing(true);
+            startLatitudeFilter.setFilterIfMissing(true);
+            endLatitudeFilter.setFilterIfMissing(true); 
+
+            FilterList gpsFilters=new FilterList(Operator.MUST_PASS_ALL);
+            gpsFilters.addFilter(startLogitudeFilter);
+            gpsFilters.addFilter(endLongitudeFilter);
+            gpsFilters.addFilter(startLatitudeFilter);
+            gpsFilters.addFilter(endLatitudeFilter);
+
+            if(qualifierCellLongitude!="" && qualifierCellLatitude!="")
+            {
+                SingleColumnValueFilter startCellLogitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(family),Bytes.toBytes(qualifierCellLongitude),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLongitude));
+                SingleColumnValueFilter endCellLongitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(family),Bytes.toBytes(qualifierCellLongitude),CompareOp.LESS,Bytes.toBytes(endLongitude));
+                SingleColumnValueFilter startCellLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(family),Bytes.toBytes(qualifierCellLatitude),CompareOp.GREATER_OR_EQUAL,Bytes.toBytes(startLatitude));
+                SingleColumnValueFilter endCellLatitudeFilter=new SingleColumnValueFilter(Bytes.toBytes(family),Bytes.toBytes(qualifierCellLatitude),CompareOp.LESS,Bytes.toBytes(endLatitude));
+
+                startCellLogitudeFilter.setFilterIfMissing(true);
+                endCellLongitudeFilter.setFilterIfMissing(true);
+                startCellLatitudeFilter.setFilterIfMissing(true);
+                endCellLatitudeFilter.setFilterIfMissing(true);    
+
+                FilterList cellFilters=new FilterList(Operator.MUST_PASS_ALL);
+                cellFilters.addFilter(startCellLogitudeFilter);
+                cellFilters.addFilter(endCellLongitudeFilter);
+                cellFilters.addFilter(startCellLatitudeFilter);
+                cellFilters.addFilter(endCellLatitudeFilter);
+
+                FilterList coordinateFilter=new FilterList(Operator.MUST_PASS_ONE);
+                coordinateFilter.addFilter(gpsFilters);
+                coordinateFilter.addFilter(cellFilters);
+
+                return coordinateFilter;
+            }
+            else
+                return gpsFilters;
+        }  
+
+        return null;

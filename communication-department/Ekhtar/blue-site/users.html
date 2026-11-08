@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Manage ekhtar users" />
+		<meta name="author" content="CD" />
+		<title>إدارة مستخدمو نظام إخطار</title>
+		<link rel="stylesheet" href="css/basic.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/imageCover.js"></script>
+		<script src="scripts/formValidation.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/master.js"></script>
+		<script src="js/users.js"></script>
+	</head>
+	<body id="body">
+		<div class="input-main box-glass">	
+			<div id="userInfoDiv" class="input-box">
+				<label id="nameText" type="text" class="input-label" placeholder="اسم المستخدم"></label>
+				<label id="fullNameText" type="text" class="input-label" placeholder="الاسم الكامل"></label>
+				<label id="jobText" type="text" class="input-label" placeholder="الوظيفة"></label>
+				<label id="addressText" type="text" class="input-label"  placeholder="مكان العمل"></label>
+				<label id="emailText" type="text" style='visibility:hidden' class="input-label"  placeholder="البريد الإلكتروني"></label>
+			</div>
+			 <div id="imageDiv" class="input-box">
+                                <img id="image" src="imgs/admin.png" class="input-image"/>
+                        </div>
+			<div class="input-box input-button-box">
+				<button id="deleteButton" class="input-button">إزالة المستخدم</button>
+			</div> 
+			<label id="usersResultLabel" class="input-result"/>
+		</div>
+		<div id="usersDiv" class="input-icons-users box-glass">
+			 <div id="icon" class="input-icon">
+				<img id="iconImage" src="imgs/admin.png" class="input-icon-image"/>
+				<div class="input-icon-offline"></div>
+				<label class="input-icon-text input-text-jid">مستخدم</label>
+				<input type='hidden'/>
+				<input type='hidden'/>
+				<input type='hidden'/>
+			</div>
+		</div>
+		<div id="addUserDiv" class="input-icons-user box-glass">
+			<input class="input-box input-jid-domain" type="text" tabindex="-1" value="@ekhtar.sy"/>
+			<input id="addNameText" class="input-box input-jid" type="text" placeholder="معرف مستخدم"/>
+			<button id="addButton" class="input-button input-inline">تسجيل مستخدم</button>
+			<label id="userResultLabel" class="input-result"></label>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<label for="subdomain">Subdomain:</label>
+<input type="text" placeholder="ExampleDomain" id="subdomain" />
+<input type="text" id="subdomaintwo" value=".domain.com" disabled/>
+<label class="jid">mayas</label>
+<style>
+input[type="text"]#subdomaintwo{
+    -webkit-appearance:none!important;
+    color:red;
+    text-align:right;
+    width:75px;
+    border:1px solid gray;
+    border-left:0px;
+    margin:0 0 0 -7px;
+    background:white;
+}
+input[type="text"]#subdomain{
+    -webkit-appearance:none!important;
+    border:1px solid gray;
+    border-right:0px;
+    outline:none;
+}
+.jid
+{
+	color: red;
+}
+
+.jid::after
+{
+	content: "<br />@ekhtar.localdomain";
+}
+
+</style>

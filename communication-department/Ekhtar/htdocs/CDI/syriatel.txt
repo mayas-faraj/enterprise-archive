@@ -1,0 +1,13 @@
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text from mtn",ip:"192.168.225.200"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text from syriatel",ip:"192.168.225.200"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text from syriatel localhost",ip:"::1"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text from syriatel localhost",ip:"127.0.0.1"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text from mtnlocalhost",ip:"192.168.225.200"}
+{status:"OK", sender:"93994917",date:"20170614125611",body:"اختبار عربي 109",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170614125614",body:"اختبار 7",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170614132641",body:"اختبار عربي 110",ip:"192.168.3.139"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text perf",ip:"127.0.0.1"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text perf",ip:"127.0.0.1"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text perf",ip:"127.0.0.1"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text perf",ip:"127.0.0.1"}
+{status:"OK", sender:"00000",date:"ss",body:"",ip:"10.11.32.200"}

@@ -1,0 +1,143 @@
+  
+    /*
+    public static String[] getReportsByArgs(String keywords,
+            long startDate, long endDate, double startLongitude,
+            double startLatitude, double endLongitue, double endLatitude,boolean realtime)
+    {
+        try
+        {
+            FilterList filters=null;
+            
+            if(startLongitude!=0||startLatitude!=0||endLongitue!=0||endLatitude!=0)
+            {
+                Filter locationFilter=getLocationFilter(startLongitude, startLatitude, endLongitue, endLatitude); 
+                
+                filters=new FilterList();
+                filters.addFilter(locationFilter);
+            }
+            
+            if(keywords!="")
+            {
+                Filter keywordFilter=new SingleColumnValueFilter(Bytes.toBytes(HbaseSchema.REPORT_INFO), Bytes.toBytes(HbaseSchema.REPORT_INFO_TEXT), CompareOp.EQUAL, new SubstringComparator(keywords));
+                
+                if(filters==null)
+                    filters=new FilterList();
+                
+                
+                
+                
+                filters.addFilter(keywordFilter);
+            }
+            return getReports(null, null,startDate,endDate, filters,realtime);
+        }
+        catch(Exception ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex,keywords,String.valueOf(startDate),String.valueOf(endDate),String.valueOf(startLongitude), String.valueOf(startLatitude), String.valueOf(endLongitue), String.valueOf(endLatitude));
+            return null;
+        }
+    }
+    
+    public static String[] getReportsByCommand(String commandId, boolean runtime)
+    {
+        try
+        {
+            Filter commandFilter=new SingleColumnValueFilter(Bytes.toBytes(HbaseSchema.REPORT_INFO),Bytes.toBytes(HbaseSchema.REPORT_INFO_COMMAND),CompareOp.EQUAL,Bytes.toBytes(commandId)); 
+            return getReports(null, null,0,0, commandFilter,false);
+        }
+        catch(Exception ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex,commandId, String.valueOf(runtime));
+            return null;
+        }
+    }
+    
+    public static String[] getReportsByOffset(String hexIdOffset,
+            double startLongitude,double startLatitude, double endLongitue, double endLatitude)
+    {
+        try
+        {
+            FilterList filters=null;
+            
+            if(startLongitude!=0||startLatitude!=0||endLongitue!=0||endLatitude!=0)
+            {
+                Filter locationFilter=getLocationFilter(startLongitude, startLatitude, endLongitue, endLatitude); 
+                
+                filters=new FilterList();
+                filters.addFilter(locationFilter);
+            }
+             
+            return getReports(Bytes.fromHex(hexIdOffset), null, 0, 0, filters, false);
+        }
+        catch(Exception ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex,hexIdOffset,String.valueOf(startLongitude), String.valueOf(startLatitude), String.valueOf(endLongitue), String.valueOf(endLatitude));
+            return null;
+        }
+    }
+    
+    public static String[] getReports(byte[] startRow,byte[] stopRow,long minTimestamp,long maxTimestamp,Filter filter,boolean isRealtime)
+    {
+        List<String> reports=new ArrayList<String>();
+        
+        try
+        {       
+            Scan scan=new Scan();
+            
+            if(startRow!=null)
+                scan.setStartRow(startRow);
+            
+            if(stopRow!=null)
+                scan.setStopRow(stopRow);
+            
+            if(filter!=null)
+                scan.setFilter(filter);
+            
+            //checking time boundary
+            if(minTimestamp>0)
+                if(maxTimestamp>0)
+                    scan.setTimeRange(minTimestamp,maxTimestamp);
+                else
+                    scan.setTimeRange(minTimestamp,Long.MAX_VALUE);
+            else
+                if(maxTimestamp>0)
+                    scan.setTimeRange(0, maxTimestamp);
+                
+            //scanning runtime reports
+            ResultScanner rs=reportRealtimeTable.getScanner(scan);
+
+            for(Result r:rs)
+            {
+                Report report=new Report();
+                report.setValueFromHbaseResult(r);
+                reports.add(report.toShortJsonString());
+            }
+            
+            if(!isRealtime)
+            {
+                //scanning historical reports
+                rs=reportTable.getScanner(scan);
+
+                for(Result r:rs)
+                {
+                    Report report=new Report();
+                    report.setValueFromHbaseResult(r);
+                    reports.add(report.toShortJsonString());
+                }
+            }
+            
+            //sort array list
+            Collections.sort(reports);  
+            return reports.toArray(new String[0]);
+        }
+        catch (Exception ex)
+        {
+            if(logStream!=null)
+                logStream.writeLog(ex,Bytes.toString(startRow),Bytes.toString(stopRow),String.valueOf(minTimestamp),String.valueOf(maxTimestamp),String.valueOf(isRealtime),String.valueOf(filter==null));
+            return null;
+        } 
+    }
+  
+*/

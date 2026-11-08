@@ -1,0 +1,24 @@
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip 
+{
+	direction: ltr;
+	background: #272727;
+	color: white;
+}
+
+.leaflet-popup-content-wrapper i
+{
+	color: #4caf50;
+}
+
+.leaflet-popup-close-button
+{
+	color: red !important;
+}
+
+.leaflet-top .leaflet-control 
+{
+    margin-top: 56px;
+}
+
+

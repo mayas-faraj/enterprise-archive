@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Ekhtar main page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/w3.css">
+<link rel="stylesheet" href="assets/css/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="assets/css/css.css">
+<link rel="stylesheet" href="assets/css/font-awesome.css">
+<link rel="stylesheet" href="css/basic.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+<script src="scripts/strophe/strophe.min.js"></script>
+<script src="scripts/strophe/strophe.pubsub.min.js"></script>
+<script src="scripts/interfaceAccess.js"></script>
+<script src="scripts/stropheAccess.js"></script>
+<script src="scripts/sessionAccess.js"></script>
+<script src="scripts/formValidation.js"></script>
+<script src="scripts/imageCover.js"></script>
+<script src="scripts/master.js"></script>
+<script src="scripts/geocooder.js"></script>
+<script src="scripts/report.js"></script>
+<script src="js/report.js"></script>
+</head><body class="w3-theme-l5" dir="rtl" lang="ar">
+
+<!-- Navbar -->
+<div id="banner"></div>
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<!--iframe id="map" src="search.html" style="width: 100%; height:800px;"></iframe-->
+<div id="rss" class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3" style="position: fixed; left:2%;">
+      <!-- Profile -->
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">البلاغات الواردة</h4>
+         <p class="w3-center"><img src="imgs/logo.png" style="height:106px;width:106px" alt="إخطار"></p>
+         <hr>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card-2 w3-round">
+        <div class="w3-white">
+	 <button  style="text-align:right" onclick="displayPanel('keywordsDiv')" class="w3-button w3-block w3-theme-l1"><i class="fa  fa-fw w3-margin-right"><img src="assets/img/group.png" width="15px" height="15px"/></i>تصنيف العرض</button>
+        </div>      
+      </div>
+      <br>
+
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7" style="position: relative; left: 24%;">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card-2 w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <h6 class="w3-opacity">بحث حسب كلمات مفتاحية</h6>
+              <p class="w3-border w3-padding" id='searchText' contenteditable="true"></p>
+              <button type="button" id="searchButton" class="w3-button w3-theme"><i class="fa"><img src="assets/img/search.png" width="20px" height="20px"/></i> &nbsp;بحث</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="reports"></div>
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<img id="loading"  style="width:5%;height:5%;position:relative;right:47.5%;"/>
+<div class="footer"></div>
+</body></html>

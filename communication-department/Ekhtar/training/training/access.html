@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Manage ekhtar users" />
+		<meta name="author" content="CD" />
+		<title>تسجيلات الدخول للمستخدم</title>
+		<link rel="stylesheet" href="css/fonts.css">
+                <link rel="stylesheet" href="css/theme.css">
+                <link rel="stylesheet" href="css/materialize.new.min.css">
+                <link rel="stylesheet" href="css/materialize-rtl.css">
+                <link rel="stylesheet" href="css/materialize-child.min.css">
+                <link rel="stylesheet" href="css/material-icons.css">
+                <script src="scripts/jquery/jquery-3.3.1.min.js"></script>
+                <script src="scripts/materialize.new.min.js"></script>
+                <script src="scripts/strophe/strophe.min.js"></script>
+                <script src="scripts/stropheAccess.js"></script>
+                <script src="scripts/stropheSession.js"></script>
+                <script src="scripts/dataAccess.js"></script>
+                <script src="scripts/sessionAccess.js"></script>
+                <script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/moment.js"></script>
+                <script src="scripts/setManager.js"></script>
+                <script src="scripts/master.js"></script>
+		<script src="scripts/leaflet.js"></script>	
+		<script src="js/old/access.js?v=1.6.0.0"></script>
+		<style>
+			label {font-size: 0.9em;}
+		</style>
+	</head>
+	<body id="body">
+		<div class="container">
+			<div class="row no-margin">
+				<div class="page-title-blue">
+					<h1>تسجيلات الدخول للمستخدم
+						<div id="jidDiv">
+							943565456
+						</div>
+					</h1>
+				</div>
+			</div>
+			</div>
+			<div class="row no-margin">
+				<div class="col s12 m6 input-scrollable">
+					<div class="content-block">
+						<div class="content-header">
+							<i class="material-icons">history</i>الأجهزة التي تم تسجيل الدخول منها
+						</div>
+						<ul id="accessCollapse" class="collapsible no-margin" style="height: 417px; overflow-x: hidden; overflow-y: scroll;">
+							<li>
+								<div class="collapsible-header">
+									<i class="material-icons">phonelink_ring</i>
+									<label id="titleLabel">
+										Device
+									</label>
+								</div>
+								<div class="collapsible-body">
+									<div>
+										<i class="material-icons yellow-text">access_time</i>
+										<label id="dateLabel">
+											ارسال:26/03/2017 12:54:35
+										</label>
+									</div>
+									<div>
+										<i class="material-icons yellow-text">access_time</i>
+										<label id="receivedDateLabel">
+											استقبال:26/03/2017 12:54:35
+										</label>
+									</div>
+									<div>
+										<i class="material-icons teal-text darken-4">phone_android</i>
+										<label id="typeLabel">
+										Samsung Galaxy J7
+										</label>
+									</div>
+									<div>
+										<i class="material-icons green-text">android</i>
+										<label id="osLabel">
+										4.0.0.1
+										</label>
+									</div>
+									<div>
+										<i class="material-icons blue-text">sms</i>
+										<label id="providerLabel">
+										XMPP
+										</label>
+									</div>
+									<div>
+										<i class="material-icons red-text">apps</i>
+										<label id="versionLabel">
+										1.5.0.0
+										</label>
+									</div>
+									<div>
+										<i class="material-icons indigo-text darken-4">developer_mode</i>
+										<label id="macLabel">
+										5698439863
+										</label>
+									</div>
+									<div>
+										<i class="material-icons indigo-text darken-4">developer_mode</i>
+										<label id="imeiLabel">
+										4398057293875
+										</label>
+									</div>
+									<div>
+										<i class="material-icons indigo-text darken-4">developer_mode</i>
+										<label id="imsiLabel">
+										340985239854364346
+										</label>
+									</div>
+									<div>
+										<i class="material-icons blue-text">sim_card</i>
+										<label id="ssnLabel">
+										445640986834
+										</label>
+									</div>
+									<div>
+										<i class="material-icons red-text">location_on</i>
+										<label id="gpsLabel">
+										34.44432, 35.463462 (50m) on 23:34:45
+										</label>
+									</div>
+									<div>
+										<i class="material-icons green-text darken-4">settings_input_antenna</i>
+										<label id="cellInfoLabel">
+										3582392347254 (Damascus- Near Hotel)
+										</label>
+									</div>
+									<div>
+										<i class="material-icons green-text darken-4">settings_input_antenna</i>
+										<label id="cellLocationLabel">
+										34.6435, 36.45345
+										</label>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col s12 m6">
+					<iframe name="mapFrame" src="map.html" class="map-frame" style="width: 100%; height: 460px">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

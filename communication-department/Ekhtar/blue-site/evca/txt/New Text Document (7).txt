@@ -1,0 +1,6 @@
+<style>
+.glyphicon-chevron-right
+.glyphicon-chevron-left{
+color:red;
+}
+</style>

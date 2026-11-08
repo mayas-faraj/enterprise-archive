@@ -1,0 +1,233 @@
+{status:"OK", sender:"eee",date:"rrr",body:"rrrrrdasdf"}
+{status:"OK", sender:"First",date:"Secod",body:"Third"}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"First",date:"Secod",body:"Third"}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"First",date:"Secod",body:"Third"}
+{status:"OK", sender:"GSMNUMBER",date:"DATEVALUE",body:"SMS-Contents"}
+{status:"OK", sender:"eeee",date:"0-0-00",body:"testt"}
+{status:"OK", sender:"eeee",date:"0-0-00",body:"testt"}
+{status:"OK", sender:"eeee",date:"6/8/2017",body:"testt"}
+{status:"OK", sender:"eeee",date:"6/8/2017",body:"testt"}
+{status:"OK", sender:"eeee",date:"6/8/2017",body:"testt"}
+{status:"OK", sender:"eeee",date:"6/8/2017000",body:"testt"}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"99988087777",date:"OOO",body:"oopasdfdfnmehskksks"}
+{status:"OK", sender:"99988087777",date:"OOO",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"99988087777",date:"OOO",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"99988087777",date:"2017-06-08",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"99988087777",date:"2017-06-08",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"99988087777",date:"2017-06-08",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"99988087777",date:"",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"99988087777",date:"08-06-2017",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"99988087777",date:"08-06-2017",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"senderfffff",date:"08-06-2017",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"senderfffff",date:"13-06-2017",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"senderfffff",date:"33-06-2017",body:"POSToopasdfdfnmehskksks"}
+{status:"OK", sender:"ramEz",date:"ddd",body:""}
+{status:"OK", sender:"ramEz",date:"ddd",body:""}
+{status:"OK", sender:"ramEz",date:"ddd",body:""}
+{status:"OK", sender:"ramEz",date:"20171231 235301",body:""}
+{status:"OK", sender:"ramEz",date:"20171231235301",body:""}
+{status:"OK", sender:"ramEz",date:"20171231235301",body:"somebody"}
+{status:"OK", sender:"ramEz",date:"20171231235301",body:"somebody"}
+{status:"OK", sender:"ramEz",date:"20171231235301",body:"somebody"}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"ramEz",date:"",body:""}
+{status:"OK", sender:"ramEz",date:"20171231235301",body:"somebodyg"}
+{status:"OK", sender:"ramEz",date:"20171231235301",body:"somebodyg"}
+{status:"OK", sender:"ramEz",date:"20171231235302",body:"somebodyg"}
+{status:"OK", sender:"ramEz",date:"20171231235302",body:"somebodyg"}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"934576139",date:"1/1/2017",body:"test"}
+{status:"OK", sender:"",date:"",body:""}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text",ip:"::1"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text",ip:"::1"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text",ip:"::1"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text",ip:"::1"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text",ip:"::1"}
+{status:"OK", sender:"1594876230",date:"20160102131511",body:" this is a text",ip:"::1"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"993995108",date:"20170611124800",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"993995108",date:"20170611124800",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"993995108",date:"20170611124800",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"993995108",date:"20170611124800",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"993995108",date:"20170611124800",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"993995108",date:"20170611124800",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"993995108",date:"20170611124800",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"993995108",date:"20170611124800",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170611125010",body:"test4",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170611125010",body:"testtest",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170612095800",body:"test4",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995107",date:"20170612101200",body:"TEST",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"993995108",date:"20170612113100",body:"TEST11",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995831",date:"20170612134654",body:"test12",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170612153309",body:"Test cdaaaq",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170612153314",body:"For testing",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170612154450",body:"Test",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"93991876",date:"20170612154530",body:"Test",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.225.200"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.225.200"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.225.200"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.225.200"}
+{status:"OK", sender:"APP",date:"20171231235301",body:"عربي",ip:"192.168.225.200"}
+{status:"OK", sender:"93994917",date:"20170612155057",body:"Tttttt",ip:"192.168.3.139"}
+{status:"OK", sender:"93994637",date:"20170612155109",body:"Test",ip:"192.168.3.139"}
+{status:"OK", sender:"38207444",date:"20170612155121",body:"Hello from alaa hseen",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170613101138",body:"Testing. English 1",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613010000",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170613101617",body:"Testing. English 1",ip:"192.168.3.139"}
+{status:"OK", sender:"APP",date:"20170613 102215",body:"this is a body",ip:"192.168.225.200"}
+{status:"OK", sender:"APP",date:"20170613102215",body:"this is a body",ip:"192.168.225.200"}
+{status:"OK", sender:"APP",date:"20170613102215",body:"this is a body عربي",ip:"192.168.225.200"}
+{status:"OK", sender:"93995108",date:"20170613010000",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"APP",date:"20170613102215",body:"this is a body عربي",ip:"192.168.225.200"}
+{status:"OK", sender:"APP",date:"20170613102215",body:"this is a body عربي",ip:"192.168.225.200"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"APP",date:"20170613102215",body:"this is a body عربي",ip:"192.168.225.200"}
+{status:"OK", sender:"APP",date:"20170613102215",body:"this is a body عربي",ip:"192.168.225.200"}
+{status:"OK", sender:"APP",date:"20170613102215",body:"this is a body عربي",ip:"192.168.225.200"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"APP",date:"20170613102215",body:"this is a body عربي",ip:"192.168.225.200"}
+{status:"OK", sender:"93994917",date:"20170613111457",body:"Trdff",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170613111644",body:"English",ip:"192.168.3.139"}
+{status:"OK", sender:"APP",date:"20170613112055",body:"this is some text هذا نص عربي",ip:"192.168.225.200"}
+{status:"OK", sender:"93994917",date:"20170613112307",body:"English",ip:"192.168.3.139"}
+{status:"OK", sender:"934576139",date:"20170611122300",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"APP",date:"20170613112055",body:"this is some text 6هذا نص عربي",ip:"192.168.225.200"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613000000",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613000000",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613000000",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613000000",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613000000",body:"test",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613000000",body:"?????? ????",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613000000",body:"?",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613000000",body:"?",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613010101",body:"????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613010300",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613010300",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613010300",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613130000",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613134700",body:"?????? ????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613000000",body:"?????? ????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613143100",body:"?????? ??????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613143223",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613143233",body:"Test test",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613143747",body:"??????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613144051",body:"?????? ???",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613144443",body:"??? ??????? ????????",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613144738",body:"Test",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613144758",body:"?????? ????",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170613145003",body:"????? ??????",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170614102504",body:"This is a test",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170614102543",body:"Arabic test ????",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170614102847",body:"This is a test 100",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170614103026",body:"This is a test 102",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170614110330",body:"Arabic test ???? 103",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170614120254",body:"Test 105",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170614120318",body:"?????? ???? 104",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170614120603",body:"?????? ???",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170614120629",body:"Test",ip:"192.168.3.139"}
+{status:"OK", sender:"93995108",date:"20170614121118",body:"?????? ????",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"",date:"",body:"",ip:"192.168.3.139"}
+{status:"OK", sender:"93994917",date:"20170614122004",body:"?????? ???? 106",ip:"192.168.3.139"}

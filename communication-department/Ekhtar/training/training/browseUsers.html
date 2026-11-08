@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Manage ekhtar users" />
+		<meta name="author" content="CD" />
+		<title>عناصر شبكة إخطار</title>
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/style.css?v=1.6">
+		<link rel="stylesheet" href="css/materialize.new.min.css">
+		<link rel="stylesheet" href="css/materialize-rtl.css">
+		<link rel="stylesheet" href="css/materialize-child.min.css">
+		<link rel="stylesheet" href="css/material-icons.css">
+		<link rel="stylesheet" href="css/rotating.css">
+		<script src="scripts/jquery/jquery-3.3.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/old/stropheAccess.js"></script>
+		<script src="scripts/old/stropheSession.js"></script>
+		<script src="scripts/old/interfaceAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/old/dataAccess.js"></script>
+		<script src="scripts/formValidation.js"></script>
+		<script src="scripts/old/setManager.js"></script>	
+		<script src="scripts/moment.js"></script>
+		<script src="scripts/old/master.js"></script>
+		<script src="scripts/materialize.new.min.js"></script>
+		<script src="scripts/materialize-child.js"></script>
+		<script src="scripts/old/setManager.js"></script>
+		<script src="js/old/browseUsers.js"></script>
+	</head>
+	<body id="body" style="height: 100vh">
+		<div id="searchDiv" class="box-glass input-collapsible input-margin-header">
+			<img id="nodeIcon" src="imgs/search.png" class="box-logo">
+			<div class="row">
+				<div class="col s12 m6">
+					<div class="input-field">
+						<i class="material-icons prefix">phone_android</i>
+						<input id="userSearchText" type="text" class="validate">
+						<label for="userSearchText">الاسم أو المعرف</label>
+					</div>
+				</div>
+				<div class="col s12 m6">
+					<div class="input-field">
+						<i class="material-icons prefix">group</i>
+						<select multiple id="setSelect" class="select-all">
+							<option value="1" data-icon="imgs/users.png" class="left circle" selected="selected">مجموعة ١</option>
+							<option value="2" data-icon="imgs/users.png" class="left circle" selected="selected">مجموعة ٢</option>
+							<option value="3" data-icon="imgs/users.png" class="left circle" selected="selected">مجموعة ٣</option>
+						</select>
+						<label></label>
+					</div>			
+				</div>		
+			</div>
+		</div>
+
+		<ul id="setListElement" class="collapsible input-collapsible" data-collapsible="expandable">
+			<li id="setElement" class="input-collapse">
+				<div id="setHeaderElement" class="collapsible-header input-collapse-header">
+					<img id="setImage" class="input-collapsible-image" src="imgs/node/es-cd.png">
+					<div id="setNameDiv" class="input-collapse-text">جهة إخطار</div>
+					<span class="input-collapse-badge">
+						<span class="input-collapse-badge-text"></span>
+						<span class="input-collapse-badge-new"></span>
+					</span>
+				</div>
+				<div id="userListElement" class="collapsible-body input-collapse-body">
+					<div id="userElement" class="input-icon input-icon-fixed">
+						<a href="#">
+							<img id="userImage" src="imgs/admin.png" class="input-icon-image"/>
+							<div id="statusDiv" class="input-icon-offline"></div>
+							<label id="nameLabel" class="input-icon-text">مستخدم</label>
+							<label id="jidLabel" class="input-icon-text input-text-jid">910020030</label>
+						</a>
+					</div>	
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>

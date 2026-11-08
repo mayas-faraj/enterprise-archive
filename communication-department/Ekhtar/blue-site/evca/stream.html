@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>البلاغات الواردة</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/w3.css">
+<link rel="stylesheet" href="assets/css/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="assets/css/css.css">
+<link rel="stylesheet" href="assets/css/font-awesome.css">
+<link rel="stylesheet" href="css/basic.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+<script src="scripts/strophe/strophe.min.js"></script>
+<script src="scripts/strophe/strophe.pubsub.min.js"></script>
+<script src="scripts/interfaceAccess.js"></script>
+<script src="scripts/stropheAccess.js"></script>
+<script src="scripts/sessionAccess.js"></script>
+<script src="scripts/dataAccess.js"></script>
+<script src="scripts/formValidation.js"></script>
+<script src="scripts/imageCover.js"></script>
+<script src="scripts/master.js"></script>
+<script src="scripts/geocooder.js"></script>
+<script src="scripts/report.js"></script>
+<script src="scripts/document.js"></script>
+<script src="js/stream.js"></script>
+</head><body class="w3-theme-l5" dir="rtl" lang="ar">
+
+<!-- Navbar -->
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<!--iframe id="map" src="search.html" style="width: 100%; height:800px;"></iframe-->
+<div id="rss" class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3" style="position: fixed; left:2%;">
+      <!-- Profile -->
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">البلاغات الواردة</h4>
+         <p class="w3-center"><img src="imgs/ekhtar_logo.png" style="height:106px;width:106px" alt="إخطار"></p>
+         <hr>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card-2 w3-round">
+        <div class="w3-white">
+	 <button  style="text-align:right" onclick="displayPanel('keywordsDiv')" class="w3-button w3-block w3-theme-l1"><i class="fa  fa-fw w3-margin-right"><img src="assets/img/group.png" width="15px" height="15px"/></i>تصنيف العرض</button>
+          <div id="keywordsDiv" class="w3-show w3-hide w3-container">
+          </div>
+
+          <button style="text-align:right" onclick="displayPanel('importanceDiv')" class="w3-button w3-block w3-theme-l1"><i class="fa  w3-margin-right"><img src="assets/img/group.png" width="15px" height="15px"/></i> ترشيح الأهمية </button>
+          <div id="importanceDiv" class="w3-hide w3-container">
+            	<p><a href="stream.html?op=getreportsbyimportancerange&arg0=0.01&arg1=.05#rss">هام</a></p>
+		<p><a href="stream.html?op=getreportsbyimportancerange&arg0=0.05&arg1=.1#rss">هام جدأ</a></p>
+		<p><a href="stream.html?op=getreportsbyimportancerange&arg0=0.11&arg1=.1#rss">حرج</a></p>
+          </div>
+	<button  style="text-align:right" onclick="displayPanel('reviewDiv')" class="w3-button w3-block w3-theme-l1"><i class="fa  fa-fw w3-margin-right"><img src="assets/img/group.png" width="15px" height="15px"/></i> الإجراء </button>
+          <div id="reviewDiv" class="w3-hide w3-container">
+            	<p><a href="stream.html?op=getreportsbyreviewstate&arg0=0&arg1=1#rss">التقارير المعالجة</a></p>
+		<p><a href="stream.html?op=getreportsbyreviewstate&arg0=1&arg1=0#rss">التقارير غير المعالجة</a></p>
+		<p><a href="stream.html?op=getreportsbyreviewstate&arg0=1&arg1=1#rss">التقارير التي تم الاطلاع عليها</a></p>
+          </div>
+
+        </div>      
+      </div>
+      <br>
+
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7" style="position: relative; left: 24%;">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card-2 w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <h6 class="w3-opacity">بحث حسب كلمات مفتاحية</h6>
+              <p class="w3-border w3-padding" id='searchText' contenteditable="true"></p>
+              <button type="button" id="searchButton" class="w3-button w3-theme"><i class="fa"><img src="assets/img/search.png" width="20px" height="20px"/></i> &nbsp;بحث</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="reports" style="font-family: lateef; font-size: 1.3em"></div>
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m2" style="position: fixed; right:2%;">
+      <div class="w3-card-2 w3-round w3-white w3-center">
+	ترشيح البلاغات حسب الزمن
+	من تاريخ	
+	<input id="fromDate" style="width: 90%;    background: #e8e7f7;
+    color: #3129a2;" type="datetime-local"/>
+      </div>
+      <br>
+      
+      <div class="w3-card-2 w3-round w3-white w3-center">
+		حتى تاريخ
+		<input id="toDate" style="width: 90%;     background: #e8e7f7;
+    color: #3129a2;" type="datetime-local"/>
+      </div>
+      <br>
+	<input id="mapCheck" type="checkbox" style='margin: 10px;display: inline;width: 15px;height: 15px;'/>
+	تقييد عرض النتائج حسب الموقع الجغرافي
+      
+      <iframe id="mapframe" name="mapframe" style="width:100%;" src="map.html" class="w3-card-2 w3-round w3-white w3-center">
+      </iframe>
+      <br>
+      
+      <div class="w3-card-2 w3-round w3-white w3-padding-32 w3-center" style="margin-top:100px;">
+	إدارة الاتصالات
+      </div>
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<img id="loading"  style="width:5%;height:5%;position:relative;right:47.5%;"/>
+</body></html>

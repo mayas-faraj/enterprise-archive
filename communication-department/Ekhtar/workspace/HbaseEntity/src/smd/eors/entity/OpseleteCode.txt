@@ -1,0 +1,124 @@
+  /*
+    private static final String JSON_ELEMENT_SEPERATOR="\",\"";
+    private static final String JSON_KEY_VALUE_SEPERATOR="\":\"";
+    private static final String JSON_VALUE_SEPERATOR=";";
+    private static final String JSON_ID_SEPERATOR="*";
+    private static final int ID_LENGTH=13;
+    private static final int HEADER_LENGTH=7;
+    
+        private static double tryParseDouble(String value,double defaultValue)
+    {
+        try
+        {
+            return Double.parseDouble(value);
+        }
+        catch(Exception ex)
+        {
+            exceptionHandler(ex);
+            return defaultValue;
+        }
+    }
+    
+    private static long tryParseLong(String value,long defaultValue)
+    {
+        try
+        {
+            return Long.parseLong(value);
+        }
+        catch(Exception ex)
+        {
+            exceptionHandler(ex);
+            return defaultValue;
+        }
+    }
+    
+    //private static final String ID = "id";
+     public static Report parseAvroReport(String avroReport)
+    {
+        //precondition: none
+        
+        //get JSON elements 
+        if(avroReport!=null && avroReport.length()>HEADER_LENGTH)
+        {
+            Report report=new Report();
+            
+            try
+            {
+                //get report id
+                int idIndex=avroReport.indexOf(JSON_ID_SEPERATOR,HEADER_LENGTH)+1;
+                
+                String id=avroReport.substring(idIndex,idIndex+ID_LENGTH);
+                report.setId(tryParseLong(id, (new Date()).getTime()));
+
+                
+                //parse elements
+                String[] elements=avroReport.substring(avroReport.indexOf('"')+1,avroReport.lastIndexOf('"')).split(JSON_ELEMENT_SEPERATOR);
+                
+                String elementName;
+                String elementValue;
+                
+                for(String element:elements)
+                {
+                    int seperatorIndex=element.indexOf(JSON_KEY_VALUE_SEPERATOR);
+                    if(seperatorIndex>1)
+                    {
+                        elementName=element.substring(0,seperatorIndex);
+                        elementValue=element.substring(seperatorIndex+JSON_KEY_VALUE_SEPERATOR.length());
+                        
+                        switch(elementName)
+                        {
+                            case CELL:
+                                report.setCellInfo(elementValue);
+                                break;
+                            case MAC:
+                                report.setMac(elementValue);
+                                break;
+                            case TEXT:
+                                report.setText(elementValue);
+                                break;
+                            case DATE:
+                                report.setDate(DATE_FORMAT.parse(elementValue));
+                                break;
+                            case IP:
+                                report.setIp(elementValue);
+                                break;
+                            case IMSI:
+                                report.setImsi(elementValue);
+                                break;
+                            case IMEI:
+                                report.setImei(elementValue);
+                                break;
+                            case SSN:
+                                report.setSsn(elementValue);
+                                break;
+                            case LOCATION:
+                                String[] locationInfo=elementValue.split(JSON_VALUE_SEPERATOR);
+                                if(locationInfo.length>=3)
+                                {
+                                    report.setJpsLongitude(tryParseDouble(locationInfo[0],-1));
+                                    report.setJpsLatitude(tryParseDouble(locationInfo[1],-1));
+                                    report.setJpsDate(locationInfo[2]);
+                                }
+                                break;
+                            case OS_VERSION:
+                                report.setOs(elementValue);
+                                break;
+                            case DEVICE:
+                                report.setDeviceType(elementValue);
+                                break;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                ex.printStackTrace();
+            }
+            
+            return report;
+        }  
+        else
+            return null;
+    }
+   
+     */

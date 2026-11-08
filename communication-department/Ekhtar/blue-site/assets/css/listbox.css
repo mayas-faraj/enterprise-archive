@@ -1,0 +1,44 @@
+       
+
+
+	.icon-plus {
+		content:url("../images/plus.png");
+		width:15px;
+		height:15px;
+	}
+
+	.icon-minus {
+		content:url("../images/minus.png");
+		width:15px;
+		height:15px;
+	}
+
+
+	   .dual-list .list-group {
+            margin-top: 8px;
+   
+    height: 30em;
+    line-height: 2em;
+    border: 1px solid #ccc;
+    padding: 0;
+    margin: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+        }
+
+        .list-left li, .list-right li {
+            cursor: pointer;
+ 	    text-align: left;
+			
+        }
+
+        .list-arrows {
+            padding-top: 100px;
+			
+        }
+
+            .list-arrows button {
+                margin-bottom: 20px;
+				
+            }
+			

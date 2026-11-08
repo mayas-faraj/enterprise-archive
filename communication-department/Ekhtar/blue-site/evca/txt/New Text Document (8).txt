@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/23922832/leaflet-location-filter-example-and-draggable-resizeable-rectangular-area-select

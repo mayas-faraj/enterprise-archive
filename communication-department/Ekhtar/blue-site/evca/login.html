@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="CD Admin Panel" />
+		<meta name="author" content="CD" />
+		<title>تسجيل الدخول</title>
+		<link rel="stylesheet" href="css/basic.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/strophe/strophe.pubsub.min.js" type="text/javascript"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/formValidation.js"></script>
+		<script src="scripts/imageCover.js"></script>
+		<script src="js/login.js"></script>
+	</head>
+	<body id="body" class="background-full">
+		 <div id="banner" class="page-banner">
+                        <div class="page-banner-head page-banner-text">
+                                <a class="page-banner-link" href="login.html">
+                                        <img class="page-banner-icon" src="imgs/ekhtar.png"/>الرئيسية
+                                </a>
+                        </div>
+                        <div class="page-banner-header">
+                                <img id="adminImage" class="page-banner-icon" src="imgs/admin.png"/>
+                                <div class="page-banner-drop-left">
+                                        <a id="logoutLink" class="page-banner-item" href="#">تسجيل الدخول</a>
+                                </div>
+                        </div>
+		</div>
+		<div class="login-box login-content box-glass">
+			<img class="login-transparent box-logo" src="imgs/user_wb.png"/>
+		
+			<label id='result' class='input-result'>&nbsp; </label>
+			<img class="input-form-icon" src="imgs/form_user.png" />
+			<input class="login-form input-jid-domain" type="text" tabindex="-1" value="@ekhtar.sy"/>
+			<input id="nameText" class="login-form input-jid" type="text" placeholder="اسم المتسخدم"/>
+			<img class="input-form-icon" src="imgs/form_password.png" />
+			<input id="passwordText" class="login-form" type="password" placeholder="كلمة المرور"/>
+			<button id="loginButton" class="login-form login-button" >تسجيل الدخول</button>
+			<img id="stateImage" class="login-status status-lock" />
+			<img id="privilegeStateImage" class="status-image visibility-hidden status-exclamation"/>
+			<label class="status-text visibility-hidden">الحصول على الصلاحيات</label>
+			<img id="authenticationStateImage" class="status-image visibility-hidden status-exclamation"/>
+			<label class="status-text visibility-hidden">أذونات الدخول</label>
+		</div>	
+		<div class="login-box login-info box-glass">
+			<img class="login-transparent box-logo" src="imgs/ekhtar_wb.png"/>
+			<div class="login-text-info">
+				مرحبا بكم في نظام إخطار, يتوجب تسجيل الدخول للوصول لمهام إدارة نظام إخطار لإدارة ومعالجة البلاغات والرسائل الواردة.	
+			</div>
+		</div>
+		<div id="footer" class="page-footer page-footer-text">ادارة الاتصالات - CD 2017</div>
+	</body>
+</html>

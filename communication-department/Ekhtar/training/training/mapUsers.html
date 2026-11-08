@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="CD Admin Panel" />
+		<meta name="author" content="CD" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>خارطة المستخدمين</title>
+
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/materialize.new.min.css">
+		<link rel="stylesheet" href="css/materialize-rtl.css">
+		<link rel="stylesheet" href="css/materialize-child.min.css">
+		<link rel="stylesheet" href="css/material-icons.css">
+		<link rel="stylesheet" href="css/nouislider.css">
+		<!--link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-slider.min.css">
+		<link rel="stylesheet" href="css/bootstrap-select.min.css">
+		<link rel="stylesheet" href="css/bootstrap-modal.css">
+		<link rel="stylesheet" href="css/prettify.css"-->
+		<link rel="stylesheet" href="css/leaflet.css">
+		<link rel="stylesheet" href="css/leaflet-areaselect.css">
+		<link rel="stylesheet" href="css/leaflet-legend.css">
+		<link rel="stylesheet" href="css/rotating.css">
+
+		<script src="scripts/jquery/jquery-3.3.1.min.js"></script>
+		<script src="scripts/materialize.new.min.js"></script>
+		<script src="scripts/materialize-child.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/stropheSession.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/dateProcessor.js"></script>
+		<script src="scripts/moment.js"></script>
+		<script src="scripts/setManager.js"></script>
+		<script src="scripts/master.js"></script>
+		<script src="scripts/leaflet.js"></script>
+		<script src="scripts/leaflet-areaselect.js"></script>
+		<script src="scripts/leaflet-legend.js"></script>
+		<script src="scripts/nouislider.js"></script>
+		<script src="scripts/formValidation.js"></script>
+		<script src="scripts/dataManager.js"></script>
+		<script src="js/old/mapUsers.js?1.5.0.1"></script>
+	</head>
+	<body dir="rtl">
+		<div id="map" class="map">
+			<label id="markerCounterLabel" class="map-text-counter"></label>
+			<a id="selectMessageButton" class="btn-floating map-select-button navy" style="display:none" data-toggle="tooltip" data-placement="left" title="إرسال أمر للمستخدمين المحددين"><i class="material-icons">email</i></a>
+			<a id="runSelectButton" class="btn-floating map-select-button green"  style="display:none" data-toggle="tooltip" data-placement="left" title="قبول التحديد"><i class="material-icons">supervisor_account</i></a>
+			<a id="clearSelectButton" class="btn-floating map-select-button red darken-1"  style="display:none" data-toggle="tooltip" data-placement="left" title="إلغاء التحديد"><i class="material-icons">close</i></a>
+			<a id="clearViewSelectButton" class="btn-floating map-select-button red darken-1"  style="display:none" data-toggle="tooltip" data-placement="left" title="ﺈﻠﻏﺍﺀ ﺎﻠﺘﺣﺪﻳﺩ"><i class="material-icons">close</i></a>
+		</div>
+
+		<div class="fixed-action-btn vertical" dir="ltr">
+			<a id="menuButton" class="btn-floating btn-large activecaption">
+				<i class="large material-icons" style="background: #444c">apps</i>
+			</a>
+			<ul>
+				<li><a id="usersButton" class="btn-floating green collapse" data-target="#optionsDiv" data-toggle="tooltip" data-placement="left" title="عرض المستخديمن"><i class="material-icons">supervisor_account</i></a></li>
+				<li><a id="selectButton" class="btn-floating blue darken-1" data-toggle="tooltip" data-placement="left" title="تحديد مستخدمين"><i class="material-icons">tab_selected</i></a></li>
+				<li><a id="deselectButton" class="btn-floating red darken-1" data-toggle="tooltip" data-placement="left" title="إلغاء التحديد"><i class="material-icons">tab_unselected</i></a></li>
+				<li><a id="messageButton" class="btn-floating navy" data-toggle="tooltip" data-placement="left" title="مراسلة جميع المستخدمين على الخارطة"><i class="material-icons">email</i></a></li>
+				<li><a id="navigationButton" class="btn-floating yellow collapse" data-target="#navigationDiv" data-toggle="tooltip" data-placement="left" title="تنقل"><i class="material-icons">navigation</i></a></li>
+				 <li><a id="findPanelButton" class="btn-floating black collapse" data-target="#findDiv" data-toggle="tooltip" data-placement="left" title="بحث عن مستخدم"><i class="material-icons">search</i></a></li>
+			</ul>
+		</div>
+
+		<div id="legend" class="map-legend">
+			<div class="map-legend-header" style="color: #d4d4d4">احصائيات المستخدمين</div>
+		</div>
+
+		<div id="optionsDiv" class="collapse">
+			<div class="map-option box-glass">
+				<p>
+					<div class="input-field">
+						<i class="material-icons prefix">group</i>
+						<select id="setSelect" multiple class="select-all">
+						</select>
+						<label>ﺎﻠﻤﺠﻣﻮﻋﺓ</label>
+					</div>
+					 <label>
+						<input id="onlineCheckbox" type="checkbox"/>
+						<span>العناصر المتصلة فقط</span>
+					</label>
+				<p><img class="input-modal-image" src="imgs/map.png">تحديد منطقة عرض جغرافية<a id="viewSelectButton" class="map-button btn-floating waves-effect waves-light blue"><i class="material-icons">tab_selected</i></a></p>
+				<p><img class="input-modal-image" src="imgs/clock.png">تحديد مجال زمني <span id='dateSlider' style="display: block!important"/></p>
+				<p><img class="input-modal-image" src="imgs/map_startlocation.png">من: <label id='date1' class='input-modal-text'>0</label><img class="input-modal-image" src="imgs/map_endlocation.png">حتى:<label id='date2' class='input-modal-text'>0</label><input id="longDate1" type="hidden"/><input id="longDate2" type="hidden"/></p>
+				<p>
+					<button id="runButton" class="map-button">عرض</button>
+					<button id="opaqueButton" class="map-button">شفافية</button>
+					<button id="closeButton" class="map-button">إخفاء</button>
+					<img id="loadingImage" class="map-option-status status-loading"/>
+				</p>
+			</div>
+		</div>
+
+		<div id="findDiv" class="collapse">
+			<div class="map-option-narrow box-glass">
+				<div class="input-field">
+					<i class="material-icons prefix">account_box</i>
+					<input id="phoneText" type="text" class="validate" maxlength="30" data-button="#saveButton">
+					<label for="phoneText">اسم المتسخدم</label>
+				</div>
+				<a id="findButton" class="btn-floating black"><i class="material-icons">search</i></a>
+				<a class="btn-floating black collapse" data-target="#findDiv"><i class="material-icons red">close</i></a>
+				<label id="resultLabel"></label>
+			</div>
+		</div>
+
+		<div id="navigationDiv" class="collapse">
+			<div class="map-option-medium box-glass">
+				<p>
+					 <div class="input-field">
+                                                <i class="material-icons prefix">public</i>
+                                                <select id="citySelect">
+							<option value="33.5138,36.2765">دمشق</option>
+							<option value="34.7324,36.7137">حمص</option>
+							<option value="35.1409,36.7552">حماة</option>
+							<option value="34.8959,35.8867">طرطوس</option>
+							<option value="35.5407,35.7953">اللاذقية</option>
+							<option value="36.2021,37.1343">حلب</option>
+							<option value="32.71270540105518,36.56636238098145">السويداء</option>
+							<option value="32.6264,36.1033">درعا</option>
+							<option value="35.93131670856903,36.63700103759766">إدلب</option>
+							<option value="35.9594,38.9981">الرقة</option>
+							<option value="35.3297,40.1350">دير الزور</option>
+							<option value="36.5079,40.7463">الحسكة</option>
+							<option value="33.1263,35.8258">القنيطرة</option>
+						</select>
+						<label>تحديد محافظة للانتقال</label>
+                                        </div>
+
+				<a class="btn-floating black collapse" data-target="#navigationDiv"><i class="material-icons red">close</i></a></p>
+			</div>
+		</div>
+	</body>
+</html>

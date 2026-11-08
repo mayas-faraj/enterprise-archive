@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="CD Admin Panel" />
+		<meta name="author" content="CD" />
+		<title>المراسلات</title>
+		<link rel="stylesheet" href="css/basic.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/strophe/strophe.pubsub.min.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/formValidation.js"></script>
+		<script src="scripts/imageCover.js"></script>
+		<script src="scripts/master.js"></script>
+		<script src="js/commands.js"></script>
+	</head>
+	<body id="body" class="background-full">
+		<div id="banner" class="page-banner">
+		</div>
+		<div class="command-main box-glass">
+			<div class="command-users">
+				<img src="imgs/search.png" class="input-form-icon"/> 
+				<input id="searchText" type="text" class="command-search"/>
+				<label class="command-label" for="selectAllCheck">تحديد الكل</label>
+				<input id="selectAllCheck" class="command-check" type="checkBox"/>
+				<div id="userList" class="command-user-list">
+					<div class="command-selector">
+						<img src="imgs/admin.png" class="command-selector-image"/>
+						<label class="command-selector-text input-text-jid">user1</label>
+					</div>	
+				</div>
+			</div>
+			<div class="command-stream">
+				<div id="iconsDiv" class="command-icons" type="text" readonly>
+					<div class="input-icon">
+						<img id="iconImage" src="imgs/admin.png" class="input-icon-image-small"/>
+						<div class="input-icon-error"></div>
+						<label class="input-icon-text">user1</label>
+       			                 </div>	
+				</div>
+				<div id="messagesDiv" class="command-message-list">
+					<div class="command-message">
+						<img src="imgs/admin.png" class="command-message-sender"/>
+						<label class="command-message-text">رسالة تجريبية من نظام إخطار</label>
+						<label class="command-message-date">12/8/2017 12:34:45AM</label>
+						<img src="imgs/clock.png" class="command-message-date-icon"/>
+					</div>
+				</div>
+				<div id="sendDiv" class="command-message-send">
+					<textarea id="sendText" type="text" class="command-message-input"></textarea>
+					<button id="sendButton" class="command-message-button">
+						<img src="imgs/command.png" class="command-message-button-image"/>
+						<label class=".command-message-button-text">إرسال</label>
+					</button>
+				</div>
+				<div id="resultDiv" class="input-result">
+					<label id="resultLabel"/>
+				</div>
+			</div>
+			<div class="command-outbox">
+				<div class="command-outbox-message">
+					<img src="imgs/ekhtar.png" class="command-outbox-message-icon"/>
+					<label class="command-outbox-message-text">نشر لجميع مستخدمي شبكات إخطار</label>
+
+				</div>
+			</div>	
+		</div>
+		<div id="footer" class="page-footer page-footer-text"><label id="statusLabel" class="page-footer-status"></label>إدارة الاتصالات - CD 2017</div>
+	</body>
+</html>

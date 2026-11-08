@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Report Stream" />
+		<meta name="author" content="CD" />
+		<title>مستخدمو المقر الرئيسي</title>
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/materialize.new.min.css">
+		<link rel="stylesheet" href="css/materialize-rtl.css">
+		<link rel="stylesheet" href="css/materialize-child.min.css">
+		<link rel="stylesheet" href="css/material-icons.css">
+		<link rel="stylesheet" href="css/rotating.css">
+		<script src="scripts/jquery/jquery-3.3.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/old/stropheSession.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/materialize.new.min.js"></script>
+		<script src="scripts/leaflet.js"></script>	
+		<script src="scripts/master.js"></script>
+		<script src="scripts/jscolor.js"></script>
+		<script src="scripts/moment.js"></script>
+		<script src="scripts/imageUpload.js"></script>
+		<script src="scripts/validator.js"></script>
+		<script src="scripts/searchField.js"></script>
+		<script src="scripts/old/setManager.js"></script>
+		<script src="js/old/admins.js"></script>
+	</head>
+	<body id="body" dir="rtl">
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="center">
+					<h4>مستخدمو المقر الرئيسي</h4>
+				</div>
+			</div>
+			<div class="col s12 m3 l4">
+				<div class="row">
+					<div class="col s12">
+						<div class="content-block">
+							<div class="content-header">
+								<i class="material-icons">edit</i>
+								<label>تحرير مستخدم مقر</label>
+							</div>
+							<div class="row">
+								<div class="col s12 m12 l12">
+									<input id="adminId" type="hidden">
+									<div class="input-field">
+										<i class="material-icons prefix">group</i>
+										<input id="nameText" type="text" class="validate" data-button="#saveButton">
+										<label for="nameText">اسم المدير</label>
+									</div>	
+									<div class="input-field">
+										<i class="material-icons prefix">comment</i>
+										<input id="descriptionText" type="text" class="validate" data-button="#saveButton">
+										<label for="descriptionText">وصف المدير</label>
+									</div>
+									<div class="input-field">
+										<i class="material-icons prefix">vpn_key</i>
+										<input id="passwordText" type="password" class="validate" data-button="#saveButton">
+										<label for="passwordText">كلمة المرور</label>
+									</div>
+									<div class="input-field">
+										<i class="material-icons prefix">vpn_key</i>
+										<input id="confirmPasswordText" type="password" class="validate" data-button="#saveButton">
+										<label for="confirmPasswordText">تأكيد كلمة المرور</label>
+									</div>
+									<div class="input-field">
+										<i class="material-icons prefix">face</i>
+										<select id="roleSelect" class="icons">
+											<option data-color="#A00" data-icon="imgs/role_administrator.png" value="1">مدير النظام</option>
+											<option data-color="#AA0" data-icon="imgs/role_observer.png" value="2">مراقب بيانات</option>
+											<option data-color="#0A0" data-icon="imgs/role_supporter.png" value="3">الدعم الفني</option>
+										</select>
+										<label>تحديد صلاحيات المدير</label>
+									</div>
+								</div>
+								<div class="row col s12 m12 l12">
+									<div class="col s12 m6 l4">
+										<a id="createButton" class="waves-effect waves-light btn primary-control">
+											<i class="material-icons">group_add</i>
+											جديد	
+										</a>
+									</div>
+									<div class="col s12 m6 l4"> 
+										<a id="saveButton" class="waves-effect waves-light btn primary-control">
+											<i class="material-icons">save</i>
+											حفظ	
+										</a>
+									</div>
+									<div class="col s12 m6 l4"> 
+										<a id="deleteButton" class="waves-effect waves-light btn primary-control modal-trigger" href="#deleteModal">
+											<i class="material-icons red-text">delete_forever</i>
+											حذف
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 hide">
+						 <div class="content-block">
+							<div class="content-header">
+								<i class="material-icons">done</i>
+								<label>تعليمات الاستخدام</label>
+							</div>
+							<div class="content-instruction">
+								<p><i class="material-icons">add_box</i><span>لإضافة مستخدم مقر, اضغط على زر (جديد) في قسم (تحرير مستخدم مقر).</span></p>
+								<p><i class="material-icons">edit</i><span>لتعديل مستخدم مقر, يجب اختيار مستخدم من قسم (مستخدمو المقر الرئيسي) من ثم اجراء التعديلات في قسم (تحرير مستخدم مقر) وضغط زر (حفظ).</span></p>
+								<p id="successLabel"><i class="material-icons green-text">done</i><span>تمت العملية بنجاح.</span></p>
+								<p id="errorLabel"><i class="material-icons red-text">error</i><span>خطأ أثناء اتمام العملية.</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m3 l3">
+				<div class="content-block">
+					<div class="content-header">
+						<i class="material-icons">playlist_add_check</i>
+						<label>الصلاحيات الممنوحة</label>
+					</div>
+					<div class="padding-right: 13px">
+						<p style="margin: 17px 0px 0px 0px">
+							<label><input id="manageNodesCheckbox" type="checkbox"><span>إدارة جهات إخطار</span></label>
+						</p>
+						<p style="margin: 17px 0px 0px 0px">
+							<label><input id="manageAdminsCheckbox" type="checkbox"><span>إدارة مستخدمو المقر الرئيسي</span></label>
+						</p>
+						<p style="margin: 17px 0px 0px 0px">
+							<label><input id="viewUsersCheckbox" type="checkbox" checked><span>عرض عناصر شبكة إخطار</span></label>
+						</p>
+						<p style="margin: 17px 0px 0px 0px">
+							<label><input id="viewReportsCheckbox" type="checkbox" checked><span>عرض البلاغات الواردة</span></label>
+						</p>
+						<p style="margin: 17px 0px 0px 0px">
+							<label><input id="sendCommandCheckbox" type="checkbox" checked><span>ارسال أوامر لعناصر الشبكة</span></label>
+						</p>
+						<p style="margin: 17px 0px 0px 0px">
+							<label><input id="setImportantCheckbox" type="checkbox" checked><span>تعيين البلاغ كهام</span></label>
+						</p>
+						<p style="margin: 17px 0px 0px 0px">
+							<label><input id="setCommentCheckbox" type="checkbox" checked><span>إضافة تعليق للبلاغات</span></label>
+						</p>
+						<p style="margin: 17px 0px 0px 0px">
+							<label><input id="setSeenCheckbox" type="checkbox" checked><span>تعيين البلاغ كمشاهد</span></label>
+						</p>
+						<p style="margin: 17px 0px 0px 0px">
+							<label><input id="changeSettingCheckbox" type="checkbox" checked><span>تعديل إعدادات النظام</span></label>
+						</p>
+						<p style="margin: 17px 0px 0px 0px">
+							<label><input id="supportCheckbox" type="checkbox"><span>الدعم الفني</span></label>
+						</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m6 l5">
+				<div class="content-block">
+					<div class="content-header">
+						<i class="material-icons">group</i>
+						<label>مستخدمو المقر الرئيسي<label>
+						<span class="content-header-right search-field" data-search=".content-icon">
+							<input id="searchText" type="text">
+							<a href="#!" class="btn"><i class="material-icons">search</i></a>
+						</span>
+
+					</div>
+					<div class="content-icon-sets">
+						<div class="content-icon">
+							<img src="imgs/users.png"/>
+							<label>المستخدم</label>
+							<input id="id" type="hidden">
+							<input id="description" type="hidden">
+							<input id="role" type="hidden">
+							<input id="manageNodes" type="hidden">
+							<input id="manageAdmins" type="hidden">
+							<input id="viewUsers" type="hidden">
+							<input id="viewReports" type="hidden">
+							<input id="sendCommand" type="hidden">
+							<input id="setImportant" type="hidden">
+							<input id="setComment" type="hidden">
+							<input id="setSeen" type="hidden">
+							<input id="changeSetting" type="hidden">
+							<input id="support" type="hidden">
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal Structure -->
+		<div id="deleteModal" class="modal">
+			<div class="modal-content">
+				<h4>تأكيد حذف مستخدم المقر</h4>
+				<p>عملية حذف المستخدم لا يمكن التراجع عنها.</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" id="confirmDeleteButton" class="modal-close waves-effect waves-green btn-flat">موافق</a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat">إلغاء</a>
+			</div>
+		</div>
+	</body>
+</html>
+

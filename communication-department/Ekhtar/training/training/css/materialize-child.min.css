@@ -1,0 +1,499 @@
+a
+{
+	color: #c3c3c3;
+}
+
+a:hover
+{
+	color: #55b4ff;
+}
+
+nav
+{
+	background-color: rgba(53, 53, 53, 0.86); 
+	height: 40px;
+	line-height: 40px;
+}
+
+@media only screen and (min-width: 601px)
+{
+	nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i 
+	{
+		height: 40px;
+		line-height: 40px;
+	}
+}
+
+nav i,
+nav [class^="mdi-"],
+nav [class*="mdi-"],
+nav i.material-icons 
+{
+	line-height: 40px;
+	height: 40px;
+
+}
+
+nav ul a,
+nav a
+{
+	color: #dedede;
+}
+
+nav ul a:hover
+{
+	background-color: transparent !important;
+	color: #fff;
+	transition: color .5s;
+}
+
+.sidenav
+{
+	background-color: rgba(0, 0, 0, 0.45);
+}
+
+.sidenav li>a 
+{
+	color: #00e827;
+	font-size: 18px;
+}
+
+.sidenav li>a>i.material-icons 
+{
+	color: #00e827;
+}
+
+.sidenav .collapsible-body,
+.sidenav.fixed .collapsible-body
+{
+	background-color: #3a3a3a;
+}
+
+@media only screen and (min-width: 601px)
+{
+	.navbar-fixed
+	{
+		height: 40px;
+	}
+}
+
+.navbar-fixed
+{
+	height: 40px;
+}
+
+.collapsible-header
+{
+	background-color: #1b1b1b;
+	color: #6edb72;
+}
+
+.notification-badge 
+{
+	font-family: "Roboto", sans-serif;
+	position: absolute;
+	margin-right: -10px;
+	top: 0px;
+	color: #000;
+	background-color: #F44336;
+	border-radius: 50%;
+	padding-left: 6px;
+	padding-right: 6px;
+	line-height: 20px;
+}
+
+.page-footer
+{
+	padding: 3px;
+	color: #00ff2b;
+	background-color: #2b2b2b;
+	z-index: 1000;
+}
+
+label
+{
+	color:#c5c5c5;
+}
+
+button,input,optgroup,select,textarea
+{
+	font-family:majalla;
+}
+
+.fixed-action-btn
+{
+	bottom: 40px;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea
+{
+	border-bottom: none;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]),
+input.valid:not([type]), input.valid:not([type]):focus, input.valid[type=text]:not(.browser-default), input.valid[type=text]:not(.browser-default):focus, input.valid[type=password]:not(.browser-default), input.valid[type=password]:not(.browser-default):focus, input.valid[type=email]:not(.browser-default), input.valid[type=email]:not(.browser-default):focus, input.valid[type=url]:not(.browser-default), input.valid[type=url]:not(.browser-default):focus, input.valid[type=time]:not(.browser-default), input.valid[type=time]:not(.browser-default):focus, input.valid[type=date]:not(.browser-default), input.valid[type=date]:not(.browser-default):focus, input.valid[type=datetime]:not(.browser-default), input.valid[type=datetime]:not(.browser-default):focus, input.valid[type=datetime-local]:not(.browser-default), input.valid[type=datetime-local]:not(.browser-default):focus, input.valid[type=tel]:not(.browser-default), input.valid[type=tel]:not(.browser-default):focus, input.valid[type=number]:not(.browser-default), input.valid[type=number]:not(.browser-default):focus, input.valid[type=search]:not(.browser-default), input.valid[type=search]:not(.browser-default):focus, textarea.materialize-textarea.valid, textarea.materialize-textarea.valid:focus, .select-wrapper.valid>input.select-dropdown
+{
+	box-shadow: none;
+	border-bottom: none;
+}
+
+input.select-dropdown
+{
+	border-bottom: 1px solid #4caf50 !important;color: #4caf50;
+}
+
+.input-field .prefix ~ input,
+.input-field .prefix ~ textarea,
+.input-field .prefix ~ button,
+.input-field .prefix ~ div>input 
+{
+    background: rgba(0, 0, 0, 0.58);
+    color: #f6f6f6;
+}
+
+.input-field .prefix
+{
+	top: 0px;
+	background: #8e8e8e;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	border: 1px solid black;
+	font-size: 22px;
+}
+
+.input-field .prefix.active
+{	
+	color:#0ce42d;
+}
+
+.input-field>label 
+{
+	color: #e0e0e0;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly])
+{
+	border-bottom-color:#0ce42d;
+	box-shadow:box-shadow: 0 1px 0 0 #0ce42d;
+	-webkit-box-shadow:box-shadow: 0 1px 0 0 #0ce42d;
+}
+
+input:focus:not([type]):not([readonly]) + label, input[type="text"]:focus:not(.browser-default):not([readonly]) + label, input[type="password"]:focus:not(.browser-default):not([readonly]) + label, input[type="email"]:focus:not(.browser-default):not([readonly]) + label, input[type="url"]:focus:not(.browser-default):not([readonly]) + label, input[type="time"]:focus:not(.browser-default):not([readonly]) + label, input[type="date"]:focus:not(.browser-default):not([readonly]) + label, input[type="datetime"]:focus:not(.browser-default):not([readonly]) + label, input[type="datetime-local"]:focus:not(.browser-default):not([readonly]) + label, input[type="tel"]:focus:not(.browser-default):not([readonly]) + label, input[type="number"]:focus:not(.browser-default):not([readonly]) + label, input[type="search"]:focus:not(.browser-default):not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label 
+{
+	color: #0ce42d;
+}
+
+input:disabled:not([type]), input[readonly="readonly"]:not([type]), input[type="text"]:disabled:not(.browser-default), input[type="text"][readonly="readonly"]:not(.browser-default), input[type="password"]:disabled:not(.browser-default), input[type="password"][readonly="readonly"]:not(.browser-default), input[type="email"]:disabled:not(.browser-default), input[type="email"][readonly="readonly"]:not(.browser-default), input[type="url"]:disabled:not(.browser-default), input[type="url"][readonly="readonly"]:not(.browser-default), input[type="time"]:disabled:not(.browser-default), input[type="time"][readonly="readonly"]:not(.browser-default), input[type="date"]:disabled:not(.browser-default), input[type="date"][readonly="readonly"]:not(.browser-default), input[type="datetime"]:disabled:not(.browser-default), input[type="datetime"][readonly="readonly"]:not(.browser-default), input[type="datetime-local"]:disabled:not(.browser-default), input[type="datetime-local"][readonly="readonly"]:not(.browser-default), input[type="tel"]:disabled:not(.browser-default), input[type="tel"][readonly="readonly"]:not(.browser-default), input[type="number"]:disabled:not(.browser-default), input[type="number"][readonly="readonly"]:not(.browser-default), input[type="search"]:disabled:not(.browser-default), input[type="search"][readonly="readonly"]:not(.browser-default), textarea.materialize-textarea:disabled, textarea.materialize-textarea[readonly="readonly"] 
+{
+	color: rgb(175, 175, 175);
+	background-color: #3e3e3e;
+}
+
+[type="checkbox"]:checked + span:not(.lever)::before
+{
+	border-right-color: #d7dbdb;
+	border-bottom-color: #d7dbdb;
+}
+
+[type="checkbox"]:checked+span:not(.lever):before
+{
+	right: 11px;
+}
+
+.btn,.btn-large,.btn-small
+{
+	background-color:#0f0f0f;
+} 
+
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover
+{
+	background-color: #00ff2b;
+	color: #000;
+}
+
+.btn:focus i,
+.btn-large:focus i,
+.btn-small:focus i
+{
+	color: #6edb72 !important;
+}
+
+.btn:hover i,
+.btn-large:hover i,
+.btn-small:hover i
+{
+	color: #000;
+}
+
+.btn:focus,
+.btn-large:focus,
+.btn-small:focus,
+.btn-floating:focus
+{
+	background-color: #0b0b0b;
+}
+
+.btn-floating.halfway-fab
+{
+	bottom: -40px;
+}
+/*
+.btn i,
+.btn-large i,
+.btn-small i,
+.btn-floating i,
+.btn-large i,
+.btn-small i,
+.btn-flat i 
+{
+	margin-left: 10px;
+}
+*/
+span.badge
+{
+	color:#000
+	border-radius: 260px;
+}
+
+.tabs .tab a
+{
+	color: #000 !important;
+}
+
+.tabs .tab a:hover,
+.tabs .tab a.active,
+.tabs .tab a:focus,
+.tabs .tab a:focus.active
+{
+	background-color: #cecece;;
+	color: #0462b3;
+}
+
+.tabs .indicator 
+{
+	background-color: #0462b3;
+}
+
+.modal h4
+{
+	text-align: center;
+}
+
+.collection.with-header .collection-header
+{
+	background-color: #3b3b3b;
+}
+
+.collection .collection-item
+{
+	background-color: rgba(95,95,95,.9);
+	padding-left: 10px !important;
+	padding-right: 75px;
+}
+
+.collection .collection-item.active
+{
+	border-right: 4px solid #181818;
+	background-color: #797979;
+	color: black;
+}
+
+.collection .collection-item.disabled
+{
+	pointer-events: none;
+	background-color: #bcbcbc !important;
+	color: white !important;
+	border-right-color: white !important;
+}
+
+.collection.with-header .collection-item.avatar
+{
+	padding-left: 10px;
+}
+
+.dropdown-content
+{
+	background-color: #151515;
+}
+
+.dropdown-content li>a,
+.dropdown-content li>span
+{
+	color: #00ff2b;
+}
+
+.dropdown-content li:hover,
+.dropdown-content li.active 
+{
+	background-color: #6c6c6c;
+}
+
+span.badge.new
+{
+	background-color: #F44336;
+}
+
+
+.switch label input[type="checkbox"]:checked + .lever 
+{
+	background-color: #4caf50;
+}
+
+.switch label input[type="checkbox"]:checked + .lever::after 
+{
+	background-color: #80c083;
+}
+
+.switch.vertical
+{
+	height: 12px;
+	width: 15px;
+	transform: rotate(-90deg);
+}
+
+.switch.vertical.inline
+{
+	display: inline-block;
+}
+
+.switch.vertical.inline .lever
+{
+	margin-left: -15px;
+}
+
+[type="radio"]:checked + span::after, 
+[type="radio"].with-gap:checked + span::after 
+{
+	background-color: #4caf50;
+}
+
+[type="radio"]:checked + span::after,
+[type="radio"].with-gap:checked + span::before,
+[type="radio"].with-gap:checked + span::after
+{
+	border-color: #202020;
+}
+
+[type="radio"]:not(:checked) + span::before,
+[type="radio"]:not(:checked) + span::after, 
+[type="checkbox"] + span:not(.lever)::before,
+[type="checkbox"]:not(.filled-in) + span:not(.lever)::after 
+{
+    border-color: #383838;
+}
+
+
+.timepicker-digital-display,
+.datepicker-date-display,
+.datepicker-table td.is-selected
+{
+	background-color: #545454;
+}
+
+.timepicker-canvas line 
+{
+	stroke: #545454;
+}
+
+.timepicker-canvas-bg,
+.timepicker-canvas-bearing
+{
+	fill: #545454;
+}
+
+.timepicker-close ,
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done,
+.datepicker-table td
+{
+	color: #5dde62;
+}
+
+.timepicker-tick.active,
+.timepicker-tick:hover
+{
+    background-color: rgba(153, 153, 153, 0.37);
+}
+
+.modal
+{
+	background-color: rgba(35, 35, 35, 0.5);
+}
+
+.modal .modal-content 
+{
+	color: #d8d8d8;
+}
+
+.modal .modal-footer
+{
+	background-color: initial;
+}
+
+.btn-flat
+{
+	color: #adadad;
+}
+
+.btn-floating
+{
+	background-color: #0b0b0b;
+}
+
+.btn-floating:hover
+{
+	background-color: #252525;
+}
+
+.btn.disabled i
+{
+    color: #4a4a4a;
+}
+
+.toast
+{
+	background-color: rgba(0, 255, 10, 0.71);
+}
+
+#toast-container
+{
+	left: 2%;
+	right: auto;
+}
+
+.material-tooltip
+{
+	font-size: 1.2rem;
+	padding: 12px;
+	border-radius: 5px;
+	color: #000;
+	background-color: rgba(0, 255, 10, 0.71);
+	z-index: 9999;
+}
+
+.progress
+{
+	background: #151515;
+}
+
+.progress .determinate
+{
+	background-color: #F44336;
+}

@@ -1,0 +1,1 @@
+$(document).ready(function(){$("body").css("backgroundImage","url("+getRandomImage()+")")});function getRandomImage(){var a=["syria1.jpg","syria2.jpg","syria3.jpg","syria4.jpg","syria5.jpg","syria6.jpg"];return"imgs/cover/"+a[Math.floor(Math.random()*a.length)]};

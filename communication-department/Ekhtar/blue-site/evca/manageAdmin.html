@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="CD Admin Panel" />
+		<meta name="author" content="CD" />
+		<title>إضافة مستخدم مقر رئيسي</title>
+		<link rel="stylesheet" href="css/basic.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/strophe/strophe.min.js"></script>
+		<script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/stropheAccess.js"></script>
+		<script src="scripts/dataAccess.js"></script>
+		<script src="scripts/sessionAccess.js"></script>
+		<script src="scripts/imageCover.js"></script>
+		<script src="scripts/formValidation.js"></script>
+		<script src="scripts/imageUpload.js"></script>
+		<script src="scripts/master.js"></script>
+		<script src="js/manageAdmin.js"></script>
+	</head>
+	<body id="body">
+		<div class="input-main box-glass">	
+			<div id="addAdminDiv" class="input-box">
+				<div>
+					<input type="text" class="input-jid-domain" tabindex="-1" value="@ekhtar.sy"/>
+					<input id="nameText" type="text" class="input-jid"  placeholder="معرف المستخدم"/>
+				</div>
+				<input id="fullNameText" type="text"   placeholder="الاسم الكامل"/>
+				<input id="descriptionText" type="text"   placeholder="الوصف"/>
+				<input id="passwordText" type="password"   placeholder="كلمة المرور"/>
+				<input id="confirmPasswordText" type="password"   placeholder="تأكيد كلمة المرور"/>
+			</div>
+			 <div id="imageAdminDiv" class="input-box">
+                                <img id="image" src="imgs/admin.png" class="input-image"/>
+                                <label for="imageButton" class="input-upload">تحميل</label>
+                                <input id="imageButton" class="input-file" type="file" accept="image/*"/>
+                        </div>
+			<div id="adminOptionDiv" class="input-button-box">
+				<div class="input-icon">
+					<img id="roleImage" class="input-icon-image-selected"/>
+					<label id="roleText" class="input-icon-text"></label>
+					<input id="roleId" type="hidden"/>
+				</div>
+			</div>
+
+			<button id="addButton" class="input-inline">إضافة مستخدم مقر رئيسي</button>
+			<label id="resultLabel" class="input-result"/>
+		</div>
+		<div id="rolesDiv" class="input-icons-upper box-glass">
+			<div id="administrator" class="input-icon">
+				<img id="iconImage" src="imgs/role_administrator.png" class="input-icon-image-large"/>
+				<label class="input-icon-text-large">مدير النظام</label>
+				<input type="hidden" value="1"/>
+			</div>
+			<div id="administratorInfo" class="input-info visibility-none">
+				يملك مدير النظام جميع الصلاحيات الممكنة للنظام:
+				<ul>
+					<li>إدارة جهات إخطار</li>
+					<li>إدارة مستخدمي المقر المقر الرئيسي</li>
+					<li>استعراض معلومات شبكات إخطار</li>
+					<li>معالجة البلاغات وإدارتها</li>
+					<li>عرض خارطة الإشعارات</li>
+					<li>البحث الجغرافي والبجث حسب وسطاء محددة.</li>
+				</ul>
+			</div>
+			<div id="observer" class="input-icon">
+				<img id="iconImage" src="imgs/role_observer.png" class="input-icon-image-large"/>
+				<label class="input-icon-text-large">مراقب بيانات</label>
+				<input type="hidden" value="2"/>
+			</div>
+			<div id="observerInfo" class="input-info visibility-none">
+				يمكن تحديد الطلاحيات المعطاة لمراقب البيانات بناء على أوامر مدير النظام, وهي بشكل أفتراضي
+				<ul>
+					<li>عرض خارطة الإشعارات</li>
+					<li>عرض البلاغات الواردة</li>
+					<li>البحث الجغرافي والبحث حسب وسطاء محددة</li>
+					<li>تحديد بلاغ كهام أو كتابة إجراء خاص ببلاغ محدد</li>
+			</div>
+		</div>
+		<div id="privilegesDiv" class="input-icons-downer box-glass">
+				<div class="input-text">
+					<label id="privilegeLabel">الصلاحيات الممكن إسنادها لمستخدم المقر الرئيسي (*):</label>
+				</div>
+				<div class="input-check-area">
+					<input id="manageNodeCheckbox" type='checkbox'/>إدارة جهات إخطار<br />
+					<input id="manageAdminCheckbox" type='checkbox'/>إدارة مستخدمو المقر الرئيسي<br />
+					<input id="changeSettingCheckbox" type='checkbox'/>تعديل إعدادات النظام<br />
+					<input id="sendCommandCheckbox" type='checkbox'/>إرسال أوامر لعناصر الشبكة<br />
+					<input id="viewUsersCheckbox" type='checkbox'/>عرض عناصر شبكة إخطار<br />
+				</div>
+				<div class="input-check-area">
+					<input id="viewNotificationCheckbox" type='checkbox'/>عرض خارطة الإشعارات<br />
+					<input id="viewStreamCheckbox" type='checkbox'/>عرض البلاغات الواردة<br />
+					<input id="setImportantCheckbox" type='checkbox'/>تحديد بلاغ كبلاغ هام<br />
+					<input id="setCommentCheckbox" type='checkbox'/>تحديد إجراء متخد لبلاغ<br />
+					<input id="setProcessedCheckbox" type='checkbox'/>تحديد بلاغ كبلاغ معالج<br />
+				</div>
+		</div>
+	</body>
+</html>

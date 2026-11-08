@@ -1,0 +1,335 @@
+var SetManager = 
+{
+	SET_KEY: "set",
+	SET_INFO_KEY: "setInfo",
+	DELETED_SET_ID: -1,
+	GENERAL_GROUP_ID: 0,
+
+	initialize: function(callback)
+	{
+		var set={};
+		var setInfo={type: "", types: "", publishNode: ""};
+
+		
+		set[SetManager.DELETED_SET_ID]=
+		{
+			name: "العناصر المحجوبة", 
+			color: "#000", 
+			logo: "imgs/node/ekhtar.png", 
+			description: "العناصر التي تم حجبها.",
+			users: []
+		};
+
+		SessionAccess.getSessionRoleId(function(roleId)
+		{
+			if(roleId=="3")
+			{
+				setInfo["type"]="مجموعة";
+				setInfo["types"]="مجموعات";
+				setInfo["theType"]="المجموعة";
+				setInfo["theTypes"]="المجموعات";
+
+				set[SetManager.GENERAL_GROUP_ID]=
+				{
+					name: "مجموعة عامة", 
+					color: "#000", 
+					logo: "imgs/admin.png", 
+					description: "مجموعة تجوي الامستخدمين الذين لم يتم إضافتهم إلى أي مجموعة.",
+					users: []
+				};
+
+				DataAccess.loadGroups(function(groupResult)
+				{
+					if(groupResult!=null && groupResult.trim()!="null")
+					{
+						var groupArray=groupResult.split("<br />");
+						for(var i=0;i<groupArray.length;i++)
+						if(groupArray[i].trim()!="")
+						{
+							var groupObject=JSON.parse(groupArray[i]);
+							set[groupObject.group_id]=
+							{
+								name: groupObject.name,
+								color: groupObject.color,
+								logo: groupObject.logo,
+								description: groupObject.description,
+								date: groupObject.date,
+								users: []
+							};
+						}
+					}
+					
+					StropheAccess.getRosterItems(function(rosterResult)
+					{
+						var rosterObject={};
+						var jid, name, available, groupId;
+
+						$(rosterResult).find('>query>item').each(function()
+						{
+							groupId=$(this).find(">group:first").text();
+							jid=$(this).attr('jid');
+							name=$(this).attr("name");
+							if($(this).attr("subscription")==null && $(this).attr("ask")==null)
+								available=null;
+							else
+								available=$(this).attr("subscription")=="to";
+
+
+							var userObject= 
+							{
+								"jid": jid,
+								"name": name,
+								"available": available,
+							};
+
+							if(groupId=="" || set[groupId]==null)
+								groupId=SetManager.GENERAL_GROUP_ID;
+
+							set[groupId].users.push(userObject);
+						});
+
+						var deleted=set[SetManager.DELETED_SET_ID];
+						delete(set[SetManager.DELETED_SET_ID]);
+						set[SetManager.DELETED_SET_ID]=deleted;
+
+						localStorage.setItem(SetManager.SET_KEY, JSON.stringify(set));
+						localStorage.setItem(SetManager.SET_INFO_KEY, JSON.stringify(setInfo));
+						callback();
+					});
+				});
+			}
+			else
+			{
+				setInfo["type"]="جهة";
+				setInfo["types"]="جهات";
+				setInfo["theType"]="الجهة";
+				setInfo["theTypes"]="الجهات";
+				setInfo["publishNode"]="commands";
+
+				DataAccess.loadNodes(function(nodeResult)
+				{
+					if(nodeResult!=null && nodeResult.trim()!="null")
+					{
+						var nodeArray=nodeResult.split("<br />");
+
+						for(var i=0; i<nodeArray.length; i++)
+						if(nodeArray[i].trim()!="")
+						{
+							var nodeObject=JSON.parse(nodeArray[i]);
+							set[nodeObject.name]=
+							{
+								name: nodeObject.name,
+								color: nodeObject.color,
+								logo: nodeObject.logo,
+								description: nodeObject.description,
+								date: nodeObject.date,
+								users: []
+							};
+						}
+					}
+
+					StropheAccess.getRosterItems(function(rosterResult)
+					{
+						var rosterObject={};
+						var jid, name, available, nodeId;
+
+						$(rosterResult).find('>query>item').each(function()
+						{
+							nodeId=$(this).find(">group:first").text();
+							jid=$(this).attr('jid');
+							name=$(this).attr("name");
+							if($(this).attr("subscription")==null && $(this).attr("ask")==null)
+								available=null;
+							else
+								available=$(this).attr("subscription")=="to";
+
+							var userObject= 
+							{
+								"jid": jid,
+								"name": name,
+								"available": available
+							};
+
+							if(nodeId=="" || set[nodeId]==null)
+								nodeId=SetManager.DELETED_SET_ID;
+
+							set[nodeId].users.push(userObject);
+						});
+
+						var deleted=set[SetManager.DELETED_SET_ID];
+						delete(set[SetManager.DELETED_SET_ID]);
+						set[SetManager.DELETED_SET_ID]=deleted;
+
+						localStorage.setItem(SetManager.SET_KEY, JSON.stringify(set));
+						localStorage.setItem(SetManager.SET_INFO_KEY, JSON.stringify(setInfo));
+						callback();
+					});
+				});
+			}
+		});
+	},
+
+	getUsers: function()
+	{
+		var setObject=SetManager.getSet();
+		var users={};
+
+		if(setObject!=null)
+		{
+			var setKeys=Object.keys(setObject);
+
+			for(var i=0; i<setKeys.length; i++)
+			{
+				var setItem=setObject[setKeys[i]];
+
+				if(setItem.users!=null)
+				{
+					var userList=setItem.users;
+					for(var j=0; j<userList.length; j++)
+					{
+						var user=userList[j];
+						users[user.jid]=
+						{
+							name:user.name,
+							available: user.available,
+							setId: setKeys[i],
+							setName: setItem.name,
+							setColor: setItem.color,
+							setLogo: setItem.logo
+						};
+					}
+				}
+			}
+
+			return users;
+		}
+		else
+			return null;
+
+
+	},
+
+	getEmptyUser: function()
+	{
+		return  {
+				name: null,
+				available: null,
+				setId: SetManager.DELETED_SET_ID,
+				setName: "غير معروف",
+				setColor: "#000",
+				setLogo: "imgs/admin.png"
+			};
+	},
+
+	getSet: function()
+	{
+		var result=localStorage.getItem(SetManager.SET_KEY);
+
+		if(result==null)
+		{
+			SetManager.initialize();
+		}
+
+		return JSON.parse(localStorage.getItem(SetManager.SET_KEY));
+	},
+
+	setSet: function(set)
+	{
+		localStorage.setItem(SetManager.SET_KEY, JSON.stringify(set));
+	},	
+
+	getSetInfo: function()
+	{
+		return JSON.parse(localStorage.getItem(SetManager.SET_INFO_KEY));
+	},
+
+	updateUser: function(jid, name, setId, available)
+	{
+		var set=SetManager.getSet();
+		
+		if(setId==null || setId=="" || set[setId]==null)
+			if(set[SetManager.GENERAL_GROUP_ID]==null)
+				setId=SetManager.DELETED_SET_ID;
+			else
+				setId=SetManager.GENERAL_GROUP_ID;
+
+		//check if user exists
+		for(var key in set)
+			if(set[key].users!=null)
+				for(var i=0; i<set[key].users.length; i++)
+					if(set[key].users[i].jid==jid)
+					{
+						set[key].users[i].name=name;
+						set[key].users[i].available=available;
+						if(setId!=key)
+						{
+							set[setId].users.push(set[key].users[i]);
+							set[key].users.splice(i, 1);
+						}
+						SetManager.setSet(set);
+						return;
+					}
+
+		//add new item
+		set[setId].users.push({jid: jid, name: name, available: available});
+
+		SetManager.setSet(set);
+	},
+	
+	addSet: function(id, name, color, logo, description, date)
+	{
+		var set=SetManager.getSet();
+
+		//check if set exists
+		if(set[id]!=null)
+		{
+			set[id].name=name;
+			set[id].color=color;
+			set[id].logo=logo;
+			set[id].description=description;
+			set[id].date=date;
+		}
+		else
+		{
+			set[id]=
+			{
+				name: name,
+				color: color,
+				logo: logo,
+				description: description,
+				date: date,
+				users: []
+			};
+		}
+
+		SetManager.setSet(set);
+	},
+
+	removeUser: function(jid)
+	{
+		var set=SetManager.getSet();
+		var setKeys=Object.keys(set);
+
+		for(var i=0; i<setKeys.length; i++)
+		{
+			var users=set[setKeys[i]].users;
+			
+			if(users!=null)
+				for(var j=0; j<users.length; j++)
+					if(users[j].jid==jid)
+					{
+						users.splice(j, 1);
+						set[setKeys[i]].users=users;
+						SetManager.setSet(set);
+						return;
+					}
+		}
+	},
+
+	removeSet: function(id)
+	{
+		var set=SetManager.getSet();
+		delete set[id];
+		SetManager.setSet(set);
+	}
+};

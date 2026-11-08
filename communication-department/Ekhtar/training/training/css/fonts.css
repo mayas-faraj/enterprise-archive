@@ -1,0 +1,22 @@
+@font-face
+{
+        font-family: lateef;
+        src: url('../fonts/LateefRegOT.ttf');
+}
+
+@font-face
+{
+        font-family: glyphicons;
+        src: url('../fonts/glyphicons-halflings-regular.ttf');
+}
+
+@font-face
+{
+        font-family: majalla;
+        src: url('../fonts/majalla.ttf');
+}
+
+body
+{
+	font-family: majalla;
+}

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="CD Admin Panel" />
+		<meta name="author" content="CD" />
+		<title>الصفحة الرئيسية</title>
+		 <link rel="stylesheet" href="css/fonts.css">
+                <link rel="stylesheet" href="css/theme.css">
+                <link rel="stylesheet" href="css/materialize.new.min.css">
+                <link rel="stylesheet" href="css/materialize-rtl.css">
+                <link rel="stylesheet" href="css/materialize-child.min.css">
+                <link rel="stylesheet" href="css/material-icons.css">
+                <link rel="stylesheet" href="css/rotating.css">
+                <link rel="stylesheet" href="css/lightbox.min.css">
+                <link rel="stylesheet" href="css/leaflet.css"/>
+                <link rel="stylesheet" href="css/leaflet-child.css"/>
+
+                <script src="scripts/jquery/jquery-3.3.1.min.js"></script>
+                <script src="scripts/materialize.new.min.js"></script>
+                <script src="scripts/materialize-child.js"></script>
+                <script src="scripts/lightbox.min.js"></script>
+                <script src="scripts/strophe/strophe.min.js"></script>
+                <script src="scripts/stropheAccess.js"></script>
+                <script src="scripts/stropheSession.js"></script>
+                <script src="scripts/sessionAccess.js"></script>
+                <script src="scripts/interfaceAccess.js"></script>
+                <script src="scripts/dataAccess.js"></script>
+                <script src="scripts/old/setManager.js"></script>
+                <script src="scripts/old/master.js"></script>
+                <script src="scripts/geocooder.js"></script>
+                <script src="scripts/colorProcessor.js"></script>
+                <script src="scripts/moment.js"></script>
+                <script src="scripts/old/liveNavigation.js"></script>
+                <script src="scripts/formValidation.js"></script>
+                <script src="scripts/leaflet.js"></script>
+                <script src="scripts/old/documentExporter.js"></script>
+                <script src="js/old/reports.js"></script>
+
+	</head>
+	<body dir="rtl">
+		<div>
+			<div id="map"  style="width:100%; height:calc(100vh - 40px) ;color:activecaption;background: #d8d7ab"></div>
+			 <input id="liveMapNotificationCheckbox" name="mapViewGroup" type="checkbox" style="display: none" checked/>
+			<div>
+				<aside>
+					<ul id="reportNav" class="sidenav sidenav-fixed sidenav-report" style="height: calc(100vh - 40px);">
+						<li id="reportDiv" class="z-depth-2 box-padding content-block content-report" style="border-right-color: red">
+							<div class="row">
+								<div class="col s4">
+									<img id="userImage" src="imgs/node/es-smd.png" style="width: 100%">
+								</div>
+								<div class="col s8">
+									<div class="row no-margin">
+										<div class="col s10">
+											<span class="report-publisher"><a id="userLink" href="profile.html" class="tooltipped" data-tooltip="933092386">مياس فرج</a></span>
+										</div>
+										<div class="col s2" style="position: relative">
+											<div id="unseenDiv">
+												<svg id="unseenSvg" width="40px" height="50px" class="content-report-svg">
+													<path  d=" M 30.000 46.000 L 33.902 49.616 L 36.123 44.782 L 41.111 46.629 L 41.314 41.314 L 46.629 41.111 L 44.782 36.123 L 49.616 33.902 L 46.000 30.000 L 49.616 26.098 L 44.782 23.877 L 46.629 18.889 L 41.314 18.686 L 41.111 13.371 L 36.123 15.218 L 33.902 10.384 L 30.000 14.000 L 26.098 10.384 L 23.877 15.218 L 18.889 13.371 L 18.686 18.686 L 13.371 18.889 L 15.218 23.877 L 10.384 26.098 L 14.000 30.000 L 10.384 33.902 L 15.218 36.123 L 13.371 41.111 L 18.686 41.314 L 18.889 46.629 L 23.877 44.782 L 26.098 49.616 z " style="transform: translate(-10px)"/>
+													<text x="30" y="38">&#xE8F5</text>
+												</svg>
+											</div>
+										</div>
+									</div>
+									<div class="col s12" style="line-height: 25px">
+										<a id="setLink" href="set.html"><i class="material-icons green-text">group</i><span>قسم المتابعة الخاصة</span></a>
+										<i class="material-icons green-text">access_time</i><span id="timestampLabel" class="tooltipped timer" data-tooltip="23/3/2018 12:42:03">ﻢﻧﺫ ٣ ﺪﻗﺎﺌﻗ</span>
+									</div>
+								</div>
+								<div class="col s12">
+									<a id="locationLink" class="locationing" href="#!" data-location="36.31591667,33.53308333,Mayas Faraj,jps"><i class="material-icons green-text">place</i><span>دمشق - شارع الثورة - سوق الخجا</span></a>
+								</div>
+								<!--div class="col s12" style="text-align: right">
+									<i class="material-icons yellow-text">call_made</i><i class="material-icons yellow-text">access_time</i><span id="timestampLabel" class="tooltipped timer yellow-text" data-tooltip="23/3/2018 12:42:03">منذ ٣ دقائق</span>
+									<i class="material-icons yellow-text">call_received</i><i class="material-icons yellow-text">access_time</i><span id="receivedTimestampLabel" class="tooltipped timer yellow-text" data-tooltip="23/3/2018 12:42:06">منذ ٣ دقائق</span>
+								</div-->
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col s12 content-quote">
+									<span id="commandLabel"><a class="modal-trigger" href="#commandModal" data-command=""><i class="material-icons blue-text">call_missed</i></a></span>
+
+									<span id="reportLabel">
+										سيارة مركونة منذ أكثر من خمس أيام جابن مدرسة سعد الله الجابري عند الباب الخصفي ويظهر أن السيارة محملة بحمولة كبيرة نتيجة انضغاط العجلات الخلفية للسيارة
+									</span>
+								</div>
+								<div class="col s12 m4 report-detail" style="display: none;">
+									<i class="material-icons">attach_file</i> <span id="mediaCountLabel">3</span> مرفق
+								</div>
+								<div class="col s12 m4 report-detail" style="display: none;">
+									<i class="material-icons">mail</i> <span id="providerLabel">XMPP</span>
+								</div>
+								<div class="col s12 m4 report-detail" style="display: none;">
+									<i class="material-icons">settings_input_antenna</i> <span id="cgiLabel">238527234</span>
+								</div>
+							</div>
+							<hr class="report-media">
+							<div class="row report-media">
+								<div id="reportCarousel" style="height: 200px;margin-bottom: -35px;" class="carousel">
+									<a class="carousel-item" data-title="مرفق ١" data-lightbox="light1"><img src="imgs/1.jpg"></a>
+									<a class="carousel-item" data-title="مرفق ٢" data-lightbox="light1"><img src="imgs/2.jpg"></a>
+									<a class="carousel-item" data-title="مرفق ٣" data-lightbox="light1"><img src="imgs/3.jpg"></a>
+								</div>
+							</div>
+							<hr>
+							<div id="commentDiv" class="row content-comment report-comment section-toggle">
+								<div>
+									<img src="imgs/admin.png">
+									<label>
+										<span>تم اتخاذ الاجراء عن طريق ارسال دورية لتفقد السيارة</span>
+										<a href="#!" class="hide waves-effect waves-light button-close"><i class="material-icons">close</i></a>
+									</label>
+									<span class="tooltipped timer" data-tooltip="12-3-2018 3:23:53">منذ ٨ دقائق</span>
+								</div>
+							</div>
+							<div class="row report-comment section-toggle">
+								<div class="col s8">
+									<div class="input-field no-margin">
+										<i class="material-icons prefix">edit</i>
+										<input id="commentText" type="text" class="validate">
+										<label for="commentText">كتابة تعليق</label>
+									</div>
+								</div>
+								<div class="col s4">
+									<button id="commentButton" class="btn waves-effect waves-light stream-button">
+										<i class="material-icons">save</i>حفظ
+									</button>
+								</div>
+							</div>
+							<hr>
+							<div class="row report-action section-toggle" id="actionDiv">
+								<div class="content-action">
+									<i class="material-icons prefix">star</i>
+									<label for="commentText" class="tooltipped timer" data-tooltip="12-3-2018 13:45:43"><span>تم تعيين البلاغ كهام</span> <span class="timer">منذ ٣ دقائق</span></label></label>
+								</div>
+							</div>
+							<hr>
+							<div class="row content-floating-button">
+								<div class="col s3 center">
+									<a href="#!" id="importantButton" class="btn-floating"><i class="material-icons">star</i></a>
+								</div>
+								<div class="col s3 center">
+									<a href="#!" class="btn-floating section-toggler" data-section=".report-comment"><i class="material-icons">edit</i></a>
+								</div>
+								<div class="col s3 center">
+									<a href="#!" class="btn-floating section-toggler" data-section=".report-action"><i class="material-icons">history</i></a>
+								</div>
+								<div class="col s3 center">
+									<a class="btn-floating modal-trigger" href="#exportReportModal"><i class="material-icons">cloud_download</i></a>
+								</div>
+							</div>
+						</li>
+						<li id="moreDiv" class="z-depth-2 box-padding center content-block report-box">
+							<a href="#!">
+								<i class="material-icons">sync</i><span>لا يوجد المزيد من البلاغات, المحاولة مجدداً</span>
+							</a>
+						</li>
+					</ul>
+					<a class="sidenav-button" href="#!" style="z-index: 999">
+						 <i class="material-icons">chevron_left</i>
+					</a>
+				</aside>
+			</div>
+
+			<a id="stopLiveNavigationButton" class="btn-floating waves-effect waves-light hide red " style="z-index: 99999;position: fixed; top: calc(100vh - 80px);; left: 15px; opacity: 0.7;"><i class="material-icons">stop</i></a>
+			<a id="playLiveNavigationButton" class="btn-floating waves-effect waves-light hide green" style="z-index: 999999;position: fixed; top: 60px; left: 10px; opacity: 0.7"><i class="material-icons">play_arrow</i></a>
+
+			<div class="fixed-action-btn" style="right: 92%">
+				<a class="btn-floating btn-large green yellow-text">
+					<i class="large material-icons">apps</i>
+				</a>
+				<ul>
+					<li><a class="btn-floating modal-trigger tooltipped navey" href="#filterModal" data-tooltip="<i class='material-icons'>info</i>ترشيح النتائج"><i class="material-icons">search</i></a></li>
+					<li><a href="reports.html" class="btn-floating blue tooltipped" data-tooltip="<i class='material-icons'>info</i>نموذج عرض البلاغات"><i class="material-icons">view_list</i></a></li>
+					<li><a class="btn-floating modal-trigger tooltipped yellow darken-2" href="#visibilityModal" data-tooltip="<i class='material-icons'>info</i>تعيين جميع البلاغات كمقروءة"><i class="material-icons">visibility</i></a></li>
+					<li><a class="btn-floating modal-trigger tooltipped" data-tooltip="<i class='material-icons'>info</i>تصدير البلاغات المعروضة إلى جدول نصي" style="background-color: rgb(90, 184, 78)" href="#exportModal"><i class="material-icons">cloud_download</i></a></li>
+					<li><a class="btn-floating navy modal-trigger tooltipped" data-tooltip="<i class='material-icons'>info</i>اظهار واخفاء أقسام البلاغات" href="#viewModal"><i class="material-icons">art_track</i></a></li>
+				</ul>
+			</div>
+		</div>
+		<img id="alarmImage" src="imgs/ekhtar.png" class="hide" style="width: 40px; height: 40px; position: fixed; top: 60px; left: 15px;transition:opacity 1s ease-in;">
+
+		<div id="visibilityModal" class="modal">
+			<div class="modal-content">
+				<h4>تأكيد تعيين جميع البلاغات كمقروءة</h4>
+				<p>سوف يتم تمييز البلاغات المعروضة, وعددها <span id="seenConfirmReadLabel">23</span> كمقروءة.</p>
+			</div>
+			<div class="modal-footer">
+				<a id="seenAllButton" href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="موافق"><i class="material-icons green-text">done</i></a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="اغلاق"><i class="material-icons red-text">close</i></a>
+			</div>
+		</div>
+
+		<div id="exportModal" class="modal">
+			<div class="modal-content">
+				<h4>تصدير البلاغات المعروضة</h4>
+				<p>سوف يتم تصدير جميع البلاغات المعروضة, وعددها <span id="seenConfirmReadLabel">23</span> إلى جدول نصي.</p>
+				<p>تحديد حقول التصدير:</p>
+				<p>
+					<label>
+						<input type="checkbox" id="exportDetailsCheckbox" data-target="report-detail" checked/>
+						<span>تضمين التفاصيل الفنية للبلاغ</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input type="checkbox" id="exportCommentsCheckbox" data-target="report-detail" checked/>
+						<span>تضمين التعليقات الخاصة بالبلاغ</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input type="checkbox" id="exportActionsCheckbox" data-target="report-detail" checked/>
+						<span>تضمين سجل التفاعلات على البلاغ</span>
+					</label>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a id="exportAllButton" href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="موافق"><i class="material-icons green-text">done</i></a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="اغلاق"><i class="material-icons red-text">close</i></a>
+			</div>
+		</div>
+
+		<div id="exportReportModal" class="modal">
+			<div class="modal-content">
+				<h4>تصدير البلاغ إلى مستند نصي</h4>
+				<p>تحديد حقول التصدير:</p>
+				<p>
+					<label>
+						<input type="checkbox" id="exportReportCommentsCheckbox" data-target="report-detail" checked/>
+						<span>تصدير التعليقات الخاصة بالبلاغ</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input type="checkbox" id="exportReportActionsCheckbox" data-target="report-detail" checked/>
+						<span>تصدير سجل التفاعلات مع البلاغ</span>
+					</label>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a id="exportButton" href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="موافق"><i class="material-icons green-text">done</i></a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="اغلاق"><i class="material-icons red-text">close</i></a>
+			</div>
+		</div>
+
+		<div id="viewModal" class="modal">
+			<div class="modal-content">
+				<h4>شكل عرض البلاغات</h4>
+				<p>
+					<p>
+						<label>
+							<input type="checkbox" id="showDetialCheckbox" data-target=".report-detail"/>
+							<span>عرض التفاصيل الفنية للبلاغ</span>
+						</label>
+					</p>
+					<p>
+						<label>
+							<input type="checkbox" id="showMediaCheckbox" data-target=".report-media" checked/>
+							<span>عرض الصور والوسائط</span>
+						</label>
+					</p>
+					<p>
+						<label>
+							<input type="checkbox" id="showCommentCheckbox" data-target=".report-comment" checked/>
+							<span>عرض التعليقات</span>
+						</label>
+					</p>
+					<p>
+						<label>
+							<input type="checkbox" id="showActionCheckbox" data-target=".report-action" checked/>
+							<span>عرض التفاعلات مع البلاغ</span>
+						</label>
+					</p>
+					<p>
+						<label>
+							<input type="checkbox" id="showCommandCheckbox" data-target=".content-floating-button .btn-floating" checked/>
+							<span>عرض أزرار إدارة البلاغ</span>
+						</label>
+					</p>
+					<p>
+						<label>
+							<input type="checkbox" id="showMaringCheckbox" checked/>
+							<span>عرض مساحة بين البلاغات</span>
+						</label>
+					</p>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="موافق"><i class="material-icons green-text">done</i></a>
+			</div>
+		</div>
+		<div id="commandModal" class="modal">
+			<div class="modal-content">
+				<h4>الأمر الأساسي</h4>
+				<p>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="commands.html" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="عرض تفاصيل الأمر"><i class="material-icons green-text">info</i></a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="اغلاق"><i class="material-icons red-text">close</i></a>
+			</div>
+		</div>
+		<div id="filterModal" class="modal">
+			<div class="modal-content">
+				<h4>ترشيح النتائج</h4>
+				<div class="z-depth-2">
+					<ul class="collapsible">
+						<li>
+							<div class="collapsible-header">
+								<i class="material-icons green-text">search</i>بحث أساسي
+							</div>
+							<div class="collapsible-body">
+								<div class="input-field">
+									<i class="material-icons prefix">edit</i>
+									<input id="searchText" type="text" class="validate">
+									<label for="searchText">كلمات مفتاحية</label>
+								</div>
+								<div class="input-field">
+									<i class="material-icons prefix">date_range</i>
+									<input id="searchFromDate" type="text" class="datepicker">
+									<label for="searchFromDate">من تاريخ</label>
+								</div>
+								<div class="input-field">
+									<i class="material-icons prefix">access_time</i>
+									<input id="searchFromTime" type="text" class="timepicker">
+									<label for="searchFromTime">الوقت</label>
+								</div>
+								<div class="input-field">
+									<i class="material-icons prefix">date_range</i>
+									<input id="searchToDate" type="text" class="datepicker">
+									<label for="searchToDate">حتى تاريخ</label>
+								</div>
+								<div class="input-field">
+									<i class="material-icons prefix">access_time</i>
+									<input id="searchToTime" type="text" class="timepicker">
+									<label for="searchToTime">الوقت</label>
+								</div>	
+							</div>
+						</li>
+						<li>
+							<div class="collapsible-header">
+								<i class="material-icons green-text">group</i>ترشيح حسب <span>المجموعة</span> 
+							</div>
+							<div class="collapsible-body">
+								<div class="input-field">
+									<select id="setSelect" multiple class="icons">
+										<option data-icon="imgs/ekhtar.png" value="0" selected>مجموعة ١</option>
+									</select>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="collapsible-header">
+								<i class="material-icons green-text">filter_list</i>ترشيح حسب الحالة
+							</div>
+							<div class="collapsible-body">
+								 <div class="switch">
+									<label>
+										البلاغات الغير مقروءة<i class="material-icons">visibility</i>
+										<input id="unseenReportsCheckbox" type="checkbox">
+										<span class="lever"></span>
+									</label>
+								</div>
+								<div class="switch">
+									<label>
+										البلاغات الهامة<i class="material-icons">star</i>
+										<input id="importantReportsCheckbox" type="checkbox">
+										<span class="lever"></span>
+									</label>
+								</div>
+								<div class="switch">
+									<label>
+										ردود الأوامر<i class="material-icons">call_missed</i>
+										<input id="replayReportsCheckbox" type="checkbox">
+										<span class="lever"></span>
+									</label>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="collapsible-header">
+								<i class="material-icons green-text">stars</i>ترشيح حسب درجة الأهمية
+							</div>
+							<div class="collapsible-body">
+								<p><label>
+									<input id="allImportantRadio" name="importantGroup" type="radio" data-min-importance="0" data-max-importance="0" checked /><span><i class="material-icons">view_list</i>جميع البلاغات</span>
+								</label></p>
+<p><label>
+									<input id="normalImportantRadio" name="importantGroup" type="radio" data-min-importance="0" data-max-importance="0.05" /><span><i class="material-icons">star_outline</i>البلاغات العادية</span>
+								</label></p>
+<p><label>
+									<input id="importantRadio" name="importantGroup" type="radio"data-min-importance="0.05" data-max-importance="0.1" /><span><i class="material-icons">star_half</i>البلاغات الهامة</span>
+								</label></p>
+<p><label>
+									<input id="extremelyImportantRadio" name="importantGroup" type="radio" data-min-importance="0.1" data-max-importance="2" /><span><i class="material-icons">star</i>البلاغات الحرجة</span>
+								</label></p>
+							</div>
+						</li>
+						<li style="display:none">
+							<div class="collapsible-header">
+								<i class="material-icons green-text">filter_list</i>ترشيح حسب التصنيف
+							</div>
+							<div class="collapsible-body">
+								<div class="switch">
+									<label>
+										ارهاب<i class="material-icons">widgets</i>
+										<input id="extermelyReportsCheckbox" type="checkbox" checked>
+										<span class="lever"></span>
+									</label>
+								</div>
+								<div class="switch">
+									<label>
+										عسكري<i class="material-icons">widgets</i>
+										<input id="extermelyReportsCheckbox" type="checkbox" checked>
+										<span class="lever"></span>
+									</label>
+								</div>
+								<div class="switch">
+									<label>
+										خطف<i class="material-icons">widgets</i>
+										<input id="extermelyReportsCheckbox" type="checkbox" checked>
+										<span class="lever"></span>
+									</label>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!--div class="z-depth-2 content-block">	
+						<div class="content-header">
+							<i class="material-icons">insert_chart</i><label>التقارير المعروضة</label>
+						</div>
+						<div>
+							<p id="totalReportCountLabel"><i class="material-icons">view_list</i><span>23</span> تقرير</p>
+							<p id="unseenReportCountLabel"><i class="material-icons">visibility</i><span>12</span> غير مقروء</p>
+							<p id="importantReportCountLabel"><i class="material-icons">star</i><span>4</span> هام</p>
+						</div>
+					</div-->
+				</div>
+			</div>	
+			<div class="modal-footer">
+				<a id="searchButton" href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="البحث"><i class="material-icons green-text">search</i></a>
+				<a id="resetSearchButton" href="#!" class="waves-effect waves-orange btn-flat tooltipped" data-tooltip="اعادة تعيين المرشحات"><i class="material-icons orange-text">not_interested</i></a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat tooltipped" data-tooltip="اغلاق"><i class="material-icons red-text">close</i></a>
+
+		</div>
+	</body>
+</html>

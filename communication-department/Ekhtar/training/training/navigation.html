@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="CD Admin Panel" />
+		<meta name="author" content="CD" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>تنقلات المستخدم</title>
+		<link rel="stylesheet" href="css/leaflet.css">
+		<link rel="stylesheet" href="css/leaflet-legend.css">
+		<link rel="stylesheet" href="css/fonts.css">
+                <link rel="stylesheet" href="css/style.css">
+                <link rel="stylesheet" href="css/theme.css">
+                <link rel="stylesheet" href="css/materialize.new.min.css">
+                <link rel="stylesheet" href="css/materialize-child.min.css">
+		<link rel="stylesheet" href="css/materialize-rtl.css">
+                <link rel="stylesheet" href="css/material-icons.css">
+		<link rel="stylesheet" href="css/nouislider.css">
+
+                <script src="scripts/jquery/jquery-3.3.1.min.js"></script>
+                <script src="scripts/strophe/strophe.min.js"></script>
+                <script src="scripts/stropheAccess.js"></script>
+                <script src="scripts/stropheSession.js"></script>
+                <script src="scripts/dataAccess.js"></script>
+                <script src="scripts/sessionAccess.js"></script>
+                <script src="scripts/interfaceAccess.js"></script>
+		<script src="scripts/moment.js"></script>
+                <script src="scripts/setManager.js"></script>
+                <script src="scripts/master.js"></script>
+                <script src="js/old/setting.js"></script>
+		<script src="scripts/leaflet.js"></script>
+		<script src="scripts/leaflet-legend.js"></script>
+		<script src="scripts/materialize.new.min.js"></script>
+		<script src="scripts/nouislider.js"></script>
+		<script src="scripts/prettify.js"></script>
+		<script src="js/old/navigation.js?1.6.0.0"></script>
+	</head>
+	<body>
+		<div id="map" class="map">
+		</div>
+
+		<div class="fixed-action-btn vertical" dir="ltr">
+			<a id="menuButton" class="btn-floating btn-large activecaption">
+				<i class="large material-icons" style="background: #50aeff">apps</i>
+			</a>
+			<ul>
+				<!--li><a id="addUserButton" class="btn-floating green" data-toggle="collapse" data-placement="left" data-target="#addUserDiv" title="إضافة مستخدم"><i class="material-icons">group_add</i></a></li-->
+				<li><a id="timeFilterButton" class="btn-floating blue darken-1 collapse" data-placement="left" title="ترشيح حسب الزمن" data-target="#optionsDiv"><i class="material-icons">timer</i></a></li>
+				<li><a id="navigationButton" class="btn-floating red darken-1 collapse" data-placement="left" title="الإنتقال" data-target="#navigationDiv"><i class="material-icons">games</i></a></li>
+			</ul>
+		</div>	
+
+		<div id="legend" class="map-legend">
+			<div class="map-legend-header">الرموز المستخدمة</div>
+		</div>
+
+		 <div id="addUserDiv" class="collapse">
+			<div class="map-option box-glass">
+				 <p><select id="nodeSelect" multiple title="ﺖﺣﺪﻳﺩ ﺞﻫﺓ ﺈﺨﻃﺍﺭ" size="5" class="selectpicker map-option-select" data-live-search="true"></select>
+				<a id="addButton" class="btn-floating black"><i class="material-icons">add</i></a>
+				<a class="btn-floating black collapse" data-target="#findDiv"><i class="material-icons red">close</i></a></p>
+				<label id="resultLabel"></label>
+			</div>
+		</div>	
+
+		<div id="navigationDiv" class="collapse" style="top: 140px; position: relative">
+			<div class="map-option-narrow box-glass">
+				<p>
+					<a id="homeButton" class="btn-floating blue"><i class="material-icons">home</i></a>
+					<a id="previousButton" class="btn-floating green"><i class="material-icons reverse">skip_previous</i></a>
+					<a id="nextButton" class="btn-floating green"><i class="material-icons reverse">skip_next</i></a>
+					<a id="endButton" class="btn-floating blue"><i class="material-icons">person</i></a>
+					<a class="btn-floating black collapse" data-target="#navigationDiv" style="margin-right: 26px"><i class="material-icons red">close</i></a>
+				</p>
+			</div>
+		</div>
+
+		<div id="optionsDiv" class="collapse" style="top: -200px;position: relative">
+			<div class="map-option box-glass">
+				<p><span class="switch"><label>تنقلات خلايا التغطية<input id="cellCheckbox" type="checkbox" checked="checked"><span class="lever"></span></label></span>
+				<span class="switch"><label>تنقلات القمر الصناعي<input id="gpsCheckbox" type="checkbox" checked="checked"><span class="lever"></span></label></span></p>
+				<p>
+					<i class="material-icons right">timer</i><label>ترشيح زمني </label>
+					<button class="map-option-button waves-effect waves-light btn button-filter-day" data-day="0">آخر يوم</button>
+					<button class="map-option-button waves-effect waves-light btn button-filter-day" data-day="3">ثلاثة أيام</button>
+					<button class="map-option-button waves-effect waves-light btn button-filter-day" data-day="7">آخر أسبوع</button>
+					<button class="map-option-button waves-effect waves-light btn button-filter-day" data-day="30">آخر شهر</button>
+				</p>
+				<p><span id='dateSlider' style="display: block!important; margin-left: 40px; margin-right: 12px;"/></p>
+
+				<p><img class="input-modal-image" src="imgs/map_startlocation.png">من: <label id='date1' class='input-modal-text'>0</label><img class="input-modal-image" src="imgs/map_endlocation.png">حتى:<label id='date2' class='input-modal-text'>0</label><input id="longDate1" type="hidden"/><input id="longDate2" type="hidden"/><a class="btn-floating black collapse" data-target="#optionsDiv" style="position: absolute; left: 35px;"><i class="material-icons red">close</i></a></p>
+			</div>
+		</div>	
+	</body>
+</html>

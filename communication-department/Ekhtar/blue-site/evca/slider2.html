@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir='rtl'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="CD Admin Panel" />
+		<meta name="author" content="CD" />
+		<title>الصفحة الرئيسية</title>
+		<link rel="stylesheet" href="css/basic.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-slider.min.css">
+		<link rel="stylesheet" href="css/bootstrap-select.min.css">
+		<link rel="stylesheet" href="css/bootstrap-modal.css">
+		<link rel="stylesheet" href="css/prettify.css">
+		<script src="scripts/jquery/jquery-3.1.1.min.js"></script>
+		<script src="scripts/imageCover.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-slider.min.js"></script>
+		<script src="js/bootstrap-select.min.js"></script>
+		<script src="js/prettify.js"></script>
+		<script src="js/bootstrap-modal.js"></script>
+		<script src="js/bootstrap-modalmanager.js"></script>
+	</head>
+	<body id="body" class="background-full" onclick="$('#modal').modal('toggle')">
+		<br/>
+		<input id="ex12c" type="text" width="800px" data-slider-handle="custom"/><br/>
+		<label id='x1' width="40" height="60" style="background: red">a</label>
+		<label id='x2' width="40" height="60" style="background: green">b</label>
+		<br/><br/><br/>
+		<select title="select your es" class="selectpicker">
+			<option>Select...</option>
+			<option data-thumbnail="imgs/node/es-cd.png">CD</option>
+
+			<option data-thumbnail="imgs/node/es-smd.png">SMD</option>
+
+
+		</select><br/><br/>
+<select title="Select your surfboard" class="selectpicker">
+  <option>Select...</option>
+  <option data-thumbnail="images/icon-chrome.png">Chrome</option>
+  <option data-thumbnail="images/icon-firefox.png">Firefox</option>
+  <option data-thumbnail="images/icon-ie.png">IE</option>
+  <option data-thumbnail="images/icon-opera.png">Opera</option>
+  <option data-thumbnail="images/icon-safari.png">Safari</option>
+</select>
+<br/>
+<select title="Select your spell" class="selectpicker">
+  <option>Select...</option>
+  <option data-icon="glyphicon glyphicon-eye-open" data-subtext="petrification">Eye of Medusa</option>
+  <option data-icon="glyphicon glyphicon-fire" data-subtext="area damage">Rain of Fire</option>
+</select>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="modalTitle">Options</h5>
+                                                <button type-"button" class="close" data-dismiss="modal" aria-label="ﺢﻔﻇ">
+                                                        <span aria-hidden="true">&times;</span>
+                                                </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                ...
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ﺈﻠﻏﺍﺀ</button>
+                                                <button type="button" class="btn btn-primary">ﺢﻔﻇ</button>
+                                        </div>
+                                </div>
+                        </div>
+</div>
+
+	</body>
+	        <script>
+			$("#ex12c").slider({ id: "slider12c", tooltip_position:'left', min: 100, max: 150, step: 10, range: true, focus: true, formatter: function(value) { return 'Current value: ' + value;}});
+
+			//var r = $('#ex12c').slider().on('slide', function(){idx=this.value.indexOf(',');$('#x1').text(new Date(parseInt(this.value.substring(0,idx))));$('#x2').text(new Date(parseInt(this.value.substring(idx+1))));}).data('slider');
+
+        	</script>
+
+</html>

@@ -1,0 +1,123 @@
+body
+{
+        background-size: cover;
+        background-color: #e0e0e0;
+        background-repeat: no-repeat;
+        background-blend-mode: overlay;
+        background-attachment: fixed;
+	//font-size: 1em;
+}
+
+button, 
+input:not([type="checkbox"]),
+label.input-upload
+{
+	height: 40px;
+	//font-family: Georgia, "Times New Roman", Times, Serif;
+	font-size: 1.1em;
+	font-weight: bold;
+	font-family: lateef;
+	width: 243px;
+}
+
+input[type="checkbox"]
+{
+	width: 15px;
+	height: 15px;
+	margin: 8px;
+}
+ 
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="time"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="url"],
+select
+{
+	display: block;
+	padding: 5px;
+	margin: 10px;
+	border: solid 1px #b1b6ff;
+	border-radius: 8px;
+	color: #0c00ce;
+	background: #FFFA;
+	outline: 0;
+	box-sizing: border-box;
+	//box-shadow: 0px 0px 2px #0015ff inset;
+	//-webkit-box-shadow: 0px 0px 2px #0015ff inset;
+	//-webkit-box-sizing: border-box;
+	//-moz-box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="datetime"]:focus,
+input[type="time"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="url"]:focus,
+select:focus
+{
+	opacity: 1;
+	box-shadow: 1px 0px 6px #0015ff inset;
+	-webkit-box-shadow: 0px 0px 5px #0015ff inset;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+label.input-upload
+{
+        cursor: pointer;
+	color: #FFF;
+	background: #6D7DF6;
+	text-align: center;
+	border-style: solid;
+	border-color: #0003FF;
+	border-width: 1px;
+	border-radius: 5px;
+}
+
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+label.input-upload:disabled
+{
+	cursor: not-allowed;
+	background: #DDDDDD;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+label.input-upload:hover
+{
+	background: #8D9DFF;
+}
+
+a:link,
+a:visited,
+a:active,
+a:hover
+{
+	text-decoration: none;
+	color: black;
+}
+
+@font-face
+{
+	font-family: lateef;
+	src: url('../fonts/LateefRegOT.ttf');
+}
+
+@font-face
+{
+	font-family: glyphicons;
+	src: url('../fonts/glyphicons-halflings-regular.ttf');
+}
