@@ -1,0 +1,148 @@
+# Excluded from this archive
+
+## Why
+- **Dependencies / build output:** `node_modules`, `vendor`, `bin`, `obj`, `dist`, `build`, caches. Rebuild with the project's package manager.
+- **Archives and databases:** `.tar .zip .rar .7z .sql .mdf .ldf .bak .mdb .accdb` (GitHub 100 MB file limit, and private client/patient data).
+- **Secrets:** SSH private keys, API keys, `wp-config.php`, `config.php`, and files with hard-coded passwords. All files below were removed; nothing was redacted in place.
+- **Third-party code:** WordPress core (`wp-admin`, `wp-includes`), licensed plugins (`booking-ultra-pro*`), Visual Studio 6 install tree, Material Design Icons, vendor SDKs, installers.
+- **Media:** files larger than 2 MB, `.mp4`, `.psd`, `wp-content/uploads`.
+- **Old/duplicate versions:** `older-versions/`, `Backup*/`, numbered copies and mirrored folders (byte-identical to a kept copy).
+- **Nested git history:** inner `.git` folders removed (e.g. `samagroup/mountain-breeze`, `loavi/arab-engineering`). Their history is not in this repo.
+
+## Files removed because they contain credentials/keys (paths only)
+- `alkafry-co/alkafry.com/wp-content/plugins/akismet/views/config.php`
+- `alkafry-co/alkafry.com/wp-content/plugins/smart-slider-3/Nextend/Framework/Font/Sources/GoogleFonts/GoogleFonts.php`
+- `alkafry-co/alkafry.com/wp-content/plugins/smart-slider-3/Nextend/SmartSlider3/Platform/WordPress/Integration/Unyson/smartslider/shortcodes/smartslider/config.php`
+- `alkafry-co/applications/Accountant/accountdata.mdb`
+- `alkafry-co/applications/Accountant/Package/Support/accountdata.mdb`
+- `alkafry-co/applications/Alkafry Co_Accounting/file.mdb`
+- `alkafry-co/applications/database manager/primary.mdb`
+- `alkafry-co/applications/email reader/database/email.mdb`
+- `alkafry-co/applications/Employ/Employ.mdb`
+- `alkafry-co/applications/ExImDataBase/file.mdb`
+- `alkafry-co/applications/kafry-blue-site/database/email.mdb`
+- `alkafry-co/applications/kafry-blue-site/database/_vti_cnf/email.mdb`
+- `alkafry-co/applications/kafry-blue-site/details/primary.mdb`
+- `alkafry-co/applications/kafry-blue-site/details/procurator.mdb`
+- `alkafry-co/applications/kafry-blue-site/details/_vti_cnf/primary.mdb`
+- `alkafry-co/applications/kafry-white-site/call.aspx`
+- `alkafry-co/applications/kafry-white-site/data/dataweb.accdb`
+- `alkafry-co/applications/kafry-white-site/data/_vti_cnf/dataweb.accdb`
+- `alkafry-co/applications/ProAccount/accountdata.mdb`
+- `alkafry-co/applications/ProAccountII/accountdata.mdb`
+- `alkafry-co/applications/Procurator_DB/Support/Data.mdb`
+- `alkafry-co/applications/Projects/Accountant/accountdata.mdb`
+- `alkafry-co/applications/Projects/Accountant/Package/Support/accountdata.mdb`
+- `alkafry-co/applications/Projects/RESTORE/accountdata.mdb`
+- `communication-department/Ekhtar/blue-site/evca/scripts/examples/attach/settings.py`
+- `communication-department/Ekhtar/blue-site/scripts/examples/attach/settings.py`
+- `communication-department/Ekhtar/eclipse-workspace/Servers/ekhtar tomcat-config/tomcat-users.xml`
+- `communication-department/Ekhtar/htdocs/dashboard/docs/configure-use-tomcat.html`
+- `communication-department/Ekhtar/htdocs/dashboard/docs/send-mail.html`
+- `communication-department/IOG/Node.js-MySQL-React.js-App/front-end/src/App.js`
+- `eblatech/web-sites/Baytowngentledental/plugins/akismet/views/config.php`
+- `eblatech/web-sites/Baytowngentledental/plugins/jetpack/sync/class.jetpack-sync-module-posts.php`
+- `eblatech/web-sites/Ctlmed/_index.php`
+- `eblatech/web-sites/Ctlmed/index.php`
+- `eblatech/web-sites/Ctlmed/staging2/_index.php`
+- `eblatech/web-sites/Ctlmed/staging2/index.php`
+- `eblatech/web-sites/Ctlmed/staging/_index.php`
+- `eblatech/web-sites/Ctlmed/staging/index.php`
+- `eblatech/web-sites/Ctlmed/temp/0index.php`
+- `eblatech/web-sites/Ctlmed/temp/index.php`
+- `eblatech/web-sites/CusterDental/map.php`
+- `eblatech/web-sites/CusterFamilyDental/map.php`
+- `eblatech/web-sites/Eblatech/Baytowngentledental/plugins/akismet/views/config.php`
+- `eblatech/web-sites/Eblatech/Baytowngentledental/plugins/jetpack/sync/class.jetpack-sync-module-posts.php`
+- `eblatech/web-sites/Eblatech/Ctlmed/_index.php`
+- `eblatech/web-sites/Eblatech/Ctlmed/index.php`
+- `eblatech/web-sites/Eblatech/Ctlmed/staging2/_index.php`
+- `eblatech/web-sites/Eblatech/Ctlmed/staging2/index.php`
+- `eblatech/web-sites/Eblatech/Ctlmed/staging/_index.php`
+- `eblatech/web-sites/Eblatech/Ctlmed/staging/index.php`
+- `eblatech/web-sites/Eblatech/Ctlmed/temp/0index.php`
+- `eblatech/web-sites/Eblatech/Ctlmed/temp/index.php`
+- `eblatech/web-sites/Eblatech/CusterDental/map.php`
+- `eblatech/web-sites/Eblatech/CusterFamilyDental/map.php`
+- `eblatech/web-sites/Eblatech/Eblatech/index.php`
+- `eblatech/web-sites/Eblatech/index.php`
+- `eblatech/web-sites/Eblatech/keys`
+- `eblatech/web-sites/Eblatech/keys/lg-masa.id_rsa`
+- `eblatech/web-sites/Eblatech/keys/masadubai.id_rsa`
+- `eblatech/web-sites/Eblatech/keys/masafze.id_rsa`
+- `eblatech/web-sites/Eblatech/Masa/ves_fasony_full/Quickstart Files/ves_fasony_quickstart/dev/tests/functional/tests/app/Magento/ProductVideo/Test/Repository/ConfigData.xml`
+- `eblatech/web-sites/Eblatech/TexasBrighterSmile/staging/html.tpl.php`
+- `eblatech/web-sites/Eblatech/TexasBrighterSmile/staging/templates/_html.tpl.php`
+- `eblatech/web-sites/Eblatech/TexasBrighterSmile/staging/templates/html.tpl.php`
+- `eblatech/web-sites/growingsmiletx/growingsmiletx.id_rsa`
+- `eblatech/web-sites/keys`
+- `eblatech/web-sites/keys/lg-masa.id_rsa`
+- `eblatech/web-sites/keys/masadubai.id_rsa`
+- `eblatech/web-sites/keys/masafze.id_rsa`
+- `eblatech/web-sites/Masa/ssh-access/lg-masa.id_rsa`
+- `eblatech/web-sites/Masa/ssh-access/masadubai.id_rsa`
+- `eblatech/web-sites/Masa/ssh-access/masafze.id_rsa`
+- `eblatech/web-sites/Masa/ves_fasony_full/Quickstart Files/ves_fasony_quickstart/dev/tests/functional/tests/app/Magento/ProductVideo/Test/Repository/ConfigData.xml`
+- `eblatech/web-sites/myfuturesigns/Eblatech/wp-master/wp-content/plugins/akismet/views/config.php`
+- `eblatech/web-sites/myfuturesigns/Eblatech/wp-master/wp-content/plugins/wp-hr-manager/config.php`
+- `eblatech/web-sites/myfuturesigns/Eblatech/wp-master/wp-content/plugins/wp-hr-manager/freemius/config.php`
+- `eurikatech/extermely-mayas-solutions/business-syria-society.com/wp-content/plugins/booking-ultra-pro-complement/libs/google-api-php-client/src/Google/Auth/AssertionCredentials.php`
+- `eurikatech/extermely-mayas-solutions/business-syria-society.com/wp-content/plugins/booking-ultra-pro-complement/libs/google-api-php-client/src/Google/Signer/P12.php`
+- `eurikatech/extermely-mayas-solutions/business-syria-society.com/wp-content/themes/neve/inc/core/settings/config.php`
+- `eurikatech/extermely-mayas-solutions/Complete/Accountant/Support/accountdata.mdb`
+- `eurikatech/extermely-mayas-solutions/Complete/AlToufik Co_Accounting/accountdata.mdb`
+- `eurikatech/extermely-mayas-solutions/Complete/EncryptionAssistance/EncryptionAssistance/LoginWindow.xaml`
+- `eurikatech/extermely-mayas-solutions/Complete/ManiyatApplication/Server/App_Data/datastore.accdb`
+- `eurikatech/extermely-mayas-solutions/Complete/PurveyanceSolution/Purveyance/LoginWindow.xaml`
+- `eurikatech/extermely-mayas-solutions/Complete/PurveyanceSolution/Purveyance/ProgramConsts.cs`
+- `eurikatech/extermely-mayas-solutions/Designing/MayasAssistanceSolution/Server/App_Data/DataTasks.accdb`
+- `eurikatech/extermely-mayas-solutions/Designing/MayasAssistanceSolution/Server/App_Data/new.accdb`
+- `eurikatech/extermely-mayas-solutions/Training/dot-net/gridAppTestSolution/gridAppTestSolution/gridAppTestSolution_TemporaryKey.pfx`
+- `eurikatech/extermely-mayas-solutions/Training/dot-net/WpfBrowserApplicationSolution/WpfBrowserApplication/WpfBrowserApplication_TemporaryKey.pfx`
+- `loavi/arab-engineering/arab-engineering-industries/config.php`
+- `loavi/arab-engineering/arab-engineering-industries/modules/includes/tinymce/jscripts/tiny_mce/plugins/imagemanager/config.php`
+- `loavi/arab-engineering/arab-engineering-industries/modules/includes/tinymce/jscripts/tiny_mce/plugins/imagemanager/login_session_auth.php`
+- `ministry-of-information/damas-times/backend/dt-config.php`
+- `ministry-of-information/damas-times/backend/dt-db.php`
+- `ministry-of-information/damas-times/dt-sa/backend/dt-config.php`
+- `ministry-of-information/damas-times/dt-sa/backend/dt-db.php`
+- `petrotech/evo-project/evo-service/Database.cs`
+- `petrotech/nozzle-project/nozzle-service/Database.cs`
+- `syrian-private-univercity/Bank Database.accdb`
+- `syrian-private-univercity/MobileApplication/الوظيفة/SimpleMobileBrowsers/Default.aspx`
+- `syrian-private-univercity/MobileStoreManagementSolution/MobileStoreManagement/Default.aspx`
+- `syrian-private-univercity/Servers/heki/pd4_files/cbgapi.loaded_0`
+- `syrian-private-univercity/Servers/heki/pd4_files/fastbutton_data/rsAItRSTN8R5Shvu7xR-c6ULSrvYf2rNm4sA`
+- `syrian-private-univercity/Servers/heki/pd4_files/fastbutton.htm`
+- `syrian-private-univercity/Servers/heki/pd55_files/cbgapi.loaded_0`
+- `syrian-private-univercity/Servers/heki/pd55_files/fastbutton_data/rsAItRSTN8R5Shvu7xR-c6ULSrvYf2rNm4sA`
+- `syrian-private-univercity/Servers/heki/pd55_files/fastbutton.htm`
+- `syrian-private-univercity/Servers/heki/pd5_files/cbgapi.loaded_0`
+- `syrian-private-univercity/Servers/heki/pd5_files/fastbutton_data/rsAItRSTN8R5Shvu7xR-c6ULSrvYf2rNm4sA`
+- `syrian-private-univercity/Servers/heki/pd5_files/fastbutton.htm`
+- `syrian-private-univercity/Servers/heki/pd78_files/cbgapi.loaded_0`
+- `syrian-private-univercity/Servers/heki/pd78_files/fastbutton_data/rsAItRSTN8R5Shvu7xR-c6ULSrvYf2rNm4sA`
+- `syrian-private-univercity/Servers/heki/pd78_files/fastbutton.htm`
+- `syrian-private-univercity/Servers/heki/pd7_files/cbgapi.loaded_0`
+- `syrian-private-univercity/Servers/heki/pd7_files/fastbutton_data/rsAItRSTN8R5Shvu7xR-c6ULSrvYf2rNm4sA`
+- `syrian-private-univercity/Servers/heki/pd7_files/fastbutton.htm`
+- `syrian-private-univercity/Servers/heki/pd86_files/cbgapi.loaded_0`
+- `syrian-private-univercity/Servers/heki/pd86_files/fastbutton_data/rsAItRSTN8R5Shvu7xR-c6ULSrvYf2rNm4sA`
+- `syrian-private-univercity/Servers/heki/pd86_files/fastbutton.htm`
+- `syrian-private-univercity/Servers/heki/pd8_files/cbgapi.loaded_0`
+- `syrian-private-univercity/Servers/heki/pd8_files/fastbutton_data/rsAItRSTN8R5Shvu7xR-c6ULSrvYf2rNm4sA`
+- `syrian-private-univercity/Servers/heki/pd8_files/fastbutton.htm`
+- `syrian-private-univercity/Servers/heki/pd_files/cbgapi.loaded_0`
+- `syrian-private-univercity/Servers/heki/pd_files/fastbutton_data/rsAItRSTN8R5Shvu7xR-c6ULSrvYf2rNm4sA`
+- `syrian-private-univercity/Servers/heki/pd_files/fastbutton.htm`
+- `syrian-private-univercity/Servers/pd4_files/cbgapi.loaded_0`
+- `syrian-private-univercity/Servers/pd4_files/fastbutton_data/rsAItRSTN8R5Shvu7xR-c6ULSrvYf2rNm4sA`
+- `syrian-private-univercity/Servers/pd4_files/fastbutton.htm`
+- `windows-apps/Accountant/accountdata.mdb`
+- `windows-apps/Alkafry-Co_Accounting/file.mdb`
+- `windows-apps/AlToufik-Co_Accounting/accountdata.mdb`
+- `windows-apps/AutoShipmaster/Items/tifoid-tutorial-networking-connect-computers-lan-wire_files/cbgapi.loaded0`
+- `windows-apps/database-manager/primary.mdb`
+- `windows-apps/ProAccount/accountdata.mdb`
+- `windows-apps/ProAccountII/accountdata.mdb`
+- `windows-apps/Procurator_DB/Data.mdb`
