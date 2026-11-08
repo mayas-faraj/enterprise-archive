@@ -1,0 +1,236 @@
+﻿<Window x:Class="ClientApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="600" Width="800" MinHeight="600" MinWidth="800" WindowState="Maximized">
+    <Grid Name="grdMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2.2*"/>
+            <RowDefinition Height="2.2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <RotateTransform Angle="-10" x:Key="btnRender"/>
+            <LinearGradientBrush x:Key="btnRGB">
+                <GradientStop Color="LightYellow" Offset="0"/>
+                <GradientStop Color="Pink" Offset="1"/>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="grdRGB">
+                <GradientStop Color="Silver" Offset="0"/>
+                <GradientStop Color="Black" Offset="1.6"/>
+            </LinearGradientBrush>
+        </Grid.Resources>
+        
+        <Grid Name="grd1" Grid.Row="1" Grid.Column="3" Background="{StaticResource ResourceKey=grdRGB}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="البلاطة" TextAlignment="Center" Height="20" FontFamily="Times New Roman" FontSize="16" Grid.ColumnSpan="2" Margin="49,7,48,0" VerticalAlignment="Top" FontWeight="Bold" Name="lb1" MouseUp="lb1_MouseUp" />
+            <TextBlock Text="طول" TextAlignment="Right" FontSize="9" Grid.Column="1" Margin="0,43,6,0" HorizontalAlignment="Right" Width="24" Height="14" VerticalAlignment="Top" />
+            <ComboBox Name="cmITall1" FontSize="9" Margin="5,41,0,0" HorizontalAlignment="Left" Width="42" Height="18" VerticalAlignment="Top" Foreground="#FFA39143" Background="#FFFFF8D8" Grid.Column="1"/>
+            <TextBlock FontSize="9" HorizontalAlignment="Right" Margin="0,43,5,0" Text="عرض" TextAlignment="Right" Width="24" Height="14" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" HorizontalAlignment="Right" Margin="0,66,6,0" Text="أرتفاع" TextAlignment="Right" Width="24" Grid.Column="1" Height="14" VerticalAlignment="Top" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="50,63,36,0" Name="txIHeight1" TextAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Text="" LostFocus="texts_LostFocus" KeyUp="textsCube_KeyUp" KeyDown="texts_Keydown" />
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" Height="18" Margin="4,63,0,0" Name="cmIHeight1" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="43"/>
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="50,41,36,0" Name="txITall1" TextAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Text="" LostFocus="texts_LostFocus" KeyUp="textsCube_KeyUp" KeyDown="texts_Keydown" />
+            <TextBlock FontSize="9" HorizontalAlignment="Right" Margin="0,130,6,0" Text="حديد" TextAlignment="Right" Width="24" Grid.Column="1" Height="14" VerticalAlignment="Top" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" HorizontalAlignment="Left" Margin="4,127,0,0" Name="cmOIron1" VerticalAlignment="Top" Width="43" Grid.Column="1" IsReadOnly="True"/>
+            <TextBlock FontSize="9" HorizontalAlignment="Right" Margin="0,152,6,0" Text="بحص" TextAlignment="Right" Width="24" Grid.Column="1" Height="14" VerticalAlignment="Top" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" Margin="50,149,36,0" Name="txORock1" TextAlignment="Right" VerticalAlignment="Top" Grid.Column="1" IsReadOnly="True" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" HorizontalAlignment="Left" Margin="4,149,0,0" Name="cmORock1" Width="43" Grid.Column="1" IsReadOnly="True" Height="18" VerticalAlignment="Top"/>
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" Margin="50,127,36,0" Name="txOIron1" TextAlignment="Right" VerticalAlignment="Top" Grid.Column="1" IsReadOnly="True" />
+            <TextBlock FontSize="9" HorizontalAlignment="Right" Margin="0,131,5,0" Text="أسمنت" TextAlignment="Right" Width="34" Height="14" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" HorizontalAlignment="Right" Margin="0,152,5,0" Text="رمل" TextAlignment="Right" Width="24" Height="14" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" HorizontalAlignment="Right" Margin="0,99,6,0" Text="خرسانة" TextAlignment="Right" Width="28" Grid.Column="1" Height="14" VerticalAlignment="Top" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" HorizontalAlignment="Left" Margin="4,96,0,0" Name="cmOConcrete1" VerticalAlignment="Top" Width="43" Grid.Column="1" IsReadOnly="True"/>
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" Margin="50,96,36,0" Name="txOConcrete1" TextAlignment="Right" VerticalAlignment="Top" Grid.Column="1" IsReadOnly="True" />
+            <TextBlock FontSize="9" Height="18" HorizontalAlignment="Right" Margin="0,181,6,0" Text="كلفة الحديد" TextAlignment="Right" VerticalAlignment="Top" Width="44" Grid.Column="1" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="5,178,68,0" Name="txIIronCost1" TextAlignment="Right" VerticalAlignment="Top" Grid.Column="1" LostFocus="texts_LostFocus" KeyUp="textsCube_KeyUp" KeyDown="texts_Keydown" />
+            <TextBlock FontSize="9" HorizontalAlignment="Right" Margin="0,178,6,0" Text="كلفة الأسمنت" TextAlignment="Right" Width="58" Height="18" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Grid.Column="1" Height="18" HorizontalAlignment="Right" Margin="0,200,6,0" Text="كلفة البحص" TextAlignment="Right" VerticalAlignment="Top" Width="44" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="5,197,68,0" Name="txIRockCost1" TextAlignment="Right" VerticalAlignment="Top" Grid.Column="1" LostFocus="texts_LostFocus" KeyUp="textsCube_KeyUp" KeyDown="texts_Keydown" />
+            <TextBlock FontSize="9" Height="18" HorizontalAlignment="Right" Margin="0,197,6,0" Text="كلفة الرمل" TextAlignment="Right" VerticalAlignment="Top" Width="44" />
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" Height="18" HorizontalAlignment="Left" Margin="7,40,0,0" Name="cmIWidth1" VerticalAlignment="Top" Width="43"/>
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="54,40,34,0" Name="txIWidth1" TextAlignment="Right" VerticalAlignment="Top" Text="" LostFocus="texts_LostFocus" KeyUp="textsCube_KeyUp" KeyDown="texts_Keydown" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" HorizontalAlignment="Left" Margin="6,126,0,0" Name="cmOCement1" VerticalAlignment="Top" Width="44" IsReadOnly="True"/>
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" Margin="54,148,34,0" Name="txOSand1" TextAlignment="Right" VerticalAlignment="Top" IsReadOnly="True" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" HorizontalAlignment="Left" Margin="6,148,0,0" Name="cmOSand1" VerticalAlignment="Top" Width="44" IsReadOnly="True"/>
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" Margin="54,126,34,0" Name="txOCement1" TextAlignment="Right" VerticalAlignment="Top" IsReadOnly="True" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Margin="7,177,64,0" Name="txICementCost1" TextAlignment="Right" Height="18" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyUp="textsCube_KeyUp" KeyDown="texts_Keydown" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="7,196,65,0" Name="txISandCost1" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyUp="textsCube_KeyUp" KeyDown="texts_Keydown" />
+        </Grid>
+        <Grid Name="grd2" Grid.Column="1" Grid.Row="1" Background="{StaticResource ResourceKey=grdRGB}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2" Height="20" Margin="48,7,49,0" Text="القواعد والأعمدة" TextAlignment="Center" VerticalAlignment="Top" Name="lb2" MouseUp="lb2_MouseUp" />
+            <TextBlock FontSize="9" Grid.Column="1" Height="14" HorizontalAlignment="Right" Margin="0,43,6,0" Text="طول" TextAlignment="Right" VerticalAlignment="Top" Width="24" />
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" Grid.Column="1" Height="18" HorizontalAlignment="Left" Margin="5,41,0,0" Name="cmITall2" VerticalAlignment="Top" Width="44"/>
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,43,5,0" Text="عرض" TextAlignment="Right" VerticalAlignment="Top" Width="24" />
+            <TextBlock FontSize="9" Grid.Column="1" Height="14" HorizontalAlignment="Right" Margin="0,66,6,0" Text="أرتفاع" TextAlignment="Right" VerticalAlignment="Top" Width="24" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Grid.Column="1" Height="18" Margin="50,63,36,0" Name="txIHeight2" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyDown="texts_Keydown" KeyUp="textsBases_KeyUp" />
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" Grid.Column="1" Height="18" HorizontalAlignment="Left" Margin="5,63,0,0" Name="cmIHeight2" VerticalAlignment="Top" Width="44"/>
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Grid.Column="1" Height="18" Margin="50,41,36,0" Name="txITall2" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyDown="texts_Keydown" KeyUp="textsBases_KeyUp" />
+            <TextBlock FontSize="9" Grid.Column="1" Height="14" HorizontalAlignment="Right" Margin="0,130,6,0" Text="حديد" TextAlignment="Right" VerticalAlignment="Top" Width="24" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Grid.Column="1" Height="18" HorizontalAlignment="Left" IsReadOnly="True" Margin="4,127,0,0" Name="cmOIron2" VerticalAlignment="Top" Width="45" />
+            <TextBlock FontSize="9" Grid.Column="1" Height="14" HorizontalAlignment="Right" Margin="0,152,6,0" Text="بحص" TextAlignment="Right" VerticalAlignment="Top" Width="24" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Grid.Column="1" Height="18" IsReadOnly="True" Margin="50,149,36,0" Name="txORock2" TextAlignment="Right" VerticalAlignment="Top" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Grid.Column="1" HorizontalAlignment="Left" IsReadOnly="True" Margin="4,149,0,0" Name="cmORock2" Width="45" Height="18" VerticalAlignment="Top"/>
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Grid.Column="1" Height="18" IsReadOnly="True" Margin="50,127,36,0" Name="txOIron2" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,131,5,0" Text="أسمنت" TextAlignment="Right" VerticalAlignment="Top" Width="34" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,152,5,0" Text="رمل" TextAlignment="Right" VerticalAlignment="Top" Width="24" />
+            <TextBlock FontSize="9" Grid.Column="1" Height="14" HorizontalAlignment="Right" Margin="0,99,6,0" Text="خرسانة" TextAlignment="Right" VerticalAlignment="Top" Width="28" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Grid.Column="1" Height="18" HorizontalAlignment="Left" IsReadOnly="True" Margin="4,96,0,0" Name="cmOConcrete2" VerticalAlignment="Top" Width="45"/>
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Grid.Column="1" Height="18" IsReadOnly="True" Margin="50,96,36,0" Name="txOConcrete2" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Grid.Column="1" Height="18" HorizontalAlignment="Right" Margin="0,181,6,0" Text="كلفة الحديد" TextAlignment="Right" VerticalAlignment="Top" Width="44" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Grid.Column="1" Height="18" Margin="5,178,66,0" Name="txIIronCost2" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyDown="texts_Keydown" KeyUp="textsBases_KeyUp" />
+            <TextBlock FontSize="9" Height="18" HorizontalAlignment="Right" Margin="0,178,6,0" Text="كلفة الأسمنت" TextAlignment="Right" VerticalAlignment="Top" Width="58" />
+            <TextBlock FontSize="9" Grid.Column="1" Height="18" HorizontalAlignment="Right" Margin="0,200,6,0" Text="كلفة البحص" TextAlignment="Right" VerticalAlignment="Top" Width="44" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Grid.Column="1" Height="18" Margin="5,197,66,0" Name="txIRockCost2" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyDown="texts_Keydown" KeyUp="textsBases_KeyUp" />
+            <TextBlock FontSize="9" Height="18" HorizontalAlignment="Right" Margin="0,197,6,0" Text="كلفة الرمل" TextAlignment="Right" VerticalAlignment="Top" Width="44" />
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" Height="18" HorizontalAlignment="Left" Margin="4,40,0,0" Name="cmIWidth2" VerticalAlignment="Top" Width="41"/>
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="4,62,34,0" Name="txINum2" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyDown="texts_Keydown" KeyUp="textsBases_KeyUp" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="50,40,34,0" Name="txIWidth2" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyDown="texts_Keydown" KeyUp="textsBases_KeyUp" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" HorizontalAlignment="Left" IsReadOnly="True" Margin="4,126,0,0" Name="cmOCement2" VerticalAlignment="Top" Width="41"/>
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="50,148,34,0" Name="txOSand2" TextAlignment="Right" VerticalAlignment="Top" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" HorizontalAlignment="Left" IsReadOnly="True" Margin="4,148,0,0" Name="cmOSand2" VerticalAlignment="Top" Width="41"/>
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="50,126,34,0" Name="txOCement2" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="4,177,69,0" Name="txICementCost2" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyDown="texts_Keydown" KeyUp="textsBases_KeyUp" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="4,196,69,0" Name="txISandCost2" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyDown="texts_Keydown" KeyUp="textsBases_KeyUp" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,65,6,0" Text="العدد" TextAlignment="Right" VerticalAlignment="Top" Width="24" />
+        </Grid>   
+        <Grid Name="grdCmd" Grid.Row="2" Grid.Column="0" Background="{StaticResource ResourceKey=grdRGB}">
+        <Button Content="مسح الكل" Height="23" Margin="14,46,14,0" Name="btnClear" VerticalAlignment="Top" LayoutTransform="{StaticResource ResourceKey=btnRender}" Background="{StaticResource ResourceKey=btnRGB}" Click="btnClear_Click" />
+        <Button Content="طباعة النتائج" Height="23" Margin="14,146,14,0" Name="btnPrint" VerticalAlignment="Top" LayoutTransform="{StaticResource ResourceKey=btnRender}" Background="{StaticResource ResourceKey=btnRGB}" Click="btnPrint_Click" />
+        <Button Content="تحميل النتائج" Height="23" Margin="14,113,14,0" Name="btnLoad" VerticalAlignment="Top" LayoutTransform="{StaticResource ResourceKey=btnRender}" Background="{StaticResource ResourceKey=btnRGB}" Click="btnLoad_Click" />
+        <Button Content="حفظ النتائج" Height="23" Margin="14,79,14,0" Name="btnSave" VerticalAlignment="Top" LayoutTransform="{StaticResource ResourceKey=btnRender}" Background="{StaticResource ResourceKey=btnRGB}" Click="btnSave_Click" />
+            <Button Content="خروج" Height="23" Margin="14,186,14,0" Name="btnExit" VerticalAlignment="Top" LayoutTransform="{StaticResource ResourceKey=btnRender}" Background="{StaticResource ResourceKey=btnRGB}" Click="btnExit_Click" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,13,16,0" Text="المجموع الكلي" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,10,74,0" Name="txOTotal" TextAlignment="Right" VerticalAlignment="Top" />
+        </Grid>     
+        <Grid Grid.Row="2" Grid.Column="1" Background="{StaticResource ResourceKey=grdRGB}">
+        <Image Grid.Column="1" Width="123" Height="150" Grid.Row="2" Name="image1" Stretch="Fill" Margin="79,11,27,63" Source="/ClientApplication;component/Images/17.jpg">
+            <Image.RenderTransform>
+                <RotateTransform Angle="0"/>
+            </Image.RenderTransform>
+        </Image>
+        <Image Grid.Column="1" Width="123" Height="150" Grid.Row="2" Name="image3" Stretch="Fill" Margin="6,64,100,10" Source="/ClientApplication;component/Images/10.jpg">
+            <Image.RenderTransform>
+                <RotateTransform Angle="-15"/>
+            </Image.RenderTransform>
+        </Image>
+        <Image Height="150" Margin="101,37,5,37" Name="image2" Stretch="Fill" Width="123" Source="/ClientApplication;component/Images/1%20%282%29.jpg">
+            <Image.RenderTransform>
+                <RotateTransform Angle="15" />
+            </Image.RenderTransform>
+        </Image>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="1" Background="{StaticResource ResourceKey=grdRGB}">
+            <TextBlock FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Height="20" Margin="10,10,18,0" Text="تكاليف البلاطة" TextAlignment="Center" VerticalAlignment="Top" Name="lbCosts1" MouseUp="lbCosts1_MouseUp" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,45,18,0" Text="كلفة الحديد" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,43,74,0" Name="txOIronTotalCost1" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,102,18,0" Text="كلفة البحص" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,99,74,0" Name="txORockTotalCost1" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,131,18,0" Text="كلفة الرمل" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,130,74,0" Name="txOSandTotalCost1" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,68,18,0" Text="كلفة الأسمنت" TextAlignment="Right" VerticalAlignment="Top" Width="60" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,65,74,0" Name="txOCementTotalCost1" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,200,18,0" Text="المجموع" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,197,74,0" Name="txOTotalCost1" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="18" HorizontalAlignment="Right" Margin="0,152,18,0" Text="متفرقات" TextAlignment="Right" VerticalAlignment="Top" Width="44" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="10,152,74,0" Name="txIMiscTotalCost1" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyUp="textsCube_KeyUp" KeyDown="texts_Keydown" />
+        </Grid>
+        <Grid Grid.Row="1" Name="grid1" Background="{StaticResource ResourceKey=grdRGB}" >
+            <TextBlock FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Height="20" Margin="12,10,16,0" Text="تكاليف القواعد والأعمدة" TextAlignment="Center" VerticalAlignment="Top" Name="lbCosts2" MouseUp="lbCosts2_MouseUp" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,45,18,0" Text="كلفة الحديد" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,43,74,0" Name="txOIronTotalCost2" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,102,18,0" Text="كلفة البحص" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,99,74,0" Name="txORockTotalCost2" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,131,18,0" Text="كلفة الرمل" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,130,74,0" Name="txOSandTotalCost2" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,68,18,0" Text="كلفة الأسمنت" TextAlignment="Right" VerticalAlignment="Top" Width="60" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,65,74,0" Name="txOCementTotalCost2" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,200,18,0" Text="المجموع" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,200,74,0" Name="txOTotalCost2" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="18" HorizontalAlignment="Right" Margin="0,152,18,0" Text="متفرقات" TextAlignment="Right" VerticalAlignment="Top" Width="44" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="10,152,74,0" Name="txIMiscTotalCost2" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyUp="textsBases_KeyUp" KeyDown="texts_Keydown" />
+        </Grid>
+        <Grid Grid.Column="3" Grid.Row="2" Name="grid2" Background="{StaticResource ResourceKey=grdRGB}">
+            <TextBlock FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Height="20" Margin="54,10,43,0" Text="المسطحات" TextAlignment="Center" VerticalAlignment="Top" Name="lb3" MouseUp="lb3_MouseUp" />
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" Height="19" HorizontalAlignment="Left" Margin="11,33,0,0" Name="cmISpace3" VerticalAlignment="Top" Width="47"/>
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="64,34,69,0" Name="txISpace3" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyUp="textsSurface_KeyUp" KeyDown="texts_Keydown" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,35,3,0" Text="مساحة مسطح" TextAlignment="Right" VerticalAlignment="Top" Width="63" />
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" HorizontalAlignment="Left" Margin="11,54,0,0" Name="cmICube3" Width="47" Height="19" VerticalAlignment="Top" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="64,54,68,0" Name="txICube3" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyUp="textsSurface_KeyUp" KeyDown="texts_Keydown" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,55,3,0" Text="حجم مكعب" TextAlignment="Right" VerticalAlignment="Top" Width="63" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,82,3,0" Text="حديد في 1م3" TextAlignment="Right" VerticalAlignment="Top" Width="63" />
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" Height="19" HorizontalAlignment="Left" Margin="64,78,0,0" Name="cmIIronConcentrate3" VerticalAlignment="Top" Width="97">
+                <ComboBoxItem Background="#FFEBFFE6" Content="60" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="80" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="100" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="105" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="110" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="115" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="120" Foreground="#FF1D6100" />
+            </ComboBox>
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" Height="20" HorizontalAlignment="Left" Margin="11,78,0,0" Name="cmIIron3" VerticalAlignment="Top" Width="47"/>
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,103,3,0" Text="أسمنت في 1م3" TextAlignment="Right" VerticalAlignment="Top" Width="63" />
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" Height="19" HorizontalAlignment="Left" Margin="64,99,0,0" Name="cmICementConcentrate3" VerticalAlignment="Top" Width="97">
+                <ComboBoxItem Background="#FFEBFFE6" Content="3" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="4" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="5" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="6" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="7" Foreground="#FF1D6100" />
+                <ComboBoxItem Background="#FFEBFFE6" Content="8" Foreground="#FF1D6100" />
+            </ComboBox>
+            <ComboBox Background="#FFFFF8D8" FontSize="9" Foreground="#FFA39143" Height="20" HorizontalAlignment="Left" Margin="11,99,0,0" Name="cmICement3" VerticalAlignment="Top" Width="47"/>
+            <TextBlock FontSize="9" Height="18" HorizontalAlignment="Right" Margin="0,129,3,0" Text="كلفة الحديد" TextAlignment="Right" VerticalAlignment="Top" Width="44" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="11,126,69,0" Name="txIIronCost3" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyUp="textsSurface_KeyUp" KeyDown="texts_Keydown" />
+            <TextBlock FontSize="9" Height="18" HorizontalAlignment="Right" Margin="0,150,3,0" Text="كلفة الأسمنت" TextAlignment="Right" VerticalAlignment="Top" Width="62" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="11,147,69,0" Name="txICementCost3" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyUp="textsSurface_KeyUp" KeyDown="texts_Keydown" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,175,3,0" Text="كمية الحديد" TextAlignment="Right" VerticalAlignment="Top" Width="44" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,172,0,0" Name="cmOIron3" VerticalAlignment="Top" Width="48"/>
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,197,3,0" Text="كمية الأسمنت" TextAlignment="Right" VerticalAlignment="Top" Width="62" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="64,194,69,0" Name="txOCement3" TextAlignment="Right" VerticalAlignment="Top" />
+            <ComboBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" HorizontalAlignment="Left" IsReadOnly="True" Margin="11,193,0,0" Name="cmOCement3" VerticalAlignment="Top" Width="47"/>
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="64,172,69,0" Name="txOIron3" TextAlignment="Right" VerticalAlignment="Top" />
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="2" Name="grid3" Background="{StaticResource ResourceKey=grdRGB}">
+            <TextBlock FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Height="20" Margin="10,10,18,0" Text="تكاليف المسطحات" TextAlignment="Center" VerticalAlignment="Top" Name="lbCosts3" MouseUp="lbConsts3_MouseUp" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,38,18,0" Text="كلفة الحديد" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,36,74,0" Name="txOIronTotalCost3" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,61,18,0" Text="كلفة الأسمنت" TextAlignment="Right" VerticalAlignment="Top" Width="60" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,58,74,0" Name="txOCementTotalCost3" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="14" HorizontalAlignment="Right" Margin="0,193,18,0" Text="المجموع" TextAlignment="Right" VerticalAlignment="Top" Width="50" />
+            <TextBox Background="#FFF8E5E2" FontSize="9" Foreground="#FFB40707" Height="18" IsReadOnly="True" Margin="10,193,74,0" Name="txOTotalCost3" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock FontSize="9" Height="18" HorizontalAlignment="Right" Margin="0,145,18,0" Text="متفرقات" TextAlignment="Right" VerticalAlignment="Top" Width="44" />
+            <TextBox Background="#FFFFF8D8" FontSize="9" Foreground="#FF8D740D" Height="18" Margin="10,145,74,0" Name="txIMiscTotalCost3" TextAlignment="Right" VerticalAlignment="Top" LostFocus="texts_LostFocus" KeyUp="textsSurface_KeyUp" KeyDown="texts_Keydown" />
+            
+        </Grid>
+        <Grid Grid.ColumnSpan="4" Name="grdPanner" Background="{StaticResource ResourceKey=grdRGB}" Margin="0,0,0,0">
+            <TextBlock FlowDirection="RightToLeft" Text="شركة الكفري للتسويق العقاري عبر الأنترنت" FontFamily="Times New Roman" FontWeight="Bold" FontSize="32" Margin="280,22,32,0" Height="50" VerticalAlignment="Top">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush>
+                        <GradientStop Color="Yellow" Offset="0"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <Rectangle Name="recBanner" Height="13" VerticalAlignment="Bottom">
+                <Rectangle.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="Yellow" Offset="0" />
+                        <GradientStop Color="Red" Offset="1" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+    </Grid>
+</Window>

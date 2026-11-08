@@ -1,0 +1,355 @@
+VERSION 5.00
+Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
+Begin VB.Form frmAll 
+   Caption         =   "Ã—œ «·Õ”«»« "
+   ClientHeight    =   11010
+   ClientLeft      =   60
+   ClientTop       =   450
+   ClientWidth     =   15240
+   BeginProperty Font 
+      Name            =   "Times New Roman"
+      Size            =   12
+      Charset         =   178
+      Weight          =   700
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   11010
+   ScaleWidth      =   15240
+   StartUpPosition =   2  'CenterScreen
+   WindowState     =   2  'Maximized
+   Begin VB.ComboBox cmbToDay 
+      Height          =   405
+      Left            =   6540
+      RightToLeft     =   -1  'True
+      TabIndex        =   11
+      Top             =   1560
+      Width           =   735
+   End
+   Begin VB.ComboBox cmbToMonth 
+      Height          =   405
+      Left            =   5580
+      RightToLeft     =   -1  'True
+      TabIndex        =   10
+      Top             =   1560
+      Width           =   855
+   End
+   Begin VB.ComboBox cmbToYear 
+      Height          =   405
+      ItemData        =   "frmAll.frx":0000
+      Left            =   4380
+      List            =   "frmAll.frx":0031
+      RightToLeft     =   -1  'True
+      TabIndex        =   9
+      Top             =   1560
+      Width           =   1095
+   End
+   Begin VB.ComboBox cmbDay 
+      Height          =   405
+      Left            =   9885
+      RightToLeft     =   -1  'True
+      TabIndex        =   6
+      Top             =   1560
+      Width           =   735
+   End
+   Begin VB.ComboBox cmbMonth 
+      Height          =   405
+      Left            =   8925
+      RightToLeft     =   -1  'True
+      TabIndex        =   5
+      Top             =   1560
+      Width           =   855
+   End
+   Begin VB.ComboBox cmbYear 
+      Height          =   405
+      ItemData        =   "frmAll.frx":008F
+      Left            =   7725
+      List            =   "frmAll.frx":00C0
+      RightToLeft     =   -1  'True
+      TabIndex        =   4
+      Top             =   1560
+      Width           =   1095
+   End
+   Begin VB.CommandButton cmdShow 
+      Caption         =   "⁄—÷"
+      Height          =   375
+      Left            =   2580
+      RightToLeft     =   -1  'True
+      TabIndex        =   3
+      Top             =   1560
+      Width           =   1575
+   End
+   Begin VB.CommandButton cmdExit 
+      Caption         =   "Œ—ÊÃ"
+      Height          =   495
+      Left            =   4815
+      RightToLeft     =   -1  'True
+      TabIndex        =   1
+      Top             =   9960
+      Width           =   2415
+   End
+   Begin VB.CommandButton cmdBack 
+      Caption         =   "⁄Êœ…"
+      Height          =   495
+      Left            =   7980
+      RightToLeft     =   -1  'True
+      TabIndex        =   0
+      Top             =   9960
+      Width           =   2415
+   End
+   Begin MSFlexGridLib.MSFlexGrid grData 
+      Height          =   7095
+      Left            =   825
+      TabIndex        =   2
+      Top             =   2520
+      Width           =   13590
+      _ExtentX        =   23971
+      _ExtentY        =   12515
+      _Version        =   393216
+      FixedRows       =   0
+      BackColorFixed  =   8454016
+      RightToLeft     =   -1  'True
+   End
+   Begin VB.Label Label3 
+      Alignment       =   1  'Right Justify
+      Caption         =   "≈·Ï"
+      Height          =   375
+      Left            =   7260
+      RightToLeft     =   -1  'True
+      TabIndex        =   12
+      Top             =   1560
+      Width           =   375
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      Caption         =   "Ã—œ «·Õ”«»« "
+      BeginProperty Font 
+         Name            =   "Times New Roman"
+         Size            =   26.25
+         Charset         =   178
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   855
+      Left            =   4245
+      RightToLeft     =   -1  'True
+      TabIndex        =   8
+      Top             =   360
+      Width           =   6735
+   End
+   Begin VB.Label Label2 
+      Alignment       =   1  'Right Justify
+      Caption         =   "⁄—÷ «·»Ì«‰«  „‰"
+      Height          =   375
+      Left            =   10845
+      RightToLeft     =   -1  'True
+      TabIndex        =   7
+      Top             =   1560
+      Width           =   1815
+   End
+End
+Attribute VB_Name = "frmAll"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Private Sub cmdShow_Click()
+'dementions
+    Dim dNum As Long, dSPrice As Long, dWin As Long, dPay As Long, dRest As Long, dPrice As Long
+    dSPrice = 0
+    dPrice = 0
+    dWin = 0
+    dNum = 0
+    dPay = 0
+    dRest = 0
+    
+'find targer
+    Appl = App.Path
+    If Right(Appl, 1) <> "\" Then Appl = Appl & "\accountdata.mdb"
+
+'data base connection
+    Set ADO = CreateObject("ADODB.connection")
+    ADO.connectionstring = "Provider=Microsoft.Jet.OLEDB.4.0;" & "Data Source=" & Appl
+    ADO.open
+    grData.Clear
+    
+'fill first part of table with data ( tblData)
+    grData.Row = 0
+    grData.Col = 0
+    grData.CellBackColor = &H80FF80
+    grData.Text = "≈”„ «·„«œ…"
+    grData.Col = 1
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·„‘ —Ì"
+    grData.Col = 2
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·ﬂ„Ì…"
+    grData.Col = 3
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·”⁄— «·≈›—«œÌ"
+    grData.Col = 4
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·”⁄— «·≈Ã„«·Ì"
+    grData.Col = 5
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·—»Ã"
+    grData.Col = 6
+    grData.CellBackColor = &H80FF80
+    grData.Text = "„·«ÕŸ« "
+    Rep = 1
+    SelSQL = "select * from tbldata where dday>=" & cmbDay.Text & " and dmonth>=" & cmbMonth.Text & " and dyear>=" & cmbYear.Text & " and dday<=" & cmbToDay.Text & " and dmonth<=" & cmbToMonth.Text & " and dyear<=" & cmbToYear.Text
+    Set Rs = ADO.execute(SelSQL)
+    On Error Resume Next
+    Do While Not Rs.EOF
+        grData.Rows = Rep + 1
+        grData.Row = Rep
+        grData.Col = 0
+        grData.Text = Rs("dmat")
+        grData.Col = 1
+        grData.Text = Rs("dname")
+        grData.Col = 2
+        grData.Text = Rs("dnum")
+        grData.Col = 3
+        grData.Text = Rs("dsprice")
+        grData.Col = 4
+        grData.Text = Rs("dprice")
+        grData.Col = 5
+        grData.Text = Rs("dwin")
+        grData.Col = 6
+        grData.Text = Rs("ddes")
+        dNum = dNum + Rs("dnum")
+        dPrice = dPrice + Rs("dprice")
+        dSPrice = dSPrice + Rs("dsprice")
+        dWin = dWin + Rs("dwin")
+        Rep = Rep + 1
+        Rs.movenext
+    Loop
+    grData.Rows = Rep + 1
+    grData.Row = Rep
+    grData.Col = 0
+    grData.Text = "«·„Ã„Ê⁄"
+    grData.Col = 2
+    grData.Text = dNum
+    grData.Col = 3
+    grData.Text = dSPrice
+    grData.Col = 4
+    grData.Text = dPrice
+    grData.Col = 5
+    grData.Text = dWin
+
+' fill second part of table with data (tblguest)
+    grData.Rows = Rep + 3
+    grData.Row = Rep + 2
+    grData.Col = 0
+    grData.CellBackColor = &H80FF80
+    grData.Text = "≈”„ «·„«œ…"
+    grData.Col = 1
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·„‘ —Ì"
+    grData.Col = 2
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·ﬂ„Ì…"
+    grData.Col = 3
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·”⁄— «·≈›—«œÌ"
+    grData.Col = 4
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·”⁄— «·≈Ã„«·Ì"
+    grData.Col = 5
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·„œ›Ê⁄"
+    grData.Col = 6
+    grData.CellBackColor = &H80FF80
+    grData.Text = "«·»«ﬁÌ"
+    SelSQL = "select * from tblguest where dday>=" & cmbDay.Text & " and dmonth>=" & cmbMonth.Text & " and dyear>=" & cmbYear.Text & " and dday<=" & cmbToDay.Text & " and dmonth<=" & cmbToMonth.Text & " and dyear<=" & cmbToYear.Text
+    Set Rs = ADO.execute(SelSQL)
+    dSPrice = 0
+    dPrice = 0
+    dWin = 0
+    dNum = 0
+    dPay = 0
+    dRest = 0
+    Do While Not Rs.EOF
+        grData.Rows = Rep + 4
+        grData.Row = Rep + 3
+        grData.Col = 0
+        grData.Text = Rs("dmat")
+        grData.Col = 1
+        grData.Text = Rs("dname")
+        grData.Col = 2
+        grData.Text = Rs("dnum")
+        grData.Col = 3
+        grData.Text = Rs("dsprice")
+        grData.Col = 4
+        grData.Text = Rs("dprice")
+        grData.Col = 5
+        grData.Text = Rs("dpay")
+        grData.Col = 6
+        grData.Text = Rs("drest")
+        dNum = dNum + Rs("dnum")
+        dPrice = dPrice + Rs("dprice")
+        dSPrice = dSPrice + Rs("dsprice")
+        dPay = dPay + Rs("dpay")
+        dRest = dRest + Rs("drest")
+        Rep = Rep + 1
+        Rs.movenext
+    Loop
+    grData.Rows = Rep + 4
+    grData.Row = Rep + 3
+    grData.Col = 0
+    grData.Text = "«·„Ã„Ê⁄"
+    grData.Col = 2
+    grData.Text = dNum
+    grData.Col = 3
+    grData.Text = dSPrice
+    grData.Col = 4
+    grData.Text = dPrice
+    grData.Col = 5
+    grData.Text = dPay
+    grData.Col = 6
+    grData.Text = dRest
+End Sub
+
+Private Sub Form_Load()
+    For Rep = 1 To 31
+        cmbDay.List(Rep - 1) = Rep
+        cmbToDay.List(Rep - 1) = Rep
+        If Rep <= 12 Then
+        cmbMonth.List(Rep - 1) = Rep
+        cmbToMonth.List(Rep - 1) = Rep
+        End If
+    Next Rep
+    cmbToDay.Text = Day(Now)
+    cmbToMonth.Text = Month(Now)
+    cmbToYear.Text = Year(Now)
+    cmbDay.Text = "1"
+    cmbMonth.Text = "1"
+    cmbYear.Text = "2000"
+    grData.Cols = 7
+    grData.ColWidth(0) = 2000
+    grData.ColWidth(1) = 2500
+    grData.ColWidth(2) = 1500
+    grData.ColWidth(3) = 1500
+    grData.ColWidth(4) = 1500
+    grData.ColWidth(5) = 1500
+    grData.ColWidth(6) = 3000
+    For Rep = 0 To 6
+        grData.ColAlignment(Rep) = 3
+    Next
+    cmdShow_Click
+End Sub
+
+Private Sub cmdBack_Click()
+    frmShow.Hide
+    frmMain.Show
+End Sub
+
+Private Sub cmdExit_Click()
+    ExitPro
+End Sub
+

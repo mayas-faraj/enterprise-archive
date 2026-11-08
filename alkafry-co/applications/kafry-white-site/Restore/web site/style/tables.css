@@ -1,0 +1,35 @@
+﻿.border_corner {
+	width:14px;height:14px;  
+}
+.border_up {
+	background-image: url('../images/main_tbl_up.gif');height:14px;background-repeat:repeat-x;
+}
+.border_dn {
+	background-image: url('../images/main_tbl_dn.gif');height:14px;background-repeat:repeat-x;
+}
+.border_lf {
+	background-image: url('../images/main_tbl_lf.gif');width:14px;background-repeat:repeat-y;
+}
+.border_rt {
+	background-image: url('../images/main_tbl_rt.gif');width:14px;background-repeat:repeat-y;
+}
+.corner1 {
+	width: 14px;
+	height: 14px;
+	background-image: url('../images/main_tbl_c1.gif');
+}
+.corner2 {
+	width: 14px;
+	height: 14px;
+	background-image: url('../images/main_tbl_c2.gif');
+}
+.corner3 {
+	width: 14px;
+	height: 14px;
+	background-image: url('../images/main_tbl_c3.gif');
+}
+.corner4 {
+	width: 14px;
+	height: 14px;
+	background-image: url('../images/main_tbl_c4.gif');
+}
