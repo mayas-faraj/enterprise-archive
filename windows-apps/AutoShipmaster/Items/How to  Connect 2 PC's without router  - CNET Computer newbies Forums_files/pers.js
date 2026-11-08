@@ -1,0 +1,6 @@
+
+   if(!dbugScripts("pers",["pers.tron.promo.js"])) {
+   /*	pers.tron.promo.js - packed	*/
+       var data=PageVars.data;function displayAte(J,A,D,E,B,C,G,I){var F=G?J.contains(data.siteId)&&D.contains(data.pageType):J.contains(data.siteId);var H=I?D.contains(data.pageType)&&B.contains(data.nodeId):D.contains(data.pageType)||B.contains(data.nodeId);if((F||H)&&!(A.contains(data.siteId)||E.contains(data.pageType)||C.contains(data.nodeId))){return true;}else{return false;}}var ateEvent=false;var promoOn=true;var display=true;if(ateEvent){display=displayAte(["102"],[],["2733","4505","2001"],["7731"],["3126"],[],false,true);var theMore="Join the conversation";}else{display=promoOn;var theMore="Check it out";}CnetToolbar.Promo={on:display,start:201108180800,end:201112152359,image:"http://i.i.com.com/cnwk.1d/i/toolbar/HGG-60x43.jpg",text:"CNET editors have hand-picked the top tech for your 2011 holiday gift (and wish) lists.",more:theMore,toolbarText:"Holiday Gift Guide",fixed:{header:"2011 Holiday Gift Guide",href:"http://reviews.cnet.com/holiday-gift-guide/",cssid:"promoCallout"}};
+   }
+       

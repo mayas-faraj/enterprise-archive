@@ -1,0 +1,29 @@
+CREATE TABLE tblPersons (pId Int IDENTITY PRIMARY KEY NOT NULL,pName NChar (100) NOT NULL,pAge TinyInt NOT NULL,pMarried Bit NOT NULL,pBirth DateTime NOT NULL,eSalary Real NOT NULL,eJob NVarChar (200) NOT NULL);
+INSERT INTO tblPersons (pName,pAge,pMarried,pBirth,eSalary,eJob) VALUES (N'Zaher Katsha',22,'True',CONVERT(DATETIME,'2/16/1988 12:00:00 AM',102),5690,N'seller') SELECT @@IDENTITY
+UPDATE tblPersons SET pName=N'Ali',pAge=22,pMarried='True',pBirth=CONVERT(DATETIME,'4/26/1984 12:00:00 AM',102),eSalary=10000,eJob=N'no job' 
+UPDATE tblPersons SET pName=N'Mayas',pAge=25,pMarried='False',pBirth=CONVERT(DATETIME,'8/24/1986 12:00:00 AM',102),eSalary=6000,eJob=N'Programmer'  WHERE pId = 11
+UPDATE tblPersons SET pName=N'Mayas',pAge=25,pMarried='False',pBirth=CONVERT(DATETIME,'8/24/1986 12:00:00 AM',102),eSalary=6000,eJob=N'Programmer'  WHERE pId = 5
+DELETE FROM tblPersons  WHERE pId = 5
+DELETE FROM tblPersons  WHERE pId = 6
+INSERT INTO tblPersons (pName,pAge,pMarried,pBirth,eSalary,eJob) VALUES (N'Watcher',10,'False',CONVERT(DATETIME,'8/24/1910 12:00:00 AM',102),65000,N'none') SELECT @@IDENTITY
+INSERT INTO tblPersons (pName,pAge,pMarried,pBirth,eSalary,eJob) VALUES (N'Basel',20,'True',CONVERT(DATETIME,'8/24/1910 12:00:00 AM',102),650000,N'Officer') SELECT @@IDENTITY
+SELECT count(*) FROM tblPersons 
+SELECT count(*) FROM tblPersons 
+SELECT count(*) FROM tblPersons  WHERE pId = 15
+SELECT count(*) FROM tblPersons  WHERE pId = 55
+SELECT count(*) FROM tblPersons  WHERE pId = 11
+SELECT count(*) FROM tblPersons  WHERE pId = 12
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13
+SELECT count(*) FROM tblPersons  WHERE pId = 13

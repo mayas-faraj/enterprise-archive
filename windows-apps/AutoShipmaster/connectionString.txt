@@ -1,0 +1,1 @@
+Data Source=*your Data Source*;Initial Catalog=autoshipmasterdata;Integrated Security=True;Pooling=False

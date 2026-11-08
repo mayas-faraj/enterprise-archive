@@ -1,0 +1,1 @@
+Data Source=.\SQLEXPRESS;AttachDbFilename='data\DomainDatabase.mdf';Integrated Security=True;
