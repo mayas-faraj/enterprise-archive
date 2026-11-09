@@ -26,7 +26,6 @@ Snapshot taken 2026-11-09. One row per project unit that is in the repo.
 | loavi/alboselh | 17 |
 | loavi/alexdana | 1 |
 | loavi/ambassador | 0 |
-| loavi/arab-engineering | 3538 |
 | loavi/claudio-pacifico | 46 |
 | loavi/general-green-house | 0 |
 | loavi/general-house-service | 0 |
@@ -55,7 +54,6 @@ Snapshot taken 2026-11-09. One row per project unit that is in the repo.
 | petrotech/turkisist-project | 14 |
 | samagroup/creative | 621 |
 | samagroup/dentist-syndicate | 643 |
-| samagroup/mountain-breeze | 52 |
 | samagroup/samapay | 2 |
 | service-media-and-alanatic-center/iog | 26 |
 | service-media-and-alanatic-center/selenium-project | 6 |

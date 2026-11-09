@@ -1,1 +1,0 @@
-		</div>		<?php include ($dots.'wedgits/footer/footer.php')?>	</div></body></html>

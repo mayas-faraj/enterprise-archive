@@ -1,1 +1,0 @@
-export {LandingImage} from "./LandingImage";

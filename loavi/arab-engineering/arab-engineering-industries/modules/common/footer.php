@@ -1,7 +1,0 @@
-	 	<!--------------------------------->
-		</td>
-	</tr>
-</table>
-<div style="width:100%" align="center"><?php include_once("../html/footer.html");?></div>
-</BODY>
-</HTML>

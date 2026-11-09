@@ -1,3 +1,0 @@
-user: admin
-db: arabengineers
-password: VM9batEhC5F4

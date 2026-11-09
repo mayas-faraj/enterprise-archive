@@ -21,6 +21,10 @@ This is an archive, so there is no dev/staging/production deployment. To try an 
 
 To rebuild a Node project, run `npm install` inside it. `node_modules` is intentionally not included.
 
+## Moved to separate repositories
+
+`mountain-breeze` and `arab-engineering-industries` have their own archived repos with full history; see `docs/SPLIT_REPOS.md`.
+
 ## What is not included
 
 Dependencies and build output, archives (`.tar`/`.zip`/`.rar`), database dumps, third-party or licensed code, and anything containing credentials or private keys. See `docs/EXCLUDED.md`.
