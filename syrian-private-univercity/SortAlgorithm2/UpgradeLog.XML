@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SortAlgorithm">
+</Property><Property Name="Solution File" Value="E:\References\HomeWorks\SortAlgorithm\SortAlgorithm.sln">
+</Property><Property Name="User Options File" Value="E:\References\HomeWorks\SortAlgorithm\SortAlgorithm.suo">
+</Property><Property Name="Date" Value="Thursday, November 03, 2011">
+</Property><Property Name="Time" Value="00:38 AM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="SortAlgorithm.sln" Description="File successfully backed up as E:\References\HomeWorks\SortAlgorithm\Backup\SortAlgorithm.sln">
+</Event><Event ErrorLevel="0" Project="" Source="SortAlgorithm.suo" Description="File successfully backed up as E:\References\HomeWorks\SortAlgorithm\Backup\SortAlgorithm.suo">
+</Event><Event ErrorLevel="0" Project="SortAlgorithm" Source="SortAlgorithm\SortAlgorithm.csproj" Description="Project file successfully backed up as E:\References\HomeWorks\SortAlgorithm\Backup\SortAlgorithm\SortAlgorithm.csproj">
+</Event><Event ErrorLevel="0" Project="SortAlgorithm" Source="SortAlgorithm\Program.cs" Description="File successfully backed up as E:\References\HomeWorks\SortAlgorithm\Backup\SortAlgorithm\Program.cs">
+</Event><Event ErrorLevel="0" Project="SortAlgorithm" Source="SortAlgorithm\Properties\AssemblyInfo.cs" Description="File successfully backed up as E:\References\HomeWorks\SortAlgorithm\Backup\SortAlgorithm\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SortAlgorithm" Source="SortAlgorithm\SortAlgorithm.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="SortAlgorithm" Source="SortAlgorithm\SortAlgorithm.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="SortAlgorithm.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="SortAlgorithm.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SortAlgorithm" Source="SortAlgorithm\SortAlgorithm.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

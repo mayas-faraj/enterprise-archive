@@ -1,0 +1,59 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="FootMaster.master.cs" Inherits="ElearnMaster" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+<title>FootBall Syria Competetions</title>
+<script language="JavaScript" type="text/javascript">
+<!--
+window.history.forward(1);
+//-->
+</script>
+</head>
+<body style="background-color: inherit">
+    <form id="form1" runat="server">
+    <div style="background-color: inherit; text-align: center" dir="rtl">
+        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+        <table style="width: 873px; height: 598px">
+            <tr>
+        <td colspan="2" style="width: 873px; height: 200px"><asp:Image ImageUrl="1.png" runat="server"/>
+            </td>
+            </tr>
+            <tr>
+                <td style="width: 129px; height: 186px; background-color: Silver; border-top-style: ridge; border-right-style: ridge; border-left-style: ridge; border-bottom-style: ridge;">
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <asp:TreeView ID="Tree" runat="server" Font-Names="Arial" Font-Size="XX-Large" ShowExpandCollapse="False" Style="color: #ff0000; font-family: Arial; clear: right; font-weight: bold; list-style-position: outside; float: right; vertical-align: text-top; font-style: italic; list-style-type: disc; text-align: right; font-variant: normal; border-left-color: blue; border-bottom-color: blue; direction: rtl; border-top-color: blue; line-height: 40px; background-color: #ffffcc; border-right-color: blue;" BackColor="White" BorderStyle="Ridge" BorderWidth="2px" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Height="215px" ExpandDepth="0" ImageSet="BulletedList3" Width="163px" ShowLines="True">
+                        <ParentNodeStyle Font-Bold="False" />
+                        <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                        <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" HorizontalPadding="0px"
+                            VerticalPadding="0px" />
+                        <Nodes>
+                            <asp:TreeNode Text="ÇáÕÝÍÉ ÇáÑÆíÓíÉ" Value="Home Page" NavigateUrl="~/home page.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="äÊÇÆÌ ÇáãÈÇÑíÇÊ" Value="Results Page" NavigateUrl="~/RaceResu.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="ÌÏæá ÇáãÈÇÑíÇÊ" Value="Schadual Page" NavigateUrl="~/TimeTable.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="ÅÍÕÇÆíÇÊ" Value="Stat Page" NavigateUrl="~/ahsaait.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="ÇÞÊÑÇÍÇÊ" Value="Opinion Page" NavigateUrl="~/declares.aspx"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/adminlogin.aspx" Text="ãÏíÑ ÇáãæÞÚ" Value="ãÏíÑ ÇáãæÞÚ">
+                            </asp:TreeNode>
+                        </Nodes>
+                        <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" HorizontalPadding="5px"
+                            NodeSpacing="0px" VerticalPadding="0px" Font-Bold="True" />
+                    </asp:TreeView>
+                    &nbsp; &nbsp; &nbsp;<br />
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;
+                    <br />
+                    </td>
+                <td align="right" dir="rtl" style="width: 634px; height: 186px;
+                    text-align: center; border-top-style: ridge; border-right-style: ridge; border-left-style: ridge; border-bottom-style: ridge;">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        <br />
+                    </asp:ContentPlaceHolder>
+                    &nbsp;&nbsp;
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

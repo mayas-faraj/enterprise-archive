@@ -1,0 +1,10 @@
+
+
+
+
+
+
+var basePolicyJSON = '{\"guide\":{\"fmt\":\"results-xsl\",\"ok\":true},\"baynoteObserver\":{\"dt\":30,\"so\":true,\"uhd\":false,\"cds\":true,\"eec\":true,\"cdt\":true,\"hn\":\"handler2.js\",\"ec\":true,\"uca\":\"315360000000\",\"alt\":true,\"ub\":false,\"ep\":50,\"om\":2,\"sv\":true,\"sdl\":false,\"ok\":true,\"st\":true},\"search\":{\"ok\":true},\"trail\":{\"tl\":5,\"so\":false,\"ok\":false},\"GuideSet\":{\"eids\":[\"BN_deals_default\",\"BN_segmenthome_default\",\"BN_systemlob_default\",\"BN_systemfamily_default\",\"BN_systempd_default\",\"BN_system4x_default\",\"BN_ngbrowse_default\",\"BN_snpcategorysearch_default\",\"BN_snpsegmentsearch_default\",\"BN_mastheadsegmentsearch_default\",\"BN_CartRec_default\",\"BN_CategoryRec_default\",\"BN_HomeRec_default\",\"BN_SearchRec_default\",\"BN_returnEmpty\",\"BN_ProductRec_default\",\"BN_SystemsRec_default\",\"BN_SubCategoryRec_default\",\"BN_segmentterms_default\",\"BN_systemsrec2_default\",\"BN_FonalityPD_1\",\"BN_FonalityPD_2\",\"BN_FonalityCartRec_1\",\"BN_FonalityCartRec_2\",\"BN_DLP_OrderCode\",\"BN_ALP_snp_1\",\"BN_ALP_sys_1\",\"BN_Mediaplex_OA_1\",\"BN_ALP_sys_test\",\"BN_DellLaptopBagBoost\",\"BN_EnABoost\"]},\"inf\":{\"dt\":\"Tue May 01 16:56:10 PDT 2012\",\"exp\":86400,\"u\":\"ANONYMOUS\",\"cn\":\"dell\",\"ve\":\"V1\",\"cc\":\"soho_us\",\"cd\":\"d&g&s\"},\"baynoteGuide\":{\"ok\":true},\"guidePro\":{\"ok\":true}}';
+var userPolicyJSON = '{\"dir\":{\"au\":true},\"inf\":{\"dt\":\"Tue May 08 05:50:15 PDT 2012\",\"u\":\"6924068728009481336\",\"ve\":\"V1\",\"cd\":\"d&g&s\"}}';
+bnPolicy.registerPolicy(basePolicyJSON, userPolicyJSON);
+

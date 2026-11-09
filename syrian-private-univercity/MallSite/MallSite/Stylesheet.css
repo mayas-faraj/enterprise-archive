@@ -1,0 +1,29 @@
+﻿body
+{
+	background-image:url(back.gif);
+	background-color:#a0a0ff;
+	background-repeat:repeat;
+}
+
+table
+{
+	
+	border-width:medium;
+	border-color:#a040a0;
+	width:70%;
+	background-color:#f0fff0;
+	background-image:url(backimage.jpg);
+	background-repeat:repeat;
+}
+
+a:link
+{
+	color:green;
+	font-weight:bold;
+}
+
+a:visited
+{
+	color:orange;
+	font-weight:bold;
+}

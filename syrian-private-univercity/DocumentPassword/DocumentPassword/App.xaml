@@ -1,0 +1,24 @@
+﻿<Application x:Class="DocumentPassword.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="login.xaml">
+    <Application.Resources>
+        <RadialGradientBrush x:Key="captions">
+            <GradientStop Color="Yellow" Offset="0"/>
+            <GradientStop Color="Red" Offset="1"/>
+        </RadialGradientBrush>
+        
+        
+        <LinearGradientBrush x:Key="background">
+            <GradientStop Color="Silver" Offset="0"/>
+            <GradientStop Color="Black" Offset="1"/>
+        </LinearGradientBrush>
+
+        <RadialGradientBrush x:Key="buttons">
+            <GradientStop Color="Yellow" Offset="0"/>
+            <GradientStop Color="Pink" Offset="1"/>
+        </RadialGradientBrush>
+        
+        <SolidColorBrush x:Key="texts" Color="DarkGreen"/>
+    </Application.Resources>
+</Application>

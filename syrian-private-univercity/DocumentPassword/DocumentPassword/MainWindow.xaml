@@ -1,0 +1,39 @@
+﻿<Window x:Class="DocumentPassword.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="{StaticResource ResourceKey=background}"
+        FlowDirection="RightToLeft"
+        Title="MainWindow" Height="650" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.ColumnSpan="4" Margin="5" TextAlignment="Center" FontSize="30" FontWeight="ExtraBlack" Text="ترجمة منهاج اللغة الإنكليزية الفرع العلمي" Foreground="{StaticResource ResourceKey=captions}"/>
+
+        <DocumentViewer Grid.ColumnSpan="4" Grid.Row="1" Name="documentViewer" Margin="10" ContextMenu="{x:Null}" IsEnabled="True">
+            <DocumentViewer.CommandBindings>
+                <CommandBinding Command="ApplicationCommands.Print" CanExecute="CommandBinding_CanExecutePrint" />
+                <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CommandBinding_CanExecuteCopy" />
+            </DocumentViewer.CommandBindings>
+        </DocumentViewer>
+
+        <Button Grid.Row="2" Grid.Column="0" Name="btnFirst" Margin="10" Content="&lt;&lt;" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnFirst_Click" />
+        <Button Grid.Row="2" Grid.Column="1" Name="btnNext" Margin="10" Content="&lt;" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnNext_Click" />
+        <Button Grid.Row="2" Grid.Column="2" Name="btnPrevious" Margin="10" Content=">" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnPrevious_Click" />
+        <Button Grid.Row="2" Grid.Column="3" Name="btnLast" Margin="10" Content=">>" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnLast_Click" />
+
+        <Button Grid.Row="3" Grid.Column="0" Name="btnAbout" Margin="10" Content="المترجم" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnAbout_Click" />
+        <Button Grid.Row="3" Grid.Column="3" Name="btnExit" Margin="10" Content="خروج" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnExit_Click" />
+    </Grid>
+</Window>

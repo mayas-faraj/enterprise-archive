@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MallSite.Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" >
+<head runat="server">
+    <title>My Mall Site</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="Stylesheet" type="text/css" href="Stylesheet.css" />
+</head>
+<body>
+    <form id="frmMain" runat="server">
+    <div>
+        <table width="100%" class="masterTable">
+            <tr>
+                <td><h1>موقع المول التجاري</h1></td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%">
+                        <tr>
+                            <td><a href="default.aspx">الرئيسية</a></td>
+                            <td><a href="types.aspx">أنواع المتاجر</a></td>
+                            <td><a href="browse.aspx">المتاجر</a></td>
+                            <td><a href="search.aspx">البحث عن مادة</a></td>
+                            <td><a href="login.aspx">إدارة الموقع</a></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="left"><a href="login.aspx">تسجيل الدخول</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:ContentPlaceHolder ID="mainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "28163", ".", "{8D1F474D-BF75-480F-A4D6-F1B6D015D8E8}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/FootBall"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\سطح المكتب\projects 14042010\anas kito\asp.net\FootBall\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\FootBall\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/FootBall"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\سطح المكتب\projects 14042010\anas kito\asp.net\FootBall\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\FootBall\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1654"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D1F474D-BF75-480F-A4D6-F1B6D015D8E8}.Debug|.NET.ActiveCfg = Debug|.NET
+		{8D1F474D-BF75-480F-A4D6-F1B6D015D8E8}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

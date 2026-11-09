@@ -1,0 +1,57 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" Debug="false"  CodeFile="default.aspx.cs" Inherits="_Default" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Simple Discussion Forum</title>
+    <link type="text/css" rel="Stylesheet" href="App_Theme/StyleSheet.css" />
+</head>
+<body>
+<form id="form1" runat="server">
+    <%System.Data.SqlClient.SqlConnection connect = new System.Data.SqlClient.SqlConnection("Data Source=.\\SQLEXPRESS;AttachDbFilename="+MapPath("App_Data\\Discussion.mdf")+";Integrated Security=True;Connect Timeout=30;user instance=true;"); %>
+    <%System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("select id,name from topics order by id",connect); %>
+    <%connect.Open(); %>
+    <%System.Data.SqlClient.SqlDataReader dr = cmd.ExecuteReader(); %>
+    <center>
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-width:0;border-collapse:collapse;padding:0 0 0 0;">
+    <tr>
+    <td style="width:50%;background-image:url('App_Theme/oppg.gif'); background-repeat: repeat;"></td>
+        <td style="width:50;height:200;"><img width="600" height="200" alt="bannar" src="App_Theme/bannar.jpg" />
+            </td><td style="width:50%;background-image:url('App_Theme/oppb.gif'); background-repeat: repeat;"></td>
+    </tr>
+    </table>
+    <font face="times new roman" size="6" color="Green">
+        <br />
+        <strong>Students Information</strong></font><br /><br />
+    <hr width="70%" size="2" color="silver" />
+    <table width="70%" class="mainTbl" border="1pt">
+    <tr align="left">
+    <td>Name</td><td>names of pruductors</td>
+    </tr>
+    <tr align="left">
+    <td>Email</td><td>emails of pruductors</td>
+    </tr>
+    <tr align="left">
+    <td>Class</td><td>the class</td>
+    </tr>
+    <tr align="left">
+    <td colspan="3" align="center"><a href="myReport.aspx">My Report</a></td>
+    </tr>
+    </table>
+    <br />
+    <hr width="70%" size="2" color="silver" /><br /><br />
+    <font face="Arial" size="+1" color="green"><strong>Topics</strong></font><br /><br />
+    <table width="70%" class="infoTbl" border="1pt">
+    <%Int32 i = 0; %>
+    <%while (dr.Read()) { if (i % 2 == 0) Response.Write("<tr><td width=\"50%\"><a href=threads.aspx?selectTopic=" + dr[0].ToString() + ">" + dr[1].ToString() + "</a></td>"); else Response.Write("<td><a href=threads.aspx?selectTopic=" + dr[0].ToString() + ">" + dr[1].ToString() + "</a></td></tr>"); i++; }%>
+    <%if (i % 2 != 0) Response.Write("</tr>"); connect.Close(); %>
+    <tr>
+    <td colspan="2"><a href="newTopic.aspx"><i>[ Create New Topic]</i></a></td>
+    </tr>
+    </table>
+    </center>
+    <br /><br />
+    </form>
+</body>
+</html>

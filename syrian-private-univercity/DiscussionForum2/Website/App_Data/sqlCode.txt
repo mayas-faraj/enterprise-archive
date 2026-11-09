@@ -1,0 +1,81 @@
+CREATE TABLE admins
+(
+id INT IDENTITY(1,1) PRIMARY KEY,
+aname NVARCHAR(150) unique not null,
+ename VARCHAR(75) unique not null,
+email VARCHAR(100),
+class NVARCHAR(100)
+);
+
+CREATE TABLE visitors
+(
+id INT IDENTITY(1,1) PRIMARY KEY,
+name NVARCHAR(150) unique not null,
+email VARCHAR(100),
+address NVARCHAR(250),
+);
+
+CREATE TABLE topics
+(
+id INT IDENTITY(1,1) PRIMARY KEY,
+name NVARCHAR(100) unique not null
+);
+
+CREATE TABLE threads
+(
+id INT IDENTITY(1,1) PRIMARY KEY,
+topicId INT FOREGIN KEY REFERENCES topics(id),
+name NVARCHAR(100) unique not null
+);
+
+CREATE TABLE messages
+(
+id INT IDENTITY(1,1) PRIMARY KEY,
+threadId INT FOREGIN KEY REFERENCES threads(id),
+subject NVARCHAR(250) not null,
+message NTEXT,
+date DATETIME DEFAULT getDate(),
+email VARCHAR(100)
+);
+
+CREATE INDEX idx_Name ON admins(name);
+CREATE INDEX idx_Visitiors ON visitors(name);
+CREATE INDEX idx_messages ON messages(subject);
+
+CREATE PROCEDURE insertNewAdmin
+(@iName NVARCHAR(150),@iName2,@iEmail VARCHAR(100),@iClass NVARCHAR(100))
+AS
+BEGIN
+INSERT INTO admins(aname,ename,email,class) VALUES  (@iName,@iName2,@iEmail,@iClass);
+END
+
+CREATE PROCEDURE insertNewVisitor
+(@iName NVARCHAR(150),@iEmail VARCHAR(100),@iAddress NVARCHAR(250))
+AS
+BEGIN
+INSERT INTO visitors(name,email,address) VALUES  (@iName,@iEmail,@iAddress);
+END
+
+CREATE PROCEDURE insertNewTopic
+(@iName NVARCHAR(100))
+AS
+BEGIN
+INSERT INTO topics(name) VALUES  (@iName);
+END
+
+CREATE PROCEDURE insertNewThreads
+(@iName NVARCHAR(100),@iTopicId INT)
+AS
+BEGIN
+INSERT INTO threads(topicId,name) VALUES  (@iTopicId,@iName);
+END
+
+CREATE PROCEDURE insertNewMessage
+(@iThreadId INT,@iSubject NVARCHAR(250),@iEmail VARCHAR(100),@iMessage TEXT)
+AS
+BEGIN
+INSERT INTO messages(threadId,subject,email,message) VALUES  (@iThreadId,@iSubject,@iEmail,@iMessage);
+END
+
+CREATE VIEW viewMessages AS
+SELECT topics.name as 'topic_name',threads.name as 'threads_name',messages.subject,messages.date,messages.email FROM (messages INNER JOIN threads ON messages.threadId=threads.id) INNER JOIN topics ON threads.topicId=topics.id;

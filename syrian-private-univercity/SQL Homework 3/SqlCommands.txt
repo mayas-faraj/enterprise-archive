@@ -1,0 +1,42 @@
+CREATE UNIQUE INDEX users_userName ON Users(UserName);
+CREATE UNIQUE INDEX Themes_Name ON Themes(Name);
+CREATE INDEX Comments_Title ON Comments(Title);
+CREATE INDEX Authors_Status ON Authors(Status);
+CREATE INDEX Posts_Title ON Posts(Title);
+CREATE INDEX Categories_Name ON Categories(Name);
+CREATE INDEX Settings_Blog_ID ON Settings(Blog_ID);
+
+CREATE PROCEDURE CreateNewUser
+(@Name NVARCHAR(50),@pass NVARCHAR(50),@mail NVARCHAR(100),@stat TINYINT)
+AS
+BEGIN
+DECLARE @hash_Pass NVARCHAR(50);
+SET @hash_Pass=pwdencrypt(@pass);
+INSERT INTO Users (UserName,Password,Email,Status) VALUES (@Name,@hash_Pass,@mail,@stat);
+END
+
+
+CREATE TRIGGER password_Changed ON users
+AFTER UPDATE
+AS
+BEGIN
+IF UPDATE(Password)
+BEGIN
+DECLARE @nOldValue NVARCHAR(50),@nNewValue NVARCHAR(50)
+SELECT @nOldValue=b.Password, @nNewValue=a.Password
+FROM inserted a, deleted b
+
+INSERT INTO log (date,op,old_value,new_value) VALUES (getDate(),'chp',@nOldValue,@nNewValue)
+END
+END
+
+CREATE ROLE Manager;
+CREATE ROLE webUser;
+
+GRANT ALL TO Manager;
+GRANT ALL ON Posts TO webUser;
+GRANT ALL ON Comments TO webUser;
+GRANT ALL ON CreateNewUser to webUser; 
+GRANT ALL ON ChangePassword to webUser; 
+
+BACKUP DATABASE BlogDB TO DISK = 'C:\<Database>

@@ -1,0 +1,61 @@
+CREATE TABLE members
+(
+id INT PRIMARY KEY IDENTITY (1,1),
+emailId VARCHAR(200) NOT NULL UNIQUE,
+firstName NVARCHAR(200) NOT NULL,
+lastName NVARCHAR(200) NOT NULL,
+fatherName NVARCHAR(200) NOT NULL,
+password NVARCHAR(200) NOT NULL,
+isGroup BIT
+);
+
+
+CREATE TABLE Messages
+(
+id INT PRIMARY KEY IDENTITY (1,1),
+fromId INT FOREIGN KEY REFERENCES members(id),
+toId INT FOREIGN KEY REFERENCES members(id),
+messageSubject NVARCHAR(200) NOT NULL,
+messageBody NVARCHAR(2000) NOT NULL,
+messageDate DATETIME DEFAULT getDate(),
+isRead BIT
+);
+
+CREATE TABLE Replays
+(
+id INT PRIMARY KEY IDENTITY (1,1),
+messageId INT FOREIGN KEY REFERENCES Messages(id),
+messageSubject NVARCHAR(200) NOT NULL,
+messageDate DATETIME DEFAULT getDate(),
+isRead BIT
+);
+
+CREATE TABLE CarponCopy
+(
+id INT PRIMARY KEY IDENTITY (1,1),
+messageId INT FOREIGN KEY REFERENCES Messages(id),
+memberId INT FOREIGN KEY REFERENCES members(id) 
+);
+
+CREATE VIEW messagesView AS
+SELECT Messages.fromId, Messages.toId, Messages.messageSubject, Messages.messageBody, Messages.messageDate FROM CarponCopy INNER JOIN members ON CarponCopy.memberId = members.id INNER JOIN
+ Messages ON CarponCopy.messageId = Messages.id AND members.id = Messages.fromId AND members.id = Messages.toId
+
+
+
+============
+INSERT INTO members
+                      (emailId, firstName, lastName, fatherName, password, isGroup)
+VALUES     ('mhd_alhelo@suv.com', N'Mohammad', N'AlHelo', N'Riad', N'123', 0)
+
+INSERT INTO members
+                      (emailId, firstName, lastName, fatherName, password, isGroup)
+VALUES     ('ali01@suv.com', N'ali', N'saeed', N'omar', N'0000', 0)
+
+INSERT INTO members
+                      (emailId, firstName, lastName, fatherName, password, isGroup)
+VALUES     ('sami@suv.com', N'sami', N'ramadan', N'ahmad', N'12345', 0)
+
+INSERT INTO members
+                      (emailId, firstName, lastName, fatherName, password, isGroup)
+VALUES     ('univercity@suv.com', N'university', N'', N'', N'00000', 1)

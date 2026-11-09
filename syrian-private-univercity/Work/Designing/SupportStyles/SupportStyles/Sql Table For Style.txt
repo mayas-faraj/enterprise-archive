@@ -1,0 +1,60 @@
+CREATE TABLE Styles
+(
+id INT PRIMARY KEY IDENTITY (1, 1),
+textFontName VARCHAR(150) DEFAULT '',
+textFontForecolor INT DEFAULT - 16777216,
+textFontBackcolor INT DEFAULT - 1,
+textFontSize FLOAT DEFAULT 11,
+textFontBold BIT DEFAULT 'false', 
+textFontItalic BIT DEFAULT 'false',
+textFontUnderline BIT DEFAULT 'false',
+textFontStrikeout BIT DEFAULT 'false',
+headerFontName VARCHAR(150) DEFAULT '', 
+headerFontForecolor INT DEFAULT - 16777216,
+headerFontBackcolor INT DEFAULT - 1,
+headerFontSize FLOAT DEFAULT 11,
+headerFontBold BIT DEFAULT 'false', 
+headerFontItalic BIT DEFAULT 'false',
+headerFontUnderline BIT DEFAULT 'false',
+headerFontStrikeout BIT DEFAULT 'false',
+subHeaderFontName VARCHAR(150) DEFAULT '', 
+subHeaderFontForecolor INT DEFAULT - 16777216,
+subHeaderFontBackcolor INT DEFAULT - 1,
+subHeaderFontSize FLOAT DEFAULT 11,
+subHeaderFontBold BIT DEFAULT 'false',
+subHeaderFontItalic BIT DEFAULT 'false',
+subHeaderFontUnderline BIT DEFAULT 'false',
+subHeaderFontStrikeout BIT DEFAULT 'false',
+cmdFontName VARCHAR(150) DEFAULT '',
+cmdFontForecolor INT DEFAULT - 16777216,
+cmdFontBackcolor INT DEFAULT - 1,
+cmdFontSize FLOAT DEFAULT 11,
+cmdFontBold BIT DEFAULT 'false', 
+cmdFontItalic BIT DEFAULT 'false',
+cmdFontUnderline BIT DEFAULT 'false',
+cmdFontStrikeout BIT DEFAULT 'false',
+FormWidth INT DEFAULT -1,
+FormHeight INT DEFAULT -1, 
+LanguageName NVARCHAR(100)
+);
+
+CREATE TABLE StyleColors
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+styleId INT FOREIGN KEY REFERENCES Styles(id),
+color INT DEFAULT -16777216
+);
+
+CREATE TABLE StyleImages
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+styleId INT FOREIGN KEY REFERENCES Styles(id),
+image NVARCHAR(400)
+);
+
+CREATE TABLE StyleTexts
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+styleId INT FOREIGN KEY REFERENCES Styles(id),
+text NVARCHAR(600)
+);

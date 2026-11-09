@@ -1,0 +1,11 @@
+<publishData>
+  <publishTarget publishUrl="C:\Documents and Settings\Mayas\Desktop\mobileApp\">
+    <file relUrl="App_Data/mobileData.mdf" publishTime="12/28/2012 08:39:09" />
+    <file relUrl="bin/MobileStoreManagement.dll" publishTime="12/28/2012 08:29:24" />
+    <file relUrl="Default.aspx" publishTime="12/27/2012 18:05:47" />
+    <file relUrl="bin/MobileStoreManagement.pdb" publishTime="12/28/2012 08:29:24" />
+    <file relUrl="App_Data/mobileData_log.ldf" publishTime="12/28/2012 08:39:10" />
+    <file relUrl="Web.config" publishTime="12/23/2012 08:39:00" />
+    <file relUrl="Global.asax" publishTime="12/25/2012 10:24:48" />
+  </publishTarget>
+</publishData>

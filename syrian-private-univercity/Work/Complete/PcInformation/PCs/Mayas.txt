@@ -1,0 +1,51 @@
+----- Processor ------
+Intel(R) Pentium(R) 4 CPU 3.00GHz
+x64 Family 15 Model 6 Stepping 5
+BFEBFBFF00000F65
+GenuineIntel
+2048
+
+----- Hard Disks -------
+** HDD : \\.\PHYSICALDRIVE0 **
+WDC WD3200AVJS-63B6A0 ATA Device
+320070320640
+(Standard disk drives)
+
+
+----- Physics Memories -------
+** Memo : Physical Memory **
+Bank0/1
+2147483648
+ 
+ 
+
+----- Vedio Controller ------
+NVIDIA GeForce 9400 GT 
+NVIDIA GeForce 9400 GT 
+PCI\VEN_10DE&DEV_0641&SUBSYS_00000000&REV_A1\4&27574D66&0&0008
+GeForce 9400 GT
+1073741824
+
+----- Sound Device ------
+Realtek High Definition Audio
+Realtek High Definition Audio
+HDAUDIO\FUNC_01&VEN_10EC&DEV_0888&SUBSYS_1458A002&REV_1000\4&2F790C35&0&0201
+Realtek
+
+----- Mother Board ------
+Base Board
+Base Board
+ 
+Gigabyte Technology Co., Ltd.
+EP31-DS3L
+
+----- B I O S ------
+Award Modular BIOS v6.00PG
+SECCSD - 42302e31
+ 
+Award Software International, Inc.
+
+
+============================
+09/14/2011 09:14:15
+Mayas and ayed

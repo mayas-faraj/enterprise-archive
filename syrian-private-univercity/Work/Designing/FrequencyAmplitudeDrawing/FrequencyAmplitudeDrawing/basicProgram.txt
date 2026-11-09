@@ -1,0 +1,102 @@
+﻿10 CLS: SCREEN 2
+20 PRINT "Frequency properties"
+25 PRINT "Drawing of frequency properties curve for amplitude"
+26 PRINT "(APFC)"
+30 PRINT " |Q(jv)|=f(b,v)  "
+35 PRINT " ON ASUS LAPTOP AND DESIGNED BY DR. Badeh Z"
+40 PRINT
+50 INPUT "ratio TM2/Ty =",N6
+60 INPUT "masses ratio S=",S
+70 INPUT "Parameter T value T=",T
+80 INPUT "Correction factor ",k
+82 INPUT "Friction factor KC=",KC
+90 PRINT
+100 REM 3-D three dimension curves drawing
+110 PRINT " B variation domain"
+115 INPUT "maximum / minimum range";XL,XH
+120 PRINT " V variation domain"
+125 INPUT "maximum / minimum range";YL,YH
+130 PRINT "F variation domain"
+135 INPUT "maximum / minimum range";ZL,ZH
+140 PRINT
+150 INPUT "The required parameter for section?(b or v)",P$
+160 PRINT "number of curves APFC"P$
+170 INPUT NS: N=NS-1: IF P$="B" OR P$="b" THEN P$="B": O$="b": A$="v"
+171 IF P$="V" OR P$="v" THEN P$="V": O$="v": A$="b"
+172 IF P$="V" THEN SWAP XL,YL: SWAP XH,YH
+180 DY=(YH-YL)/155: IF N<>0 THEN DX=(XH-XL)/N
+200 SZ=189/(ZH-ZL)'SZ- Z axis measurement factor
+210 DEF FNZ(Z)=189-SZ*(Z-ZL)' Z axis measurement function
+220 ZT=0!: YT=.5' Standard values picking of sections
+230 PRINT: PRINT "picking values:	ZT=0,	YT=0.5"
+240 INPUT "If you like to change it , yes type y";X$
+250 IF X$="Y" THEN INPUT "ZT="; ZT' Enter ZT value
+260 IF X$="Y" THEN INPUT "YT="; YT' Enter YT value
+265 INPUT "number of form (form. ?) ",NR$
+270 REM FORMING OF 3-D FUNCTION CURVE
+280 KEY OFF: CLS: SCREEN 2' CURVES SYSTEM 640*200
+290 X=XL
+300 LINE (0,190)-(625,190)
+310 LINE (0,0)-(0,190)
+320 LINE (0,0)-(625,0): LINE(625,0)-(625,190)
+==================================
+330 LOCATE 25,2: Y=YL: GOSUB 640
+340 PRINT "FORM."+NR$+"APFC";
+345 PRINT "Model"S""T""KC" "K" "XL"<"O$"<"XH;
+350 FOR I=0 TO N'
+360 Y=YL: GOSUB 640: Z=Z-ZT*X: TZ0=FNZ(Z): PSET(0,TZ0)
+370 FOR J=1 TO 155'
+380 GOSUB 640' Calculation of Z considering Y deviation
+390 Z=Z-ZT*X' Shifting down considering ZT
+400 GOSUB 540' Instant point drawing
+410 TZ0=TZ
+420 Y=Y+DY' Increase Y value
+430 NEXT J
+440 X=X+DX: NEXT I' Increase X value
+450 K$="#.##^^^^"
+460 LOCATE 24,4: IF YL<>0 THEN PRINT USING K$;YL;
+470 LOCATE 24,71: PRINT USING K$;YH;
+480 LOCATE 23,1: IF ZL<>0 THEN PRINT USING K$;ZL;
+490 LOCATE 1,1: PRINT USING K$;ZH;
+492 LOCATE 3,2: PRINT "| Q(JV) |"
+494 LOCATE 22,75: PRINT A$
+500 BEEP
+510 LOCATE 2,2: LOCATE ,, O: AAA$=INPUT$(2): GOTO 10
+520 END
+=========================================================================
+530 REM Partial program to delete the unwanted lines
+535 REM and make them spotted
+540 TZ=FNZ(Z)'Measurement BY Z
+550 IF TZ>189 THEN RETURN'Points out of curve appearing range
+560 DJ=J+J+J+J
+570 IF TZ<0 THEN PSET (DJ,0): RETURN'
+575 REM Drawing points within the perspective domain or range
+580 IF TZ=189 THEN RETURN
+590 LINE (DJ-4,TZ0)-(DJ,TZ),1
+600 FOR PO=0 TO 2
+610 LINE (DJ+PO,189)-(DJ+PO,TZ),0
+620 NEXT PO
+630 RETURN
+640 REM Calculation APFC for closed loop p.p F=f(B,V)
+650 REM 20 dep/dec and correction when IL>0
+660 IF P$="B" THEN B=X: V=Y
+670 IF P$="V" THEN V=X: B=Y
+675 IF V=0 THEN V=1E-09
+680 A6=2*T*T: A5=2*T*(1+T*KC*S/N6)
+690 A4=2*T*(T+S*KC/N6)+1
+700 A3=KC*S/N6+2*T+K*B*S
+710 A2=B*S*KC*K/N6+K*S+1
+720 A1=K*(B+KC*S/N6)
+730 A0=K
+740 O13=B*KC*S/N6
+750 O12=KC*S/N6+B
+760 O11=1
+775 RM1=O12*V*V
+780 JM1=O11*V-O13*V*V*V
+785 GO=K*N6*SQR(RM1*RM1+JM1*JM1)
+790 RM=A0-A2*V*V+A4*V*V*V*V-A6*V*V*V*V*V*V
+795 JM=A1*V-A3*V*V*V+A5*V*V*V*V*V
+798 G=SQR(RM*RM+JM*JM)
+800 F=GO/G
+805 Z=F
+810 RETURN

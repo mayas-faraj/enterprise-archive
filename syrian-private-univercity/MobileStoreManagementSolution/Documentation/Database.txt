@@ -1,0 +1,44 @@
+CREATE TABLE members
+(
+id INT PRIMARY KEY IDENTITY(100,1),
+isAdmin BIT DEFAULT 0,
+userName NVARCHAR(100) UNIQUE NOT NULL,
+password NVARCHAR(100),
+firstName NVARCHAR(75) NOT NULL,
+lastName NVARCHAR(75),
+country NVARCHAR(50) DEFAULT N'not set'
+);
+
+CREATE TABLE categories
+(
+id INT PRIMARY KEY IDENTITY(100,1),
+name NVARCHAR(100) UNIQUE NOT NULL,
+img NVARCHAR(100)
+);
+
+CREATE TABLE products
+(
+id INT PRIMARY KEY IDENTITY(100,1),
+categoryId INT REFERENCES categories(id),
+name NVARCHAR(100) UNIQUE NOT NULL,
+img NVARCHAR(100),
+count INT DEFAULT 0,
+price FLOAT DEFAULT 0
+);
+
+CREATE TABLE bills
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+memberId INT REFERENCES members(id),
+billDate DATETIME
+);
+
+CREATE TABLE billItems
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+billId INT REFERENCES bills(id),
+productId INT REFERENCES products(id),
+count INT DEFAULT 1
+);
+
+INSERT INTO members (isAdmin,userName,password,firstName,lastName,country) VALUES (1,N'svu',N'123',N'rana',N'saleh',N'Syrian Arab Republic');

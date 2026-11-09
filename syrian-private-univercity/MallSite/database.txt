@@ -1,0 +1,32 @@
+create table types
+(
+id int primary key identity(100,1),
+name varchar(60) unique,
+common varchar(400),
+typeId int default -1
+);
+
+create table stores
+(
+id int primary key identity(10,1),
+name varchar(60),
+typeId int foreign key references types(id),
+constraint unqStore unique(id,name)
+);
+
+create table items
+(
+id int primary key identity(1,1),
+name varchar(60),
+details varchar(400),
+price int default -1,
+storeId int foreign key references stores(id)
+);
+
+create table visitors
+(
+id int primary key identity(1000,1),
+visitor varchar(60) default 'no name',
+comment varchar(400),
+itemId int foreign key references items(id)
+);

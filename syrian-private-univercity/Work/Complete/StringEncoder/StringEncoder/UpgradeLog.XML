@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="StringEncoder">
+</Property><Property Name="Solution File" Value="E:\C#.Net\Complete\StringEncoder\StringEncoder\StringEncoder.sln">
+</Property><Property Name="User Options File" Value="E:\C#.Net\Complete\StringEncoder\StringEncoder\StringEncoder.suo">
+</Property><Property Name="Date" Value="26 نيسان, 2010">
+</Property><Property Name="Time" Value="03:40 ص">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="StringEncoder.sln" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\StringEncoder.sln">
+</Event><Event ErrorLevel="0" Project="" Source="StringEncoder.suo" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\StringEncoder.suo">
+</Event><Event ErrorLevel="0" Project="StringEncoder" Source="StringEncoder.csproj" Description="Project file successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\StringEncoder.csproj">
+</Event><Event ErrorLevel="0" Project="StringEncoder" Source="Coding.cs" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\Coding.cs">
+</Event><Event ErrorLevel="0" Project="StringEncoder" Source="Properties\AssemblyInfo.cs" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="StringEncoder" Source="StringEncoder.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="StringEncoder" Source="StringEncoder.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="ClientApplication" Source="..\ClientApplication\ClientApplication.csproj" Description="Warning: The project file is being backed up to a relative path that differs from the original solution relative path.  The difference in folder hierarchy may create problems in opening or building the backed up solution and project.">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\ClientApplication.csproj" Description="Project file successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\ClientApplication\ClientApplication.csproj">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\Form1.cs" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\ClientApplication\Form1.cs">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\Form1.Designer.cs" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\ClientApplication\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\Program.cs" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\ClientApplication\Program.cs">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\Properties\AssemblyInfo.cs" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\ClientApplication\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\Properties\Resources.Designer.cs" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\ClientApplication\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\Properties\Settings.Designer.cs" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\ClientApplication\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\Properties\Settings.settings" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\ClientApplication\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\Form1.resx" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\ClientApplication\Form1.resx">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\Properties\Resources.resx" Description="File successfully backed up as E:\C#.Net\Complete\StringEncoder\StringEncoder\Backup\ClientApplication\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\ClientApplication.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ClientApplication" Source="..\ClientApplication\ClientApplication.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="StringEncoder.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="StringEncoder.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="StringEncoder" Source="StringEncoder.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ClientApplication" Source="..\ClientApplication\ClientApplication.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryProject", "CountryProject\CountryProject.csproj", "{D1B616E7-46FA-4FB0-B7D3-C68F559FE17B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VedioRentalProject", "VedioRentalProject\VedioRentalProject.csproj", "{60FC3BFD-03EA-4D65-9DD4-6C9165FDE76D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1B616E7-46FA-4FB0-B7D3-C68F559FE17B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B616E7-46FA-4FB0-B7D3-C68F559FE17B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B616E7-46FA-4FB0-B7D3-C68F559FE17B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B616E7-46FA-4FB0-B7D3-C68F559FE17B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60FC3BFD-03EA-4D65-9DD4-6C9165FDE76D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60FC3BFD-03EA-4D65-9DD4-6C9165FDE76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60FC3BFD-03EA-4D65-9DD4-6C9165FDE76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60FC3BFD-03EA-4D65-9DD4-6C9165FDE76D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

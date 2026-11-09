@@ -1,0 +1,151 @@
+CREATE DATABASE restorant ON
+(
+Name = restorant,
+FILENAME='c:\program files\restorant.mdf',
+Size=2 mb,
+Filegrowth=1 mb
+)
+LOG ON
+(
+Name = restorant_log,
+FILENAME='c:\program files\restorant.ldf',
+Size=2 kb,
+Filegrowth=1 kb
+)
+
+
+CREATE TABLE branch 
+(
+Id INT PRIMARY KEY IDENTITY(1,1),
+Name NVARCHAR(200) unique not null,
+cityCode CHAR(6) unique not null,
+address NVARCHAR(500),
+startWorkTime DATE,
+endWorkTime DATE,
+isHolidaySat BIT DEFAULT 0,
+isHolidaySun BIT DEFAULT 0,
+isHolidayMon BIT DEFAULT 0,
+isHolidayTue BIT DEFAULT 0,
+isHolidayWeb BIT DEFAULT 0,
+isHolidayThu BIT DEFAULT 0,
+isHolidayFri BIT DEFAULT 0,
+);
+
+CREATE TABLE Account
+(
+Id INT PRIMARY KEY IDENTITY(1,1),
+Name NVARCHAR(200) UNIQUE NOT NULL,
+Address NVARCHAR(500),
+birthdate DATE,
+email VARCHAR(100),
+balance FLOAT DEFAULT 0,
+cardNumber VARCHAR(200)
+);
+
+CREATE TABLE [Order]
+(
+Id INT PRIMARY KEY IDENTITY(1,1),
+accountId INT FOREIGN KEY REFERENCES Account(id) ON UPDATE CASCADE,
+deliverAdress NVARCHAR(500) NOT NULL,
+deliverDate Date NOT NULL,
+isCanceled BIT DEFAULT 0
+);
+
+CREATE TABLE Menu
+(
+Id INT PRIMARY KEY IDENTITY(1,1),
+orderId INT FOREIGN KEY REFERENCES [Order](id) ON UPDATE CASCADE,
+ItemId1 INT FOREIGN KEY REFERENCES item(id),
+ItemCount1 INT DEFAULT 1,
+ItemId2 INT FOREIGN KEY REFERENCES item(id),
+ItemCount2 INT DEFAULT 1,
+ItemId3 INT FOREIGN KEY REFERENCES item(id),
+ItemCount3 INT DEFAULT 1,
+ItemId4 INT FOREIGN KEY REFERENCES item(id),
+ItemCount4 INT DEFAULT 1,
+);
+
+CREATE TABLE Item
+(
+Id INT PRIMARY KEY IDENTITY(1,1),
+BranchId INT FOREIGN KEY REFERENCES Branch(id) ON UPDATE CASCADE,
+Name NVARCHAR(200) NOT NULL  UNIQUE,
+Quantity INT DEFAULT 1
+);
+
+CREATE TABLE Bill
+(
+Id INT PRIMARY KEY IDENTITY(1,1),
+Contents NVARCHAR(1000),
+Address NVARCHAR(500),
+requestDate DATE DEFAULT getDate(),
+deliverDate DATE NOT NULL,
+price Float
+);
+
+CREATE TABLE workType
+(
+Id INT PRIMARY KEY IDENTITY(1,1),
+Name NVARCHAR(300) UNIQUE NOT NULL
+);
+
+
+CREATE TABLE Employ
+(
+Id INT PRIMARY KEY IDENTITY(1,1),
+branchId INT FOREIGN KEY REFERENCES Branch(id) ON UPDATE CASCADE,
+workTypeId INT FOREIGN KEY REFERENCES WorkType(id) ON UPDATE CASCADE,
+name NVARCHAR(200) NOT NULL,
+birthDate DATE,
+salary FLOAT
+);
+
+
+CREATE UNIQUE INDEX br_name ON Branch(Name);
+CREATE UNIQUE INDEX ac_name ON ACCOUNT(Name);
+CREATE INDEX mn_mainfood ON menu(mainFood);
+CREATE UNIQUE INDEX tm_name ON item(name);
+CREATE UNIQUE INDEX em_name ON employ(name);
+CREATE INDEX wt_name ON workType(name);
+
+
+CREATE PROCEDURE CancelOrder
+(@orderId INT)
+AS
+BEGIN
+DECLARE @num INT;
+DECLARE @id INT;
+UDPATE [Order] SET isCanceled=1;
+SET @id=SELECT itemId1 FROM menu WHERE id=@orderId;
+SET @num=SELECT itemCount1 FROM menu WHERE id=@orderId;
+UPDATE [item] SET Quantity=Quantity+num WHERE id=@id;
+SET @id=SELECT itemId2 FROM menu WHERE id=@orderId;
+SET @num=SELECT itemCount2 FROM menu WHERE id=@orderId;
+UPDATE [item] SET Quantity=Quantity+num WHERE id=@id;
+SET @id=SELECT itemId3 FROM menu WHERE id=@orderId;
+SET @num=SELECT itemCount3 FROM menu WHERE id=@orderId;
+UPDATE [item] SET Quantity=Quantity+num WHERE id=@id;
+SET @id=SELECT itemId4 FROM menu WHERE id=@orderId;
+SET @num=SELECT itemCount4 FROM menu WHERE id=@orderId;
+UPDATE [item] SET Quantity=Quantity+num WHERE id=@id;
+END
+
+
+
+
+CREATE TRIGGER  delete_item ON item
+AFTER UPDATE
+AS
+BEGIN
+IF UPDATE(quantity)
+BEGIN
+DECLARE @num INT;
+SET @num=(SELECT quantity FROM item);
+If(@num<=0)
+BEGIN
+DELETE FROM Menu WHERE Menu.ItemId1=(SELECT id FROM item) OR Menu.ItemId2=(SELECT id FROM item) OR  Menu.ItemId3=(SELECT id FROM item) OR  Menu.ItemId4=(SELECT id FROM item);
+END
+END
+END
+
+

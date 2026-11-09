@@ -1,0 +1,27 @@
+﻿body {background-image:url(pc.gif);
+      background-repeat:repeat;
+      margin:10 60 10 60;
+      padding:10 60 10 60;
+}
+
+.mainTbl
+{
+    background-color:#a5f3d8;
+    border-color:#102f1f;
+    border-width:medium;
+    border-collapse:collapse;
+    border-style:solid;
+    border-spacing:40pt;
+    padding:20px 20px 20px 20px;
+}
+
+.infoTbl
+{
+    background-color:#a5d8ff;
+    border-color:#101f2f;
+    border-width:thin;
+    border-collapse:collapse;
+    border-style:solid;
+    border-spacing:20px;
+    
+}

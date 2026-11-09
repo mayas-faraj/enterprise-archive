@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Mall</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link type="text/css" rel="Stylesheet" href="App_Themes\MallStyle.css" />
+</head>
+<body dir="rtl">
+    <form id="form1" runat="server">
+    <div>
+        <table width="100%" style="background-image:url('App_Themes\tables.gif');background-repeat:repeat;border-style:solid;">
+            <tr>
+                <td colspan="2"><h1>أسم الموقع</h1></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right"><a href="login.aspx">تسجيل الدخول</a></td>
+            </tr>
+            <tr>
+                <td style="width:30%">
+                    <table width="80%">
+                        <tr><td>
+                        <a href="default.aspx">
+                        الصفحة الرئيسية
+                        </a>
+                        </td></tr>
+                        <tr><td>
+                        <a href="shops.aspx">
+                        أنواع المتاجر
+                        </a>
+                        </td></tr>
+                        <tr><td>
+                        <a href="shopGoods.aspx?shop=9">
+                        المتاجر
+                        </a>
+                        </td></tr>
+                        <tr><td>
+                        <a href="search.aspx">
+                        البحث عن مادة
+                        </a>
+                        </td></tr>
+                        <tr><td>
+                        <a href="login.aspx">
+                        إدارة الموقع
+                        </a>
+                        </td></tr>
+                    </table>
+                </td>
+                <td>
+                    <asp:ContentPlaceHolder id="cphMain" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

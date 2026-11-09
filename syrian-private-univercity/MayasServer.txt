@@ -1,0 +1,4 @@
+Instance Name : MayasServer
+Mixed Security Password : hggiH;fv
+Administator User : MayasAgent\Mayas
+Other Server : SqlExpress
