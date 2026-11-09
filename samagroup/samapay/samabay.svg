@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg
+PUBLIC "-//W3C//DTD SVG 1.1//EN"
+       "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="290 72 946 631" width="656px" height="559px" xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <line x1="518" y1="492" x2="508" y2="492" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="508" y1="472" x2="518" y2="472" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="508" y1="492" x2="508" y2="472" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="510.5" y1="492" x2="514.03553390593" y2="495.53553390593" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="510.5" y1="492" x2="514.03553390593" y2="488.46446609407" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="513" y1="472" x2="509.46446609407" y2="475.53553390593" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="513" y1="472" x2="509.46446609407" y2="468.46446609407" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="518" y1="512" x2="508" y2="512" style="stroke:#333;stroke-width:1;"/>
+   <line x1="452" y1="586" x2="442" y2="586" style="stroke:#333;stroke-width:1;"/>
+   <line x1="508" y1="512" x2="452" y2="586" style="stroke:#333;stroke-width:1;"/>
+   <line x1="510.5" y1="512" x2="514.03553390593" y2="515.53553390593" style="stroke:#333;stroke-width:2;"/>
+   <line x1="510.5" y1="512" x2="514.03553390593" y2="508.46446609407" style="stroke:#333;stroke-width:2;"/>
+   <line x1="447" y1="586" x2="450.53553390593" y2="589.53553390593" style="stroke:#333;stroke-width:2;"/>
+   <line x1="447" y1="586" x2="450.53553390593" y2="582.46446609407" style="stroke:#333;stroke-width:2;"/>
+   <line x1="653" y1="532" x2="663" y2="532" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="708" y1="317" x2="718" y2="317" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="663" y1="532" x2="708" y2="317" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="660.5" y1="532" x2="656.96446609407" y2="535.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="660.5" y1="532" x2="656.96446609407" y2="528.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="713" y1="317" x2="709.46446609407" y2="320.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="713" y1="317" x2="709.46446609407" y2="313.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="530" y1="214" x2="520" y2="214" style="stroke:#333;stroke-width:1;"/>
+   <line x1="455" y1="310" x2="445" y2="310" style="stroke:#333;stroke-width:1;"/>
+   <line x1="520" y1="214" x2="455" y2="310" style="stroke:#333;stroke-width:1;"/>
+   <line x1="522.5" y1="214" x2="526.03553390593" y2="217.53553390593" style="stroke:#333;stroke-width:2;"/>
+   <line x1="522.5" y1="214" x2="526.03553390593" y2="210.46446609407" style="stroke:#333;stroke-width:2;"/>
+   <line x1="450" y1="310" x2="453.53553390593" y2="313.53553390593" style="stroke:#333;stroke-width:2;"/>
+   <line x1="450" y1="310" x2="453.53553390593" y2="306.46446609407" style="stroke:#333;stroke-width:2;"/>
+   <line x1="665" y1="234" x2="675" y2="234" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="708" y1="317" x2="718" y2="317" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="675" y1="234" x2="708" y2="317" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="672.5" y1="234" x2="668.96446609407" y2="237.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="672.5" y1="234" x2="668.96446609407" y2="230.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="713" y1="317" x2="709.46446609407" y2="320.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="713" y1="317" x2="709.46446609407" y2="313.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="440" y1="137" x2="450" y2="137" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="520" y1="194" x2="530" y2="194" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="450" y1="137" x2="520" y2="194" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="447.5" y1="137" x2="443.96446609407" y2="140.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="447.5" y1="137" x2="443.96446609407" y2="133.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="525" y1="194" x2="521.46446609407" y2="197.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="525" y1="194" x2="521.46446609407" y2="190.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <rect width="135" height="20" x="791" y="93" style="fill:#007;stroke:black;"/>
+   <text width="135" height="20" x="796" y="107" style="fill:#fff;" font-family="Arial" font-size="16px"> contact</text>
+   <rect width="135" height="20" x="791" y="113" style="fill:#aea;stroke:black;"/>
+   <text width="135" height="20" x="796" y="127" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="135" height="20" x="791" y="133" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="796" y="147" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="135" height="20" x="791" y="153" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="796" y="167" style="fill:black;" font-family="Arial" font-size="16px">icon</text>
+   <rect width="135" height="20" x="791" y="173" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="796" y="187" style="fill:black;" font-family="Arial" font-size="16px">link</text>
+   <rect width="135" height="20" x="791" y="193" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="796" y="207" style="fill:black;" font-family="Arial" font-size="16px">is_social</text>
+   <rect width="135" height="20" x="307" y="556" style="fill:#007;stroke:black;"/>
+   <text width="135" height="20" x="312" y="570" style="fill:#fff;" font-family="Arial" font-size="16px"> menu</text>
+   <rect width="135" height="20" x="307" y="576" style="fill:#aea;stroke:black;"/>
+   <text width="135" height="20" x="312" y="590" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="135" height="20" x="307" y="596" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="312" y="610" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="135" height="20" x="518" y="442" style="fill:#007;stroke:black;"/>
+   <text width="135" height="20" x="523" y="456" style="fill:#fff;" font-family="Arial" font-size="16px"> menu_item</text>
+   <rect width="135" height="20" x="518" y="462" style="fill:#aea;stroke:black;"/>
+   <text width="135" height="20" x="523" y="476" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="135" height="20" x="518" y="482" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="523" y="496" style="fill:black;" font-family="Arial" font-size="16px">parent_id</text>
+   <rect width="135" height="20" x="518" y="502" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="523" y="516" style="fill:black;" font-family="Arial" font-size="16px">menu_id</text>
+   <rect width="135" height="20" x="518" y="522" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="523" y="536" style="fill:black;" font-family="Arial" font-size="16px">page_id</text>
+   <rect width="135" height="20" x="518" y="542" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="523" y="556" style="fill:black;" font-family="Arial" font-size="16px">title</text>
+   <rect width="135" height="20" x="518" y="562" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="523" y="576" style="fill:black;" font-family="Arial" font-size="16px">local</text>
+   <rect width="135" height="20" x="518" y="582" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="523" y="596" style="fill:black;" font-family="Arial" font-size="16px">item_order</text>
+   <rect width="135" height="20" x="718" y="287" style="fill:#007;stroke:black;"/>
+   <text width="135" height="20" x="723" y="301" style="fill:#fff;" font-family="Arial" font-size="16px"> page</text>
+   <rect width="135" height="20" x="718" y="307" style="fill:#aea;stroke:black;"/>
+   <text width="135" height="20" x="723" y="321" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="135" height="20" x="718" y="327" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="723" y="341" style="fill:black;" font-family="Arial" font-size="16px">slug</text>
+   <rect width="135" height="20" x="718" y="347" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="723" y="361" style="fill:black;" font-family="Arial" font-size="16px">title</text>
+   <rect width="135" height="20" x="718" y="367" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="723" y="381" style="fill:black;" font-family="Arial" font-size="16px">locale</text>
+   <rect width="135" height="20" x="718" y="387" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="723" y="401" style="fill:black;" font-family="Arial" font-size="16px">description</text>
+   <rect width="135" height="20" x="718" y="407" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="723" y="421" style="fill:black;" font-family="Arial" font-size="16px">feature_image_src</text>
+   <rect width="135" height="20" x="718" y="427" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="723" y="441" style="fill:black;" font-family="Arial" font-size="16px">feature_image_alt</text>
+   <rect width="135" height="20" x="718" y="447" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="723" y="461" style="fill:black;" font-family="Arial" font-size="16px">og_image</text>
+   <rect width="135" height="20" x="530" y="164" style="fill:#007;stroke:black;"/>
+   <text width="135" height="20" x="535" y="178" style="fill:#fff;" font-family="Arial" font-size="16px"> section</text>
+   <rect width="135" height="20" x="530" y="184" style="fill:#aea;stroke:black;"/>
+   <text width="135" height="20" x="535" y="198" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="135" height="20" x="530" y="204" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="535" y="218" style="fill:black;" font-family="Arial" font-size="16px">type_id</text>
+   <rect width="135" height="20" x="530" y="224" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="535" y="238" style="fill:black;" font-family="Arial" font-size="16px">page_id</text>
+   <rect width="135" height="20" x="530" y="244" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="535" y="258" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="135" height="20" x="530" y="264" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="535" y="278" style="fill:black;" font-family="Arial" font-size="16px">locale</text>
+   <rect width="135" height="20" x="530" y="284" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="535" y="298" style="fill:black;" font-family="Arial" font-size="16px">title</text>
+   <rect width="135" height="20" x="530" y="304" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="535" y="318" style="fill:black;" font-family="Arial" font-size="16px">content</text>
+   <rect width="135" height="20" x="305" y="87" style="fill:#007;stroke:black;"/>
+   <text width="135" height="20" x="310" y="101" style="fill:#fff;" font-family="Arial" font-size="16px"> section_image</text>
+   <rect width="135" height="20" x="305" y="107" style="fill:#aea;stroke:black;"/>
+   <text width="135" height="20" x="310" y="121" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="135" height="20" x="305" y="127" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="310" y="141" style="fill:black;" font-family="Arial" font-size="16px">section_id</text>
+   <rect width="135" height="20" x="305" y="147" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="310" y="161" style="fill:black;" font-family="Arial" font-size="16px">title</text>
+   <rect width="135" height="20" x="305" y="167" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="310" y="181" style="fill:black;" font-family="Arial" font-size="16px">src</text>
+   <rect width="135" height="20" x="305" y="187" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="310" y="201" style="fill:black;" font-family="Arial" font-size="16px">alt</text>
+   <rect width="135" height="20" x="310" y="280" style="fill:#007;stroke:black;"/>
+   <text width="135" height="20" x="315" y="294" style="fill:#fff;" font-family="Arial" font-size="16px"> section_type</text>
+   <rect width="135" height="20" x="310" y="300" style="fill:#aea;stroke:black;"/>
+   <text width="135" height="20" x="315" y="314" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="135" height="20" x="310" y="320" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="315" y="334" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="135" height="20" x="796" y="528" style="fill:#007;stroke:black;"/>
+   <text width="135" height="20" x="801" y="542" style="fill:#fff;" font-family="Arial" font-size="16px"> setting</text>
+   <rect width="135" height="20" x="796" y="548" style="fill:#aea;stroke:black;"/>
+   <text width="135" height="20" x="801" y="562" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="135" height="20" x="796" y="568" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="801" y="582" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="135" height="20" x="796" y="588" style="fill:none;stroke:black;"/>
+   <text width="135" height="20" x="801" y="602" style="fill:black;" font-family="Arial" font-size="16px">value</text>
+</svg>

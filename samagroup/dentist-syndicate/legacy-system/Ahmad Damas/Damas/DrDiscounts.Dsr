@@ -1,0 +1,755 @@
+VERSION 5.00
+Begin {78E93846-85FD-11D0-8487-00A0C90DC8A9} DrDiscount 
+   ClientHeight    =   11010
+   ClientLeft      =   60
+   ClientTop       =   450
+   ClientWidth     =   15240
+   StartUpPosition =   3  'Windows Default
+   WindowState     =   2  'Maximized
+   _ExtentX        =   26882
+   _ExtentY        =   19420
+   _Version        =   393216
+   _DesignerVersion=   100684101
+   ReportWidth     =   15225
+   BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+      Name            =   "Arial"
+      Size            =   8.25
+      Charset         =   178
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   GridX           =   10
+   GridY           =   10
+   LeftMargin      =   100
+   RightMargin     =   100
+   TopMargin       =   1440
+   BottomMargin    =   1440
+   _Settings       =   7
+   NumSections     =   5
+   SectionCode0    =   1
+   BeginProperty Section0 {1C13A8E0-A0B6-11D0-848E-00A0C90DC8A9} 
+      _Version        =   393216
+      Name            =   "Section4"
+      Object.Height          =   2055
+      NumControls     =   5
+      ItemType0       =   3
+      BeginProperty Item0 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "lblTitle"
+         Object.Left            =   6105
+         Object.Top             =   285
+         Object.Width           =   3015
+         Object.Height          =   420
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   14.25
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         BackColor       =   12632256
+         BackStyle       =   1
+         Object.Caption         =   " ﬁ—Ì— «·≈Õ«·«  «· Ì ›ÌÂ« Õ”„"
+         Alignment       =   2
+         Object.RightToLeft     =   -1  'True
+      EndProperty
+      ItemType1       =   3
+      BeginProperty Item1 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label3"
+         Object.Left            =   10725
+         Object.Top             =   1425
+         Object.Width           =   915
+         Object.Height          =   450
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   14.25
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "„‰  «—ÌŒ"
+      EndProperty
+      ItemType2       =   3
+      BeginProperty Item2 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label6"
+         Object.Left            =   5250
+         Object.Top             =   1425
+         Object.Width           =   945
+         Object.Height          =   450
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   14.25
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "≈·Ï  «—ÌŒ"
+      EndProperty
+      ItemType3       =   3
+      BeginProperty Item3 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "lblFrom"
+         Object.Left            =   8580
+         Object.Top             =   1440
+         Object.Width           =   2025
+         Object.Height          =   435
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "Label7"
+         Alignment       =   2
+      EndProperty
+      ItemType4       =   3
+      BeginProperty Item4 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "lblTo"
+         Object.Left            =   3105
+         Object.Top             =   1440
+         Object.Width           =   2025
+         Object.Height          =   435
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "Label7"
+         Alignment       =   2
+      EndProperty
+   EndProperty
+   SectionCode1    =   2
+   BeginProperty Section1 {1C13A8E0-A0B6-11D0-848E-00A0C90DC8A9} 
+      _Version        =   393216
+      Name            =   "Section2"
+      Object.Height          =   480
+      NumControls     =   18
+      ItemType0       =   6
+      BeginProperty Item0 {1C13A8E4-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Shape1"
+         Object.Left            =   105
+         Object.Width           =   14970
+         Object.Height          =   450
+         BackColor       =   12632256
+         BackStyle       =   1
+      EndProperty
+      ItemType1       =   3
+      BeginProperty Item1 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label8"
+         Object.Left            =   13995
+         Object.Width           =   960
+         Object.Height          =   420
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Simplified Arabic"
+            Size            =   11.25
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "—ﬁ„ «·≈Õ«·…"
+         Alignment       =   2
+         Object.RightToLeft     =   -1  'True
+      EndProperty
+      ItemType2       =   3
+      BeginProperty Item2 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label10"
+         Object.Left            =   12975
+         Object.Width           =   975
+         Object.Height          =   420
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Simplified Arabic"
+            Size            =   11.25
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "—ﬁ„ «·„—Ì÷"
+         Alignment       =   2
+         Object.RightToLeft     =   -1  'True
+      EndProperty
+      ItemType3       =   3
+      BeginProperty Item3 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label11"
+         Object.Left            =   11325
+         Object.Width           =   1650
+         Object.Height          =   420
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Simplified Arabic"
+            Size            =   11.25
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "«”„ «·„—Ì÷"
+         Alignment       =   2
+         Object.RightToLeft     =   -1  'True
+      EndProperty
+      ItemType4       =   3
+      BeginProperty Item4 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label12"
+         Object.Left            =   10200
+         Object.Width           =   1095
+         Object.Height          =   420
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Simplified Arabic"
+            Size            =   11.25
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "—ﬁ„ «·„ƒ””…"
+         Alignment       =   2
+         Object.RightToLeft     =   -1  'True
+      EndProperty
+      ItemType5       =   5
+      BeginProperty Item5 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line5"
+         Object.Left            =   14025
+         Object.Top             =   15
+         Object.Height          =   465
+      EndProperty
+      ItemType6       =   5
+      BeginProperty Item6 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line6"
+         Object.Left            =   12990
+         Object.Top             =   15
+         Object.Height          =   465
+      EndProperty
+      ItemType7       =   5
+      BeginProperty Item7 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line8"
+         Object.Left            =   10185
+         Object.Height          =   465
+      EndProperty
+      ItemType8       =   5
+      BeginProperty Item8 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line1"
+         Object.Left            =   11295
+         Object.Height          =   465
+      EndProperty
+      ItemType9       =   5
+      BeginProperty Item9 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line2"
+         Object.Left            =   8535
+         Object.Height          =   465
+      EndProperty
+      ItemType10      =   5
+      BeginProperty Item10 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line3"
+         Object.Left            =   5685
+         Object.Height          =   465
+      EndProperty
+      ItemType11      =   3
+      BeginProperty Item11 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label1"
+         Object.Left            =   8550
+         Object.Width           =   1620
+         Object.Height          =   420
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Simplified Arabic"
+            Size            =   11.25
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "«”„ «·„ƒ””…"
+         Alignment       =   2
+         Object.RightToLeft     =   -1  'True
+      EndProperty
+      ItemType12      =   3
+      BeginProperty Item12 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label2"
+         Object.Left            =   4755
+         Object.Top             =   15
+         Object.Width           =   930
+         Object.Height          =   420
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Simplified Arabic"
+            Size            =   11.25
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "„»·€ «·Õ”„"
+         Alignment       =   2
+         Object.RightToLeft     =   -1  'True
+      EndProperty
+      ItemType13      =   5
+      BeginProperty Item13 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line13"
+         Object.Left            =   7470
+         Object.Height          =   465
+      EndProperty
+      ItemType14      =   3
+      BeginProperty Item14 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label4"
+         Object.Left            =   5685
+         Object.Top             =   15
+         Object.Width           =   1740
+         Object.Height          =   420
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Simplified Arabic"
+            Size            =   11.25
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "«”„ «·ÿ»Ì»"
+         Alignment       =   2
+         Object.RightToLeft     =   -1  'True
+      EndProperty
+      ItemType15      =   3
+      BeginProperty Item15 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label5"
+         Object.Left            =   180
+         Object.Width           =   4530
+         Object.Height          =   420
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Simplified Arabic"
+            Size            =   11.25
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "”»» «·Õ”„"
+         Alignment       =   2
+         Object.RightToLeft     =   -1  'True
+      EndProperty
+      ItemType16      =   3
+      BeginProperty Item16 {1C13A8E1-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Label13"
+         Object.Left            =   7530
+         Object.Top             =   30
+         Object.Width           =   945
+         Object.Height          =   375
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Simplified Arabic"
+            Size            =   11.25
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Object.Caption         =   "—ﬁ„ «·ÿ»Ì»"
+         Alignment       =   2
+         Object.RightToLeft     =   -1  'True
+      EndProperty
+      ItemType17      =   5
+      BeginProperty Item17 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line15"
+         Object.Left            =   4740
+         Object.Height          =   465
+      EndProperty
+   EndProperty
+   SectionCode2    =   4
+   BeginProperty Section2 {1C13A8E0-A0B6-11D0-848E-00A0C90DC8A9} 
+      _Version        =   393216
+      Name            =   "Section1"
+      Object.Height          =   600
+      KeepTogether    =   -1  'True
+      NumControls     =   18
+      ItemType0       =   6
+      BeginProperty Item0 {1C13A8E4-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Shape2"
+         Object.Left            =   105
+         Object.Width           =   14940
+         Object.Height          =   465
+         BackColor       =   12632256
+      EndProperty
+      ItemType1       =   5
+      BeginProperty Item1 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line4"
+         Object.Left            =   14010
+         Object.Height          =   465
+      EndProperty
+      ItemType2       =   5
+      BeginProperty Item2 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line7"
+         Object.Left            =   12990
+         Object.Height          =   465
+      EndProperty
+      ItemType3       =   5
+      BeginProperty Item3 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line9"
+         Object.Left            =   10200
+         Object.Height          =   465
+      EndProperty
+      ItemType4       =   5
+      BeginProperty Item4 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line10"
+         Object.Left            =   11295
+         Object.Height          =   465
+      EndProperty
+      ItemType5       =   5
+      BeginProperty Item5 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line11"
+         Object.Left            =   8520
+         Object.Height          =   465
+      EndProperty
+      ItemType6       =   5
+      BeginProperty Item6 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line12"
+         Object.Left            =   5700
+         Object.Height          =   465
+      EndProperty
+      ItemType7       =   4
+      BeginProperty Item7 {1C13A8E2-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "txtIhalaID"
+         Object.Left            =   14025
+         Object.Width           =   930
+         Object.Height          =   435
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         DataField       =   "Central_Exam_ID"
+         CanGrow         =   -1  'True
+         Alignment       =   2
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      ItemType8       =   4
+      BeginProperty Item8 {1C13A8E2-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Text2"
+         Object.Left            =   12990
+         Object.Width           =   975
+         Object.Height          =   435
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         DataField       =   "Patient_ID"
+         CanGrow         =   -1  'True
+         Alignment       =   2
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      ItemType9       =   4
+      BeginProperty Item9 {1C13A8E2-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Text3"
+         Object.Left            =   11325
+         Object.Width           =   1635
+         Object.Height          =   435
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         DataField       =   "Patient_Name"
+         CanGrow         =   -1  'True
+         Alignment       =   2
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      ItemType10      =   4
+      BeginProperty Item10 {1C13A8E2-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Text4"
+         Object.Left            =   10275
+         Object.Width           =   990
+         Object.Height          =   435
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         DataField       =   "Organization_ID"
+         CanGrow         =   -1  'True
+         Alignment       =   2
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      ItemType11      =   4
+      BeginProperty Item11 {1C13A8E2-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Text5"
+         Object.Left            =   7485
+         Object.Width           =   975
+         Object.Height          =   435
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         DataField       =   "Curer_Doctor_ID"
+         CanGrow         =   -1  'True
+         Alignment       =   2
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      ItemType12      =   4
+      BeginProperty Item12 {1C13A8E2-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Text6"
+         Object.Left            =   8535
+         Object.Width           =   1650
+         Object.Height          =   435
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         DataField       =   "Organization_Name"
+         CanGrow         =   -1  'True
+         Alignment       =   2
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      ItemType13      =   4
+      BeginProperty Item13 {1C13A8E2-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Text7"
+         Object.Left            =   4770
+         Object.Width           =   915
+         Object.Height          =   435
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         DataField       =   "Discount"
+         CanGrow         =   -1  'True
+         Alignment       =   2
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      ItemType14      =   5
+      BeginProperty Item14 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line14"
+         Object.Left            =   7470
+         Object.Height          =   465
+      EndProperty
+      ItemType15      =   4
+      BeginProperty Item15 {1C13A8E2-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Text8"
+         Object.Left            =   5715
+         Object.Width           =   1740
+         Object.Height          =   435
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         DataField       =   "Curer_Doctor_Name"
+         CanGrow         =   -1  'True
+         Alignment       =   2
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      ItemType16      =   4
+      BeginProperty Item16 {1C13A8E2-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Text9"
+         Object.Left            =   135
+         Object.Top             =   30
+         Object.Width           =   4560
+         Object.Height          =   390
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   178
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         DataField       =   "Discount_Reason"
+         CanGrow         =   -1  'True
+         Alignment       =   2
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      ItemType17      =   5
+      BeginProperty Item17 {1C13A8E3-A0B6-11D0-848E-00A0C90DC8A9} 
+         _Version        =   393216
+         Name            =   "Line16"
+         Object.Left            =   4740
+         Object.Height          =   465
+      EndProperty
+   EndProperty
+   SectionCode3    =   7
+   BeginProperty Section3 {1C13A8E0-A0B6-11D0-848E-00A0C90DC8A9} 
+      _Version        =   393216
+      Name            =   "Section3"
+      NumControls     =   0
+   EndProperty
+   SectionCode4    =   8
+   BeginProperty Section4 {1C13A8E0-A0B6-11D0-848E-00A0C90DC8A9} 
+      _Version        =   393216
+      Name            =   "Section5"
+      Object.Height          =   480
+      NumControls     =   0
+   EndProperty
+End
+Attribute VB_Name = "DrDiscount"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Private Sub DataReport_Initialize()
+    If Current_State.Show_Per_Company Then
+        Get_DataReport_Label_byName(Me, 3, "txtIhalaID").datafield = "Ihala_ID_in_Company"
+    End If
+End Sub
