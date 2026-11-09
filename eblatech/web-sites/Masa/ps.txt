@@ -1,0 +1,64 @@
+77.104.138.240:21
+user: mfaraj@masa.ebla-tech.com
+password: wlgt7m4efy970v
+
+77.104.138.240:18765
+user: masa8091
+phrase: 8ork1guac86x
+
+146.66.103.92:18765
+user: masafze3
+phrase: ynza7fee7bsiqdx
+
+mysql:
+user: masa8091_magen23
+password: 36SF.1@PpT
+
+user: masa8091_magen24
+password: T_iE-EMR6;~,.}=!
+
+user: masafze3_prod
+password: H-+*&goc1&tQ
+
+
+user: masafze3_stage
+password: 1uxy6x8udk71hnb6i3
+
+http://masafze.com/staging/admincp
+user: Mayas
+password: Zx..5
+
+http://lg-masa.com/masa-staging/admincp
+user: Mayas
+password: aksj!df7(hK*SA$H100
+
+
+
+[13:29, 12/18/2018] Ramez Qannos:  Domain: masafze.com
+| Ip: 51.38.43.81 (n)
+| HasCgi: y
+| UserName: masafze
+| PassWord: Sameh@@2018
+| CpanelMod: paper_lantern
+| HomeRoot: /home
+| Quota: unlimited
+| NameServer1: ns1.masadubai.net
+| NameServer2: ns2.masadubai.net
+| NameServer3: 
+| NameServer4: 
+| Contact Email: info@masafze.com
+| Package: default
+| Feature List: default
+| Language: en
++===================================+
+[13:29, 12/18/2018] Ramez Qannos: http://51.38.43.81:2082/
+
+masafze_prod
+seoh^v-!^{hv
+
+user: alpha
+email: alpha@nomail.com
+password: kxdlj45{45A$09h
+
+user: Mayas
+password: jwkswdi7-0skdsdefasd@

@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /?display=wide
+Allow: /wp-content/uploads/
+Disallow: /wp-content/plugins/
+
+Sitemap: http://signaturesmiledfw.com/sitemap.xml

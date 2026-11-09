@@ -1,0 +1,6 @@
+link: https://just7.us:2083
+user: just7
+password: $8IcvTlxDsqr 
+
+wp: user: admin password: V5UU@dsWJ9
+db: user: just7_data password: goP]Af@9#m$Y

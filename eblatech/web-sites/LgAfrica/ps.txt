@@ -1,0 +1,21 @@
+77.104.138.240:21
+user: mfaraj@masa.ebla-tech.com
+password: wlgt7m4efy970v
+
+77.104.138.240:18765
+user: masa8091
+phrase:8ork1guac86x
+
+http://77.104.138.240/~masa8091/magento_lg/adminLG
+user: Mayas
+password: Zxcasdqwe12345
+
+mysql:
+user: masa8091_mag_lgP
+password: C]u$;mU2^q.}
+
+user: masa8091_magen23
+password: 36SF.1@PpT
+
+user: masa8091_mag_lgL
+password: F!5f;#iqIF=Q-vX

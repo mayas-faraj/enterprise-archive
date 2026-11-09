@@ -1,0 +1,8 @@
+name = Index Content
+description =  Index Content.
+core = 6.x
+version = "7.x"
+core = 7.x
+project = "index_content"
+datestamp = "1255761628"
+

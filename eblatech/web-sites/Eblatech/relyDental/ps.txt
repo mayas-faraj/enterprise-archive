@@ -1,0 +1,10 @@
+https://www.relydental.com/wp-admin
+
+user: Mayas
+
+password: Zxcasdqwe12345
+
+
+ftp.relydental.com
+user: Mayas@relydental.com
+password: pwcfduauqrmrlk9etk

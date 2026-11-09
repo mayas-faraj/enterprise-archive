@@ -1,0 +1,895 @@
+product	section	attribute	type
+Air Conditioners	Advanced Pricing	Display Actual Price	select
+Air Conditioners	Advanced Pricing	Special Price From Date	date
+Air Conditioners	Advanced Pricing	Cost	price
+Air Conditioners	Advanced Pricing	Price View	select
+Air Conditioners	Advanced Pricing	Show Price Countdown	select
+Air Conditioners	Advanced Pricing	Tier Price	text
+Air Conditioners	Advanced Pricing	Minimal Price	price
+Air Conditioners	Advanced Pricing	Special Price	price
+Air Conditioners	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+Air Conditioners	Advanced Pricing	Special Price To Date	date
+Air Conditioners	Bundle Items	Ship Bundle Items	select
+Air Conditioners	Content	Description	textarea
+Air Conditioners	Content	Short Description	textarea
+Air Conditioners	Design	Layout	select
+Air Conditioners	Design	Display Product Options In	select
+Air Conditioners	Design	Layout Update XML	textarea
+Air Conditioners	Gift Options	Allow Gift Message	select
+Air Conditioners	Images	Swatch	media_image
+Air Conditioners	Images	Base	media_image
+Air Conditioners	Images	Thumbnail	media_image
+Air Conditioners	Images	Small	media_image
+Air Conditioners	Images	Media Gallery	gallery
+Air Conditioners	Images	Image Gallery	gallery
+Air Conditioners	masa-product	Item count per container	text
+Air Conditioners	masa-product	Item weight in container (kg)	text
+Air Conditioners	Product Details	NULL	NULL
+Air Conditioners	Product Details	NULL	text
+Air Conditioners	Product Details	Featured	boolean
+Air Conditioners	Product Details	NULL	text
+Air Conditioners	Product Details	Featured	select
+Air Conditioners	Product Details	Small Image Label	text
+Air Conditioners	Product Details	Product Name	text
+Air Conditioners	Product Details	NULL	date
+Air Conditioners	Product Details	Country of Manufacture	select
+Air Conditioners	Product Details	Tax Class	select
+Air Conditioners	Product Details	Price	price
+Air Conditioners	Product Details	Set Product as New to Date	date
+Air Conditioners	Product Details	Dynamic SKU	boolean
+Air Conditioners	Product Details	Links can be purchased separately	NULL
+Air Conditioners	Product Details	Enable Product	select
+Air Conditioners	Product Details	Links title	NULL
+Air Conditioners	Product Details	New	boolean
+Air Conditioners	Product Details	Visibility	select
+Air Conditioners	Product Details	NULL	text
+Air Conditioners	Product Details	Sale	boolean
+Air Conditioners	Product Details	Image Label	text
+Air Conditioners	Product Details	Categories	text
+Air Conditioners	Product Details	SKU	text
+Air Conditioners	Product Details	Thumbnail Label	text
+Air Conditioners	Product Details	Quantity	select
+Air Conditioners	Product Details	NULL	date
+Air Conditioners	Product Details	Set Product as New from Date	date
+Air Conditioners	Product Details	NULL	text
+Air Conditioners	Product Details	Dynamic Price	boolean
+Air Conditioners	Product Details	Dynamic Weight	boolean
+Air Conditioners	Product Details	Weight	weight
+Air Conditioners	Product Details	Samples title	NULL
+Air Conditioners	Schedule Design Update	New Theme	select
+Air Conditioners	Schedule Design Update	Active To	date
+Air Conditioners	Schedule Design Update	New Layout	select
+Air Conditioners	Schedule Design Update	Active From	date
+Air Conditioners	Search Engine Optimization	Meta Keywords	textarea
+Air Conditioners	Search Engine Optimization	Meta Title	text
+Air Conditioners	Search Engine Optimization	URL Key	text
+Air Conditioners	Search Engine Optimization	Meta Description	textarea
+Air Conditioners	Specifications	EER Cooling (W/W)	text
+Air Conditioners	Specifications	Connection Liquid Stop Valve (mm)	select
+Air Conditioners	Specifications	Power Supply Source V/Ph/Hz	select
+Air Conditioners	Specifications	Outdoor Unit Net Dimension (mm)	select
+Air Conditioners	Specifications	Indoor Unit Fan Motor	select
+Air Conditioners	Specifications	Indoor Unit Condenser Fan Motor	text
+Air Conditioners	Specifications	Outdoor Unit Fan Motor	select
+Air Conditioners	Specifications	Indoor Unit Evaporator Motor Speed (rpm)	text
+Air Conditioners	Specifications	Outdoor Unit Noise Power dB (A)	text
+Air Conditioners	Specifications	Max Discharge Pressure (Mpa)	text
+Air Conditioners	Specifications	AC Brand	select
+Air Conditioners	Specifications	Indoor Unit Net Dimension (mm)	select
+Air Conditioners	Specifications	Heating Rated Capacity (Btu)	text
+Air Conditioners	Specifications	Indoor Unit Packing Dimension (mm)	text
+Air Conditioners	Specifications	Outdoor Unit Condenser Rows	text
+Air Conditioners	Specifications	Indoor Unit Compressor Model	text
+Air Conditioners	Specifications	Air Flow Volume (m3/h)	text
+Air Conditioners	Specifications	Outdoor Unit net weight	text
+Air Conditioners	Specifications	Max Input Current (A)	text
+Air Conditioners	Specifications	Indoor Unit Evaporator Pipe Diameter (mm)	select
+Air Conditioners	Specifications	Heating Running Current (A)	text
+Air Conditioners	Specifications	Indoor Unit Evaporator Rows	text
+Air Conditioners	Specifications	Indoor Unit Condenser pipe diameter (mm)	text
+Air Conditioners	Specifications	Dehumidifying Rated capacity (Kg/h)	text
+Air Conditioners	Specifications	Outdoor Unit Compressor Model	select
+Air Conditioners	Specifications	Indoor Unit Noise Power dB (A)	text
+Air Conditioners	Specifications	COP Heating (W/W)	text
+Air Conditioners	Specifications	Connection Gas Stop Valve (mm)	select
+Air Conditioners	Specifications	Refrigerant	select
+Air Conditioners	Specifications	Outdoor Unit Packing Dimension (mm)	select
+Air Conditioners	Specifications	Cooling Rated Capacity (Btu)	text
+Air Conditioners	Specifications	Indoor Unit Condenser Motor Speed (rpm)	text
+Air Conditioners	Specifications	Container Loading 40HC (Units)	text
+Air Conditioners	Specifications	Indoor Unit Compressor Brand	text
+Air Conditioners	Specifications	Refrigerant Charged (g)	text
+Air Conditioners	Specifications	Max Suction Pressure (Mpa)	text
+Air Conditioners	Specifications	Max Input Power (W)	text
+Air Conditioners	Specifications	Outdoor Unit Condenser Pipe Diameter (mm)	select
+Air Conditioners	Specifications	Cooling Running Current (A)	text
+Air Conditioners	Specifications	Indoor Unit Evaporator bend	text
+Air Conditioners	Specifications	Indoor Unit Condenser Rows	text
+Air Conditioners	Specifications	Outdoor Unit Compressor Brand	select
+Air Conditioners	Specifications	Indoor Unit net weight (Kg)	text
+Audio	Advanced Pricing	Cost	price
+Audio	Advanced Pricing	Price View	select
+Audio	Advanced Pricing	Show Price Countdown	select
+Audio	Advanced Pricing	Tier Price	text
+Audio	Advanced Pricing	Special Price	price
+Audio	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+Audio	Advanced Pricing	Special Price To Date	date
+Audio	Advanced Pricing	Minimal Price	price
+Audio	Advanced Pricing	Display Actual Price	select
+Audio	Advanced Pricing	Special Price From Date	date
+Audio	Bundle Items	Ship Bundle Items	select
+Audio	Content	Short Description	textarea
+Audio	Content	Description	textarea
+Audio	Design	Layout Update XML	textarea
+Audio	Design	Layout	select
+Audio	Design	Display Product Options In	select
+Audio	Gift Options	Allow Gift Message	select
+Audio	Gross dimension (W x H x D) (mm)	Gross dimension (W x H x D) (mm)	text
+Audio	Images	Small	media_image
+Audio	Images	Media Gallery	gallery
+Audio	Images	Image Gallery	gallery
+Audio	Images	Swatch	media_image
+Audio	Images	Base	media_image
+Audio	Images	Thumbnail	media_image
+Audio	masa-product	Item weight in container (kg)	text
+Audio	masa-product	Item count per container	text
+Audio	Net dimension (W x H x D) (mm)	Front Speaker	text
+Audio	Net dimension (W x H x D) (mm)	Sub-woofer / Rear Speaker	text
+Audio	Net dimension (W x H x D) (mm)	Main	text
+Audio	Product Details	Set Product as New to Date	date
+Audio	Product Details	NULL	date
+Audio	Product Details	Dynamic SKU	boolean
+Audio	Product Details	Enable Product	select
+Audio	Product Details	New	boolean
+Audio	Product Details	Visibility	select
+Audio	Product Details	Sale	boolean
+Audio	Product Details	Links can be purchased separately	NULL
+Audio	Product Details	Links title	NULL
+Audio	Product Details	NULL	date
+Audio	Product Details	Categories	text
+Audio	Product Details	SKU	text
+Audio	Product Details	NULL	text
+Audio	Product Details	Quantity	select
+Audio	Product Details	Image Label	text
+Audio	Product Details	Thumbnail Label	text
+Audio	Product Details	Set Product as New from Date	date
+Audio	Product Details	Dynamic Price	boolean
+Audio	Product Details	Dynamic Weight	boolean
+Audio	Product Details	Weight	weight
+Audio	Product Details	Featured	boolean
+Audio	Product Details	NULL	text
+Audio	Product Details	Samples title	NULL
+Audio	Product Details	Featured	select
+Audio	Product Details	Product Name	text
+Audio	Product Details	NULL	NULL
+Audio	Product Details	NULL	text
+Audio	Product Details	Country of Manufacture	select
+Audio	Product Details	Tax Class	select
+Audio	Product Details	NULL	text
+Audio	Product Details	Price	price
+Audio	Product Details	Small Image Label	text
+Audio	Schedule Design Update	Active From	date
+Audio	Schedule Design Update	New Theme	select
+Audio	Schedule Design Update	Active To	date
+Audio	Schedule Design Update	New Layout	select
+Audio	Search Engine Optimization	Meta Title	text
+Audio	Search Engine Optimization	URL Key	text
+Audio	Search Engine Optimization	Meta Description	textarea
+Audio	Search Engine Optimization	Meta Keywords	textarea
+Audio	Spec	Net weight (Kg)	text
+Audio	Spec	Key Features	boolean
+Audio	Spec	AV Receiver	text
+Audio	Spec	Gross weight (Kg)	text
+Default	Advanced Pricing	Display Actual Price	select
+Default	Advanced Pricing	Special Price From Date	date
+Default	Advanced Pricing	Cost	price
+Default	Advanced Pricing	Price View	select
+Default	Advanced Pricing	Show Price Countdown	select
+Default	Advanced Pricing	Tier Price	text
+Default	Advanced Pricing	Minimal Price	price
+Default	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+Default	Advanced Pricing	Special Price	price
+Default	Advanced Pricing	Special Price To Date	date
+Default	Bundle Items	Ship Bundle Items	select
+Default	Content	Description	textarea
+Default	Content	Short Description	textarea
+Default	Design	Layout	select
+Default	Design	Display Product Options In	select
+Default	Design	Layout Update XML	textarea
+Default	Gift Options	Allow Gift Message	select
+Default	Images	Small	media_image
+Default	Images	Media Gallery	gallery
+Default	Images	Image Gallery	gallery
+Default	Images	Swatch	media_image
+Default	Images	Base	media_image
+Default	Images	Thumbnail	media_image
+Default	masa-product	Item count per container	text
+Default	masa-product	Item weight in container (kg)	text
+Default	Product Details	Small Image Label	text
+Default	Product Details	Product Name	text
+Default	Product Details	NULL	date
+Default	Product Details	Country of Manufacture	select
+Default	Product Details	Tax Class	select
+Default	Product Details	Price	price
+Default	Product Details	Set Product as New to Date	date
+Default	Product Details	Dynamic SKU	boolean
+Default	Product Details	Links can be purchased separately	NULL
+Default	Product Details	Enable Product	select
+Default	Product Details	Links title	NULL
+Default	Product Details	New	boolean
+Default	Product Details	Visibility	select
+Default	Product Details	NULL	text
+Default	Product Details	Sale	boolean
+Default	Product Details	Image Label	text
+Default	Product Details	Categories	text
+Default	Product Details	SKU	text
+Default	Product Details	Thumbnail Label	text
+Default	Product Details	Quantity	select
+Default	Product Details	NULL	date
+Default	Product Details	Set Product as New from Date	date
+Default	Product Details	NULL	text
+Default	Product Details	Dynamic Price	boolean
+Default	Product Details	Dynamic Weight	boolean
+Default	Product Details	Weight	weight
+Default	Product Details	Samples title	NULL
+Default	Product Details	NULL	NULL
+Default	Product Details	NULL	text
+Default	Product Details	Featured	boolean
+Default	Product Details	NULL	text
+Default	Product Details	Featured	select
+Default	Schedule Design Update	New Layout	select
+Default	Schedule Design Update	Active From	date
+Default	Schedule Design Update	New Theme	select
+Default	Schedule Design Update	Active To	date
+Default	Search Engine Optimization	Meta Title	text
+Default	Search Engine Optimization	URL Key	text
+Default	Search Engine Optimization	Meta Description	textarea
+Default	Search Engine Optimization	Meta Keywords	textarea
+Downloadable	Advanced Pricing	Display Actual Price	select
+Downloadable	Advanced Pricing	Special Price From Date	date
+Downloadable	Advanced Pricing	Cost	price
+Downloadable	Advanced Pricing	Price View	select
+Downloadable	Advanced Pricing	Minimal Price	price
+Downloadable	Advanced Pricing	Show Price Countdown	select
+Downloadable	Advanced Pricing	Tier Price	text
+Downloadable	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+Downloadable	Advanced Pricing	Special Price	price
+Downloadable	Advanced Pricing	Special Price To Date	date
+Downloadable	Bundle Items	Ship Bundle Items	select
+Downloadable	Content	Short Description	textarea
+Downloadable	Content	Description	textarea
+Downloadable	Design	Layout Update XML	textarea
+Downloadable	Design	Layout	select
+Downloadable	Design	Display Product Options In	select
+Downloadable	Gift Options	Allow Gift Message	select
+Downloadable	Images	Small	media_image
+Downloadable	Images	Media Gallery	gallery
+Downloadable	Images	Image Gallery	gallery
+Downloadable	Images	Base	media_image
+Downloadable	Images	Thumbnail	media_image
+Downloadable	Product Details	NULL	text
+Downloadable	Product Details	Set Product as New to Date	date
+Downloadable	Product Details	Format	select
+Downloadable	Product Details	Dynamic SKU	boolean
+Downloadable	Product Details	Image Label	text
+Downloadable	Product Details	Enable Product	select
+Downloadable	Product Details	Thumbnail Label	text
+Downloadable	Product Details	New	boolean
+Downloadable	Product Details	Visibility	select
+Downloadable	Product Details	NULL	date
+Downloadable	Product Details	Sale	boolean
+Downloadable	Product Details	NULL	text
+Downloadable	Product Details	Categories	text
+Downloadable	Product Details	SKU	text
+Downloadable	Product Details	Samples title	NULL
+Downloadable	Product Details	Quantity	select
+Downloadable	Product Details	NULL	NULL
+Downloadable	Product Details	NULL	text
+Downloadable	Product Details	Activity	multiselect
+Downloadable	Product Details	Set Product as New from Date	date
+Downloadable	Product Details	NULL	text
+Downloadable	Product Details	Dynamic Price	boolean
+Downloadable	Product Details	Small Image Label	text
+Downloadable	Product Details	Dynamic Weight	boolean
+Downloadable	Product Details	Weight	weight
+Downloadable	Product Details	Swatch	media_image
+Downloadable	Product Details	NULL	date
+Downloadable	Product Details	Featured	boolean
+Downloadable	Product Details	Featured	select
+Downloadable	Product Details	Product Name	text
+Downloadable	Product Details	Links can be purchased separately	NULL
+Downloadable	Product Details	Country of Manufacture	select
+Downloadable	Product Details	Links title	NULL
+Downloadable	Product Details	Tax Class	select
+Downloadable	Product Details	Price	price
+Downloadable	Schedule Design Update	Active From	date
+Downloadable	Schedule Design Update	New Theme	select
+Downloadable	Schedule Design Update	Active To	date
+Downloadable	Schedule Design Update	New Layout	select
+Downloadable	Search Engine Optimization	Meta Title	text
+Downloadable	Search Engine Optimization	URL Key	text
+Downloadable	Search Engine Optimization	Meta Description	textarea
+Downloadable	Search Engine Optimization	Meta Keywords	textarea
+FANs	Advanced Pricing	Cost	price
+FANs	Advanced Pricing	Price View	select
+FANs	Advanced Pricing	Show Price Countdown	select
+FANs	Advanced Pricing	Tier Price	text
+FANs	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+FANs	Advanced Pricing	Special Price	price
+FANs	Advanced Pricing	Special Price To Date	date
+FANs	Advanced Pricing	Minimal Price	price
+FANs	Advanced Pricing	Display Actual Price	select
+FANs	Advanced Pricing	Special Price From Date	date
+FANs	Bundle Items	Ship Bundle Items	select
+FANs	Content	Short Description	textarea
+FANs	Content	Description	textarea
+FANs	Design	Layout Update XML	textarea
+FANs	Design	Layout	select
+FANs	Design	Display Product Options In	select
+FANs	Gift Options	Allow Gift Message	select
+FANs	Images	Small	media_image
+FANs	Images	Media Gallery	gallery
+FANs	Images	Image Gallery	gallery
+FANs	Images	Swatch	media_image
+FANs	Images	Base	media_image
+FANs	Images	Thumbnail	media_image
+FANs	masa-product	Item weight in container (kg)	text
+FANs	masa-product	Item count per container	text
+FANs	Product Details	NULL	text
+FANs	Product Details	Dynamic SKU	boolean
+FANs	Product Details	NULL	NULL
+FANs	Product Details	Enable Product	select
+FANs	Product Details	Visibility	select
+FANs	Product Details	NULL	text
+FANs	Product Details	New	boolean
+FANs	Product Details	Small Image Label	text
+FANs	Product Details	Sale	boolean
+FANs	Product Details	NULL	date
+FANs	Product Details	Categories	text
+FANs	Product Details	SKU	text
+FANs	Product Details	Quantity	select
+FANs	Product Details	Links can be purchased separately	NULL
+FANs	Product Details	Set Product as New from Date	date
+FANs	Product Details	Links title	NULL
+FANs	Product Details	Dynamic Price	boolean
+FANs	Product Details	NULL	date
+FANs	Product Details	Dynamic Weight	boolean
+FANs	Product Details	Weight	weight
+FANs	Product Details	NULL	text
+FANs	Product Details	Image Label	text
+FANs	Product Details	Featured	boolean
+FANs	Product Details	Featured	select
+FANs	Product Details	Thumbnail Label	text
+FANs	Product Details	Product Name	text
+FANs	Product Details	Country of Manufacture	select
+FANs	Product Details	Tax Class	select
+FANs	Product Details	NULL	text
+FANs	Product Details	Price	price
+FANs	Product Details	Samples title	NULL
+FANs	Product Details	Set Product as New to Date	date
+FANs	Schedule Design Update	Active From	date
+FANs	Schedule Design Update	New Theme	select
+FANs	Schedule Design Update	Active To	date
+FANs	Schedule Design Update	New Layout	select
+FANs	Search Engine Optimization	Meta Title	text
+FANs	Search Engine Optimization	URL Key	text
+FANs	Search Engine Optimization	Meta Description	textarea
+FANs	Search Engine Optimization	Meta Keywords	textarea
+FANs	Specification	Charging Duration	text
+FANs	Specification	Input & Output	text
+FANs	Specification	Remote	boolean
+FANs	Specification	Swing / non-Swing Operation	boolean
+FANs	Specification	Bright LED light	boolean
+FANs	Specification	charging	text
+FANs	Specification	Timer	text
+FANs	Specification	Work indicator	boolean
+FANs	Specification	Type	text
+FANs	Specification	Speed	text
+FANs	Specification	Battery	text
+FANs	Specification	Factory Model	text
+FANs	Specification	Battery Capacity Indicator	boolean
+FANs	Specification	Fan Size	text
+FANs	Specification	 Full charge indicator	boolean
+Kitchen Machines	Advanced Pricing	Minimal Price	price
+Kitchen Machines	Advanced Pricing	Display Actual Price	select
+Kitchen Machines	Advanced Pricing	Special Price From Date	date
+Kitchen Machines	Advanced Pricing	Cost	price
+Kitchen Machines	Advanced Pricing	Price View	select
+Kitchen Machines	Advanced Pricing	Show Price Countdown	select
+Kitchen Machines	Advanced Pricing	Tier Price	text
+Kitchen Machines	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+Kitchen Machines	Advanced Pricing	Special Price	price
+Kitchen Machines	Advanced Pricing	Special Price To Date	date
+Kitchen Machines	Bundle Items	Ship Bundle Items	select
+Kitchen Machines	Content	Description	textarea
+Kitchen Machines	Content	Short Description	textarea
+Kitchen Machines	Design	Layout	select
+Kitchen Machines	Design	Display Product Options In	select
+Kitchen Machines	Design	Layout Update XML	textarea
+Kitchen Machines	Gift Options	Allow Gift Message	select
+Kitchen Machines	Images	Base	media_image
+Kitchen Machines	Images	Thumbnail	media_image
+Kitchen Machines	Images	Small	media_image
+Kitchen Machines	Images	Media Gallery	gallery
+Kitchen Machines	Images	Image Gallery	gallery
+Kitchen Machines	Images	Swatch	media_image
+Kitchen Machines	Masa-Product	Item count per container	text
+Kitchen Machines	Masa-Product	Item weight in container (kg)	text
+Kitchen Machines	Product Details	Image Label	text
+Kitchen Machines	Product Details	Featured	boolean
+Kitchen Machines	Product Details	Featured	select
+Kitchen Machines	Product Details	Thumbnail Label	text
+Kitchen Machines	Product Details	Product Name	text
+Kitchen Machines	Product Details	NULL	date
+Kitchen Machines	Product Details	Country of Manufacture	select
+Kitchen Machines	Product Details	Tax Class	select
+Kitchen Machines	Product Details	NULL	text
+Kitchen Machines	Product Details	Price	price
+Kitchen Machines	Product Details	Samples title	NULL
+Kitchen Machines	Product Details	Set Product as New to Date	date
+Kitchen Machines	Product Details	NULL	text
+Kitchen Machines	Product Details	Dynamic SKU	boolean
+Kitchen Machines	Product Details	NULL	NULL
+Kitchen Machines	Product Details	Enable Product	select
+Kitchen Machines	Product Details	Visibility	select
+Kitchen Machines	Product Details	NULL	text
+Kitchen Machines	Product Details	New	boolean
+Kitchen Machines	Product Details	Small Image Label	text
+Kitchen Machines	Product Details	Sale	boolean
+Kitchen Machines	Product Details	NULL	date
+Kitchen Machines	Product Details	Categories	text
+Kitchen Machines	Product Details	SKU	text
+Kitchen Machines	Product Details	Quantity	select
+Kitchen Machines	Product Details	Links can be purchased separately	NULL
+Kitchen Machines	Product Details	Set Product as New from Date	date
+Kitchen Machines	Product Details	Links title	NULL
+Kitchen Machines	Product Details	Dynamic Price	boolean
+Kitchen Machines	Product Details	Dynamic Weight	boolean
+Kitchen Machines	Product Details	Weight	weight
+Kitchen Machines	Product Details	NULL	text
+Kitchen Machines	Schedule Design Update	New Theme	select
+Kitchen Machines	Schedule Design Update	Active To	date
+Kitchen Machines	Schedule Design Update	New Layout	select
+Kitchen Machines	Schedule Design Update	Active From	date
+Kitchen Machines	Search Engine Optimization	Meta Keywords	textarea
+Kitchen Machines	Search Engine Optimization	Meta Title	text
+Kitchen Machines	Search Engine Optimization	Meta Description	textarea
+Kitchen Machines	Search Engine Optimization	URL Key	text
+Kitchen Machines	Specifications	Power Cord Storage Construction	boolean
+Kitchen Machines	Specifications	Optional Tules	multiselect
+Kitchen Machines	Specifications	RPM Motor Speed	text
+Kitchen Machines	Specifications	Ice Crush Function	boolean
+Kitchen Machines	Specifications	Kitchen appliance type	select
+Kitchen Machines	Specifications	Speed	text
+Kitchen Machines	Specifications	Calibrated Chopper	text
+Kitchen Machines	Specifications	Mixing Bowl	text
+Kitchen Machines	Specifications	Weight N.W / G.W (kg)  	multiselect
+Kitchen Machines	Specifications	ON /OFF Switch	boolean
+Kitchen Machines	Specifications	Design Details	text
+Kitchen Machines	Specifications	Dishwasher Safe	boolean
+Kitchen Machines	Specifications	Stainless Steel Wand	boolean
+Kitchen Machines	Specifications	Included Tules 	multiselect
+Kitchen Machines	Specifications	Measuring Cup	text
+Kitchen Machines	Specifications	Voltage Power	text
+Kitchen Machines	Specifications	Beaker	text
+Kitchen Machines	Specifications	Timer Function	text
+Kitchen Machines	Specifications	Variable Color Combination	multiselect
+Kitchen Machines	Specifications	Travel Lid	boolean
+Kitchen Machines	Specifications	Blade	text
+Kitchen Machines	Specifications	Anti-Slip Suction Feet	boolean
+Kitchen Machines	Specifications	Capacity (L)	text
+Kitchen Machines	Specifications	Ballon Whisk	text
+Kitchen Machines	Specifications	ABS	text
+Kitchen Machines	Specifications	Interlock Protection	boolean
+Kitchen Machines	Specifications	Grinder Jar	boolean
+Kitchen Machines	Specifications	BPA-Free	boolean
+Kitchen Machines	Specifications	Model No.	text
+LG	Advanced Pricing	Show Price Countdown	select
+LG	Advanced Pricing	Tier Price	text
+LG	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+LG	Advanced Pricing	Special Price	price
+LG	Advanced Pricing	Special Price To Date	date
+LG	Advanced Pricing	Minimal Price	price
+LG	Advanced Pricing	Display Actual Price	select
+LG	Advanced Pricing	Special Price From Date	date
+LG	Advanced Pricing	Cost	price
+LG	Advanced Pricing	Price View	select
+LG	Bundle Items	Ship Bundle Items	select
+LG	Content	Short Description	textarea
+LG	Content	Description	textarea
+LG	Design	Layout Update XML	textarea
+LG	Design	Layout	select
+LG	Design	Display Product Options In	select
+LG	Gift Options	Allow Gift Message	select
+LG	Images	Small	media_image
+LG	Images	Media Gallery	gallery
+LG	Images	Image Gallery	gallery
+LG	Images	Swatch	media_image
+LG	Images	Base	media_image
+LG	Images	Thumbnail	media_image
+LG	masa-product	Item weight in container (kg)	text
+LG	masa-product	Item count per container	text
+LG	Product Details	Sale	boolean
+LG	Product Details	Links can be purchased separately	NULL
+LG	Product Details	Links title	NULL
+LG	Product Details	NULL	date
+LG	Product Details	Categories	text
+LG	Product Details	SKU	text
+LG	Product Details	NULL	text
+LG	Product Details	Quantity	select
+LG	Product Details	Image Label	text
+LG	Product Details	Thumbnail Label	text
+LG	Product Details	Set Product as New from Date	date
+LG	Product Details	Dynamic Price	boolean
+LG	Product Details	Dynamic Weight	boolean
+LG	Product Details	Weight	weight
+LG	Product Details	NULL	text
+LG	Product Details	Featured	boolean
+LG	Product Details	Samples title	NULL
+LG	Product Details	Featured	select
+LG	Product Details	NULL	NULL
+LG	Product Details	NULL	text
+LG	Product Details	Product Name	text
+LG	Product Details	Country of Manufacture	select
+LG	Product Details	Tax Class	select
+LG	Product Details	NULL	text
+LG	Product Details	Price	price
+LG	Product Details	Small Image Label	text
+LG	Product Details	Set Product as New to Date	date
+LG	Product Details	NULL	date
+LG	Product Details	Dynamic SKU	boolean
+LG	Product Details	Enable Product	select
+LG	Product Details	New	boolean
+LG	Product Details	Visibility	select
+LG	Schedule Design Update	Active From	date
+LG	Schedule Design Update	New Theme	select
+LG	Schedule Design Update	Active To	date
+LG	Schedule Design Update	New Layout	select
+LG	Search Engine Optimization	Meta Keywords	textarea
+LG	Search Engine Optimization	Meta Title	text
+LG	Search Engine Optimization	URL Key	text
+LG	Search Engine Optimization	Meta Description	textarea
+Receiver	Advanced Pricing	Minimal Price	price
+Receiver	Advanced Pricing	Show Price Countdown	select
+Receiver	Advanced Pricing	Tier Price	text
+Receiver	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+Receiver	Advanced Pricing	Special Price	price
+Receiver	Advanced Pricing	Special Price To Date	date
+Receiver	Advanced Pricing	Display Actual Price	select
+Receiver	Advanced Pricing	Special Price From Date	date
+Receiver	Advanced Pricing	Cost	price
+Receiver	Advanced Pricing	Price View	select
+Receiver	Bundle Items	Ship Bundle Items	select
+Receiver	Content	Short Description	textarea
+Receiver	Content	Description	textarea
+Receiver	Design	Layout Update XML	textarea
+Receiver	Design	Layout	select
+Receiver	Design	Display Product Options In	select
+Receiver	Gift Options	Allow Gift Message	select
+Receiver	Images	Small	media_image
+Receiver	Images	Media Gallery	gallery
+Receiver	Images	Image Gallery	gallery
+Receiver	Images	Swatch	media_image
+Receiver	Images	Base	media_image
+Receiver	Images	Thumbnail	media_image
+Receiver	Masa-Product	Item weight in container (kg)	text
+Receiver	Masa-Product	Item count per container	text
+Receiver	Product Details	NULL	text
+Receiver	Product Details	Categories	text
+Receiver	Product Details	SKU	text
+Receiver	Product Details	Samples title	NULL
+Receiver	Product Details	Quantity	select
+Receiver	Product Details	NULL	NULL
+Receiver	Product Details	NULL	text
+Receiver	Product Details	Set Product as New from Date	date
+Receiver	Product Details	Dynamic Price	boolean
+Receiver	Product Details	NULL	text
+Receiver	Product Details	Dynamic Weight	boolean
+Receiver	Product Details	Weight	weight
+Receiver	Product Details	Small Image Label	text
+Receiver	Product Details	Featured	boolean
+Receiver	Product Details	NULL	date
+Receiver	Product Details	Featured	select
+Receiver	Product Details	Product Name	text
+Receiver	Product Details	Links can be purchased separately	NULL
+Receiver	Product Details	Country of Manufacture	select
+Receiver	Product Details	Tax Class	select
+Receiver	Product Details	Links title	NULL
+Receiver	Product Details	Price	price
+Receiver	Product Details	NULL	text
+Receiver	Product Details	Set Product as New to Date	date
+Receiver	Product Details	Dynamic SKU	boolean
+Receiver	Product Details	Image Label	text
+Receiver	Product Details	Enable Product	select
+Receiver	Product Details	Visibility	select
+Receiver	Product Details	New	boolean
+Receiver	Product Details	Thumbnail Label	text
+Receiver	Product Details	Sale	boolean
+Receiver	Product Details	NULL	date
+Receiver	Schedule Design Update	New Theme	select
+Receiver	Schedule Design Update	Active To	date
+Receiver	Schedule Design Update	New Layout	select
+Receiver	Schedule Design Update	Active From	date
+Receiver	Search Engine Optimization	Meta Keywords	textarea
+Receiver	Search Engine Optimization	Meta Title	text
+Receiver	Search Engine Optimization	Meta Description	textarea
+Receiver	Search Engine Optimization	URL Key	text
+Receiver	Specification	Aspect Ratio	multiselect
+Receiver	Specification	Mpeg	text
+Receiver	Specification	Teletext Supported	multiselect
+Receiver	Specification	Video output	text
+Receiver	Specification	Time Shift	boolean
+Receiver	Specification	One Touch Recording & Scheduled Recording	boolean
+Receiver	Specification	Multi Language Subtitle 	boolean
+Receiver	Specification	Video Decoder	text
+Receiver	Specification	Electronic Program Guide	boolean
+Receiver	Specification	Video Decode	text
+Receiver	Specification	Parental Control	boolean
+Television	ACCESSORIES	Remote controller (English)	select
+Television	ACCESSORIES	Remote batteries	select
+Television	ACCESSORIES	Wall-mount Bracket	select
+Television	ACCESSORIES	User Manual	multiselect
+Television	ACCESSORIES	Auto Start Function	boolean
+Television	Advanced Pricing	Display Actual Price	select
+Television	Advanced Pricing	Special Price From Date	date
+Television	Advanced Pricing	Cost	price
+Television	Advanced Pricing	Price View	select
+Television	Advanced Pricing	Minimal Price	price
+Television	Advanced Pricing	Show Price Countdown	select
+Television	Advanced Pricing	Tier Price	text
+Television	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+Television	Advanced Pricing	Special Price	price
+Television	Advanced Pricing	Special Price To Date	date
+Television	AUDIO	Maximum Audio Output (W)	select
+Television	AUDIO	Equalizers	text
+Television	AUDIO	Stereo sound	select
+Television	AUDIO	Effects	boolean
+Television	AUDIO	Audio system	select
+Television	Bundle Items	Ship Bundle Items	select
+Television	CONNECTIVITY	Power Requirement (Hz)	select
+Television	CONNECTIVITY	VGA (D-Sub 15pin)	text
+Television	CONNECTIVITY	HDMI	text
+Television	CONNECTIVITY	YUV	text
+Television	CONNECTIVITY	Power consumption - Standby (W)	text
+Television	CONNECTIVITY	USB	text
+Television	CONNECTIVITY	PC Audio In	text
+Television	CONNECTIVITY	AV IN	text
+Television	CONNECTIVITY	Connectivity	text
+Television	CONNECTIVITY	Power consumption - Operation (W)	text
+Television	CONNECTIVITY	TUNER	text
+Television	CONNECTIVITY	EARPHONE  OUT	text
+Television	Content	Description	textarea
+Television	Content	Short Description	textarea
+Television	CONVENIENCE	PC Resolution	select
+Television	CONVENIENCE	Certifications	text
+Television	CONVENIENCE	HD	boolean
+Television	CONVENIENCE	Color Temperature Adjustment	boolean
+Television	CONVENIENCE	YPrPb resolution	select
+Television	CONVENIENCE	Progressive Scan	boolean
+Television	Design	Display Product Options In	select
+Television	Design	Layout Update XML	textarea
+Television	Design	Layout	select
+Television	Gift Options	Allow Gift Message	select
+Television	Images	Small	media_image
+Television	Images	Media Gallery	gallery
+Television	Images	Image Gallery	gallery
+Television	Images	Swatch	media_image
+Television	Images	Base	media_image
+Television	Images	Thumbnail	media_image
+Television	masa-product	Item count per container	text
+Television	masa-product	Item weight in container (kg)	text
+Television	Packing Details	Packing details (MOQ)	select
+Television	Packing Details	Carton Weight (Kg)	text
+Television	Packing Details	Gross Weight (Kg)	text
+Television	Packing Details	Dimension 1Pc/1Carton (mm)	select
+Television	Packing Details	Net Weight (Kg)	text
+Television	Packing Details	Dimension Unit (mm)	select
+Television	PANEL	Viewing angle	select
+Television	PANEL	LED Resolution	select
+Television	PANEL	Response time (ms)	text
+Television	PANEL	Display type	text
+Television	PANEL	Aspect Ratio	multiselect
+Television	PANEL	Contrast	select
+Television	PANEL	Maximum colors	select
+Television	PANEL	Panel Maker	select
+Television	PANEL	Brightness	select
+Television	Product Details	Links can be purchased separately	NULL
+Television	Product Details	Country of Manufacture	select
+Television	Product Details	Tax Class	select
+Television	Product Details	Links title	NULL
+Television	Product Details	Price	price
+Television	Product Details	NULL	text
+Television	Product Details	Set Product as New to Date	date
+Television	Product Details	Dynamic SKU	boolean
+Television	Product Details	Enable Product	select
+Television	Product Details	Image Label	text
+Television	Product Details	Visibility	select
+Television	Product Details	New	boolean
+Television	Product Details	Thumbnail Label	text
+Television	Product Details	Sale	boolean
+Television	Product Details	NULL	date
+Television	Product Details	NULL	text
+Television	Product Details	Categories	text
+Television	Product Details	SKU	text
+Television	Product Details	Samples title	NULL
+Television	Product Details	Quantity	select
+Television	Product Details	NULL	NULL
+Television	Product Details	NULL	text
+Television	Product Details	Set Product as New from Date	date
+Television	Product Details	Dynamic Price	boolean
+Television	Product Details	NULL	text
+Television	Product Details	Dynamic Weight	boolean
+Television	Product Details	Weight	weight
+Television	Product Details	Small Image Label	text
+Television	Product Details	Featured	boolean
+Television	Product Details	NULL	date
+Television	Product Details	Featured	select
+Television	Product Details	Product Name	text
+Television	Schedule Design Update	New Layout	select
+Television	Schedule Design Update	Active From	date
+Television	Schedule Design Update	New Theme	select
+Television	Schedule Design Update	Active To	date
+Television	Search Engine Optimization	Meta Title	text
+Television	Search Engine Optimization	Meta Description	textarea
+Television	Search Engine Optimization	URL Key	text
+Television	Search Engine Optimization	Meta Keywords	textarea
+Television	Solution	OSD Language	text
+Television	Solution	Solution	select
+Television	Solution	USB Format	text
+Television	Specification	Model No.	text
+Television	VIDEO	Video system	select
+Test Attr Set	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+Test Attr Set	Advanced Pricing	Special Price	price
+Test Attr Set	Advanced Pricing	Special Price To Date	date
+Test Attr Set	Advanced Pricing	Display Actual Price	select
+Test Attr Set	Advanced Pricing	Special Price From Date	date
+Test Attr Set	Advanced Pricing	Minimal Price	price
+Test Attr Set	Advanced Pricing	Cost	price
+Test Attr Set	Advanced Pricing	Price View	select
+Test Attr Set	Advanced Pricing	Show Price Countdown	select
+Test Attr Set	Advanced Pricing	Tier Price	text
+Test Attr Set	Bundle Items	Ship Bundle Items	select
+Test Attr Set	Content	Short Description	textarea
+Test Attr Set	Content	Description	textarea
+Test Attr Set	Design	Layout	select
+Test Attr Set	Design	Display Product Options In	select
+Test Attr Set	Design	Layout Update XML	textarea
+Test Attr Set	Gift Options	Allow Gift Message	select
+Test Attr Set	Images	Image Gallery	gallery
+Test Attr Set	Images	Swatch	media_image
+Test Attr Set	Images	Base	media_image
+Test Attr Set	Images	Thumbnail	media_image
+Test Attr Set	Images	Small	media_image
+Test Attr Set	Images	Media Gallery	gallery
+Test Attr Set	Product Details	Quantity	select
+Test Attr Set	Product Details	NULL	date
+Test Attr Set	Product Details	Set Product as New from Date	date
+Test Attr Set	Product Details	Dynamic Price	boolean
+Test Attr Set	Product Details	Dynamic Weight	boolean
+Test Attr Set	Product Details	Weight	weight
+Test Attr Set	Product Details	Links can be purchased separately	NULL
+Test Attr Set	Product Details	Links title	NULL
+Test Attr Set	Product Details	Featured	boolean
+Test Attr Set	Product Details	Featured	select
+Test Attr Set	Product Details	NULL	text
+Test Attr Set	Product Details	Product Name	text
+Test Attr Set	Product Details	Image Label	text
+Test Attr Set	Product Details	Country of Manufacture	select
+Test Attr Set	Product Details	Tax Class	select
+Test Attr Set	Product Details	Thumbnail Label	text
+Test Attr Set	Product Details	Price	price
+Test Attr Set	Product Details	NULL	date
+Test Attr Set	Product Details	Set Product as New to Date	date
+Test Attr Set	Product Details	Dynamic SKU	boolean
+Test Attr Set	Product Details	NULL	text
+Test Attr Set	Product Details	Enable Product	select
+Test Attr Set	Product Details	Samples title	NULL
+Test Attr Set	Product Details	New	boolean
+Test Attr Set	Product Details	Visibility	select
+Test Attr Set	Product Details	NULL	text
+Test Attr Set	Product Details	Sale	boolean
+Test Attr Set	Product Details	NULL	NULL
+Test Attr Set	Product Details	NULL	text
+Test Attr Set	Product Details	Categories	text
+Test Attr Set	Product Details	SKU	text
+Test Attr Set	Product Details	Small Image Label	text
+Test Attr Set	Schedule Design Update	New Theme	select
+Test Attr Set	Schedule Design Update	Active To	date
+Test Attr Set	Schedule Design Update	New Layout	select
+Test Attr Set	Schedule Design Update	Active From	date
+Test Attr Set	Search Engine Optimization	Meta Keywords	textarea
+Test Attr Set	Search Engine Optimization	Meta Title	text
+Test Attr Set	Search Engine Optimization	URL Key	text
+Test Attr Set	Search Engine Optimization	Meta Description	textarea
+Washing Machines	Advanced Pricing	Special Price	price
+Washing Machines	Advanced Pricing	Manufacturer's Suggested Retail Price	price
+Washing Machines	Advanced Pricing	Special Price To Date	date
+Washing Machines	Advanced Pricing	Display Actual Price	select
+Washing Machines	Advanced Pricing	Special Price From Date	date
+Washing Machines	Advanced Pricing	Cost	price
+Washing Machines	Advanced Pricing	Price View	select
+Washing Machines	Advanced Pricing	Show Price Countdown	select
+Washing Machines	Advanced Pricing	Tier Price	text
+Washing Machines	Advanced Pricing	Minimal Price	price
+Washing Machines	Bundle Items	Ship Bundle Items	select
+Washing Machines	Content	Description	textarea
+Washing Machines	Content	Short Description	textarea
+Washing Machines	Design	Layout	select
+Washing Machines	Design	Display Product Options In	select
+Washing Machines	Design	Layout Update XML	textarea
+Washing Machines	Gift Options	Allow Gift Message	select
+Washing Machines	Images	Image Gallery	gallery
+Washing Machines	Images	Swatch	media_image
+Washing Machines	Images	Base	media_image
+Washing Machines	Images	Thumbnail	media_image
+Washing Machines	Images	Small	media_image
+Washing Machines	Images	Media Gallery	gallery
+Washing Machines	masa-product	Item count per container	text
+Washing Machines	masa-product	Item weight in container (kg)	text
+Washing Machines	Product Details	NULL	text
+Washing Machines	Product Details	Set Product as New from Date	date
+Washing Machines	Product Details	Dynamic Price	boolean
+Washing Machines	Product Details	Samples title	NULL
+Washing Machines	Product Details	Dynamic Weight	boolean
+Washing Machines	Product Details	Weight	weight
+Washing Machines	Product Details	NULL	NULL
+Washing Machines	Product Details	NULL	text
+Washing Machines	Product Details	Featured	boolean
+Washing Machines	Product Details	NULL	text
+Washing Machines	Product Details	Featured	select
+Washing Machines	Product Details	Small Image Label	text
+Washing Machines	Product Details	Product Name	text
+Washing Machines	Product Details	NULL	date
+Washing Machines	Product Details	Country of Manufacture	select
+Washing Machines	Product Details	Tax Class	select
+Washing Machines	Product Details	Price	price
+Washing Machines	Product Details	Set Product as New to Date	date
+Washing Machines	Product Details	Links can be purchased separately	NULL
+Washing Machines	Product Details	Dynamic SKU	boolean
+Washing Machines	Product Details	Enable Product	select
+Washing Machines	Product Details	Links title	NULL
+Washing Machines	Product Details	NULL	date
+Washing Machines	Product Details	New	boolean
+Washing Machines	Product Details	Visibility	select
+Washing Machines	Product Details	NULL	text
+Washing Machines	Product Details	Sale	boolean
+Washing Machines	Product Details	Image Label	text
+Washing Machines	Product Details	Thumbnail Label	text
+Washing Machines	Product Details	Categories	text
+Washing Machines	Product Details	SKU	text
+Washing Machines	Product Details	Quantity	select
+Washing Machines	Schedule Design Update	New Theme	select
+Washing Machines	Schedule Design Update	Active To	date
+Washing Machines	Schedule Design Update	New Layout	select
+Washing Machines	Schedule Design Update	Active From	date
+Washing Machines	Search Engine Optimization	Meta Keywords	textarea
+Washing Machines	Search Engine Optimization	Meta Title	text
+Washing Machines	Search Engine Optimization	URL Key	text
+Washing Machines	Search Engine Optimization	Meta Description	textarea
+Washing Machines	Spec	Automatic restart	boolean
+Washing Machines	Spec	Turbo Wash™	boolean
+Washing Machines	Spec	Door	text
+Washing Machines	Spec	Main Programs	multiselect
+Washing Machines	Spec	Energy Efficiency	text
+Washing Machines	Spec	Child Lock	boolean
+Washing Machines	Spec	Never Rust Drum	boolean
+Washing Machines	Spec	Inverter Direct Drive Motor	boolean
+Washing Machines	Spec	Condensing Dryer Type	boolean
+Washing Machines	Spec	Dimensions (W× D× H)	text
+Washing Machines	Spec	Smart Diagnosis™	boolean
+Washing Machines	Spec	6Motion DD	boolean
+Washing Machines	Spec	Timed Dry Programs	text
+Washing Machines	Spec	RPM	text
+Washing Machines	Spec	True Steam	boolean
+Washing Machines	Spec	Intelligent Wash system	boolean
+Washing Machines	Spec	Optional Remote Control	text
+Washing Machines	Spec	Display	text
+Washing Machines	Spec	Washing Options	multiselect
+Washing Machines	Spec	Wi-Fi	boolean
+Washing Machines	Spec	Low noise speed control system	boolean
+Washing Machines	Spec	NFC Tag On™	boolean
+Washing Machines	Spec	10 Year Warranty on Direct	boolean
+Washing Machines	Spec	Clean Filter	boolean
+Washing Machines	Spec	Wash & Dryer Capacity	text
+Washing Machines	Spec	Color	select
+Washing Machines	Spec	Turbo Dry™	boolean

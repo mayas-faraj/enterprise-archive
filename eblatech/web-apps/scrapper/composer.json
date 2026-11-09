@@ -1,0 +1,6 @@
+{
+	"require": 
+	{
+		"fluentdom/fluentdom": "^7.0"
+        }
+}

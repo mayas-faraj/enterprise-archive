@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Flex Test</title>
+        <meta charset="UTF-8">
+        <style>
+            body
+            {
+                background-color: #111;
+            }
+            .container
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: orange;
+            }
+
+            .container > div
+            {
+                background: lightyellow;
+                color: black;
+                font-size: 15px;
+                border: 1px solid black;
+                padding: 5px;
+            }
+
+            .container > div:first
+            {
+                align-self: flex-start !important;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <ul>
+                <li><a href="index.html">Index</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="setting.html">Setting</a></li>
+            </ul>
+        </header>
+        <atricle>
+            <section><h1>Main Article</h1></section>
+            <section>
+                <div class="container">
+                    <div>First Div</div>
+                    <div>Second Div</div>
+                    <div>Third Div</div>
+                    <div>Fourth Div</div>
+                    <!--div>Fifth Div</div>
+                    <div>Sixth Div</div>
+                    <div>Seventh Div</div>
+                    <div>Eightth Div</div>
+                    <div>Ninth Div</div>
+                    <div>Tenth Div</div-->
+                </div>
+            </section>
+        </atricle>
+    </body>
+</html>

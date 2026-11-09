@@ -1,0 +1,32 @@
+https://baltimore.hostforweb.net:2083/
+user: albanyla
+password: LXl5h5Gl}hMz
+
+https://albanylaser.ca/legacy/wp-admin/
+user: ejqofb
+AlbWp7586
+
+https://albanylaser.ca/legacy/wp-admin/
+user: blogger
+password: 4o8NT)MRhw5AFX@Sjza3CCMz 
+
+https://albanylaser.ca/wp-admin/
+user: kamal
+password: 3CLhoy4Q9PZDBw8(*YCskJPR
+
+
+https://albanylaser.ca/wp-admin/
+user: mayas.faraj@ebla-tech.com
+password: $N6s5EK8AB
+
+mysql:
+user: albanyla_wp9
+password: #]rOJkC_mL*Q
+
+adobe stock:
+user: alhallak@ualberta.ca
+password: Nizar@2009
+
+
+Purchase Description: TGTBDI3DYGUNOQOGOTL0Z9W7C3FCG6JP
+https://albanylaser.ca/wp-content/plugins/siteorigin-panels/compat/tfm.php

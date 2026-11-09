@@ -1,0 +1,7 @@
+http://www.baytowngentledental.com/wp-admin
+user: admin
+password: BayWp7859
+
+ftp.baytowngentledental.com
+user: baytown
+password: mK+jG~Q{-*5s

@@ -1,0 +1,2008 @@
+/*
+Theme Name : Dentologist
+Theme URL : http://www.wpmupro.com/dentologist
+Version: 1.0.0
+Author Name: Opus Themes
+Author URL: http://www.wpmupro.com
+Theme Description: Dentologist - Perfect Theme for Medical Industry specially Dental Industry
+
+----------------------------------------------------------------
+--- TABLE OF CONTENTS:
+----------------------------------------------------------------
+- General Styles
+- Preload Animation Styles
+- Search Styles
+- Buttons
+- Header
+- Sticky Header
+- Homepage Slider
+- Appointment Call To Action
+- Pages Sections Styles
+- Footer Widgets
+- Footer
+--------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+/*****General Styles Start Here*****/
+body,html{
+	margin: 0;
+	padding: 0;
+}
+body{
+    font-family: 'Open Sans', sans-serif;;
+    line-height: 1.5;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+	color: #454545;
+}
+iframe{
+    width:100%;
+}
+img{
+	max-width: 100%;
+}
+a,
+.link-color,
+.link-color li{
+    color: #1f63ae;
+}
+body .link-color:after{
+    border-bottom:2px solid #1f63ae;
+}
+.help-block{
+    text-align: left;
+}
+a:hover{
+    text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Open Sans', sans-serif;;
+    color: #595959;
+    font-weight: 700;
+	margin-top: 0;
+    text-transform: capitalize;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+h1{
+    font-size: 40px;
+}
+h2{
+    font-size: 36px;
+}
+h3{
+    font-size: 32px;
+}
+h4{
+    font-size: 28px;
+	color: #1f63ae;
+}
+h5{
+    font-size: 24px;
+}
+h6{
+    font-size: 20px;
+    color: #1f63ae;
+}
+span,p, li{
+    color: #454545;
+}
+p {
+	margin: 0 0 18px;
+}
+.droid{
+    font-family: 'Open Sans', sans-serif;;
+}
+.clearfix{
+	clear: both;
+}
+.padding-bottom-p{
+	padding-bottom: 10px;
+}
+body .padding-top{
+	padding-top: 20px;
+}
+.list-padding{
+	padding-left: 20px;
+}
+.list li{
+	position: relative;
+	margin-bottom: 15px;
+}
+.list-bordered li{
+	border-bottom: 1px solid #959595;
+	padding: 10px 0;
+	margin: 10px 0;
+}
+.list-bordered li:last-child{
+	border: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+.white-list li{
+    color:#fff;
+}
+.height-auto{
+    min-height:auto;
+}
+.padding-left{
+    padding-left: 36px;
+}
+.padding-right{
+    padding-right: 36px;
+}
+.pull-right{
+    margin-left: 15px;
+}
+.pull-left{
+    margin-right:15px;
+}
+img.pull-right{
+	margin-top: 5px;
+}
+img.pull-left{
+	margin-top: 5px;
+	margin-right: 20px;
+}
+.border-right{	
+	border-right:1px solid #e6e6e6;
+}
+.border-bottom{
+	border-bottom:1px solid #e6e6e6;
+}
+.border-top{
+    border-top:1px solid #e6e6e6;
+}
+.margin-top{
+    margin-top: 10px;
+}
+.normal-spacing{
+    letter-spacing: normal;
+}
+body .no-padding{
+     padding: 0;
+ }
+body .no-padding-top{
+	padding-top: 0;
+}
+body .no-padding-bottom{
+	padding-bottom: 0;
+}
+body .no-margin{
+    margin: 0;
+}
+body .overflow-hidden{
+    overflow: hidden;
+}
+.calender-before:before{
+    font-family:FontAwesome;
+    margin-right:5px;
+}
+.color-white{
+	color: #fff;
+}
+.text-bold{
+	font-weight: 700;
+}
+.dark-color{
+	color: #595959;
+}
+.white-bg{
+	background-color: #fff;
+}
+.italic-text{
+	font-style: italic;	
+}
+.font-80{
+    font-size: 80px;
+}
+.inline-block{
+    display: inline-block;
+}
+.vertical-middle{
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+    align-items: center;
+	display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.box-icon-container{
+	padding: 80px;
+	position: relative;
+	float: left;
+	width: 100%;
+}
+.box-icon-container > div:nth-of-type(2n+1){
+	clear: left;
+}
+.box-icon{
+	padding-left: 60px;
+	position: relative;
+	margin: 20px 0;
+}
+.box-icon i{
+	left: 0;
+	position: absolute;
+	font-size: 50px;
+	color: #bababa;
+}
+.blue-btn{
+    width: 100%;
+    padding: 15px 0;
+    font-size: 20px;
+    background-color: #1f63ae;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 2px;
+	border: none;
+}
+.blue-btn:hover, .blue-btn:active, .blue-btn:active:hover,
+.blue-btn.focus, .blue-btn:focus{
+    background-color:#1f63ae;
+    color: #fff;
+}
+.heading-bottom{
+	position: relative;
+	margin-bottom: 16px;
+}
+.heading-bottom:after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    bottom: 0px;
+    left: 0;
+    margin: auto;
+    background-color: #1f63ae;
+    right: 0;
+}
+.heading-bottom:before{
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 2px;
+    bottom: 0px;
+    left: 0;
+    margin: auto;
+    background-color: #e8e8e8;
+    right: 0;
+}
+.heading-full:before{
+	width: 100%;
+}
+.heading-full:after{
+	margin: 0;
+}
+.small-margin{
+    margin:2px 0;
+}
+.font-18{
+    font-size: 18px;
+	line-height: 1.5;
+}
+.font-24{
+    font-size: 24px;
+}
+.font-40{
+    font-size: 40px;
+}
+.even-gap{
+	padding: 15px;
+}
+.post-area{
+    border:1px solid #e6e6e6;
+    margin-bottom: 60px;
+}
+.post-area:last-child{
+	margin-bottom: 0;
+}
+.post-text{
+    padding:20px;
+}
+.post-text p:last-child{
+	margin-bottom: 0;
+}
+.normal-radius{
+	border-radius: 5px;
+}
+.arrow-list a{
+	color: #959595;
+}
+.list-pagination li{
+	display: inline-block;
+}
+.list-pagination li a,
+.list-pagination li.active{
+	padding: 10px 15px;
+	border-radius: 3px;
+}
+.list-pagination li.active{
+	background: #1f63ae;
+	color: #fff;
+}
+.list-pagination li a{
+	border: 1px solid #1f63ae;
+    -webkit-transition:all 0.3s ease;
+    transition: all 0.3s ease;
+	display: block;
+}
+.list-pagination li a:hover{
+	background: #1f63ae;
+	color: #fff;
+}
+.heading-underline{
+    text-transform: uppercase;
+    letter-spacing: normal;
+    position: relative;
+}
+.heading-underline:after{
+    content: '';
+    position: absolute;
+    width: 48px;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.07);
+}
+.centered:after{
+    right:0;
+    margin:auto;
+}
+.width-100{
+    width: 100%;
+}
+.grey-bg{
+    background-color: #fafafa; /*#ecf0f1*/
+}
+.shining-bg{
+	background: url(http://wpmupro.com/dentologist-demo/demo-images/shining-bg.jpg) no-repeat;
+	background-size: cover;
+	min-height: 560px;
+	position: relative;
+}
+.shining-bg:before {
+	content: "";
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+    background: #3F51B5;
+    opacity: 0.8;
+	display: block;
+}
+.padding-section{
+    padding:50px 0;
+}
+.height-600{
+    min-height: 600px;
+}
+.module{
+	position: relative;
+	float: left;
+	width: 100%;
+}
+.panel-group{
+	margin: 0;
+}
+/*****General Styles Ends Here*****/
+
+/*****Preload Starts here *****/
+.preload{
+	background: #1f63ae;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 9999999;
+	text-align: center;
+}
+.preload i{
+	font-size: 100px;
+	color: #fff;
+	position: relative;
+	margin-left: auto;
+    animation: xoom 1.5s infinite;
+	top: 50%;
+}
+@keyframes xoom {
+  0% {
+    font-size: 100px;
+	margin-top: -35px;
+  }
+  50% {
+    font-size: 120px;
+	margin-top: -60px;
+  }
+  100% {
+    font-size: 100px;
+	margin-top: -35px;
+  }
+}
+/*****Preload Ends here *****/
+
+/***** Search Starts here *****/
+.search-secion{
+	background: #1f63ae;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 9999999;
+	text-align: center;
+	display: none;
+}
+.search-secion .search-container{
+	max-width: 1200px;
+	margin: auto;
+	padding: 0 15px;
+	position: relative;
+	margin-top: -25px;
+	top: 50%;
+	font-size: 30px;
+}
+.search-secion .search-container .widget-search .form-control {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+	font-size: 30px;
+}
+.search-secion .search-container .form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+.search-secion .search-container .form-control::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+}
+.search-secion .search-container .form-control:-ms-input-placeholder { /* IE 10+ */
+  color: #fff;
+}
+.search-secion .search-container .form-control:-moz-placeholder { /* Firefox 18- */
+  color: #fff;
+}
+.close-search{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+/***** Search Ends here *****/
+
+/***** Button Css Starts here *****/
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+	content: "";
+	position: absolute;
+	height: 0%;
+	left: 50%;
+	top: 50%;
+	width: 150%;
+	z-index: -1;
+	-webkit-transition: all 0.75s ease 0s;
+	-moz-transition: all 0.75s ease 0s;
+	-o-transition: all 0.75s ease 0s;
+	transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+	text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+	height: 450%;
+}
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: block;
+	margin: -1px;
+	overflow: hidden;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+	margin-top: 25px;
+}
+.request a.animated-button:link, .request a.animated-button:visited {
+	margin-top: 0;
+}
+a.animated-button.button-one:after {
+	background: #fff;
+	-moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	-ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	-webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+.animated-button.button-two{
+	max-width: 200px;
+    padding: 8px 15px;
+    border: 1px solid #1f63ae;
+}
+a.animated-button.button-two:after {
+	background: #1f63ae;
+	-moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	-ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	-webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+/***** Button Css Ends here *****/
+
+
+/***** Header Starts here *****/
+header .brand{
+    display: block;
+    padding: 20px 0;
+}
+header .navbar-default{
+    background-color: transparent;
+    border: none;
+}
+.navbar{
+	margin-bottom: 0;
+	min-height: 1px;
+}
+header .main-menu{
+    float: right;
+    list-style-type: none;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;;
+
+}
+header .main-menu li{
+    display: inline-block;
+    padding: 10px 2px;
+}
+header .main-menu li:hover a{
+    background-color:#e6e6e6;
+}
+header .main-menu li:last-of-type:hover a{
+/*    background-color:transparent;*/
+}
+header .main-menu li:hover .sub-menu a{
+    background-color: transparent;
+}
+header .main-menu .current-menu-item a,
+header .main-menu .current-menu-item:hover > a{
+    color: #ffffff;
+    background: #1f63ae;
+}
+header .main-menu li a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 3px;
+    display: block;
+    border-radius: 2px;
+    font-size: 12px;
+    position: relative;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .container-fluid,
+.main-menu li:last-child{
+	padding: 0;
+}
+.main-menu li:last-child a{
+	padding: 8px 10px 8px 10px;
+}
+header .main-menu .sub-menu{
+	display: none;
+    list-style-type: none;
+    padding: 0 15px;
+    background-color: #34495e;
+    position: absolute;
+    margin: auto;
+    top: 100px;
+    min-width: 250px;
+    z-index: 999;
+}
+header .main-menu .sub-menu li{
+    padding: 5px 0;
+}
+header .main-menu li:hover .sub-menu{
+	display: block;
+}
+header .main-menu .sub-menu li{
+    display: list-item;
+    text-align: justify;
+    position: relative;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+header .main-menu .sub-menu li:last-child{
+	border: none;
+}
+header .main-menu .sub-menu li a{
+    color:#fff;
+    transition: all 0.3s ease;
+    -webkit-transition:all 0.3s ease;
+}
+header .main-menu .sub-menu li a:before,
+header .main-menu .sub-menu .current-menu-item a:before{
+    content: '\f0da';
+    position: absolute;
+    display: none;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    left:0;
+    top: 50%;
+    margin-top: -6px;
+}
+header .main-menu .sub-menu li a:hover,
+header .main-menu .sub-menu .current-menu-item > a{
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    -webkit-transition:all 0.3s ease;
+}
+header .main-menu .sub-menu li a:hover,
+header .main-menu .sub-menu .current-menu-item > a{
+    color: #1f63ae;
+}
+header .main-menu .sub-menu li a:hover:before,
+header .main-menu .sub-menu .current-menu-item > a:before{
+    display: block;
+}
+body header .main-menu .sub-menu .sub-menu{
+    top:0;
+	left: 100%;
+    width:100%;
+    display: none;
+}
+body header .main-menu li > ul li:hover .sub-menu{
+    display: block;
+}
+body header .main-menu .sub-menu .sub-menu.left {
+    right: 100%;
+	left: initial;
+}
+/***** Header Ends here *****/
+
+
+/***** Sticky Header Starts here *****/
+header.stuck .brand{
+    padding:10px  0;
+}
+header.stuck .brand img{
+  
+}
+header.stuck .main-menu li{
+    padding: 15px 5px;
+}
+header.stuck .main-menu .sub-menu li{
+    padding: 0;
+}
+header.stuck .main-menu .sub-menu{
+    top: 60px;
+}
+header.stuck.up{
+    transform: translateY(-165px);
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    top: 0;
+    z-index: 999;
+    transition: all 1s ease;
+}
+header.stuck.up.stuckHeader{
+    transform: translateY(0);
+    transition: all 0.5s ease;
+}
+/***** Sticky Header Ends here *****/
+
+/***** Slider Starts here *****/
+.slider{
+	position: relative;
+}
+.caption-banner{
+	color: rgb(31, 99, 174);
+	background: transparent;
+	padding: 20px 0;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	bottom:0;
+}
+.caption-banner h1,
+.caption-banner h2,
+.caption-banner h3,
+.caption-banner h4,
+.caption-banner h5,
+.caption-banner h6{
+	color:  rgb(31, 99, 174);/*#fff;*/
+	padding-bottom: 0;
+}
+.caption-banner h1:last-child,
+.caption-banner h2:last-child,
+.caption-banner h3:last-child,
+.caption-banner h4:last-child,
+.caption-banner h5:last-child,
+.caption-banner h6:last-child,
+.caption-banner p:last-child{
+	margin-bottom: 0;
+}
+.owl-theme .owl-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    margin-top: -40px;
+	width: 100%;
+}
+.owl-theme .owl-nav [class*=owl-]{
+	margin: 0;
+}
+.owl-theme .owl-nav [class*=owl-]:hover{
+	background: none;
+}
+.owl-theme .owl-nav .owl-prev{
+	float: left;
+	border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-left: 40px solid #1f63ae;    
+	height: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+}
+.owl-theme .owl-nav [class*=owl-] i{
+	position: absolute;
+    left: 6px;
+    top: 50%;
+    margin-top: -7px;
+}
+.owl-theme .owl-nav .owl-next i{
+    left: initial;
+	right: 6px;
+}
+.owl-theme .owl-nav .owl-next{
+	float: right;
+	border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid transparent;
+    border-right: 40px solid #1f63ae;    
+	height: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+}
+/***** Slider Ends here *****/
+
+/***** Feature Starts here *****/
+.features{
+    background-color: rgb(248, 248, 248);
+    position: relative;
+	padding: 93px 0 100px 0;
+}
+.features .icon{
+    text-align: center;
+	margin-top: 20px;
+}
+.features .icon-box:nth-last-of-type(1) .icon,
+.features .icon-box:nth-last-of-type(2) .icon{
+	margin-top: 40px;
+}
+.features .icon p:last-of-type{
+	margin-bottom: -5px;
+}
+.features .icon i{
+    display: inline-block;
+    padding: 40px 45px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-bottom: 26px;
+    font-size: 50px;
+    color: #1f63ae;
+	border: 2px solid;
+}
+/***** Feature Ends here *****/
+
+/***** Appointment Starts here *****/
+.appointment{
+    background: #5b69b9;
+	padding: 61px 0 62px 0;
+}
+.app-text{
+    color: #fff;
+    font-size: 21px;
+    margin: 10px 0;
+}
+
+body .request-blue a{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #959595;
+    margin-bottom: 10px;
+}
+body .request-blue a:after{
+    border-left:1px solid rgba(0,0,0,0.1);
+}
+body .request-blue a:hover{
+    background-color: #1f63ae;
+    color:#fff;
+}
+.request a{
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 0 10px 25px;
+    display: block;
+    position: relative;
+    font-family: 'Roboto',sans-serif;
+    transition: all 0.5s ease;
+    text-transform: uppercase;
+    letter-spacing: normal;
+    font-size: 13px;
+	z-index: 1;
+}
+div.owl-carousel img{
+	width:100%;
+}
+
+.request a:before{
+    content: "\f133";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-left: 1px solid #fff;
+    padding: 14px 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.request a:hover{
+    text-decoration: none;
+    color: #595959;
+    border-radius: 2px;
+}
+.request a:hover:after{
+    border-left: 1px solid #ccc;
+}
+/***** Appointment Ends here *****/
+
+/***** Detail Features Starts here *****/
+.feature-container{
+/*	background-color: rgba(43,53,75,0.8);	*/
+}
+
+@media (max-width: 767px) {
+
+	.feature-container{
+
+		margin: 2px 0px;
+
+	}
+
+
+
+}
+.display-table
+{
+    display: table;
+    position: relative;
+    width: 100%;
+}
+.btn-trasnparent{
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    border-radius: 2px;
+    padding: 5px 20px;
+}
+.btn-trasnparent:hover{
+    background-color: #fff;
+    color: #595959;
+    transition: all 0.5s ease;
+}
+.display-table:before{
+    content: '';
+    z-index: -999;
+/*    width: 100%;*/
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    margin:auto;
+
+}
+.display-table.fancy-box-1:before{
+    background: url(../images/slide_02.jpg) no-repeat;
+    -webkit-background-size:cover;
+    background-size:cover;
+    background-position: 50% 50%;
+}
+.display-table.fancy-box-2:before{
+    background: url(../images/slider__5.jpg) no-repeat;
+    -webkit-background-size:cover;
+    background-size:cover;
+    background-position: 50% 50%;
+}
+.display-table.fancy-box-3:before{
+    background: url(../images/slider1.jpg) no-repeat;
+    -webkit-background-size:cover;
+    background-size:cover;
+    background-position: 50% 50%;
+}
+.detail-features .info{
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    display: table-cell;
+    height: 220px;
+    padding: 0 10px;
+	font-size: 36px;
+
+	text-transform:uppercase;
+}
+@media (max-width: 767px) {
+
+	.detail-features .info{
+
+		font-size: 24px;	
+
+		height: 130px;
+
+	}
+
+	
+
+}
+.detail-features a{
+    text-decoration:none;
+}
+.animate-text{
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+}
+.display-table:hover:before{
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+}
+.display-table:hover .animate-text{
+    opacity: 1;
+    max-height: 1000px;
+}
+
+.detail-features .info i{
+    color: #fff;
+    vertical-align: middle;
+    font-size: 70px;
+	margin-bottom: 10px;
+}
+.detail-features .info h4,.detail-features .info p{
+    color: #fff;
+}
+/***** Detail Features Ends here *****/
+
+/***** Dental Services Starts here *****/
+.dental-services .service-detail{
+    list-style-type: none;
+    text-align: left;
+}
+.details{
+	padding: 10px 10px 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.team .details{
+	padding: 20px 20px 0 20px;
+}
+.team-member .details{
+	padding: 20px 20px 0 0;
+}
+.department{
+	margin-bottom: 10px;
+	display: inline-block;
+}
+.dental-services .service-detail a{
+	z-index: 1
+}
+.dental-services .service-detail a:hover{
+    color: #1f63ae;
+}
+.dental-services .service-detail .btn{
+	color: #1f63ae;
+	margin-top: 25px;
+}
+.dental-services .service-detail .btn:hover{
+	color: #fff;
+	border: 1px solid #fff;
+}
+.btn-bordered{
+    border:1px solid rgba(0, 0, 0, 0.1);
+}
+.swiper-container {
+	width: 100%;
+	height: 100%;
+}
+.swiper-container .swiper-wrapper{
+	margin-top: 15px;
+	/*margin-top: 0;*/
+}
+.swiper-pagination-bullet {
+    width: 20px;
+    height: 4px;
+    border-radius: 0;
+    background: #000;
+    opacity: .2;
+}
+.testimonials.style-1 .swiper-pagination-bullet,
+.testimonials.style-2 .swiper-pagination-bullet{
+    opacity: 1;	
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #1f63ae;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+    margin-top: 15px;
+}
+.swiper-slide a{
+	transition: all .6s ease-out;
+}
+.swiper-slide a:hover > img.zoomout{
+	-ms-transform: scale(1);
+    transform: scale(1);	
+}
+.zoomout-container{
+	overflow: hidden;
+}
+img.zoomout{
+	-ms-transform: scale(1.05);
+    transform: scale(1.05);
+	transition: all .6s ease-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+}
+/***** Dental Services Ends here *****/
+
+/***** Testimonails Slider Starts Here *****/
+.testimonials.style-2{
+	padding: 0;
+}
+.testimonials.style-2 .swiper-wrapper{
+	margin-top: 0;
+}
+.testimonails-slider .empty-space{
+	background: url(http://wpmupro.com/dentologist-demo/demo-images/testimonial.jpg) no-repeat center;
+	background-size: cover;
+	min-height: 560px;
+}
+.testimonials img{
+	max-width: 120px;
+	margin-bottom: 20px;
+}
+.testimonials .swiper-pagination-bullet-active{
+	background: #fff;
+}
+.style-2 .swiper-slide{
+	min-height: 350px;
+}
+.style-2 .swiper-slide .small{
+	color: #1f63ae;
+}
+/***** Testimonails Slider Ends Here *****/
+
+/***** Contact Us starts here *****/
+.contact-us form{
+	margin-top: 15px;
+}
+form{
+    position: relative;
+}
+form .form-control{
+    height:50px;
+    border-radius: 0;
+	padding-right: 35px;
+}
+.form-group{
+    position: relative;
+}
+form .form-control:focus,textarea{
+    box-shadow: none;
+}
+form .form-group:after {
+    content: '';
+    font-family: FontAwesome;
+    position: absolute;
+    top:30px;
+    right:0;
+    margin-top: -12px;
+    margin-right: 15px;
+    color: #1f63ae;
+    font-size: 18px;
+}
+form .user:after{
+    content: '\f007';
+}
+body .phone:after{
+    content: '\f095';
+}
+body .search:after{
+    content: '\f002';
+}
+form .email:after{
+    content: '\f003';
+}
+form .angle-down:after{
+    content: '\f107';
+	pointer-events: none;
+}
+
+textarea.form-control{
+    overflow: hidden;
+    resize: vertical;
+    border-radius: 0;
+    height: 135px;
+    width:100%;
+    margin-bottom: 15px;
+}
+.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+/***** Contact Us ends here *****/
+
+/***** Opening Hours starts here *****/
+.opening-hours li{
+	padding: 10px 0;
+    border-bottom: 1px solid #959595;
+}
+.opening-hours li span{
+    float: right;
+}
+.opening-hours .link-color span{
+    color: #1f63ae;
+}
+/***** Opening Hours ends here *****/
+
+/***** Typography Page Starts here *****/
+
+/***** Page Title Section Starts here *****/
+.page-title{
+    background-color: #1f63ae;
+    padding:40px 0;
+}
+.title{
+    color: #fff;
+    font-size: 21px;
+    margin:0;
+    padding-bottom: 0;
+}
+.breadcrumb>li+li:before{
+    color:#fff;
+}
+.page-content p{
+	margin-bottom: 20px;
+}
+.style-breadcumb{
+    background-color: transparent;
+    float: right;
+    text-transform: uppercase;
+    padding:0;
+    margin:0;
+}
+.style-breadcumb a{
+    color:#ccf2f7;
+}
+.style-breadcumb a:hover{
+    color:#fff;
+}
+.style-breadcumb li,.style-breadcumb .active{
+    color: #fff;
+}
+
+/***** Page Title Section ends here *****/
+
+/***** quote Section Starts Here *****/
+.quote{
+    padding:60px 0;
+}
+.shining-bg.height-auto{
+	min-height: auto;
+}
+.quote .quote-area{
+    position: relative;
+}
+.quote-area blockquote{
+    border:0;
+}
+.quote .quote-area:before{
+    content: "\f10d";
+    position: absolute;
+    font-family: FontAwesome;
+    color: #eee;
+    font-size: 30px;
+    font-style: italic;
+    top: 10px;
+}
+.quote .quote-area:last-of-type::before{
+    right:0;
+}
+/***** quote Section Ends here *****/
+
+/***** list view Section Starts here *****/
+.prescription{
+    color:#00cbd4;
+}
+.prescription li{
+    font-size:15px;
+    position: relative;
+}
+.prescription li:before{
+    font-size: 18px;
+    color:#00cbd4;
+}
+
+.dentologist-list{
+	position: relative;
+}
+.dentologist-list li{
+	display: block;
+	padding-left: 30px;
+	position: relative;
+	margin-bottom: 15px;
+}
+.dentologist-list li:before{
+    content: '\f138';
+	position: absolute;
+	left: 0;
+    font-family: FontAwesome;
+    margin-right: 5px;
+    color: #1f63ae;
+    font-size: 18px;
+    padding: 0 4px;
+    vertical-align: middle
+}
+.check li:before{
+    content: '\f00c';
+}
+.check-circle li:before{
+    content: '\f05d';
+}
+.star-list li:before{
+    content: '\f006';
+}
+.arrow-list li:before{
+	content: '\f178';
+}
+
+/***** list view Section Ends here *****/
+/***** Typography Ends here *****/
+
+/***** About Page Starts here *****/
+/***** Grey list view Section Starts here *****/
+.smile:before{
+    content: '\f118';
+}
+.home:before{
+    content: '\f015';
+}
+li.home:before{content: none;}
+body .wheel-chair:before{
+    content: '\f193';
+}
+/***** Grey list view Section Ends here *****/
+
+/***** Team Section Starts here *****/
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+    background:none;
+    position: relative;
+    right:0;
+    width: 100%;
+    height:auto;
+    margin:0;
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+    background:none;
+    position: relative;
+    right: 0;
+    width: 100%;
+    height:auto;
+    margin:0;
+}
+.team .swiper-button-prev:after{
+    content: '\f177';
+    font-family: FontAwesome;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: -22px;
+    right: 45px;
+}
+.team .swiper-button-next:after{
+    content: '\f178';
+    font-family: FontAwesome;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    position: absolute;
+    right: 0;
+    top: -22px;
+}
+.swiper-button-next, .swiper-button-prev{
+    top: 0;
+
+}
+/***** Team Section Ends here **************/
+/***** About Page Ends here *****/
+
+
+/***** Dental FAQS Page Start Here *****/
+/***** Accordion Section Starts *****/
+
+.panel-group{
+    border-radius: 4px;
+}
+.panel-group .panel:first-child, .panel-group .panel:first-child .panel-title,
+.panel-group .panel:first-child .panel-title a{
+    border-radius: 4px 4px 0 0;
+}
+.panel-group .panel{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255,255,255,1);
+    margin: 0;
+    border-radius:0;
+    box-shadow: none;
+}
+.panel-heading{
+    padding:0;
+	position: relative;
+}
+.panel-group .panel.panel-default .panel-title .collapsed{
+    background-color:#fff;
+	color: #595959;
+}
+.arrow-angle-left{
+    position:relative;
+    display:block;
+    transition:all 0.5s ease;
+    padding: 10px 15px;
+}
+.panel-group .panel .panel-title a:before{
+    content: '';
+    border-left: 1px solid #f2f2f2;
+    position: absolute;
+    right: 40px;
+    height: 100%;
+    width: 2px;
+    top: 0;
+}
+.panel-group .panel .panel-title a:after{
+    content: '\f105';
+    position: absolute;
+    font-family: FontAwesome;
+    right: 17px;
+	top: 50%;
+	margin-top: -9px;
+    transform: rotate(90deg);
+}
+.panel-group .panel .panel-title{
+	padding-bottom: 0;
+}
+.panel-group .panel .panel-title a{
+    background-color:#1f63ae;
+    color:#fff;
+	padding: 15px 45px 15px 15px;
+	display: block;
+}
+.panel-group .panel .panel-title a.collapsed:before{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.panel-group .panel .panel-title a.collapsed:after{
+    transform: rotate(0);
+    border: none;
+}
+.dental-faqs p{
+	margin-bottom: 20px
+}
+/***** Accordion Section Ends here *****/
+/***** Dental FAQS Page Ends Here *****/
+
+/***** Services Page Starts Here *****/
+.services-detail .zoomout-container{
+	margin-top:10px;
+}
+.services-detail .zoomout-container a:hover > img.zoomout {
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+.services-detail a{
+	z-index: 1;
+    font-size: 20px;
+}
+.services-detail p a:hover{
+    color: #1f63ae;
+}
+.services-detail a:hover{
+    color: gray;
+}
+.services-detail .btn:hover{
+	border: 1px solid #fff;
+}
+/***** Services Page Ends Here *****/
+
+/***** Error 404 and Thankyou Page Starts Here *****/
+.error-404 i{
+    border: 1px solid #1f63ae;
+    padding: 10px 60px;
+    font-size: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.thankyou i{
+    padding: 10px 60px;
+    font-size: 150px;
+}
+/***** Error 404 and Thankyou Page Ends Here *****/
+
+/***** Blog right Sidebar Page Starts Here *****/
+.excerts-list{
+    display: table;
+    width: 100%;
+}
+.excerts-list li{
+    display: table-cell;
+    border-right: 1px solid #e6e6e6;
+}
+.excerts-list li:last-child{
+    border: none;
+}
+.excerts-list li a{
+    position: relative;
+    padding: 10px;
+    display: block;
+    text-align: center;
+}
+body .excerts-icons li a:before{
+    content: '';
+    font-family: FontAwesome;
+    margin-right: 10px;
+}
+.excerts-icons li a.user-after:before{
+    content: '\f007';
+}
+.excerts-icons li a.tag:before{
+    content: '\f02b';
+}
+.excerts-icons li a.comments:before{
+    content: '\f086';
+}
+.excerts-icons li a.plus:before{
+    content: '\f067';
+}
+.excerts-icons li a.facebook:before{
+    content: '\f09a';
+}
+.excerts-icons li a.twitter:before{
+    content: '\f099';
+}
+.excerts-icons li a.g-plus:before{
+    content: '\f0d5';
+}
+.excerts-icons li a.pinterest:before{
+    content: '\f231';
+}
+.widget{
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 30px;
+	position: relative;
+	float: left;
+	width: 100%;
+}
+.widget:last-child{
+	margin-bottom: 0;
+}
+.widget-posts img{
+	max-width: 100px;
+}
+.widget-posts li{
+	position: relative;
+	float: left;
+	width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #00cbd4;
+    margin-bottom: 20px;
+}
+.widget-posts li:last-child{
+    border: none;
+    margin-bottom:0;
+    padding-bottom: 0;
+}
+.widget-posts li a{
+    display:block;
+}
+.widget-posts li span{
+    font-size: 14px;
+    text-transform: uppercase;
+    display: block;
+}
+.widget-search .form-control{
+    height:auto;
+    display: inline-block;
+    padding-right: 48px;
+}
+.widget-search button{
+    position: absolute;
+    right: 0;
+    top:0;
+    padding: 6px 10px 6px;
+    background-color: #1f63ae;
+    border: none;
+    color: #fff;
+}
+.widget-search button:focus{
+    box-shadow: none;
+}
+.tag-list li{
+    display: inline-block;
+    margin: 6px 4px;
+}
+.tag-list li a{
+    background-color: #e6e6e6;
+    padding: 8px;
+    color: #595959;
+    font-size: 12px;
+}
+.social-widget li{
+    padding:0;
+}
+.social-widget li a{
+    display: block;
+    padding: 5px 15px;
+    margin: 0 5px;
+    border: 1px solid #e6e6e6;
+}
+.social-widget .twitter{
+    padding: 5px 12px;
+}
+.social-widget .g-plus{
+    padding:5px 11px;
+}
+body .social-widget li a:before{
+    margin:0;
+}
+/***** Blog right Sidebar Page Ends Here *****/
+
+/***** Blog Single Post Page Starts Here *****/
+.comments .comment-body{
+    padding: 20px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+.comments .comment-body .user-img{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+	max-width: 20%;
+}
+.comments .comment-body .user-img img{
+	max-width: 100%;
+}
+.comments .comment-body .comment{
+    display: inline-block;
+    width: 75%;
+}
+.comments .comment-body .small{
+    background-color: #e6e6e6;
+    padding: 0 15px;
+}
+.comments .comment-body .date{
+    margin-left:10px;
+    font-size: 12px;
+}
+.comment-body.reply{
+    padding: 20px 0 15px 75px;
+
+}
+/***** Blog Single Post Page Ends Here *****/
+
+/***** Footer icons Starts here *****/
+.social-heading{
+	margin-top: 20px;
+}
+.footer-widget{
+    background: #1f63ae;
+	padding: 62px 0 29px;
+}
+.footer-widget h4{
+	padding-bottom: 0;
+	color: #fff;
+}
+.footer-widget span,
+.footer-widget a{
+    color: #fff;
+}
+.footer-widget ul {
+    list-style-type: none;
+    position: relative;
+    margin: 0 0 30px 0;
+    padding: 0 0 0 40px;
+}
+.footer-widget ul::before{
+    content: '\f277';
+    position: absolute;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 30px;
+    color: #fff;
+	left: 0;
+    top: 0;
+    height: 48px;
+    width: 48px;
+    bottom: 0;
+    margin: auto;
+    padding: 8px 0;
+}
+body .calender::before{
+    content: '\f133';
+}
+body .mobile::before{
+    content: '\f095';
+}
+.footer-widget ul li{
+    display: inline-block;
+	color: #fff;
+}
+.footer-widget ul li h4{
+    margin: 0;
+    font-size: 16px;
+}
+/***** Footer icons Ends here *****/
+
+/***** Footer starts here *****/
+.footer{
+	color:rgba(255,255,255,0.8);
+    background-color: #000;
+    padding:60px 0 30px;
+}
+.footer .container .row > div{
+	padding-bottom: 30px;
+}
+.footer-list li{
+    padding:13px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+	color: #ffffff;
+}
+.footer-list li:last-child{
+	border: none;
+}
+.footer-list li span{
+    float: right;
+    color:rgba(255,255,255,0.8);
+    font-family: 'Open Sans', sans-serif;;
+}
+.footer-list .link-color span{
+    color: #1f63ae;
+}
+.footer-list li a{
+    color: #ffffff; /*rgba(255,255,255,0.8);*/
+    display: block;
+}
+.footer-list li:last-of-type a{
+    border: none;
+}
+.footer-list li a:hover{
+    color:#1f63ae;
+}
+.margin-bottom{
+    margin-bottom:35px;
+}
+.margin-bottom-60{
+    margin-bottom:60px;
+}
+.no-margin-top{
+	margin-top: 0 !important;
+}
+.no-margin-bottom{
+	margin-bottom: 0 !important;
+}
+.offers{
+    position: relative;
+    font-size:13px;
+}
+.gear:before{
+    content: "\f013";
+    font-family: FontAwesome;
+    margin-right: 5px;
+    color:#1f63ae;
+    font-size: 18px;
+    padding: 0 4px;
+    vertical-align: middle;
+}
+body .gift:before{
+    content: "\f06b";
+}
+.dentologist-5:before{
+    content: "\e91f";
+    font-family: dentologist;
+    margin-right: 5px;
+    color:#1f63ae;
+    font-size: 18px;
+    padding: 0 3px;
+    vertical-align: middle;
+}
+.btn-inline{
+	display: inline-block;
+	padding: 10px;
+	width: auto;
+}
+.btn-inline.small{
+	font-size: 85%;
+}
+.heading2-underline{
+    letter-spacing: normal;
+    position: relative;
+}
+.heading2-underline:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: -2px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.16);
+}
+.heading2-underline:after{
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    left: 0;
+    bottom: -2px;
+    border-bottom: 2px solid #1f63ae;
+}
+.copyrights{
+	background: #1f63ae;
+	font-size: 14px;
+	padding: 15px 0;
+}
+/***** Footer ends here *****/
+
+/***** Updated padding css *****/
+
+.meet-team, .about-dentalia, .team-list, .dr-intro, .accordian-panel{
+	padding: 25px 0;
+}
+.accordian-panel p:last-child{
+	margin-bottom: 0;
+}
+.dental-services, .team{
+	padding: 96px 0 95px 0;
+}
+.contact-us{
+	padding: 50px 0 50px;
+}
+.footer .container .row > div {
+	padding-bottom: 42px;
+	margin-top: 40px;
+}
+.mission, .about-team, .achievement-cert, .colums{
+	padding: 50px 0 25px 0;
+}
+.colums{
+	padding: 25px 0;
+}
+.team-list .list-pagination{
+	margin-bottom: 0;
+}
+.dr-bio, .inner-page-swiper{
+	padding: 100px 0 95px 0;
+}
+.dental-faqs{
+	padding: 97px 0 95px 0;
+}
+.inner-page-services, .pricing-section{
+	padding: 25px 0;
+}
+.headers-text, .list-view, .error-404{
+	padding: 92px 0 95px 0;
+}
+.error-404{
+	padding: 93px 0 95px 0;
+}
+.list-view{
+	padding: 93px 0 80px 0;
+}
+.page-full-width{
+	padding: 94px 0 100px 0;
+}
+.contact-us-page{
+	padding: 91px 0 100px;
+}
+.testimonails-slider .swiper-section{
+	min-height: 530px;
+}
+.testimonails-slider .swiper-section .empty-space{
+	min-height: 542px;
+}
+.testimonails-slider .swiper-section .testimonials{
+	padding: 50px;
+	margin-top: 6px;
+}
+.designation{
+	color: #959595;
+	font-size: 14px; 
+}
+.post-title{
+	font-weight: bold;
+	color: #454545;
+}
+.widget-posts li span.post-date{
+	font-size: 13px;
+	color: #959595;
+}
+.span-small-border-bottom{
+	font-size: 20px;
+	line-height: 22px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	display: block;
+}
+
+.styled-select select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
+
+
+.display-table
+
+{
+
+    display: table;
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+.btn-trasnparent{
+
+    background-color: transparent;
+
+    color: #23245a;
+
+    border-color: #23245a;
+
+    border-radius: 2px;
+
+    padding: 5px 20px;
+
+    position: absolute;
+
+    bottom: 10px;
+
+    left: 10px;
+
+	font-size: 24px;
+	text-shadow: 0 0 3px white;
+	text-shadow: 1 1 4px #23245a;
+	text-shadow: 2 2 5px white;
+	
+
+}
+
+
+
+@media (max-width: 767px) {
+
+	.btn-trasnparent{
+
+		bottom: 10px;
+
+		left: -8px;
+
+		font-size: 8px;
+
+		padding: 5px 10px;	
+
+	}	
+
+}
+
+
+
+
+
+.btn-trasnparent:hover{
+
+    background-color: #fff;
+
+    color: #595959;
+
+    transition: all 0.5s ease;
+
+}
+
+.display-table:before{
+
+    content: '';
+
+    z-index: -999;
+
+    width: 100%;
+
+    transition: all 1s ease;
+
+    -webkit-transition: all 1s ease;
+
+    position: absolute;
+
+    top:0;
+
+    right:0;
+
+    left:0;
+
+    bottom:0;
+
+    margin:auto;
+
+
+
+}
+
+.display-table.fancy-box-1:before{
+
+    background: url(../images/feature-dental3.jpg) no-repeat;
+
+    -webkit-background-size:cover;
+
+    background-size:cover;
+
+    background-position: 50% 50%;
+
+}
+
+.display-table.fancy-box-2:before{
+
+    background: url(../images/ortho1.jpg) no-repeat;
+
+    -webkit-background-size:cover;
+
+    background-size:cover;
+
+    background-position: 50% 50%;
+
+}
+
+.display-table.fancy-box-3:before{
+
+    background: url(../images/slider1.jpg) no-repeat;
+
+    -webkit-background-size:cover;
+
+    background-size:cover;
+
+    background-position: 50% 50%;
+
+}
+.anchor { padding-top: 90px; }

@@ -1,0 +1,28 @@
+http://murphyorthodontics.net/wp-admin/
+user: sameh.sirri@ebla-tech.com
+password:  VaAIQ8WmORZPfJ0vkGHq8C(3
+
+url: https://baltimore.hostforweb.net:2082/
+user: murphyo
+password: hnuy79@4gnh+|hjhkj:
+
+url: https://181.214.31.155/~murphyo/wp-admin
+user: admin
+password: %dy@LmYbHr%MgYXm3hLO%X$5
+
+url: https://murphyorthodontics.net/wp-admin
+user: sameh
+password: ^Wp@zxasqw1234$
+
+ssh: 181.214.31.155:22
+phrase: U!#DWBZGYv.U
+
+ftp: 181.214.31.155:21
+user: alaa@murphyorthodontics.net
+password: Rc8ctbXoV8Ig
+
+mysql: 181.214.31.155:3306
+ad: murphyo_product
+password: 1Sy[zpo!77
+
+hD5ycJ6A!0mREhEqw9RS5rrH

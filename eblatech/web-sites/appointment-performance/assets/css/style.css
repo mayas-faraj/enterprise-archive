@@ -1,0 +1,50 @@
+.container-action
+{
+    height: 78vh;
+    background-color: #e9ecef;
+    padding: 10px;
+    border: solid 1px #cccccc;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.container-action > div > .status-pending,
+.container-action > div > .status-success,
+.container-action > div > .status-failed,
+.container-action > div > .status-exists
+{
+    float: right;
+}
+
+.container-action > div > .status-pending
+{
+    color: orange;
+}
+
+.container-action > div > .status-success
+{
+    color: green;
+}
+
+.container-action > div > .status-failed
+{
+    color: red;
+}
+
+.container-action > div > .status-exists
+{
+    color: blue;
+}
+
+.container-content-inactive
+{
+    font-style: italic;
+    color: #6c757d;
+}
+
+.input-error
+{
+    background-color: #ffe5e5 !important;
+    border-color: red !important;
+}
+
