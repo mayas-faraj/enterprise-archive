@@ -1,0 +1,3 @@
+dotnet publish -c Release -r win-x64 -p:PublishReadyToRun=true
+sc.exe create NozzleManager binpath= "C:\nozzle-service\windows-service.exe" start= auto
+sc.exe description NozzleManager "Nozzles manager by pertrotech"

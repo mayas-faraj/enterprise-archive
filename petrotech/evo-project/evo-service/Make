@@ -1,0 +1,3 @@
+dotnet publish -c Release -r win-x64 -p:PublishReadyToRun=true
+sc.exe create EvoManager binpath= "C:\evo-service\evo-service.exe" start= auto
+sc.exe description EvoManager "EVO manager by pertrotech"
