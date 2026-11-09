@@ -1,0 +1,11 @@
+find . -type f -name "*.php" -exec sed -i -e 's/<?\([ \t\r]\)/<?php\1/g' \
+-e 's/<?$/<?php/g' \
+-e 's/<?include\(.*\)/<?php include \1/g' \
+-e 's/<?=\([ \t\r]\)\?/<?php echo \1/g' {} +
+
+find . -type f -name "*.php" -exec sed -i 's/mysql_\(\w\+\)()/mysqli_\L\1($GLOBALS["db_link_conn"])/i' {} +
+find . -type f -name "*.php" -exec sed -i 's/mysql_\(\w\+\)(/mysqli_\L\1($GLOBALS["db_link_conn"], /i' {} +
+find . -type f -name "*.php" -exec sed -i 's/mysqli_numrows($GLOBALS\["\w\+"\], /mysqli_num_rows(/i' {} +
+find . -type f -name "*.php" -exec sed -i 's/$globals\[/$GLOBALS[/' {} +
+find . -type f -name "*.php" -exec sed -i 's/\bsplit(/explode(/' {} +
+

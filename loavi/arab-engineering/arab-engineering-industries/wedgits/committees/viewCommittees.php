@@ -1,0 +1,47 @@
+<link rel="stylesheet" type="text/css" href='<?php echo _PREF; ?>wedgits/committees/committees_<?php echo $pageLang; ?>.css'/>	
+<link rel="stylesheet" type="text/css" href='<?php echo _PREF; ?>wedgits/gallery/zoombox/zoombox.css'/>	
+<script src="<?php echo _PREF; ?>wedgits/gallery/zoombox/zoombox.js" language="javascript" type="text/javascript"></script>
+<script src="<?php echo _PREF; ?>wedgits/gallery/gallery.js" language="javascript" type="text/javascript"></script>
+<div class='page_content'>
+<?php
+$id = cleanString($_REQUEST['id']);
+$currentdate=date("Y-m-d");
+$sql = "SELECT * FROM mem_committees WHERE  active='1' and id='$id'  ";
+$result = mysqli_query($GLOBALS["db_link_conn"], $sql);
+$numberOfRows = mysqli_num_rows($result);
+echo$private=mysqli_result($GLOBALS["db_link_conn"], $result, 0,"	private_en");
+if ($numberOfRows>0) {
+	$i=0;
+	while ($i<$numberOfRows){
+		
+		
+		$id=mysqli_result($GLOBALS["db_link_conn"], $result, $i,"id");
+		$subject=mysqli_result($GLOBALS["db_link_conn"], $result, $i,"name_".$pageLang);
+		$details=stripslashes(mysqli_result($GLOBALS["db_link_conn"], $result, $i,"description_".$pageLang));
+		$private=stripslashes(mysqli_result($GLOBALS["db_link_conn"], $result, $i,"private_".$pageLang));
+		
+		$start_date=mysqli_result($GLOBALS["db_link_conn"], $result, $i,"creation_date");
+		if($start_date=='0000-00-00'){
+			$start_date='';
+		}else{
+			$start_date=date('d / m / Y',strtotime($start_date));
+		}
+		
+		
+		echo "<div class='title2'><span>$subject</span></div><div class='ln_date'>$start_date</div> ";
+		
+		
+		echo "		<div class='page_dt'>$details</div>";
+		if($_SESSION["us_id"]){
+			echo	"<div class='page_dt'>$private</div>";
+		} 		
+		
+		
+		$i++;
+	}
+}
+	
+?>
+<input type='button' value='<?php echo Back; ?>' class='more_btn' onClick='history.back()'/>
+</div>
+
