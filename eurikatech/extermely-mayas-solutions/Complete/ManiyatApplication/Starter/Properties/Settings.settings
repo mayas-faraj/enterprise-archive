@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Starter.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Система_планирования_войны_mainService_mainService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1090/mainService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

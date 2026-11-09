@@ -1,0 +1,10 @@
+﻿<Window x:Class="ClientApplicaiton.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window2" Height="500" Width="500">
+    <StackPanel>
+        <ContentControl Name="mainGrid"/>
+        <Button Name="btnUpdate" Content="Update" Click="btnUpdate_Click" Width="300"/>
+        <Button Name="btnDelete" Content="Delete" Click="btnDelete_Click" Width="300"/>
+    </StackPanel>
+</Window>

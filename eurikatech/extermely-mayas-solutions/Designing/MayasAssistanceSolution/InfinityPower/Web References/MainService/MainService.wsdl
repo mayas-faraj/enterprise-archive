@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.mainagent.somee.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.mainagent.somee.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.mainagent.somee.com">
+      <s:element name="SetPublic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPublicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetPublicResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetLoginResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTasks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTasksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTasksResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetTaskAccept">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="task" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="accept" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTaskAcceptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTaskAcceptResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminSetTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="task" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminSetTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AdminSetTaskResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminScripts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminScriptsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminScriptsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="taskName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadTaskResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FileManager">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lines" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FileManagerResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SetPublicSoapIn">
+    <wsdl:part name="parameters" element="tns:SetPublic" />
+  </wsdl:message>
+  <wsdl:message name="SetPublicSoapOut">
+    <wsdl:part name="parameters" element="tns:SetPublicResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:SetLogin" />
+  </wsdl:message>
+  <wsdl:message name="SetLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:SetLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTasksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTasks" />
+  </wsdl:message>
+  <wsdl:message name="GetTasksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTaskAcceptSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTaskAccept" />
+  </wsdl:message>
+  <wsdl:message name="SetTaskAcceptSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTaskAcceptResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdminSetTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:AdminSetTask" />
+  </wsdl:message>
+  <wsdl:message name="AdminSetTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:AdminSetTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdminScriptsSoapIn">
+    <wsdl:part name="parameters" element="tns:AdminScripts" />
+  </wsdl:message>
+  <wsdl:message name="AdminScriptsSoapOut">
+    <wsdl:part name="parameters" element="tns:AdminScriptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadTask" />
+  </wsdl:message>
+  <wsdl:message name="DownloadTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileManagerSoapIn">
+    <wsdl:part name="parameters" element="tns:FileManager" />
+  </wsdl:message>
+  <wsdl:message name="FileManagerSoapOut">
+    <wsdl:part name="parameters" element="tns:FileManagerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MainServiceSoap">
+    <wsdl:operation name="SetPublic">
+      <wsdl:input message="tns:SetPublicSoapIn" />
+      <wsdl:output message="tns:SetPublicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetLogin">
+      <wsdl:input message="tns:SetLoginSoapIn" />
+      <wsdl:output message="tns:SetLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <wsdl:input message="tns:GetTasksSoapIn" />
+      <wsdl:output message="tns:GetTasksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskAccept">
+      <wsdl:input message="tns:SetTaskAcceptSoapIn" />
+      <wsdl:output message="tns:SetTaskAcceptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdminSetTask">
+      <wsdl:input message="tns:AdminSetTaskSoapIn" />
+      <wsdl:output message="tns:AdminSetTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdminScripts">
+      <wsdl:input message="tns:AdminScriptsSoapIn" />
+      <wsdl:output message="tns:AdminScriptsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTask">
+      <wsdl:input message="tns:DownloadTaskSoapIn" />
+      <wsdl:output message="tns:DownloadTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FileManager">
+      <wsdl:input message="tns:FileManagerSoapIn" />
+      <wsdl:output message="tns:FileManagerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MainServiceSoap" type="tns:MainServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetPublic">
+      <soap:operation soapAction="http://www.mainagent.somee.com/SetPublic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLogin">
+      <soap:operation soapAction="http://www.mainagent.somee.com/SetLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <soap:operation soapAction="http://www.mainagent.somee.com/GetTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskAccept">
+      <soap:operation soapAction="http://www.mainagent.somee.com/SetTaskAccept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminSetTask">
+      <soap:operation soapAction="http://www.mainagent.somee.com/AdminSetTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminScripts">
+      <soap:operation soapAction="http://www.mainagent.somee.com/AdminScripts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTask">
+      <soap:operation soapAction="http://www.mainagent.somee.com/DownloadTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FileManager">
+      <soap:operation soapAction="http://www.mainagent.somee.com/FileManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MainServiceSoap12" type="tns:MainServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetPublic">
+      <soap12:operation soapAction="http://www.mainagent.somee.com/SetPublic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLogin">
+      <soap12:operation soapAction="http://www.mainagent.somee.com/SetLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <soap12:operation soapAction="http://www.mainagent.somee.com/GetTasks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskAccept">
+      <soap12:operation soapAction="http://www.mainagent.somee.com/SetTaskAccept" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminSetTask">
+      <soap12:operation soapAction="http://www.mainagent.somee.com/AdminSetTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminScripts">
+      <soap12:operation soapAction="http://www.mainagent.somee.com/AdminScripts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTask">
+      <soap12:operation soapAction="http://www.mainagent.somee.com/DownloadTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FileManager">
+      <soap12:operation soapAction="http://www.mainagent.somee.com/FileManager" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MainService">
+    <wsdl:port name="MainServiceSoap" binding="tns:MainServiceSoap">
+      <soap:address location="http://localhost:1030/MainService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MainServiceSoap12" binding="tns:MainServiceSoap12">
+      <soap12:address location="http://localhost:1030/MainService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

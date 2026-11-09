@@ -1,0 +1,57 @@
+﻿<Window x:Class="UtilityWindows.MessageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        AllowsTransparency="True" WindowStyle="None" Background="Transparent"
+        Title="Message Window" Width="320" Height="200" Opacity=".95"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown" MouseMove="Window_MouseMove" MouseUp="Window_MouseUp">
+    
+    <Window.Resources>
+        <ResourceDictionary Source="windowDictionary.xaml"/>
+    </Window.Resources>
+    
+    <Border Name="AboutGrid" Background="{StaticResource ResourceKey=backgrounds}" BorderBrush="{StaticResource ResourceKey=borders}" BorderThickness="{StaticResource ResourceKey=bordersWidth}" Opacity=".98" CornerRadius="{StaticResource ResourceKey=loginCornerRadius}">
+        <Grid Margin="{StaticResource ResourceKey=margin}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Name="txHeader" Grid.Row="0" Grid.ColumnSpan="2" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=headers}" FontSize="{StaticResource ResourceKey=headersSize}" HorizontalAlignment="Center" Content="Message Header"/>
+
+            <ScrollViewer Grid.Row="1" Grid.Column="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" >
+                <TextBlock Name="txMessage" TextWrapping="Wrap" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=texts}" FontSize="{StaticResource ResourceKey=textsSize}">
+                    text message text message text message text message
+                    text message text message text message text message 
+                    text message text message text message text message
+                    text message text message text message text message
+                    text message text message text message text message
+                </TextBlock>
+            </ScrollViewer>
+
+            <Border Name="borderImage" Grid.Row="1" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=backgrounds}" BorderBrush="{StaticResource ResourceKey=borders}" BorderThickness="{StaticResource ResourceKey=bordersWidth}" CornerRadius="{StaticResource ResourceKey=loginCornerRadius}">
+            </Border>
+
+            <TextBlock Name="txTip" Grid.Row="2" Grid.ColumnSpan="2" FontStyle="Italic" FontWeight="SemiBold" TextWrapping="Wrap" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=texts}" FontSize="{StaticResource ResourceKey=textsSize}" Text="tip: tip message"/>
+            
+            <Grid Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <Button Name="btnOk" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=textsSize}" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=buttonsText}" Click="button_Click" Content="Ok"/>
+                <Button Name="btnCancel" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=textsSize}" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=buttonsText}" Click="button_Click" Content="Cencel"/>
+            </Grid>
+
+            <Label Name="txFooter" Grid.Row="4" Grid.ColumnSpan="2" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=footers}" FontSize="{StaticResource ResourceKey=footersSize}" HorizontalAlignment="Center" Content="Message Header"/>
+        </Grid>
+    </Border>
+</Window>

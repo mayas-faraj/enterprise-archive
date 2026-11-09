@@ -1,0 +1,25 @@
+﻿<Window x:Class="TestWpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="304" Width="596">
+    
+    <Window.Resources>
+        <RadialGradientBrush x:Key="rgb">
+            <GradientStop Color="Red" Offset="0"/>
+            <GradientStop Color="Green" Offset="1"/>
+        </RadialGradientBrush>
+    </Window.Resources>
+
+    <Grid Name="grd">
+        <Button Content="event button" Margin="214,110,174,119" Click="eventBtn_Click">
+            <Button.FontSize>20</Button.FontSize>
+            <Button.FontFamily>Impact</Button.FontFamily>
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="Blue" Offset="0"/>
+                    <GradientStop Color="Yellow" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>

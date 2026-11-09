@@ -1,0 +1,119 @@
+﻿.Master_MainTable
+{
+    border-width:thin;
+    border-color:Black;
+    border-style:solid;
+    width:100%;
+    height:600px;
+}
+
+.Master_Bannar
+{
+    background-color:#c8cefb;
+    background-image: url('/ElectronicShop/App_Themes/images/back_bannar.jpg');
+    background-repeat:inherit;
+    height:140px;
+}
+
+.Master_LeftCell
+{
+    width:200px;
+    height:460px;
+    background-color:#c8cefb;
+    background-image: url('/ElectronicShop/App_Themes/images/back_bannar.jpg');
+    background-repeat:inherit;
+}
+
+.Master_RightCell
+{    
+    height:460px;
+    background-color:#c8cefb;
+    background-image:url('/ElectronicShop/App_Themes/images/back.gif');
+    background-repeat:repeat;
+    
+} 
+
+.Master_CornerCell_UL
+{
+    height:100px;
+    width:100px;
+    background-image:url('/ElectronicShop/App_Themes/images/corner_ul.gif');
+    background-position:left;
+    background-repeat:no-repeat;
+}
+
+.Master_CornerCell_UR
+{
+    height:100px;
+    width:100px;
+    background-image:url('/ElectronicShop/App_Themes/images/corner_ur.gif');
+    background-position:right;
+    background-repeat:no-repeat;
+}
+
+.Master_CornerCell_DL
+{
+    height:100px;
+    width:100px;
+    background-image:url('/ElectronicShop/App_Themes/images/corner_dl.gif');
+    background-position:left;
+    background-repeat:no-repeat;
+}
+
+.Master_CornerCell_DR
+{
+    height:100px;
+    width:100px;
+    background-image:url('/ElectronicShop/App_Themes/images/corner_dr.gif');
+    background-position:right;
+    background-repeat:no-repeat;
+}
+
+.Master_BannarText
+{
+    font-size:xx-large;
+    font-family:Impact;
+    font-style:normal;
+    color:#010b0e;
+}
+
+.Master_BannarSubtext
+{
+    font-size:large;
+    font-family:Times New Roman;
+    font-style:normal;
+    color:#010b0e;
+}
+
+a:link
+{
+    font-size:medium;
+    font-family:Arial;
+    font-style:normal;
+    color:#f02080;
+}
+
+a:active
+{
+    font-size:medium;
+    font-family:Arial;
+    font-style:normal;
+    color:#ff0000;
+}
+
+a:hover
+{
+    font-size:medium;
+    font-family:Arial;
+    font-style:normal;
+    font-weight:bold;
+    color:#ff1070;
+}
+
+a:visited
+{
+    font-size:medium;
+    font-family:Arial;
+    font-style:normal;
+    color:#f5f0f0;
+}

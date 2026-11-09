@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfTraining.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window2" Height="300" Width="300">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionary;component/resourceDicFile.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <StackPanel>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Command="ApplicationCommands.New"/>
+            </MenuItem>
+        </Menu>
+        <MediaElement Source="voice/CAT'S MEOW.WAV" Volume="20"/>
+        <Slider Background="Gold" Minimum="-5" Maximum="10" Value="0" Ticks="-5,-3,0,1,2,3,7,10" IsSnapToTickEnabled="True" IsSelectionRangeEnabled="True" TickPlacement="TopLeft" Delay="100" Interval="200" ValueChanged="Slider_ValueChanged_1" SmallChange=".5" Orientation="Vertical" Height="50"/>
+        <TextBlock Name="tx" Background="{StaticResource lgb}" HorizontalAlignment="Stretch" TextAlignment="Center"/>
+        <ProgressBar Height="50" IsIndeterminate="True" Foreground="Red" Background="Pink" MouseDown="ProgressBar_MouseDown_1"></ProgressBar>
+        <Frame Source="otherpage.xaml" Background="LightGreen"/>
+        <Button Background="{StaticResource lgb}" Name="btnCmd" Content="{Binding RelativeSource={RelativeSource Self},Path=Command.Text}" Command="ApplicationCommands.New" Margin="5"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <RadialGradientBrush x:Key="rgb">
+        <GradientStop Offset="0" Color="Red"/>
+        <GradientStop Offset="0.5" Color="Green"/>
+        <GradientStop Offset="1" Color="Blue"/>
+    </RadialGradientBrush>
+</ResourceDictionary>

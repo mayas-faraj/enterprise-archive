@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/Content Documentation.dwt" codeOutsideHTMLIsLocked="false" --><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Hardware Locking and the Activation Process</title>
+	<link rel="stylesheet" type="text/css" href="hardware%20locking%20and%20the%20activation%20process_data/presentation.css">
+	<link href="hardware%20locking%20and%20the%20activation%20process_data/css.css" rel="stylesheet" type="text/css">
+    	<script type="text/javascript" src="hardware%20locking%20and%20the%20activation%20process_data/jquery.js"></script>
+      <script type="text/javascript">
+				if( typeof jQuery === 'undefined' ) document.write( unescape('%3Cscript type="text/javascript" src="' + location.href.replace( /(.*)\/html\/.*/g, "$1/html/local") + '/jquery.min.js"%3E%3C/script%3E' ) );
+			</script>
+	<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="title" type="text" value="Hardware Locking and the Activation Process" -->
+	<!-- InstanceParam name="SeeAlso" type="boolean" value="true" -->
+	<!-- InstanceParam name="SeeAlsoTasks" type="boolean" value="false" -->
+	<!-- InstanceParam name="SeeAlsoReference" type="boolean" value="true" -->
+	<!-- InstanceParam name="SeeAlsoConcepts" type="boolean" value="true" -->
+	<!-- InstanceParam name="SeeAlsoOtherResources" type="boolean" value="false" -->
+</head>
+<body class="visualbasic">
+
+
+
+<div class="container_12">
+<div class="grid_3 no-print"></div>
+<div class="grid_9">
+	<div id="runningHeaderText">DeployLX Software Protection System</div>
+	<h1 id="title">Hardware Locking and the Activation Process</h1> 
+</div>
+</div>	
+
+<div class="container_12">
+<div class="grid_3 no-print">
+	<div id="tocnav">
+        <!-- InstanceBeginEditable name="TocNav" --><!-- InstanceEndEditable -->
+       <div id="jumplinks"><h1 class="first">Jump To</h1><ul><li><a href="#processToggle">
+		The Activation Process 
+		</a></li><li><a href="#profilesToggle"> 
+		Machine Profiles
+		</a></li><li><a href="#deactivationToggle">
+		License Transfers and the Deactivation Wizard
+		</a></li><li><a href="#serverToggle"> 
+		Supporting Online Activation
+		</a></li><li><a href="#codesToggle">
+		Generating Activation Unlock Codes
+		</a></li></ul></div>
+   		
+		<div id="seealsoalt">
+
+	    <h1>See Also</h1><div class="seealso">
+		
+		
+		
+		<h4>Reference</h4>
+		<!-- InstanceBeginEditable name="SeeAlsoReference" -->
+	<ul>
+	  <li><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/limits/activation%20limit.html">Activation Limit</a></li>
+	  <li><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/t_deploylx_licensing_v5_activationlimit.htm">ActivationLimit Class</a> </li>
+	</ul>
+		<!-- InstanceEndEditable -->
+		
+		
+		
+		<h4>Concepts</h4>
+		<!-- InstanceBeginEditable name="SeeAlsoConcepts" -->
+		<ul>
+		  <li><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/developers%20guide/licensing%20basics/default.html">Licensing Basics</a></li>
+		  </ul>
+		<!-- InstanceEndEditable -->
+		
+		
+		
+		
+		<!-- InstanceBeginEditable name="SeeAlso" -->
+			<!-- InstanceEndEditable -->
+		</div></div>
+   		
+       <div id="toclinks"><div id="toc">
+		
+		<h1>TOC</h1>
+		<ul><li>
+		<a href="https://xheo.com/docs/" target="_top">DeployLX</a>
+		</li></ul>
+		
+<ul>
+
+	<li class="expanded  folder"><a href="https://xheo.com/docs/d3fwbxg5l6ujsfe4kwgph55jqss" target="_top" id="t27">DeployLX Licensing</a>
+<ul>
+
+	<li class="expanded  folder"><a href="https://xheo.com/docs/d8c9dbl3wgvmc8x8satcr8gfrxw" target="_top" id="t29">DeployLX Developers Guide</a>
+<ul>
+
+	<li class="expanded  folder"><a href="https://xheo.com/docs/dt933vxrmbsrz2arhe7x8el3t7x" target="_top" id="t31">Licensing Basics</a>
+<ul>
+
+	<li class="expanded  folder"><a href="https://xheo.com/docs/dsvtw6pfy5c3gr7hdkywesy53jz" target="_top" id="t40">Design and Implementation Concepts</a>
+<ul>
+
+	<li class="expanded "><a href="https://xheo.com/docs/drxtsusk66ce4gksj27hsx3eu52" target="_top" id="t42" class="selected">Hardware Locking and the Activation Process</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+	</div></div>
+
+    </div>
+</div>
+<div class="grid_9 content">
+		<!-- InstanceBeginEditable name="PreIntroduction" --><!-- InstanceEndEditable -->
+		<!-- InstanceBeginEditable name="ContentIntroduction" --><!-- InstanceEndEditable -->
+</div>
+</div>
+
+<div class="container_12">
+	<div class="grid_3 no-print"></div>
+    <div class="grid_9 content">  
+		<!-- InstanceBeginEditable name="Body" -->
+		<p class="document-summary">DeployLX provides hardware locking and 
+activation similar to the those found in Windows®, Office® and other 
+high end software. Hardware locking provides an extremely powerful way 
+of managing the use of your protected software. This topic discusses how
+ to use hardware locking with your software. </p>
+		
+
+		<h4 class="">In This Topic</h4>
+		<p>
+		</p><ul>
+			<li><a href="#processToggle">The Activation Process</a></li>
+			<li><a href="#profilesToggle">Machine Profiles</a></li>
+			<li><a href="#deactivationToggle">License Transfers and the Deactivation Wizard</a></li>
+			<li><a href="#serverToggle">Supporting Online Activation</a></li>
+			<li><a href="#codesToggle">Generating Activation Unlock Codes</a></li>
+
+		</ul>
+
+		<a target="_parent" name="processToggle"></a>
+		<h1 class="heading">
+		The Activation Process 
+		</h1>
+			<p>The DeployLX Licensing activation process
+			involves building a profile of the client machine and associating a 
+serial number with that profile. When the serial number has been 
+associated with a profile it cannot be used on another machine without 
+additional authorization. </p>
+			<p>When  a license has not been activated, or the hardware on the 
+machine has changed, DeployLX will ask the user to activate their 
+license. Depending on the options chosen on the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/limits/activation%20limit.html">Activation</a> limit the user will be given options to activate online, manually be entering a code, or activate later. </p>
+			<p>During license activation the machine hardware is profiled and a 
+hash is created that can be used to compare the relative differences 
+between two profiles. The machine profile that was active at the time of
+ activation must match the current machine profile during license 
+validation for the license to be considered valid. If the profiles 
+differ by an amount greater than the configured tolerance then the 
+software must be re-activated. </p>
+			
+      <ul class="tabs">
+  <li><a class="current" href="#online">Activating Online</a></li>
+   <li><a href="#manually">Activating Manually</a></li>
+   <li><a href="#later">Activating Later</a></li>
+</ul>
+
+<div>    
+    	<div style="min-height: 260px; display: block;">  
+			<p>When the user selects to activate online, DeployLX contacts the 
+license server configured in the license and asks for a new license that
+ has been activated. The server will determine if the serial number 
+associated with the license has been used to activate the software on a 
+different machine. If the serial number has already been activated then 
+the user will not be permitted to activate the license and will be 
+prevented from using the software. If the serial number has not been 
+activated or the user has been granted an additional activation then the
+ license is updated with the client machine's hash and returned to the 
+client machine.</p>
+			<p>The behavior of the server can be modified  to suit your organizations specific needs. See <a href="#serverToggle">Support Online Activation</a> later in this topic for details. </p>
+     </div>
+  <div style="min-height: 260px; display: none;">	
+			<p>If the user does not have Internet access, or you have elected not
+ to use a license server, they can select to activate their software 
+manually be entering an  unlock code. Activation codes are generated 
+based on the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/developers%20guide/licensing%20basics/keys%20and%20signatures.html">license keys</a>
+ used to sign the license and the hardware profile of the client 
+machine. The activation unlock code can only be used to unlock the 
+license with the serial number and machine profile provided when the 
+code was generated. After the user enters the unlock code the license is
+ updated to associate the serial number, machine profile and unlock code
+ for later validation.</p>
+			<p>See <a href="#codesToggle">Generating Activation Unlock Codes</a> later in this topic for more information. </p>
+   </div>
+		<div style="min-height: 260px; display: none;">
+
+			<p>During the activation grace period the user may choose to skip 
+activation until they are    ready. For instance if they do not 
+currently have Internet access while traveling but will have access 
+later. Once the grace period has expired the user is required to 
+activate to continue using the software. If they do not activate then 
+the license is not valid and will throw an exception if no other 
+licenses are available. </p>
+			<p>See the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/limits/activation%20limit.html">Activation Limit</a>  topic for details on configuring the grace period. 
+		</p>
+   	</div>
+</div>
+
+
+		<a target="_parent" name="profilesToggle"></a>
+		<h1 class="heading"> 
+		Machine Profiles
+		</h1>
+		<p>DeployLX uses an advanced machine profiling system for monitoring 
+the use of  protected software. At the core of the activation process is
+ the hardware profile which is tracked and compared to determine if the 
+user has moved the license to a new machine, upgraded their machine or 
+is activating for the first time.</p>
+			<h4 class="subHeading">Creating the Machine Profile Hash</h4>
+			<p>The <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/t_deploylx_licensing_v5_machineprofile.htm">MachineProfile</a>
+  class is used to generate a hash code representing the installed 
+hardware on the client machine. The generated hash contains information 
+about components of each of the 8 hardware classes. </p>
+    <p class="pull-quote">You can use the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/p_deploylx_licensing_v5_machineprofile_hash.htm">Profile.Hash</a> property of the <b>MachineProfile</b>
+ class to retrieve the hash of the current machine's hardware profile. 
+This hash may differ slightly than the hash used during activation if 
+the default weights or settings have been customized in the associated 
+Activation limit. </p>
+			<p class="alert">The hash values created by the <b>MachineProfile</b>
+ class contain only enough information to determine if two hardware 
+components are different and cannot be used to obtain any personally 
+identifiable information. </p>
+			<p>The DeployLX licensing system tracks 8 relatively stable hardware 
+classes that, when taken together, easily be used to distinguish between
+ two different machines. </p>
+	
+				<table class="minimal elements">
+						<tbody><tr><th>Hardware Class </th>
+						<th>Description </th>
+					</tr>
+					<tr valign="top">
+						<td><b>MAC Address </b></td>
+						<td><p>The MAC Address is a globally unique value that is guaranteed to be unique for every machine. </p>
+							<p>While the MAC Address is certain to be unique it is also easy 
+for users to move network cards between two different machines and 
+should not be the only component relied on for machine comparisons. </p>
+						<p>DeployLX detects attempts to spoof the MAC address and invalidates the license when detected.</p></td>
+					</tr>
+					<tr valign="top">
+						<td><b>CPU</b></td>
+						<td><p>Many activation systems claim that you can use the serial 
+number of the CPU to uniquely identify a system. This is incorrect as 
+the Pentium III was the only CPU to support a unique serial number and 
+came disabled by default in later editions. </p>
+						<p>DeployLX instead will track the actual CPU model, speed and 
+features. With so many different models available this is an effective 
+distinguishing feature when comparing machines. </p></td>
+					</tr>
+					<tr valign="top">
+						<td><b>System Drive </b></td>
+						<td><p>DeployLX will attempt to obtain the physical serial number 
+of the operating sytem drive. Using the physical serial number is 
+extremely effective in distinguishing machines. </p>
+						<p>When the physical serial number cannot be obtained either 
+because the drivers do not support it or the hard drive configuration 
+does not present a unique number (such as a RAID array) DeployLX will 
+use the model of the hard drive, volume label and disk size to create a 
+pseudo number. </p></td>
+					</tr>
+					<tr valign="top">
+						<td><b>Memory</b></td>
+						<td><p>The machine profile will track information about the amount
+ of RAM installed on the machine. No other information about the brand 
+or model of RAM is considered. </p></td>
+					</tr>
+					<tr valign="top">
+						<td><b>CD-ROM</b></td>
+						<td><p>The machine profile will track the model and vendor information of all CD/DVD-ROM drives installed on the machine. </p></td>
+					</tr>
+					<tr valign="top">
+						<td><b>Video Card </b></td>
+						<td><p>The machine profile will track the model and vendor information of all video cards installed on the machine. </p></td>
+					</tr>
+					<tr valign="top">
+						<td><b>IDE Controller </b></td>
+						<td><p>The machine profile will track the model and vendor 
+information of the IDE controller installed on the machine. In almost 
+all cases the IDE controller is integrated directly into the motherboard
+ and can usually be considered an effective identifier of the 
+motherboard itself. </p></td>
+					</tr>
+					<tr valign="top">
+						<td><b>SCSI Controller </b></td>
+						<td><p>The machine profile will track the model and vendor 
+information of all SCSI controllers installed on the machine. SCSI 
+controllers include legacy true SCIS systems as well as modern RAID 
+controllers that support IDE or SATA drives. </p></td>
+					</tr>
+				</tbody></table>
+			
+			
+			<h4 class="subHeading">Profile Comparisons and Activation Tolerance </h4>
+			<p>When two machine profiles are compared each hardware class is 
+evaluated separately. Each class is given a weight which is used to 
+determine the relative importance of that class of hardware when 
+determining how different two machines are. When the components are 
+compared if a difference is found then the weight is tallied to create a
+ difference rating. If the rating is greater than the configured 
+tolerance of the license then the two profiles are considered different.
+ </p>
+			<p>When comparing hardware profiles DeployLX considers 3 different 
+weights for each class and will tally the weight of all mismatched 
+components to generate a difference rating. If the rating is greater 
+than the configured tolerance than the machine profiles are considered 
+different. </p>
+<table class="minimal elements">
+					<tbody><tr valign="top">
+						<th>Weight</th>
+						<th>Description </th>
+					</tr>
+					<tr valign="top">
+						<td><b>No Match </b></td>
+						<td><p>When no components of a class in one hash match any components of the same class in the other hash. </p></td>
+					</tr>
+					<tr valign="top">
+						<td><b>Partial Match </b></td>
+						<td><p>When some components of a class in one hash are found in the same class in the other hash. </p></td>
+					</tr>
+					<tr valign="top">
+						<td><b>File Moved </b></td>
+						<td><p>When the host .LIC file has been moved outside the 
+licensing api. This can happen if the user attempts to copy the license 
+from another machine even if the other machine or has attempted to 
+backup the license file and restore it in an attempt to circumvent the 
+licensing.</p>
+						<p>You can also select the  <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/limits/editors/activation%20limit.html">Invalidate On File Moved</a> option on the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/limits/activation%20limit.html">Activation</a> limit in the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/ui/advanced%20license%20editor.html">Advanced License Editor</a> to automatically force a mismatch of all machine comparisons if the file has been moved. </p></td>
+					</tr>
+				</tbody></table>
+			<h4 class="subHeading">Cumulative Changes Over Time</h4>
+		<p>DeployLX also supports cumulative changes to support minor upgrades on a machine over time. <span class="contextHidden">For
+ example if the user adds additional memory to their machine the license
+ will not need to be reactivated. If they later change their network 
+card the the combination of differences will require the license to be 
+reactivated. When cumulative changes are allowed the difference between 
+the memory change and network change is less than the cumulative 
+tolerance the user will not be required to reactivate.</span> </p>
+			<p>When <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/limits/editors/activation%20limit.html">Cumulative Changes</a> is selected you should also select the <b>Invalidate On File Moved</b> option to prevent copying between similar machines. </p>
+			<h5 class="subHeading expand-link">Detailed Example</h5>
+      <div>
+			<p>If  the user upgrades their motherboard the MAC Address and IDE 
+Controller are likely to change. Using the default weight options the 
+difference rating between the two hardware profiles would be 4 (MAC 
+Address +3, IDE controller +1). Since that is greater than the default 
+tolerance of 3 the user would be required to reactivate.</p>
+			<p>If the user upgrades their memory, CPU and video card but keeps 
+all other components the same the difference rating would be 3 (CPU +1, 
+memory +1, video card +1). Since that is less than or equal to the 
+default tolerance of 3 and would not be required to reactivate. If the 
+same user later modified any other component the would be required to 
+activate. </p>
+			</div>
+      
+			<h4 class="subHeading">Activation Profiles</h4>
+			<p>The <b>Activation</b> limit can track multiple hardware profiles 
+simultaneously for a single license. This can be used to allow the user 
+to install the license on multiple machines, or to track multiple states
+ for a single machine such as docked or undocked. </p>
+	
+		<a target="_parent" name="deactivationToggle"></a>
+		<h1 class="heading">
+		License Transfers and the Deactivation Wizard
+		</h1>
+			<p>Users will invariably need to move software activated on one 
+machine to another. To support this DeployLX includes a de-activation 
+system to allow the user to completely remove the software from the 
+current machine before they are allowed to install it on another 
+machine.</p>
+			<p>Once the software has been de-activated the user will need to 
+re-enter their serial number and re-activate to use the software on the 
+same machine. The license server will check to see if they installed it 
+on another machine and prevent them from reusing the license on the 
+original machine.</p>
+			<p>You can start the deactivation wizard directly from the protected 
+software or as part of the installation packages uninstall routines. 
+Refer to the installer's documentation on how to call an external 
+library.</p>
+
+		<h3 class="procedureSubHeading">To enable software deactivation</h3>
+    
+<ul class="tabs editor">
+  <li><a class="current" href="#easy">Easy License Editor</a></li>
+   <li><a href="#advanced">Advanced License Editor</a></li>
+</ul>
+
+<div>    
+    	<div style="min-height: 221px; display: block;">
+    
+		<ol>
+							<li>Open an existing license in the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/ui/easy%20license%20editor.html">Easy License Editor</a>.</li>
+						<li>If not checked, select <b>Lock the software to the user's hardware</b>. </li>
+						<li>Switch to the <b>Hardware Locking</b> Tab. </li>
+						<li>Select <b>Enable the license transfer wizard</b>. </li>
+						<li><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/developers%20guide/licensing%20basics/how%20does%20deploylx%20find%20a%20license.html">Save the license</a> for use by your protected software.</li>
+				</ol>
+							<p class="alert"> When using the Easy License Editor all editions
+ of the product will use the same set of limits. To configure different 
+rules for each edition you must edit the license in the Advanced License
+ Editor. </p>
+							
+						<p></p>
+
+	  </div>
+  <div style="min-height: 221px; display: none;"><ol>
+							<li>Open an existing license in the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/ui/advanced%20license%20editor.html">Advanced	License Editor</a>.</li>
+							<li>Select the license containing an <b>Activation</b> limit to enable deactivation.</li>
+							<li>Switch to the <b>Limits</b> tab. </li>
+						<li>Select the Activation limit from the limits tree. </li>
+						<li>Select <b>Can deactivate</b> from the <b>Activation Options</b> group. </li>
+						<li><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/developers%20guide/licensing%20basics/how%20does%20deploylx%20find%20a%20license.html">Save the license</a> for use by your protected software.</li>
+					</ol></div>
+</div>    
+
+
+			<p>This sample demonstrates how to initiate the deactivation wizard.</p>
+<ul class="tabs source">
+  <li><a class="current" href="#visualbasic">Visual Basic</a></li>
+  <li><a href="#csharp">C#</a></li>
+</ul>
+<div>
+    <div style="min-height: 146px; display: block;"><pre class="visualbasic lang-visualbasic prettyprint"><span class="kwd">Private</span><span class="pln"> _license </span><span class="pun">=</span><span class="pln"> SecureLicenseManager</span><span class="pun">.</span><span class="pln">Validate</span><span class="pun">(</span><span class="kwd">Me</span><span class="pun">,</span><span class="pln"> </span><span class="lit">Nothing</span><span class="pun">,</span><span class="pln"> </span><span class="lit">Nothing</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">If</span><span class="pln"> SecureLicenseManager</span><span class="pun">.</span><span class="pln">Deactivate</span><span class="pun">(</span><span class="pln">_license</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">Me</span><span class="pun">,</span><span class="pln"> </span><span class="lit">Nothing</span><span class="pun">,</span><span class="pln"> </span><span class="lit">Nothing</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">Then</span><span class="pln">
+    MessageBox</span><span class="pun">.</span><span class="pln">Show</span><span class="pun">(</span><span class="str">"The software has been deactivated."</span><span class="pun">)</span><span class="pln">
+    Application</span><span class="pun">.</span><span class="kwd">Exit</span><span class="pun">()</span><span class="pln">
+</span><span class="kwd">End</span><span class="pln"> </span><span class="kwd">If</span></pre></div>
+  <div style="min-height: 146px; display: none;"><pre class="csharp lang-csharp prettyprint"><span class="pln">_license </span><span class="pun">=</span><span class="pln"> </span><span class="typ">SecureLicenseManager</span><span class="pun">.</span><span class="typ">Validate</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> </span><span class="typ">SecureLicenseManager</span><span class="pun">.</span><span class="typ">Deactivate</span><span class="pun">(</span><span class="pln"> _license</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="typ">MessageBox</span><span class="pun">.</span><span class="typ">Show</span><span class="pun">(</span><span class="pln"> </span><span class="str">"The software has been deactivated."</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+    </span><span class="typ">Application</span><span class="pun">.</span><span class="typ">Exit</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span></pre></div>
+</div>
+
+
+
+		<a target="_parent" name="serverToggle"></a>
+		<h1 class="heading"> 
+		Supporting Online Activation
+		</h1>
+			<p>To support online activation you must create a license server and modify the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/m_deploylx_licensing_management_v5_licenseserver_canactivate_3_798d6a91.htm">CanActivate</a> and <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/m_deploylx_licensing_management_v5_licenseserver_recordactivation_3_22b50d25.htm">RecordActivation</a> methods of the generated ASMX file and modify the license to point to the generated server.</p>
+			<p>See the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/developers%20guide/licensing%20basics/license%20servers%20in%20deploylx%20licensing.html">License Servers in DeployLX</a> topic for details on creating and deploying the license server.  </p>
+			<h3 class="procedureSubHeading">To configure a license for online activation</h3>
+      
+      <ul class="tabs editor">
+  <li><a class="current" href="#easy">Easy License Editor</a></li>
+   <li><a href="#advanced">Advanced License Editor</a></li>
+</ul>
+
+<div>    
+    	<div style="min-height: 205px; display: block;"> <ol>
+								<li>Open an existing license in the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/ui/easy%20license%20editor.html">Easy License Editor</a>.</li>
+								<li>If not checked, select <b>Lock the software to the user's hardware</b>. </li>
+								<li>Enter the address of the license server in the <b>License Servers</b> field. </li>
+								<li><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/developers%20guide/licensing%20basics/how%20does%20deploylx%20find%20a%20license.html">Save the license</a> for use by your protected software.</li>
+						</ol>
+									<p class="alert"> When using the Easy License Editor all 
+editions of the product will use the same set of limits. To configure 
+different rules for each edition you must edit the license in the 
+Advanced License Editor. </p>
+							
+</div><div style="min-height: 205px; display: none;"><ol>
+								<li>Select <b>New License | <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/ui/advanced%20license%20editor.html">Advanced	License Editor</a></b> from the <b>Home</b> tab of Ribbon in the DeployLX Manager. </li>
+								<li>Select the license to be activated online from the list.</li>
+								<li>Switch to the <b>Limits</b> tab. </li>
+								<li>Add the <b>Activation</b> limit from the limits gallery on the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/ui/license%20tab.html">License</a> tab of the Ribbon. </li>
+								<li>Enter the address of the license server in the <b>Servers</b> field. </li>
+								<li><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/developers%20guide/licensing%20basics/how%20does%20deploylx%20find%20a%20license.html">Save the license</a> for use by your protected software.</li>
+						</ol>
+			</div>
+</div>
+			<h4 class="subHeading">Customizing the License Server </h4>
+			<p>The default behavior of the license server generated by the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/wizards/server/default.html">Server Wizard</a> allows the user to install the license on a single machine for each profile in the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/limits/editors/activation%20limit.html">Activation</a> limit. The default implementation will also support deactivation if selected in the license. </p>
+			<p>To customize the behavior of the activation process on the license server you can modify the <b>CanActivate</b> and <b>RecordActivation</b> methods. </p>
+			
+				<table class="minimal elements">
+						<tbody><tr><th>Method</th>
+						<th>Description </th>
+					</tr>
+					<tr valign="top">
+						<td><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/m_deploylx_licensing_management_v5_licenseserver_canactivate_3_798d6a91.htm">CanActivate</a></td>
+						<td><p>The <b>CanActivate</b> method is called during online 
+activation to determine if  the software may be installed on the 
+machine. The method created by the wizard will check the database to see
+ if a license with the same serial number has already been activated. </p>
+							<p>If there were no previous attempts to activate then <b>CanActivate</b> returns true.</p>
+							<p>If there is an existing activation record then one of two actions are taken. If the <b>AllowNewMachine</b>
+ field in the database is set then the new activation is permitted. This
+ field will be set by the deactivation wizard when the software is 
+removed from the user's machine. If not set then <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/m_deploylx_licensing_management_v5_licenseserver_checkprofile_6_c64f3124.htm">CheckProfile</a>
+ is called to determine if the new request is a close match to the 
+previous activation or permitted to override the existing record. </p></td>
+					</tr>
+					<tr valign="top">
+						<td><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/m_deploylx_licensing_management_v5_licenseserver_recordactivation_3_22b50d25.htm">RecordActivation</a></td>
+						<td><b>RecordActivation</b> is called if the activation request is
+ determined to be valid and records the license and hardware information
+ into the database. </td>
+					</tr>
+				</tbody></table>
+				<p>To customize the behavior of the deactivation process on the license server you can modify the <strong>CanDeactivate</strong> and <strong>RecordDeactivation</strong> methods. </p>
+					<table class="minimal elements">
+						<tbody><tr valign="top">
+							<th>Method</th>
+							<th>Description </th>
+						</tr>
+						<tr valign="top">
+							<td><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/m_deploylx_licensing_management_v5_licenseserver_candeactivate_4_999625d3.htm">CanDeactivate</a></td>
+							<td><p>The <b>CanDeactivate</b> method is called when the user 
+requests that the license be deactivated from the user's machine and is 
+used to determine if the user is allowed to remove software and install 
+on another machine. </p>
+									<p>The method created by the wizard checks to see if the 
+software has already been deactivated and will return false if there is 
+already a pending request to deactivate the software. </p>
+									<p>This method will be called twice during the deactivation process once for each <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/t_deploylx_licensing_v5_deactivationphase.htm">phase</a>. </p></td>
+						</tr>
+						<tr valign="top">
+							<td><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/m_deploylx_licensing_management_v5_licenseserver_recorddeactivation_3_22b50d25.htm">RecordDeactivation</a></td>
+							<td><p><b>RecordDeactivation</b> is called if the deactivation request is determined to be valid and sets the <b>AllowNewMachine</b> field of the database. </p>
+							<p>This method will only be called <i>after</i> the software has been deactivated and removed from the user's machine during the <b>Commit</b> phase. </p></td>
+						</tr>
+					</tbody></table>
+	
+		
+		<a target="_parent" name="codesToggle"></a>
+		<h1 class="heading">
+		Generating Activation Unlock Codes
+		</h1>
+			<p>You can provide backup activation options to your users by phone 
+and email when they do not have access to the Internet for online 
+activation.</p>
+			<p class="alert caution"> You must be licensed by XHEO to use 
+DeployLX Licensing for each each machine that will generate activation 
+codes. If you create your own activation code generating tools you must 
+still obtain a license for the machines that use your tool. </p>
+			<p class="alert caution">If your resellers or partners generate 
+activation codes on your behalf you must obtain a separate license from 
+XHEO for each reseller. You may not create a web service or other 
+automated tool that exposes the activation code generation features to 
+an unlicensed 3rd party. <a href="http://g.xheo.com/get-help" target="_blank">Contact XHEO</a> for information about reseller discounts. </p>
+			<h4 class="subHeading">Using the DeployLX Manager to generate activation codes </h4>
+			<ol>
+				<li>Open a copy of the license file to generate an activation code 
+for. Any exact copy of the license will work - normally the runtime.lic 
+license included in your project. </li>
+				<li>Select the license/edition you want to generate an activation code for from the list of licenses.</li>
+				<li>Select <b>Generate Code | Generate Activation Code </b> from the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/ui/home%20tab.html">Home</a> tab of the Ribbon. The <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/ui/generate%20activation%20unlock%20code%20form.html">Generate Activation Unlock Code Form</a> is displayed. </li>
+				<li>Enter the <b>Serial Number</b> of the license being unlocked. </li>
+				<li>Enter the <b>Machine Hash Code</b>.</li>
+				<li>If the license supports multiple profiles, select the <b>Machine ID</b> of the hardware profile that the user is activating.  </li>
+				<li>Select the <b>Code Expires</b> date to limit how long the activation code can be used. The default is 3 days from the current date UTC. </li>
+				<li>Select <b>Generate</b> to generate the activation unlock code. </li>
+			</ol>
+			
+			<p class="alert">The serial number, machine hash code and machine id 
+are displayed on the activation form and should be included in any email
+ from the user or read over the phone.</p>
+			<h4 class="subHeading">Generating From Code Sample </h4>
+			<p>This sample demonstrates how to generate an activation unlock code in  code. See the <a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/m_deploylx_licensing_management_v5_licensekey_makeactivationcode_7_24f6d118.htm">MakeActivationCode</a> method for details. </p>
+
+<ul class="tabs source">
+  <li><a class="current" href="#visualbasic">Visual Basic</a></li>
+  <li><a href="#csharp">C#</a></li>
+</ul>
+<div>
+    <div style="min-height: 272px; display: block;"><pre class="visualbasic lang-visualbasic prettyprint"><span class="kwd">Private</span><span class="pln"> key </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">New</span><span class="pln"> LicenseKey</span><span class="pun">(</span><span class="str">"Path to LSK keys file"</span><span class="pun">)</span><span class="pln">
+key</span><span class="pun">.</span><span class="pln">DeployLxSerialNumbers </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">New</span><span class="pln"> </span><span class="kwd">String</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> 
+    </span><span class="str">"Your DeployLX Serial Number."</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+    
+</span><span class="kwd">Private</span><span class="pln"> serialNumber </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> key</span><span class="pun">.</span><span class="pln">MakeActivationCode</span><span class="pun">(</span><span class="pln">_
+    </span><span class="str">"PRO-"</span><span class="pun">,</span><span class="pln">_
+    </span><span class="str">"PRO-XXXXX-XXXXX-XXXX-XXXX"</span><span class="pun">,</span><span class="pln">_
+    </span><span class="str">"PRO-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"</span><span class="pun">,</span><span class="pln">_
+    </span><span class="lit">1</span><span class="pun">,</span><span class="pln">_
+    DateTime</span><span class="pun">.</span><span class="pln">MinValue</span><span class="pun">,</span><span class="pln">_
+    </span><span class="lit">Nothing</span><span class="pun">,</span><span class="pln">_
+    CodeAlgorithm</span><span class="pun">.</span><span class="pln">NotSet</span><span class="pun">)</span></pre></div>
+  <div style="min-height: 272px; display: none;"><pre class="csharp lang-csharp prettyprint"><span class="typ">LicenseKey</span><span class="pln"> key </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">LicenseKey</span><span class="pun">(</span><span class="pln"> </span><span class="str">"Path to LSK keys file"</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+key</span><span class="pun">.</span><span class="typ">DeployLxSerialNumbers</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> 
+    </span><span class="str">"Your DeployLX Serial Number."</span><span class="pln"> </span><span class="pun">};</span><span class="pln">
+
+</span><span class="kwd">string</span><span class="pln"> serialNumber </span><span class="pun">=</span><span class="pln"> key</span><span class="pun">.</span><span class="typ">MakeActivationCode</span><span class="pun">(</span><span class="pln">
+    </span><span class="str">"PRO-"</span><span class="pun">,</span><span class="pln">
+    </span><span class="str">"PRO-XXXXX-XXXXX-XXXX-XXXX"</span><span class="pun">,</span><span class="pln">
+    </span><span class="str">"PRO-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"</span><span class="pun">,</span><span class="pln">
+    </span><span class="lit">1</span><span class="pun">,</span><span class="pln">
+    </span><span class="typ">DateTime</span><span class="pun">.</span><span class="typ">MinValue</span><span class="pun">,</span><span class="pln">
+    </span><span class="kwd">null</span><span class="pun">,</span><span class="pln">
+    </span><span class="typ">CodeAlgorithm</span><span class="pun">.</span><span class="typ">NotSet</span><span class="pln"> </span><span class="pun">);</span></pre></div>
+</div>
+
+		<!-- InstanceEndEditable -->
+	</div>
+</div>   	
+		
+<div class="container_12">
+	<div class="grid_3 no-print"></div>
+	<div class="grid_9 content">
+		<a target="_parent" name="seeAlsoToggle"></a>
+		<h1 class="heading">See Also</h1>
+		<div class="seealso">
+		
+		
+		
+		<h4>Reference</h4>
+		<!-- InstanceBeginEditable name="SeeAlsoReference" -->
+	<ul>
+	  <li><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/limits/activation%20limit.html">Activation Limit</a></li>
+	  <li><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/reference/classref/t_deploylx_licensing_v5_activationlimit.htm">ActivationLimit Class</a> </li>
+	</ul>
+		<!-- InstanceEndEditable -->
+		
+		
+		
+		<h4>Concepts</h4>
+		<!-- InstanceBeginEditable name="SeeAlsoConcepts" -->
+		<ul>
+		  <li><a target="_parent" href="https://xheo.com/docs/dlxl/5/html/developers%20guide/licensing%20basics/default.html">Licensing Basics</a></li>
+		  </ul>
+		<!-- InstanceEndEditable -->
+		
+		
+		
+		
+		<!-- InstanceBeginEditable name="SeeAlso" -->
+			<!-- InstanceEndEditable -->
+		</div>
+	</div>
+</div>
+				
+
+
+<script type="text/javascript" src="hardware%20locking%20and%20the%20activation%20process_data/docs.js"> </script>
+<script type="text/javascript" src="hardware%20locking%20and%20the%20activation%20process_data/tools.js"> </script>
+<script type="text/javascript" src="hardware%20locking%20and%20the%20activation%20process_data/prettify.js"> </script>
+<script type="text/javascript" src="hardware%20locking%20and%20the%20activation%20process_data/lang-vb.js"> </script>
+
+
+</body><!-- InstanceEnd --></html>

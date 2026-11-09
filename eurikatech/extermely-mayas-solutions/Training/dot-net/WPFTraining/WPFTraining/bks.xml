@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<books type="pdf">
+  <book>
+    <name>
+      <bookname>learn C#</bookname>
+      <authorname>Rami</authorname>
+      <general>c#</general>
+    </name>
+    <pages>1256</pages>
+    <type pages="good">not colered</type>
+  </book>
+  <book>
+    <name>
+      <bookname>algorisims in vb</bookname>
+      <authorname>Rami</authorname>
+      <general>vb</general>
+    </name>
+    <pages>560</pages>
+    <type pages="fair">not colered</type>
+  </book>
+  <book>
+    <name>
+      <bookname>electronics</bookname>
+      <authorname>edress</authorname>
+      <general>electrical</general>
+    </name>
+    <pages>1349</pages>
+    <type pages="vgood">colered</type>
+  </book>
+</books>

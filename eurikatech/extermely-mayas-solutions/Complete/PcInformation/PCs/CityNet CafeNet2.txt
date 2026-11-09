@@ -1,0 +1,55 @@
+----- Processor ------
+AMD Athlon(tm) X2 240 Processor
+x86 Family 16 Model 6 Stepping 2
+178BFBFF00100F62
+AuthenticAMD
+2048
+
+----- Hard Disks -------
+** HDD : \\.\PHYSICALDRIVE0 **
+WDC WD1600AVJS-63B6A0
+160039272960
+(Standard disk drives)
+
+** HDD : \\.\PHYSICALDRIVE1 **
+JetFlash Transcend 4GB USB Device
+4013936640
+(Standard disk drives)
+
+
+----- Physics Memories -------
+** Memo : Physical Memory **
+BANK1
+2147483648
+
+
+
+----- Vedio Controller ------
+NVIDIA GeForce 6150SE nForce 430
+NVIDIA GeForce 6150SE nForce 430
+PCI\VEN_10DE&DEV_03D0&SUBSYS_73091462&REV_A2\3&267A616A&0&68
+GeForce 6150SE nForce 430
+268435456
+
+----- Sound Device ------
+Realtek High Definition Audio
+Realtek High Definition Audio
+HDAUDIO\FUNC_01&VEN_10EC&DEV_0888&SUBSYS_14627309&REV_1000\4&3B3BB592&0&0001
+Realtek
+
+----- Mother Board ------
+Base Board
+Base Board
+To be filled by O.E.M.
+MSI
+MS-7309
+
+----- B I O S ------
+Default System BIOS
+021709 - 20090217
+To Be Filled By O.E.M.
+American Megatrends Inc.
+
+
+============================
+Mayas and ayed

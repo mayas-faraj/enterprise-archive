@@ -1,0 +1,242 @@
+/*
+         * test 1
+         * ==============================================
+         *  //precondition: none
+
+            //define elements
+            Slide slide = slides[slideIndex];
+            
+            //timer phase branchs
+            switch (timerPhase)
+            {
+                case TimerPhase.Initial:
+                    {
+                        //detect longest element and shortest one
+                        if (slide.Text.GetElementDuration() > slide.Image.GetElementDuration())
+                        {
+                            longestElement = slide.Text;
+                            shortestElement = slide.Image;
+                        }
+                        else
+                        {
+                            longestElement = slide.Image;
+                            shortestElement = slide.Text;
+                        }
+
+                        //calculate timespans
+                        longestElementShow = TimeSpan.FromSeconds(0);
+                        longestElementHide = longestElement.ShowEffectDurration.Add(longestElement.Durration);
+                        shortestElementShow = longestElement.GetElementDuration().Subtract(shortestElement.GetElementDuration());
+                        shortestElementHide = shortestElement.ShowEffectDurration.Add(shortestElement.Durration.Add(shortestElementShow));
+
+                        //defining elements
+                        mainGrid.ColumnDefinitions.Clear();
+                        generateTextBlock(slide);
+                        generateImage(slide);
+
+                        timerPhase = TimerPhase.First;
+                        
+                        break;
+                    }
+                case TimerPhase.First:
+                    {
+                        if (shortestElementShow > longestElementHide)
+                        {
+                            timer.Interval = longestElementShow;
+                            timerPhase = TimerPhase.Second;
+                        }
+                        else
+                        {
+                            timer.Interval = shortestElementShow;
+                            timerPhase = TimerPhase.Fifth;
+                        }
+
+                        elementVisibility(longestElement, true);
+
+                        break;
+                    }
+                case TimerPhase.Second:
+                    {
+                        timer.Interval = shortestElementShow.Subtract(longestElementHide);
+                        timerPhase = TimerPhase.Third;
+
+                        elementVisibility(longestElement, false);
+
+                        break;
+                    }
+                case TimerPhase.Third:
+                    {
+                        timer.Interval = shortestElementHide.Subtract(shortestElementShow.Subtract(longestElementHide));
+                        timerPhase = TimerPhase.Fourth;
+
+                        elementVisibility(shortestElement, true);
+
+                        break;
+                    }
+                case TimerPhase.Fourth:
+                    {
+                        timer.Interval = shortestElement.HideEffectDurration;
+                        timerPhase = TimerPhase.Finishing;
+
+                        elementVisibility(shortestElement, false);
+
+                        break;
+                    }
+                case TimerPhase.Fifth:
+                    {
+                        if (shortestElementHide > longestElementHide)
+                        {
+                            timer.Interval = longestElementHide.Subtract(shortestElementShow);
+                            timerPhase = TimerPhase.Sixth;
+                        }
+                        else
+                        {
+                            timer.Interval = shortestElementHide.Subtract(shortestElementShow);
+                            timerPhase = TimerPhase.Eighth;
+                        }
+
+                        elementVisibility(shortestElement, true);
+
+                        break;
+                    }
+                case TimerPhase.Sixth:
+                    {
+                        timer.Interval = longestElement.HideEffectDurration.Subtract(shortestElement.HideEffectDurration);
+                        timerPhase = TimerPhase.Seventh;
+
+                        elementVisibility(longestElement, false);
+
+                        break;
+                    }
+                case TimerPhase.Seventh:
+                    {
+                        timer.Interval = shortestElement.HideEffectDurration;
+                        timerPhase = TimerPhase.Finishing;
+
+                        elementVisibility(shortestElement, false);
+
+                        break;
+                    }
+                case TimerPhase.Eighth:
+                    {
+                        timer.Interval = shortestElement.HideEffectDurration.Subtract(longestElement.HideEffectDurration);
+                        timerPhase = TimerPhase.Ninth;
+
+                        elementVisibility(shortestElement, false);
+
+                        break;
+                    }
+                case TimerPhase.Ninth:
+                    {
+                        timer.Interval = longestElement.HideEffectDurration;
+                        timerPhase = TimerPhase.Finishing;
+
+                        elementVisibility(longestElement, false);
+
+                        break;
+                    }
+                case TimerPhase.Finishing:
+                    {
+                        //deliver oprations
+                        timer.Interval = timerInitialValue;
+                        timerPhase = TimerPhase.Initial;
+                        timer.IsEnabled = false;
+
+                        SlideFinishedEventHandler(this, new EventArgs());
+
+                        if (slideIndex == slides.Count - 1)
+                            PresentationFinishedEventHandler(this, new EventArgs());
+
+                        textBlock.Visibility = System.Windows.Visibility.Hidden;
+                        image.Visibility = System.Windows.Visibility.Hidden;
+                        textBlock = null;
+                        image = null;
+
+                        break;
+                    }
+            }
+
+            //postcondition: exhibit the slide with 5 times subframe
+         * test 2
+         * ==============================================
+         case TimerPhase.InitialPhase:
+                    {
+                        mainGrid.ColumnDefinitions.Clear();
+                        generateTextBlock(slide);
+                        generateImage(slide);
+
+                        elementVisibility(longestElement, true);
+                        //deliver operatoins
+                        timer.Interval = longestElement.GetElementDuration().Subtract(shortestElement.GetElementDuration());
+                        timerPhase = TimerPhase.FirstPhase;
+                        break;
+                    }
+                case TimerPhase.FirstPhase:
+                    {
+                        elementVisibility(shortestElement, true);
+                        //deliver operatoins
+                        TimeSpan t1 = shortestElement.GetElementDuration().Subtract(shortestElement.HideEffectDurration);
+                        TimeSpan t2 = shortestElement.GetElementDuration().Subtract(longestElement.HideEffectDurration);
+
+                        if (t1 < t2)
+                            timer.Interval = t1;
+                        else
+                            timer.Interval = t2;
+
+                        timerPhase = TimerPhase.SecondPhase;
+                        break;
+                    }
+                case TimerPhase.SecondPhase:
+                    {
+                        if (shortestElement.HideEffectDurration > longestElement.HideEffectDurration)
+                            elementVisibility(shortestElement, false);
+                        else
+                            elementVisibility(longestElement, false);
+
+                        //deliver operatoins
+                        TimeSpan t1 = shortestElement.GetElementDuration().Subtract(shortestElement.HideEffectDurration);
+                        TimeSpan t2 = shortestElement.GetElementDuration().Subtract(longestElement.HideEffectDurration);
+
+                        if (t1 >= t2)
+                            timer.Interval = t1.Subtract(t2);
+                        else
+                            timer.Interval = t2.Subtract(t1);
+
+                        timerPhase = TimerPhase.ThirdPhase;
+                        break;
+                    }
+                case TimerPhase.ThirdPhase:
+                    {
+                        if (shortestElement.HideEffectDurration <= longestElement.HideEffectDurration)
+                            elementVisibility(shortestElement, false);
+                        else
+                            elementVisibility(longestElement, false);
+
+                        //deliver operatoins
+                        if (shortestElement.HideEffectDurration > longestElement.HideEffectDurration)
+                            timer.Interval = shortestElement.HideEffectDurration.Subtract(longestElement.HideEffectDurration);
+                        else
+                            timer.Interval = longestElement.HideEffectDurration.Subtract(shortestElement.HideEffectDurration);
+
+                        timerPhase = TimerPhase.FinishingPhase;
+                        break;
+                    }
+                case TimerPhase.FinishingPhase:
+                    {
+                        //deliver oprations
+                        timer.Interval = timerInitialValue;
+                        timerPhase = TimerPhase.InitialPhase;
+                        timer.IsEnabled = false;
+                        
+                        SlideFinishedEventHandler(this, new EventArgs());
+
+                        if (slideIndex == slides.Count - 1)
+                            PresentationFinishedEventHandler(this, new EventArgs());
+                        
+                        textBlock.Visibility = System.Windows.Visibility.Hidden;
+                        image.Visibility = System.Windows.Visibility.Hidden;
+                        textBlock = null;
+                        image = null;
+                        break;
+                    }
+         */

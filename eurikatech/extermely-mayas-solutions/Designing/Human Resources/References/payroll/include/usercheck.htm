@@ -1,0 +1,8 @@
+<%
+Response.CacheControl="NO-CASHE"
+if len(trim(session("username")))=0 then
+	session.Abandon
+	Response.Redirect "/payroll/invalidlogin.htm"
+end if
+
+%>

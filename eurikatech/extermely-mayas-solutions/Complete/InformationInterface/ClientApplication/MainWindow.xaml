@@ -1,0 +1,39 @@
+﻿<Window x:Class="ClientApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="350" Width="525">
+    <Window.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="Pink" Offset="0"/>
+            <GradientStop Color="LightGreen" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <ScrollViewer Name="scr" Margin="20,10,20,70">
+            <ScrollViewer.Background>
+                <ImageBrush ImageSource="f:\\acorbat.png"  TileMode="Tile" Opacity=".4" Viewport="0,0,.1,0.1"/>
+            </ScrollViewer.Background>
+            <Grid Name="grd">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                </Grid>
+        </ScrollViewer>
+        <StackPanel Orientation="Horizontal" Margin="20,0,20,10" Height="50" VerticalAlignment="Bottom">
+            <StackPanel.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="Pink" Offset="1"/>
+                    <GradientStop Color="LightGreen" Offset="0"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button Name="btn1" Content="Button(1)" Margin="5" Background="Magenta" Click="btn1_Click" TabIndex="2147483647" />
+            <Button Name="btn2" Content="Button(2)" Margin="5" Background="Magenta" Click="btn2_Click" TabIndex="2147483647" />
+            <Button Name="btn3" Content="Button(3)" Margin="5" Background="Magenta" Click="btn3_Click" TabIndex="2147483647" />
+            <Button Name="btn4" Content="Button(4)" Margin="5" Background="Magenta" Click="btn4_Click" TabIndex="2147483647" />
+            <Button Name="btn5" Content="Button(5)" Margin="5" Background="Magenta" Click="btn5_Click" />
+            <Button Name="btn6" Content="Button(6)" Margin="5" Background="Magenta" Click="btn6_Click" />
+            <Button Name="btn7" Content="Button(7)" Margin="5" Background="Magenta" Click="btn7_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

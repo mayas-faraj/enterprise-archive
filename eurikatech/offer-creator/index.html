@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Offer Creator</title>
+		<meta charset="utf-8">
+		<meta name="author" content="Mayas Faraj">
+		<meta name="robots" content="nofollow, noindex">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<script src="assets/js/jspdf.min.js"></script>
+		<script src="assets/js/from_html.js"></script>
+		<script src="assets/js/addhtml.js"></script>
+		<script src="assets/js/addimage.js"></script>
+		<script src="assets/js/html2canvas.js"></script>
+		<script src="assets/js/cell.js"></script>
+		<script src="assets/js/split_text_to_size.js"></script>
+		<script src="assets/js/standard_fonts_metrics.js"></script>
+		<script src="assets/js/png_support.js"></script>
+		<script src="assets/js/outline.js"></script>
+		<script src="assets/js/init.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Euricatech Offer Creator</h1>
+			<h3>from form to pdf file</h3>
+			<hr>
+		</header>
+		<div>
+			<table id="presentation" role="presentation">
+				<tr>
+					<td><label for="languageSelect">Language</label></td>
+					<td>
+						<select id="languageSelect">
+							<option value="english">English</option>
+							<option value="german">German</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label for"companyText">Company Name</label></td>
+					<td><input id="companyText" type="text" placeholder="ex. DigitalNet"></td>
+				</tr>
+				<tr>
+					<td><label for="typeSelect">Project Type</label></td>
+					<td>
+						<select id="typeSelect">
+							<option label="(Please select One)"></option>
+							<option data-gr="Webseite" data-tech="wordpressCheckbox">Website</option>
+							<option data-gr="Webseite und mobile App" data-tech="wordpressCheckbox, flutterCheckbox">Website and Mobile App</option>
+							<option data-gr="E-Commerce-Website" data-tech="wordpressCheckbox, magentoCheckbox">E-commerce Website</option>
+							<option data-gr="E-Commerce-Website und mobile App" data-tech="wordpressCheckbox, magentoCheckbox, flutterCheckbox">E-commerce Website and Mobile App</option>
+							<option data-gr="Internetanwendung" data-tech="phpCheckbox, aspCheckbox, cssCheckbox, jqueryCheckbox, reactCheckbox, vueCheckbox, mysqlCheckbox">Web Application</option>
+							<option data-gr="Internetanwendung und mobile App" data-tech="phpCheckbox, aspCheckbox, cssCheckbox, jqueryCheckbox, reactCheckbox, vueCheckbox, mysqlCheckbox, flutterCheckbox">Web Application and Mobile App</option>
+							<option data-gr="Vorderes Ende Webseite" data-tech="cssCheckbox, jqueryCheckbox, reactCheckbox, vueCheckbox, jqueryCheckbox">Front-end Website</option>
+							<option data-gr="Serverseitige Webseite" data-tech="phpCheckbox, aspCheckbox, mysqlCheckbox">Back-end Website</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<fieldset id="techFieldset">
+							<legend>Select Technologies</legend>
+							<p>Select project type to display assosiated technologies</p>
+							<div>
+								<input id="phpCheckbox"  type="checkbox" data-type="backend programming language" data-typegr="Backend-Programmiersprache">
+								<label for="phpCheckbox">PHP</label>
+							</div>
+							<div>
+								<input id="aspCheckbox"  type="checkbox" data-type="backend programming language" data-typegr="Backend-Programmiersprache">
+								<label for="aspCheckbox">ASP.Net core</label>
+							</div>
+							<div>
+								<input id="cssCheckbox"  type="checkbox" data-type="theme of pages" data-typegr="Thema der Seiten">
+								<label for="cssCheckbox">HTML5, CSS3</label>
+							</div>
+
+							<div>
+								<input id="jqueryCheckbox"  type="checkbox" data-type="frontend js library" data-typegr="Frontend-Javascript-Bibliothek">
+								<label for="jqueryCheckbox">JS6, jQuery</label>
+							</div>
+							<div>
+								<input id="reactCheckbox"  type="checkbox" data-type="frontend js library" data-typegr="Frontend-Javascript-Bibliothek">
+								<label for="reactCheckbox">React JS</label>
+							</div>
+							<div>
+								<input id="vueCheckbox"  type="checkbox" data-type="frontend js library" data-typegr="Frontend-Javascript-Bibliothek">
+								<label for="vueCheckbox">Vue.jS</label>
+							</div>
+
+							<div>
+								<input id="wordpressCheckbox"  type="checkbox" data-type="content management system" data-typegr="Content-Management-System">
+								<label for="wordpressCheckbox">Wordpress Platform</label>
+							</div>
+							<div>
+								<input id="magentoCheckbox"  type="checkbox" data-type="content management system" data-typegr="Content-Management-System">
+								<label for="magentoCheckbox">Magento Platform</label>
+							</div>
+							<div>
+								<input id="mysqlCheckbox"  type="checkbox" data-type="rational database" data-typegr="relationale Datenbank">
+								<label for="mysqlCheckbox">mySQL Database</label>
+							</div>
+							<div>
+								<input id="flutterCheckbox"  type="checkbox" data-type="mobile framework" data-typegr="mobiles Framework">
+								<label for="flutterCheckbox">Flutter</label>
+							</div>
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td><label for="infoTextarea">Addational Info</label></td>
+					<td><textarea id="infoTextarea" rows="3" placeholder="any extra info goes here"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<fieldset>
+							<legend>Stages</legend>
+							<table id="stages">
+								<thead>
+									<tr>
+										<th>Stage</th>
+										<th>Details</th>
+										<th>Period</th>
+										<th>Cost</th>
+										<th>Remove</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr id="blankRow">
+										<td colspan="5">No stages yet</td>
+									</tr>
+								</tbody>
+							</table>
+						</fieldset>
+					</td>
+				</tr>
+				<tr class="indent">
+					<td><label for="stageText">Stage Name</label></td>
+					<td><input id="stageText" type="text" required form="addStage" placeholder="ex. API developing"></td>
+				</tr>
+				<tr class="indent">
+					<td><label for="detailsText">Details</label></td>
+					<td><input id="detailsText" type="text" form="addStage" placeholder="ex. using PHP"></td>
+				</tr>
+				<tr class="indent">
+					<td><label for="periodText">Period (days)</label></td>
+					<td><input id="periodText" type="number" form="addStage" required placeholder="ex. 3"></td>
+				</tr>
+				<tr class="indent">
+					<td><label for="costText">Cost (Euro)</label></td>
+					<td><input id="costText" type="number" form="addStage" placeholder="ex. 150"></td>
+				</tr>
+				<tr class="indent">
+					<td colspan="2">
+						<form id="addStage"></form>
+						<input id="addStageButton" form="addStage" type="button" value="Add stage">
+					</td>
+				</tr>
+				<tr>
+					<td><label for="conclutionTextarea">Conclution</label></td>
+					<td><textarea id="conclutionTextarea" rows="3" placeholder="Conclution Text"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input id="generateButton" type="button" value="Generate the Offer">
+					</td>
+				</tr>
+			</table>
+			<aside>
+				<img src="assets/images/logo.jpg" width="500" height="181" alt="eurikatech logo">
+				<p id="client"><strong></strong></p>
+				<p id="intro"></p>
+				<p id="tech"></p>
+				<p id="additional"></p>
+				<p id="stage"></p>
+				<figure id="stagesFigure" class="hidden">
+					<table>
+						<thead>
+							<tr>
+								<th>Stage</th>
+								<th>Details</th>
+								<th>Time (hours)</th>
+								<th>Price (&euro;)</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</figure>
+				<p id="postStages"></p>
+				<p id="conclution"></p>
+				<p>
+				Saeed Albaradie
+				CEO
+				Eurikatech.
+				</p>
+			</aside>
+		</div>
+		<footer>
+			Eurikatech plugin - &copy;2021
+		</footer>
+	</body>
+</html>

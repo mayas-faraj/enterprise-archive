@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Maniyat.DataFieldCollection">
+    <Position X="5.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAACAAABAAAAAAAAAABCAAABABAAAA=</HashCode>
+      <FileName>Collections.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.Database">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>oAQAAsQAAAAAAAkQRkALDASCAgQAAAACACAACBAQAIA=</HashCode>
+      <FileName>Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.DataCondition">
+    <Position X="5.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IACAAAAAAAAAAIAAAAIAAAAAAAAAACABAAAgAAAAoAA=</HashCode>
+      <FileName>DataCondition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.DataField">
+    <Position X="3" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAIgAAAgAAAAAAAARCABIAAAABAQAACBABIAE=</HashCode>
+      <FileName>DataField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Maniyat.IDatabase">
+    <Position X="3" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACAAAAABA=</HashCode>
+      <FileName>Database.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Maniyat.SqlFunctions">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAFAAAAAAQAAAABAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Database.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Maniyat.SqlOperator">
+    <Position X="8" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQgAAAAAAAAgAAAAAAAAAAAARBACA=</HashCode>
+      <FileName>DataCondition.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

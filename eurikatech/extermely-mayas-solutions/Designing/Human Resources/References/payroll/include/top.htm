@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=unicode" http-equiv=Content-Type>
+<META content="MSHTML 5.00.3315.2870" name=GENERATOR></HEAD>
+<BODY><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR BGCOLOR="#660000" VALIGN="top"> 
+    <TD HEIGHT="15" WIDTH="45%" bgcolor="#666666"> 
+      <div align="left"><font size="6" color="#FFFFFF">PAYROLL Software </font></div>
+    </TD>
+    <TD HEIGHT="21" WIDTH="55%" bgcolor="#666666"> 
+      <DIV ALIGN="right"><FONT COLOR="#ffffff" FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="1"><B><%Response.Write formatdatetime(date(),1)%></B></FONT></DIV>
+    </TD>
+  </TR></TABLE>
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR BGCOLOR="#000066">
+    <TD HEIGHT="15" WIDTH="45%" bgcolor="#666666"><FONT FACE="Verdana, Arial, Helvetica, sans-serif"><B> 
+      </B> </FONT> </TD>
+    <TD HEIGHT="15" VALIGN="bottom" COLSPAN="2" bgcolor="#666666"> 
+      <DIV ALIGN="right"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="1" COLOR="#ffffff"><B>Total Active Users :-<%Response.Write Application("activeusers")%></B></FONT></DIV>
+    </TD></TR>
+  <TR BGCOLOR="#660000"> 
+    <TD HEIGHT="12" WIDTH="45%" bgcolor="#666666"><FONT FACE="Verdana, Arial, Helvetica, sans-serif"><B><FONT SIZE="2" COLOR="#ffffff">Welcome 
+      :-</FONT><font color="#ffffff" face="Verdana, Arial, Helvetica, sans-serif" size="2"></font><FONT SIZE="2" COLOR="#ffffff"> 
+      <%Response.Write session("username")%> </FONT></B></FONT></TD>
+    <TD HEIGHT="12" VALIGN="bottom" WIDTH="47%" bgcolor="#666666">&nbsp;</TD>
+    <TD HEIGHT="12" VALIGN="center" WIDTH="8%" ALIGN="right" bgcolor="#666666"> 
+      <DIV ALIGN="right"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="1"><A href="http://rahim/payroll/signout.asp" >Sign 
+        Out</A> </FONT></B></DIV>
+    </TD></TR></TABLE>
+
+<font face="Verdana, Arial, Helvetica, sans-serif"><b><font color="#ffffff" face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></b></font></BODY></HTML>

@@ -1,0 +1,10 @@
+﻿<Window x:Class="wpfTrainingReport.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <DocumentViewer HorizontalAlignment="Left" Margin="12,12,0,0" Name="documentViewer" VerticalAlignment="Top" IsTabStop="False">
+
+        </DocumentViewer>
+    </Grid>
+</Window>

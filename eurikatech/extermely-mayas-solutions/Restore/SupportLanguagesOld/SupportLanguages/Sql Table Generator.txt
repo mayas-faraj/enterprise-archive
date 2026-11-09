@@ -1,0 +1,16 @@
+﻿CREATE TABLE Languages
+(
+Id INT PRIMARY KEY IDENTITY (1, 1),
+Name NVARCHAR(50) UNIQUE NOT NULL,
+Prefix CHAR(2),
+Comment NVARCHAR(300),
+HelpFileName NVARCHAR(100), 
+RightToLeft BIT DEFAULT 0
+);
+
+CREATE TABLE words
+(
+Id INT NOT NULL,
+LanguageId INT FOREIGN KEY REFERENCES Languages(Id),
+Word NVARCHAR (200) unique
+);

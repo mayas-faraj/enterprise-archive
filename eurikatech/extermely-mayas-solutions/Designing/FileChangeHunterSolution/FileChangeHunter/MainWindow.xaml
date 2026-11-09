@@ -1,0 +1,100 @@
+﻿<Window x:Class="FileChangeHunter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        Title="MainWindow" Height="400" Width="525">
+    <Window.Resources>
+        <Thickness x:Key="margin">5</Thickness>
+        <system:Double x:Key="fontSize">12</system:Double>
+        <system:Double x:Key="headerFontSize">18</system:Double>
+        <LinearGradientBrush x:Key="backgrounds">
+            <GradientStop Color="Orange" Offset="0"/>
+            <GradientStop Color="Yellow" Offset="1"/>
+        </LinearGradientBrush>
+        <RadialGradientBrush x:Key="captions">
+            <GradientStop Color="Blue" Offset="0"/>
+            <GradientStop Color="Black" Offset="1"/>
+        </RadialGradientBrush>
+        <SolidColorBrush x:Key="texts" Color="DarkBlue"/>
+        <LinearGradientBrush x:Key="controls">
+            <GradientStop Color="LightBlue" Offset="0"/>
+            <GradientStop Color="LightYellow" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Resources>
+   
+    <Grid Background="{StaticResource ResourceKey=backgrounds}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=captions}" FontSize="{StaticResource ResourceKey=headerFontSize}" FontFamily="Impact" Text="File Change Hunter"/>
+        
+        <TextBlock Grid.Row="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Text="First Directory"/>
+        <TextBox Name="tx1Directory" Grid.Row="1" FontSize="{StaticResource ResourceKey=fontSize}" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}"/>
+        <Button Name="btn1Directory" Grid.Row="1" FontSize="{StaticResource ResourceKey=fontSize}" Grid.Column="2" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}" Content="Browse" Click="btn1Directory_Click" />
+
+        <TextBlock Grid.Row="2" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Text="Second Directory"/>
+        <TextBox Name="tx2Directory" Grid.Row="2" FontSize="{StaticResource ResourceKey=fontSize}" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}"/>
+        <Button Name="btn2Directory" Grid.Row="2" FontSize="{StaticResource ResourceKey=fontSize}" Grid.Column="2" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}" Content="Browse" Click="btn2Directory_Click" />
+
+        
+        <TextBlock Grid.Row="3" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Text="Algorithms"/>
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>           
+            </Grid.ColumnDefinitions>
+
+            <CheckBox Name="chkSize" Grid.Column="0" FontSize="{StaticResource ResourceKey=fontSize}" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}"  Content="File Size"/>
+            <CheckBox Name="chkHash" Grid.Column="1" FontSize="{StaticResource ResourceKey=fontSize}" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}"  Content="Hash Code"/>
+            <CheckBox Name="chkDate" Grid.Column="2" FontSize="{StaticResource ResourceKey=fontSize}" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}"  Content="Date Modified"/>
+        </Grid>
+
+        <TextBlock Grid.Row="4" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Text="File Options"/>
+        <Grid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <CheckBox Name="chkRecycle" Grid.Column="0" FontSize="{StaticResource ResourceKey=fontSize}" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}"  Content="Check Recycle bin"/>
+            <CheckBox Name="chkInternet" Grid.Column="1" FontSize="{StaticResource ResourceKey=fontSize}" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}"  Content="CheckInternet File"/>
+        </Grid>
+        
+        <Grid Grid.Row="5" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Name="btnSaveState" Grid.Column="0" FontSize="{StaticResource ResourceKey=fontSize}" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}" Content="Save Second (current) Directory States" Click="btnSaveState_Click" />
+            <Button Name="btnSimulate" Grid.Column="1" FontSize="{StaticResource ResourceKey=fontSize}" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}" Content="Simulate First and Current Directory" Click="btnSimulate_Click" />
+        </Grid>
+
+        <TextBlock Grid.Row="6" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Text="Progress"/>
+        <ProgressBar Name="progressBar" Grid.Row="6" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}"/>
+        <TextBlock Grid.Row="6" Grid.Column="2" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Text="{Binding ElementName=progressBar,Path=Value}" HorizontalAlignment="Center"/>
+
+        <TextBlock Grid.Row="7" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Text="Results"/>
+        <ListBox Name="lsResult" Grid.Row="7" FontSize="{StaticResource ResourceKey=fontSize}" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}"/>
+        <Button Name="btnSaveResult" Grid.Row="7" VerticalAlignment="Center" FontSize="{StaticResource ResourceKey=fontSize}" Grid.Column="2" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}" Content="Save Result" />
+
+        <Button Name="btnExit" Grid.Row="8" FontSize="{StaticResource ResourceKey=fontSize}" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=controls}" Foreground="{StaticResource ResourceKey=texts}" Content="..:: Exit ::.." Click="btnExit_Click" />
+    </Grid>
+</Window>

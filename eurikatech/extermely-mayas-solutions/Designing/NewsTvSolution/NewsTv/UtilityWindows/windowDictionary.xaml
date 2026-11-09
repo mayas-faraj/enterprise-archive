@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    >
+    <LinearGradientBrush x:Key="backgrounds">
+        <GradientStop Color="Blue" Offset="0"/>
+        <GradientStop Color="LightBlue" Offset=".5"/>
+        <GradientStop Color="Blue" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="texts" Color="Navy">
+    </SolidColorBrush>
+
+    <RadialGradientBrush x:Key="textBoxes">
+        <GradientStop Color="White" Offset="0"/>
+        <GradientStop Color="LightBlue" Offset="1"/>
+    </RadialGradientBrush>
+
+    <LinearGradientBrush x:Key="buttons">
+        <GradientStop Color="Blue" Offset="0"/>
+        <GradientStop Color="LightBlue" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="buttonsText" Color="DarkBlue">
+    </SolidColorBrush>
+
+    <SolidColorBrush x:Key="borders" Color="Black"/>
+
+    <RadialGradientBrush x:Key="headers">
+        <GradientStop Color="Navy" Offset="0"/>
+        <GradientStop Color="Gold" Offset="1"/>
+    </RadialGradientBrush>
+
+    <RadialGradientBrush x:Key="footers">
+        <GradientStop Color="Navy" Offset="0"/>
+        <GradientStop Color="Gold" Offset=".5"/>
+        <GradientStop Color="Navy" Offset="1"/>
+    </RadialGradientBrush>
+
+    <CornerRadius x:Key="loginCornerRadius">0,10,0,10</CornerRadius>
+    <CornerRadius x:Key="logoCornerRadius">10,0,10,0</CornerRadius>
+    <CornerRadius x:Key="usersCornerRadius">10,0,10,0</CornerRadius>
+    <CornerRadius x:Key="keypadCornerRadius">10,0,10,0</CornerRadius>
+
+    <Thickness x:Key="bordersWidth">2</Thickness>
+    <Thickness x:Key="margin">3</Thickness>
+    <system:Double x:Key="textsSize">12</system:Double>
+    <system:Double x:Key="headersSize">16</system:Double>
+    <system:Double x:Key="footersSize">14</system:Double>
+    <system:Double x:Key="userWidth">75</system:Double>
+    <system:Double x:Key="userHeight">75</system:Double>
+</ResourceDictionary>

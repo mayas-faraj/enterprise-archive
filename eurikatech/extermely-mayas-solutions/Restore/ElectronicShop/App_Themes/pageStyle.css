@@ -1,0 +1,120 @@
+﻿.Table_WriteMessage
+{
+    width:50%;
+    border-color:#a05656;
+    border-width:5px;
+}
+
+.Table_Messages
+{
+    width:50%;
+    border-color:#a05656;
+    border-width:5px;
+}
+
+.Table_MessageCell
+{
+    border-color:#a05656;
+    border-width:5px;
+}
+
+.Table_Users
+{
+    width:40%;
+    border-color:#a05656;
+    border-width:5px;
+    border-style:solid;
+}
+
+.Table_Products
+{
+    width:60%;
+    border-color:#a05656;
+    border-width:5px;
+    border-style:solid;
+}
+
+.Table_ProductDetails
+{
+    width:80%;
+    border-color:#a05656;
+    border-width:5px;
+    border-style:solid;
+}
+
+.Table_Controls
+{
+    width:80%;
+    border-width:5px;
+    border-style:solid;
+    border-color:#000000;
+}
+
+.Table_ProductView
+{
+    width:70%;
+    
+}
+
+.TextBox
+{
+    color:#182583;
+    background-color:#e9ecff;
+}
+
+.Text_Required
+{
+    background-color:#fc3030;
+}
+
+.Label_Message
+{
+    color:#182583;
+    font-family:Times New Roman;
+    font-size:medium;
+}
+
+.Label_Error
+{
+    color:#fc0000;
+    font-style:italic;
+}
+
+.Label_Result
+{
+    color:#182583;
+    font-family:Times New Roman;
+    font-size:medium;
+}
+
+.Label_Price
+{
+    color:Red;
+    font-family:Times New Roman;
+    font-size:xx-large;
+}
+
+.Label_Rquired
+{
+    color:Red;
+}
+
+.Label_Main
+{
+    color:#182583;
+    font-family:Times New Roman;
+    font-size:larger;
+}
+
+.Button
+{
+    width:200;
+    color:#182583;
+    background-color:#e9ecff;
+}
+
+.Image_Code
+{
+    width:100;
+    height:40;
+}

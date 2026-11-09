@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="eshop.master.cs" Inherits="eshop"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html dir="rtl" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Electronic Shop Site</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="left" runat="server">
+    </asp:ContentPlaceHolder>
+    <link type="text/css" rel="Stylesheet" href="App_Themes/masterStyles.css" />
+    <link type="text/css" rel="Stylesheet" href="App_Themes/pageStyle.css" />
+</head>
+<body>
+    <form id="frmMain" runat="server">
+       <table class="Master_MainTable" id="tblMain">
+        <tr>
+            <td class="Master_Bannar" colspan="2">
+            <center>
+            <img src="App_Themes/images/maniyat.gif" alt="Mhd. Zaher Alkatsha & Mayas Faraj" />
+            </center>
+            </td>
+        </tr>
+        <tr>
+            <td class="Master_LeftCell">
+                <center>
+                    مرحباً بكم<br />
+                <table>
+                <tr><td><asp:ImageButton runat="server" ID="bimgMain" PostBackUrl="~/main.aspx" AlternateText="الصفحة الرئيسية" ImageUrl="~/App_Themes/images/index.gif" /></td></tr>
+                <tr><td><asp:ImageButton runat="server" ID="bimgBooks" PostBackUrl="~/library.aspx?gid=3" AlternateText="الكتب" ImageUrl="~/App_Themes/images/library.gif" /></td></tr>
+                <tr><td><asp:ImageButton runat="server" ID="bimgCourses" PostBackUrl="~/courses.aspx?gid=5" AlternateText="الدورات" ImageUrl="~/App_Themes/images/courses.gif" /></td></tr>
+                <tr><td><asp:ImageButton runat="server" ID="bimgSculpt" PostBackUrl="~/sculpts.aspx?gid=7" AlternateText="المنحوتات" ImageUrl="~/App_Themes/images/sculpts.gif" /></td></tr>
+                <tr><td><asp:ImageButton runat="server" ID="bimgComment" PostBackUrl="~/writeMessage.aspx" AlternateText="كتابة ملاحظة" ImageUrl="~/App_Themes/images/comment.gif" /></td></tr>
+                <tr><td><asp:ImageButton runat="server" ID="bimgLogin" PostBackUrl="~/login.aspx" AlternateText="تسجيل الدخول" ImageUrl="~/App_Themes/images/login.gif" /></td></tr>
+                </table>                         
+                </center>
+            </td>
+            <td class="Master_RightCell">
+            <table width="100%" style="height:100%">
+            <tr>
+            <td class="Master_CornerCell_UR"></td><td></td><td class="Master_CornerCell_UL"></td>
+            </tr>
+            <tr><td colspan="3"><asp:ContentPlaceHolder ID="mainContent" runat="server"></asp:ContentPlaceHolder></td></tr>
+            <tr>
+            <td  class="Master_CornerCell_DR"></td><td></td><td  class="Master_CornerCell_DL"></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+       </table>
+    </form>
+</body>
+</html>

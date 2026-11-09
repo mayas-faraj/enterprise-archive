@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="O:\web site" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="10/24/2012 16:02:02" />
+    <file relUrl="scripts.aspx" publishTime="11/10/2012 09:36:25" />
+    <file relUrl="streamagent.aspx" publishTime="10/15/2012 20:57:57" />
+    <file relUrl="decompress.aspx" publishTime="10/11/2012 17:44:24" />
+    <file relUrl="bin/Server.dll" publishTime="11/18/2012 09:14:09" />
+    <file relUrl="bin/Server.pdb" publishTime="11/18/2012 09:14:09" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="04/24/2012 10:36:57" />
+    <file relUrl="temp.aspx" publishTime="10/11/2012 17:10:19" />
+    <file relUrl="log.aspx" publishTime="10/24/2012 15:42:50" />
+    <file relUrl="textDatabase.aspx" publishTime="11/03/2012 15:14:22" />
+    <file relUrl="Dm.aspx" publishTime="11/06/2012 18:34:37" />
+    <file relUrl="sm.aspx" publishTime="11/07/2012 15:38:19" />
+    <file relUrl="App_Data/datastore.accdb" publishTime="11/19/2012 09:26:05" />
+    <file relUrl="agent.aspx" publishTime="10/15/2012 21:18:02" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="04/24/2012 10:36:57" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="04/24/2012 10:36:57" />
+  </publishProfile>
+</publishData>

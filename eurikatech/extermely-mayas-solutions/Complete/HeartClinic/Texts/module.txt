@@ -1,0 +1,10 @@
+class sealed Module
+{
+public static String CheckString(String input,Int32 length)
+{
+if(input.Trim().Length<=length)
+return input.Trim();
+else
+return input.Trim().Substring(0,length);
+}
+}

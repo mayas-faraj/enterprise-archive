@@ -1,0 +1,313 @@
+struct Operation
+{
+private Int64 id,checkNum;
+private String operationHall,operationType,operationName,operationDescription;
+private String sickName,sickJob,friendName;
+private Sleep sickSleep,friendSleep;
+private DateTime dateEnter,dateExit,dateOperation,dateCheck;
+private Byte soldJob;
+private Int32 costOperation,costOperationRoom,costPenj,costDiscus,costCare;
+private Int32 costVector,costDiagram,costBalon,costOxider,costOxiderBig,costOxiderSmall;
+private Int32 plusCost,totalCost,checkCost,sold;
+private Help soldCompany,soldCorporation,soldFamilly;
+private MedicitsCollection medicits;
+private ChecksCollection checks;
+private Int32 priceVector,priceDiagram,priceBalon;
+private Int16 numVector,numDiagram,numBalon;
+private Doctor drM1,drM2,drPhysics,drNurs,drCare,drPenjTech;
+private Dasam dt,dm,da;
+private Ico icoColor,icoPenj1,icoPenj2;
+
+public Int64 Id
+{
+get {return id;}
+}
+
+public Int64 CheckNum
+{
+get {return checkNum;}
+}
+
+public String OperationHall
+{
+get {return operationHall;}
+}
+
+public String OperationType
+{
+get {return operationType;}
+}
+
+public String OperationName
+{
+get {return operationName;}
+}
+
+public String OperationDescription
+{
+get {return operationDescription;}
+}
+
+public String SickName
+{
+get {return sickName;}
+}
+
+public String SickJob;
+{
+get {return sickJob;}
+}
+
+public String FriendName
+{
+get {return friendName;}
+}
+
+public Sleep SickSleep
+{
+get {return sickSleep;}
+}
+
+public Sleep FriendSleep
+{
+get {return firendSleep;}
+}
+
+public DateTime DateEnter
+{
+get {return dateEnter;}
+}
+
+public DateTime DateExit
+{
+get {return dateExit;}
+}
+
+public DateTime DateOperation
+{
+get {return dateOperation;}
+}
+
+public DateTime DateCheck
+{
+get {return dateCheck;}
+}
+
+public Byte SoldJob
+{
+get {return soldJob;}
+}
+
+public Int32 CostOperation
+{
+get {return costOperation;}
+}
+
+public Int32 CostOperationRoom
+{
+get {return costOperationRoom;}
+}
+
+public Int32 CostPenj
+{
+get {return costPenj;}
+}
+
+public Int32 CostDiscus
+{
+get {return costDiscus;}
+}
+
+public Int32 CostCare
+{
+get {return costCare;}
+}
+
+public Int32 CostVector
+{
+get {return costVector;}
+}
+
+public Int32 CostDiagram
+{
+get {return costDiagram;}
+}
+
+public Int32 CostBalon
+{
+get {return costBalon;}
+}
+
+public Int32 CostOxider
+{
+get {return costOxider;}
+}
+
+public Int32 CostOxiderBig
+{
+get {return costOxiderBig;}
+}
+
+public Int32 CostOxiderSmall
+{
+get {return costOxiderSmall;}
+}
+
+public Int32 Sold
+{
+get {return sold;}
+}
+
+public Int32 PlusCost
+{
+get {return plusCost;}
+}
+
+public Int32 TotalCost
+{
+get {return totalCost;}
+}
+
+public Int32 CheckCost
+{
+get {return checkCost;}
+}
+
+public Help SoldCompany
+{
+get {return soldCompany;}
+}
+
+public Help SoldCorporation
+{
+get {return soldCorporation;}
+}
+
+public Int32 SoldFamilly
+{
+get {return soldFamilly;}
+}
+
+public MedicitsCollection Medicits
+{
+get {return medicits;}
+}
+
+public ChecksCollection Checks
+{
+get {return checks;}
+}
+
+public Int32 PriceVector
+{
+get {return priceVector;}
+}
+
+public Int32 PriceDiagram
+{
+get {return priceDiagram;}
+}
+
+public Int32 PriceBalon
+{
+get {return priceBalon;}
+}
+
+public Int16 NumVector
+{
+get {return numVector;}
+}
+
+public Int16 NumDiagram
+{
+get {return numDiagram;}
+}
+
+public Int16 numBalon
+{
+get {return numBalon;}
+}
+
+public Doctor DrM1
+{
+get {return drM1;}
+}
+
+public Doctor drM2
+{
+get {return drM2;}
+}
+
+public Doctor DrPhysics
+{
+get {return drPhysics;}
+}
+
+public Doctor DrNurs
+{
+get {return drNurs;}
+}
+
+public Doctor DrPenjTech
+{
+get {return drPenjTech;}
+}
+
+public Doctor DrCare
+{
+get {return drCare;}
+}
+
+public Dasam DT
+{
+get {return dt;}
+}
+
+public Dasam DA
+{
+get {return da;}
+}
+
+public Dasam DM
+{
+get {return dm;}
+}
+
+pubic Ico IcoColor
+{
+get {return icoColor;}
+}
+
+pubic Ico IcoPenj1
+{
+get {return icoPenj1;}
+}
+
+pubic Ico IcoPenj2
+{
+get {return icoPenj2;}
+}
+
+public void SetOperation(Int64 operationId,String hall,String type,String nameOfOperation,String descriptionOfOperation,String nameOfSick,String nameOfFriend,String soldOfJob,Sleep sleepOfSick,Sleep sleepOfFriend,Int32 costOfOperation,Int32 costOfDiscus,Int32 costOfCare,Int32 priceOfVector,Int16 numOfVector,Int32 priceOfDiagram,Int16 numOfDiagram,Int32 priceOfBalon,Int16 numOfBalon.Int32 OxiderBig,Int32 OxiderSmall,Help corporation,Help company,Help familly,Int64 numOfCheck,MedicitsCollection operationMedicits,ChecksCollection operationChecks,DoctorsCollection Operationdoctors,Dasam dasamT,Dasam dasamM,Dasam dasamA,Ico color,Ico penj1,Ico penj2,DateTime enter,DateTime exit,DateTime operation,DateTime check)
+{
+id=operationId;
+dateEnter=enter;dateOperation=operation;
+dateExit=exit;;dateCheck=check;
+operationHall=CheckString(hall,50);operationType=CheckString(type,20);
+///////////////////////p
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+}

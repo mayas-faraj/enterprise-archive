@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="TopToBottom" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="AboutWindow" Category="Category3" Bounds="531.963490905762,271.063807983398,96.3566666666667,25.96" UseManualLocation="True" />
+    <Node Id="CirclesWindow" Category="Category5" Bounds="120.803333333333,391.72,98.0066666666667,25.96" />
+    <Node Id="CitiesWindow" Category="Category5" Bounds="123.628333333333,223.84,92.3566666666667,25.96" />
+    <Node Id="ImagesWindow" Category="Category5" Bounds="118.931666666667,335.76,101.75,25.96" />
+    <Node Id="LoginWindow" Category="Category3" Bounds="258.246666666667,0,93.1199999999999,25.96" />
+    <Node Id="MainWindow" Category="Category2" Bounds="259.678333333333,55.96,90.2566666666667,25.96" />
+    <Node Id="MapWindow" Category="Category1" Bounds="0,111.92,87.6133333333333,25.96" />
+    <Node Id="MessageWindow" Category="Category3" Bounds="391.596824239095,272.481166381836,110.366666666667,25.96" UseManualLocation="True" />
+    <Node Id="PointersWindow" Category="Category5" Bounds="116.44,279.8,106.733333333333,25.96" />
+    <Node Id="ProfileWindow" Category="Category5" Bounds="121.083333333333,167.88,97.4466666666667,25.96" />
+    <Node Id="ProfilesWindow" Category="Category5" Bounds="118.536666666667,111.92,102.54,25.96" />
+    <Node Id="SettingsWindow" Category="Category5" Bounds="251.648333333333,111.92,106.316666666667,25.96" />
+    <Node Id="UpdatesWindow" Category="Category5" Bounds="388.015,111.92,107.583333333333,25.96" />
+    <Node Id="UserWindow" Category="Category5" Bounds="529.075,167.88,87.4633333333334,25.96" />
+    <Node Id="UsersWindow" Category="Category5" Bounds="526.528333333333,111.92,92.5566666666668,25.96" />
+  </Nodes>
+  <Links>
+    <Link Source="CitiesWindow" Target="PointersWindow" Bounds="169.806671142578,249.800003051758,0,20.9999847412109" />
+    <Link Source="ImagesWindow" Target="CirclesWindow" Bounds="169.80666501152,361.720153051758,1.43153823728426E-06,21.0001" />
+    <Link Source="LoginWindow" Target="MainWindow" Bounds="304.806671142578,25.9599990844727,0,21" />
+    <Link Source="MainWindow" Target="MapWindow" Bounds="96.4133377075195,78.6157913208008,163.265007019043,35.005012512207" />
+    <Link Source="MainWindow" Target="ProfilesWindow" Bounds="209.434127807617,81.9199981689453,64.0590972900391,26.5536880493164" />
+    <Link Source="MainWindow" Target="SettingsWindow" Bounds="304.806671142578,81.9199981689453,0,21" />
+    <Link Source="MainWindow" Target="UpdatesWindow" Bounds="336.584014892578,81.9199981689453,65.1135559082031,26.5967559814453" />
+    <Link Source="MainWindow" Target="UsersWindow" Bounds="349.934997558594,78.3630676269531,167.783325195313,35.0341644287109" />
+    <Link Source="PointersWindow" Target="ImagesWindow" Bounds="169.806668826217,305.760053051758,1.43153826570597E-06,21.0001" />
+    <Link Source="ProfileWindow" Target="CitiesWindow" Bounds="169.806671142578,193.839996337891,0,21" />
+    <Link Source="ProfilesWindow" Target="ProfileWindow" Bounds="169.806671142578,137.880004882813,0,21" />
+    <Link Source="UsersWindow" Target="UserWindow" Bounds="572.806647703582,137.879951068115,1.14523060119609E-05,21.0001000000014" />
+  </Links>
+  <Categories>
+    <Category Id="Category1" Label="Category 1" Background="#FFFF7F7F" IsTag="True" />
+    <Category Id="Category2" Label="Category 2" Background="#FF7DC633" IsTag="True" />
+    <Category Id="Category3" Label="Category 3" Background="#FF7FC9FF" IsTag="True" />
+    <Category Id="Category5" Label="Category 5" Background="#FFA17FFF" IsTag="True" />
+  </Categories>
+  <Properties>
+    <Property Id="Background" Label="Background" Description="The background color" DataType="System.Windows.Media.Brush" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsTag" DataType="System.Boolean" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Category 1" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category1')" />
+      <Setter Property="Background" Value="#FFFF7F7F" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Category 2" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category2')" />
+      <Setter Property="Background" Value="#FF7DC633" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Category 3" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category3')" />
+      <Setter Property="Background" Value="#FF7FC9FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Category 5" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category5')" />
+      <Setter Property="Background" Value="#FFA17FFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>

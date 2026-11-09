@@ -1,0 +1,1727 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Booking Ultra Pro Plugin\n"
+"POT-Creation-Date: 2018-04-10 15:18-0300\n"
+"PO-Revision-Date: 2018-04-10 15:18-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: addons/appearance/admin/admin.php:73 addons/appearance/admin/admin.php:635
+msgid "Appearance"
+msgstr ""
+
+#: addons/appearance/admin/admin.php:134
+msgid "Default (With Time Slots)"
+msgstr ""
+
+#: addons/appearance/admin/admin.php:136
+msgid "Hotels (With From & To Dates)"
+msgstr ""
+
+#: addons/appearance/admin/admin.php:243 templates/dashboard.php:67
+msgid "Staff"
+msgstr ""
+
+#: addons/appearance/admin/admin.php:244
+msgid "Display As"
+msgstr ""
+
+#: addons/appearance/admin/admin.php:280
+msgid "There are no staff members."
+msgstr ""
+
+#: addons/appearance/admin/admin.php:414
+msgid "Drop&Down Label"
+msgstr ""
+
+#: addons/appearance/admin/admin.php:515
+msgid "DONE!"
+msgstr ""
+
+#: addons/appearance/admin/admin.php:600 addons/coupons/admin/admin.php:163
+#: addons/filters/admin/admin.php:214 addons/forms/admin/admin.php:139
+msgid "Name:"
+msgstr ""
+
+#: addons/appearance/admin/admin.php:606 addons/coupons/admin/admin.php:169
+#: addons/filters/admin/admin.php:220 addons/forms/admin/admin.php:145
+#: addons/reminders/admin/panels/manage.php:17
+#: addons/reminders/admin/panels/settings.php:17
+#: classes/bup.complement.payment.class.php:44 templates/dashboard.php:252
+#: templates/dashboard.php:368
+msgid "Close"
+msgstr ""
+
+#: addons/appearance/admin/admin.php:606 addons/coupons/admin/admin.php:169
+#: addons/filters/admin/admin.php:220 addons/forms/admin/admin.php:145
+msgid "Save"
+msgstr ""
+
+#: addons/appearance/admin/admin.php:686
+msgid "New template has been created."
+msgstr ""
+
+#: addons/appearance/admin/admin.php:689
+msgid "Please input a name for the new template."
+msgstr ""
+
+#: addons/appearance/admin/admin.php:712
+msgid "APPEARANCE"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:16
+#: addons/aweber/admin/panels/manage.php:8
+#: addons/coupons/admin/panels/manage.php:13
+#: addons/filters/admin/panels/manage.php:13
+#: addons/forms/admin/panels/manage.php:13
+msgid "Success "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:18
+msgid ""
+"This module gives you the capability to create new templates for your "
+"booking forms."
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:21
+msgid "Create New Template "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:26
+#: addons/coupons/admin/panels/manage.php:23
+#: addons/filters/admin/panels/manage.php:23
+#: addons/forms/admin/panels/manage.php:23
+msgid "Name: "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:35
+#: addons/coupons/admin/panels/manage.php:32
+#: addons/filters/admin/panels/manage.php:32
+#: addons/forms/admin/panels/manage.php:32
+msgid "Confirm"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:54
+#: addons/filters/admin/panels/manage.php:51
+msgid "ID"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:56
+#: addons/coupons/admin/panels/manage.php:52
+#: addons/filters/admin/panels/manage.php:52
+#: addons/forms/admin/panels/manage.php:52
+msgid "Name"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:57
+#: addons/coupons/admin/panels/manage.php:54
+#: addons/filters/admin/panels/manage.php:53
+#: addons/forms/admin/panels/manage.php:54
+msgid "Shortcode"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:59
+#: addons/coupons/admin/panels/manage.php:55
+#: addons/filters/admin/panels/manage.php:55
+#: addons/forms/admin/panels/manage.php:55
+#: classes/bup.complement.profile.class.php:830 templates/dashboard.php:168
+#: templates/dashboard.php:285 templates/dashboard.php:401
+#: templates/dashboard.php:868
+msgid "Actions"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:80
+#: addons/coupons/admin/panels/manage.php:74
+#: addons/filters/admin/panels/manage.php:75
+#: addons/forms/admin/panels/manage.php:74
+#: classes/bup.complement.dayoff.class.php:370
+#: classes/bup.complement.dayoff.class.php:433
+#: classes/bup.complement.note.class.php:103
+#: classes/bup.complement.profile.class.php:622
+#: classes/bup.complement.profile.class.php:862
+#: classes/bup.complement.profile.class.php:1134
+#: classes/bup.complement.profile.class.php:1459 templates/dashboard.php:227
+#: templates/dashboard.php:345 templates/dashboard.php:460
+#: templates/dashboard.php:931
+msgid "Delete"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:81
+#: addons/appearance/admin/panels/manage.php:82
+#: addons/coupons/admin/panels/manage.php:75
+#: addons/filters/admin/panels/manage.php:76
+#: addons/forms/admin/panels/manage.php:75
+#: classes/bup.complement.note.class.php:104
+#: classes/bup.complement.profile.class.php:623
+#: classes/bup.complement.profile.class.php:863 templates/dashboard.php:224
+#: templates/dashboard.php:342 templates/dashboard.php:457
+#: templates/dashboard.php:928
+msgid "Edit"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:97
+msgid "There are no templates yet."
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:106
+msgid "Are you totally sure that you want to delete this template?"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:126
+msgid "Template "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:147
+msgid "Activate Shopping Cart"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:149
+msgid "Show Locations"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:151
+msgid "Hide Services"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:153
+msgid "Hide Staff"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:163
+msgid "Set Type "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:167
+msgid "Set Categories "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:169
+msgid "Set Alias "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:306
+msgid "Select Location "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:307
+msgid "Location 1 "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:308
+msgid "Location 2 "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:309
+msgid "Location 3 "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:310
+msgid "Location 4 "
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:506
+msgid "Edit Data"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:507
+msgid "Set User Alias"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:508
+msgid "Set Categories"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:509
+msgid "Set Booking Form Type"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:517
+msgid "SAVE CHANGES"
+msgstr ""
+
+#: addons/appearance/admin/panels/manage.php:558
+#: addons/aweber/admin/panels/manage.php:102
+#: classes/bup.complement.profile.class.php:216
+#: classes/bup.complement.profile.class.php:220 templates/dashboard.php:964
+msgid "Please wait ..."
+msgstr ""
+
+#: addons/aweber/admin/admin.php:44 addons/aweber/admin/admin.php:358
+msgid "Aweber"
+msgstr ""
+
+#: addons/aweber/admin/admin.php:326
+#: classes/bup.complement.dayoff.class.php:157
+#: classes/bup.complement.dayoff.class.php:212
+#: classes/bup.complement.profile.class.php:1200
+#: classes/bup.complement.profile.class.php:1340
+#: classes/bup.complement.profile.class.php:1413
+msgid "Done!"
+msgstr ""
+
+#: addons/aweber/admin/admin.php:405
+msgid "AWEBER"
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:15
+msgid "IMPORTANT"
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:16
+msgid ""
+"You have to set your APP ID, Consumer Key and Consumer Secret to start using "
+"Aweber "
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:30
+msgid "CONNECT YOUR AWEBER ACCOUNT"
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:32
+msgid ""
+"Now that you have set the APP ID, Consumer Key and Consumer Secret you will "
+"need to conect your account with the plugin. This is required just once. "
+"Just <a href='"
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:34
+msgid ""
+"The Authorization code is giving right after you have connected your account "
+"with this website. Copy the 'authorization code' given into the field below "
+"and click 'Save Settings' to continue."
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:42
+msgid "Save Settings"
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:48
+msgid "Reset Settings"
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:56
+msgid "You're already connected to your AWeber Account."
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:59
+msgid "Reset Your Authorization Code"
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:63
+msgid "Your Lists"
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:65
+msgid "Please select what list the users will be added to."
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:70
+msgid "Set List"
+msgstr ""
+
+#: addons/aweber/admin/panels/manage.php:78
+msgid "IMPORTANT: Make sure you've set a list. Otherwise AWeber will fail."
+msgstr ""
+
+#: addons/coupons/admin/admin.php:58
+msgid "Manage Coupons"
+msgstr ""
+
+#: addons/coupons/admin/admin.php:198 addons/forms/admin/admin.php:174
+msgid "Forms"
+msgstr ""
+
+#: addons/coupons/admin/admin.php:260 addons/forms/admin/admin.php:236
+msgid "New form has been created."
+msgstr ""
+
+#: addons/coupons/admin/admin.php:263 addons/forms/admin/admin.php:239
+msgid "Please input a name for the new form."
+msgstr ""
+
+#: addons/coupons/admin/admin.php:286
+msgid "COUPONS"
+msgstr ""
+
+#: addons/coupons/admin/panels/manage.php:15
+#: addons/forms/admin/panels/manage.php:15
+msgid ""
+"This module gives you the capability to setup multiple or separate "
+"registration forms. For instance, If you want to have two separate forms or "
+"more e.g. Clients, Partners, Sellers, etc. This tool helps you create "
+"multiple forms with different fields."
+msgstr ""
+
+#: addons/coupons/admin/panels/manage.php:18
+#: addons/forms/admin/panels/manage.php:18
+msgid "Add New Form "
+msgstr ""
+
+#: addons/coupons/admin/panels/manage.php:51
+#: addons/forms/admin/panels/manage.php:51
+msgid "Unique Identifier"
+msgstr ""
+
+#: addons/coupons/admin/panels/manage.php:90
+#: addons/forms/admin/panels/manage.php:90
+msgid "There are no custom forms yet."
+msgstr ""
+
+#: addons/coupons/admin/panels/manage.php:99
+#: addons/forms/admin/panels/manage.php:99
+msgid "Are you totally sure that you want to delete this form?"
+msgstr ""
+
+#: addons/filters/admin/admin.php:65 addons/filters/admin/admin.php:249
+#: classes/bup.complement.profile.class.php:1886
+msgid "Locations"
+msgstr ""
+
+#: addons/filters/admin/admin.php:100 templates/dashboard.php:787
+msgid "All Locations"
+msgstr ""
+
+#: addons/filters/admin/admin.php:303
+msgid "New location has been created."
+msgstr ""
+
+#: addons/filters/admin/admin.php:306
+msgid "Please input a name for the new location."
+msgstr ""
+
+#: addons/filters/admin/admin.php:329
+msgid "LOCATIONS"
+msgstr ""
+
+#: addons/filters/admin/panels/manage.php:15
+msgid ""
+"This module gives you the capability to create locations for your bookings."
+msgstr ""
+
+#: addons/filters/admin/panels/manage.php:18
+msgid "Add New Location "
+msgstr ""
+
+#: addons/filters/admin/panels/manage.php:91
+msgid "There are no locations yet."
+msgstr ""
+
+#: addons/filters/admin/panels/manage.php:100
+msgid "Are you totally sure that you want to delete this location?"
+msgstr ""
+
+#: addons/forms/admin/admin.php:34
+msgid "Manage Forms"
+msgstr ""
+
+#: addons/forms/admin/admin.php:262
+msgid "FORMS"
+msgstr ""
+
+#: addons/profiles/admin/admin.php:43
+msgid "Staff Profile"
+msgstr ""
+
+#: addons/profiles/admin/admin.php:83
+msgid "Staff Directory"
+msgstr ""
+
+#: addons/profiles/admin/admin.php:131 addons/profiles/admin/admin.php:156
+msgid "Staff & Client Account"
+msgstr ""
+
+#: addons/profiles/admin/admin.php:209 addons/reminders/admin/admin.php:128
+msgid "Rewrite Rules were Saved."
+msgstr ""
+
+#: addons/profiles/admin/admin.php:218
+msgid "STAFF & CLIENT ACCOUNT SETTINGS"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:15
+msgid "Booking Ultra Staff Profile Pages"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:17
+msgid "Here you can set your custom pages for the staff profiles."
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:25
+msgid "Staff Profile Page"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:27
+msgid ""
+"Make sure you have the <code>[bup_profile]</code> shortcode on this page."
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:28
+msgid ""
+"This page is where users will view their own profiles, or view other user "
+"profiles from the member directory if allowed."
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:34
+msgid "My Account Page"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:36
+msgid ""
+"Make sure you have the <code>[bup_account]</code> shortcode on this page."
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:37
+msgid ""
+"This page is where users and staff members will be able to manage their "
+"appointments."
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:43
+msgid "Users Login Page"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:45
+msgid ""
+"Make sure you have the <code>[bupro_user_login]</code> shortcode on this "
+"page."
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:46
+msgid ""
+"This page is where users and staff members & clients will be able to recover "
+"to login to their accounts."
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:53
+msgid "Password Recover Page"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:55
+msgid ""
+"Make sure you have the <code>[bupro_user_recover_password]</code> shortcode "
+"on this page."
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:56
+msgid ""
+"This page is where users and staff members will be able to recover their "
+"passwords."
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:64
+msgid "Hide WP Admin Tool Bar?"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:66
+#: addons/profiles/admin/panels/manage.php:79
+#: addons/profiles/admin/panels/manage.php:130
+msgid "NO"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:67
+#: addons/profiles/admin/panels/manage.php:78
+#: addons/profiles/admin/panels/manage.php:129
+msgid "YES"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:69
+#: addons/profiles/admin/panels/manage.php:70
+msgid "If checked, User will not see the WP Admin Tool Bar"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:76
+msgid "Allow Clients to modify Appointment Details?"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:81
+#: addons/profiles/admin/panels/manage.php:82
+msgid "If YES, User will be able to update the appointment details"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:88
+msgid "Message Displayed If NOT allowed:"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:89
+#: addons/profiles/admin/panels/manage.php:90
+msgid ""
+"Input the text you would like to display clients if they are not allowed to "
+"modify the appointment details."
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:104
+#: addons/profiles/admin/panels/manage.php:156
+#: addons/reminders/admin/panels/manage.php:112
+#: addons/reminders/admin/panels/settings.php:55
+msgid "Save Changes"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:116
+msgid "Google Map"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:118
+msgid ""
+"Here you can set the Map Location which will be displayed on the staff "
+"profile. Please note, you will need to create an API Key on Google Console"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:127
+msgid "Allow Google Map API?"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:132
+msgid ""
+"If checked, User will see the Google Map on the Location Tab. <strong>PLEASE "
+"NOTE:</strong> The user must to fill out Country, City and Address fields"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:133
+msgid "If checked, User will see the Google Map on the Location Tab"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:139
+msgid "Google API Key:"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:140
+msgid ""
+"Enter your Google API Key. You can get your API by clicking <a href="
+"\"https://console.developers.google.com/flows/enableapi?apiid=maps_backend,"
+"geocoding_backend,directions_backend,distance_matrix_backend,"
+"elevation_backend,places_backend&reusekey=true\" target=\"_blank\">here </a> "
+"<br><br> PLEASE NOTE: You will need a Google Developer Account.<br><br> READ "
+"INSTRUCTIONS: Find out how to get your REST API key by cliking <a href="
+"\"http://doc.bookingultrapro.com/google-map-calendar-integration/\" target="
+"\"_blank\">here </a>"
+msgstr ""
+
+#: addons/profiles/admin/panels/manage.php:141
+msgid "Enter your Google API Key."
+msgstr ""
+
+#: addons/reminders/admin/admin.php:49 addons/reminders/admin/admin.php:75
+msgid "SMS Reminders"
+msgstr ""
+
+#: addons/reminders/admin/admin.php:50 templates/dashboard.php:99
+#: templates/dashboard.php:570
+msgid "Settings"
+msgstr ""
+
+#: addons/reminders/admin/admin.php:137
+msgid "SMS REMINDERS"
+msgstr ""
+
+#: addons/reminders/admin/panels/manage.php:17
+msgid ""
+"Evening reminder to customer about next day appointment (requires cron setup)"
+msgstr ""
+
+#: addons/reminders/admin/panels/manage.php:27
+msgid "Send SMS Reminder To Customer"
+msgstr ""
+
+#: addons/reminders/admin/panels/manage.php:29
+#: addons/reminders/admin/panels/manage.php:30
+msgid "Click to activate the SMS Reminders"
+msgstr ""
+
+#: addons/reminders/admin/panels/manage.php:68
+msgid "Sending time:"
+msgstr ""
+
+#: addons/reminders/admin/panels/manage.php:70
+#: addons/reminders/admin/panels/manage.php:71
+msgid "Set the time you want the notification to be sent."
+msgstr ""
+
+#: addons/reminders/admin/panels/manage.php:84
+msgid "Message"
+msgstr ""
+
+#: addons/reminders/admin/panels/manage.php:85
+msgid ""
+"Note: for long messages that are greater than 160 characters (80 for "
+"Unicode), they will be sent as multiple message segments and reassembled at "
+"the other end so the user sees them as a single message. Each message "
+"segment will be charged as a unique message."
+msgstr ""
+
+#: addons/reminders/admin/panels/manage.php:86
+msgid ""
+"Here you can set your custom messsage. PLEASE NOTE: HTML format is not "
+"avaialbe for SMS messages."
+msgstr ""
+
+#: addons/reminders/admin/panels/manage.php:95
+msgid "RESTORE DEFAULT TEMPLATE"
+msgstr ""
+
+#: addons/reminders/admin/panels/settings.php:17
+msgid "SMS Settings"
+msgstr ""
+
+#: addons/reminders/admin/panels/settings.php:18
+msgid ""
+"You can learn how to setup your SMS Reminders module by clicking on the "
+"following link."
+msgstr ""
+
+#: addons/reminders/admin/panels/settings.php:18
+msgid "Click here"
+msgstr ""
+
+#: addons/reminders/admin/panels/settings.php:27
+msgid "Your BUP Account ID:"
+msgstr ""
+
+#: addons/reminders/admin/panels/settings.php:28
+#: addons/reminders/admin/panels/settings.php:29
+msgid "Input your BUP account number."
+msgstr ""
+
+#: addons/reminders/admin/panels/settings.php:36
+msgid "Your SMS Token:"
+msgstr ""
+
+#: addons/reminders/admin/panels/settings.php:37
+#: addons/reminders/admin/panels/settings.php:38
+msgid "This can be found on your Booking Ultra Pro Account."
+msgstr ""
+
+#: classes/bup.complement.class.php:96
+msgid "Every 3 Minutes"
+msgstr ""
+
+#: classes/bup.complement.class.php:101
+msgid "Every 15 Minutes"
+msgstr ""
+
+#: classes/bup.complement.class.php:106
+msgid "Every 30 Minutes"
+msgstr ""
+
+#: classes/bup.complement.class.php:111
+msgid "Every 1 Hour"
+msgstr ""
+
+#: classes/bup.complement.class.php:398
+msgid "Select Location"
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:145
+#: classes/bup.complement.dayoff.class.php:200
+#: classes/bup.complement.profile.class.php:1188
+#: classes/bup.complement.profile.class.php:1401
+msgid "Invalid Date Range!"
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:163
+#: classes/bup.complement.profile.class.php:1206
+msgid "ERROR. Invalid Input both dates!"
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:218
+#: classes/bup.complement.profile.class.php:1419
+msgid "ERROR. Invalid Input!"
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:239
+#: classes/bup.complement.profile.class.php:3495
+msgid "From"
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:239
+#: classes/bup.complement.profile.class.php:3496
+msgid "To"
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:267
+msgid "On"
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:267
+msgid "I will <strong>not</strong> be available from : "
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:267
+msgid " to : "
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:267
+#: classes/bup.complement.profile.class.php:1302
+msgid "Add"
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:379
+#: classes/bup.complement.profile.class.php:1143
+msgid "There are no days off."
+msgstr ""
+
+#: classes/bup.complement.dayoff.class.php:442
+#: classes/bup.complement.profile.class.php:1468
+msgid "There are no special schedule."
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:659
+msgid "Appointment Details:"
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:660
+#: classes/bup.complement.profile.class.php:1794
+#: classes/bup.complement.profile.class.php:2106
+msgid "Service: "
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:661
+msgid "Staff Member: "
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:662
+#: templates/edit_appointment.php:31
+msgid "Client: "
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:663
+msgid "Phone: "
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:664
+msgid "Client Email: "
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:665
+#: classes/bup.complement.profile.class.php:1795
+#: classes/bup.complement.profile.class.php:2107
+msgid "Date: "
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:666
+#: classes/bup.complement.profile.class.php:1796
+#: classes/bup.complement.profile.class.php:2108
+msgid "Time: "
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:722
+#: classes/bup.complement.googlecalendar.class.php:736
+#: classes/bup.complement.googlecalendar.class.php:821
+#: classes/bup.complement.googlecalendar.class.php:835
+msgid "Please set client ID and client Secret!"
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:728
+#: classes/bup.complement.googlecalendar.class.php:827
+msgid "Connect Me!"
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:741
+#: classes/bup.complement.googlecalendar.class.php:840
+msgid "Already Connected!"
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:741
+#: classes/bup.complement.googlecalendar.class.php:840
+msgid "Disconnect"
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:744
+msgid "Select Your Calendar:"
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:747
+msgid "SET CALENDAR"
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:755
+msgid "IMPORTANT: You haven't set a calendar, yet."
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:757
+msgid ""
+"If you don't set a calendar the primary calendar will be used by default. "
+msgstr ""
+
+#: classes/bup.complement.googlecalendar.class.php:761
+msgid ""
+"If you don't see your new calendars, plase disconnect and connect again. "
+msgstr ""
+
+#: classes/bup.complement.note.class.php:116
+#: classes/bup.complement.profile.class.php:635
+msgid "There are no notes yet."
+msgstr ""
+
+#: classes/bup.complement.note.class.php:190
+#: classes/bup.complement.profile.class.php:503
+msgid "Title:"
+msgstr ""
+
+#: classes/bup.complement.note.class.php:192
+#: classes/bup.complement.profile.class.php:505
+msgid "Text:"
+msgstr ""
+
+#: classes/bup.complement.note.class.php:211
+msgid "Notes"
+msgstr ""
+
+#: classes/bup.complement.note.class.php:215 templates/dashboard.php:969
+msgid "Add Note"
+msgstr ""
+
+#: classes/bup.complement.payment.class.php:20
+#: classes/bup.complement.payment.class.php:46
+msgid "Payments"
+msgstr ""
+
+#: classes/bup.complement.payment.class.php:24
+#: classes/bup.complement.payment.class.php:55 templates/dashboard.php:968
+msgid "Add Payment"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:217
+msgid "<img src=\""
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:219
+msgid "You must make a selection first"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:222
+msgid "Please select a slot!"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:223
+msgid "Please select a service"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:224
+msgid "Please select a date"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:225
+#: classes/bup.complement.profile.class.php:232
+msgid "Are you sure?"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:226
+msgid "Please input a title"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:227
+msgid "Please write a message"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:229
+msgid "Please input an amount"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:230
+msgid "Please set a date"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:233
+msgid "Please type a Display Name for your Profile"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:240
+msgid "Done"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:241 templates/dashboard.php:119
+msgid "Today"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:242
+msgid "Prev"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:243
+msgid "Next"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:246
+msgid "Show a different month"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:390
+msgid "OVERVIEW"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:394
+msgid "SERVICES"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:398
+msgid "SCHEDULE"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:402
+msgid "MAKE AN APPOINTMENT"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:406
+msgid "ABOUT ME"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:513
+#: classes/bup.complement.profile.class.php:579
+#: classes/bup.complement.profile.class.php:643
+#: classes/bup.complement.profile.class.php:695
+#: classes/bup.complement.profile.class.php:761
+#: classes/bup.complement.profile.class.php:887
+#: classes/bup.complement.profile.class.php:930
+#: classes/bup.complement.profile.class.php:979
+#: classes/bup.complement.profile.class.php:1043
+msgid "Not Allowed "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:551
+msgid "Your calendar has been set! "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:809
+msgid "Service Cost"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:810
+msgid "Paid"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:811
+#: classes/bup.complement.profile.class.php:917
+#: classes/bup.complement.profile.class.php:3689 templates/dashboard.php:805
+msgid "Pending"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:822 templates/dashboard.php:151
+#: templates/dashboard.php:268 templates/dashboard.php:384
+#: templates/dashboard.php:851
+msgid "#"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:823 templates/dashboard.php:152
+#: templates/dashboard.php:269 templates/dashboard.php:385
+#: templates/dashboard.php:854
+msgid "Date"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:824
+msgid "Transaction ID"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:825
+msgid "Method"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:826 templates/dashboard.php:167
+#: templates/dashboard.php:284 templates/dashboard.php:400
+#: templates/dashboard.php:867 templates/edit_appointment.php:62
+#: templates/edit_appointment.php:70
+msgid "Status"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:827
+msgid "Amount"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:879
+msgid "There are no transactions yet."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:917
+#: classes/bup.complement.profile.class.php:919
+#: classes/bup.complement.profile.class.php:921
+#: classes/bup.complement.profile.class.php:923
+#: templates/edit_appointment.php:64
+msgid "Change Status"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:919 templates/dashboard.php:806
+msgid "Approved"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:921 templates/dashboard.php:807
+msgid "Cancelled"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:923 templates/dashboard.php:809
+msgid "No-Show"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:975
+msgid "Done! "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1039
+msgid "Deleted App: "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1248
+msgid "Delete Break"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1257
+msgid "There are no breaks for this day."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1300
+msgid "to"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1344
+msgid "ERROR. Duplicated Break!"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1530
+msgid "Please select a date."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1538
+msgid "Please select a service."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1548
+msgid "Below you can find a list of available time slots for "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1548
+msgid "by "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1674
+msgid "Unavailable"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1679
+msgid "Select Time Slot"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1713
+msgid "This Provider doesn't offer this service."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1791
+msgid "Done!. The appointment has been rescheduled. Below are the new details."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1792
+#: classes/bup.complement.profile.class.php:2104
+msgid "Appointment Details."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1797
+#: classes/bup.complement.profile.class.php:2109
+msgid "With: "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1798
+#: classes/bup.complement.profile.class.php:2110
+msgid "Cost: "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1822
+msgid "Services"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1835
+msgid "Schedule"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1847
+msgid "Special Schedule"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1861
+msgid ""
+"Please consider upgrading your plugin if you need to set special rules for "
+"your schedule. This feature allows you to set your availability on a "
+"particular day in advance."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1870
+msgid "Breaks"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1900
+msgid ""
+"Please consider upgrading your plugin if you need to manage multiple "
+"locations."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1912
+msgid "Days off"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:1926
+msgid "Please consider upgrading your plugin if you need to add breaks."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:2313
+msgid "Drop "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:2319
+msgid "Select Image"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:2324
+msgid "Remove"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:2328
+#: classes/bup.complement.profile.class.php:4288
+msgid "Cancel"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:2372
+msgid "Allowed Files"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:2429
+msgid "You may only upload one image at a time!"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:2444
+msgid "The file you selected exceeds the maximum filesize limit."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:2572
+msgid "Select a Service"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3354
+msgid "Make an Appointment"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3420 templates/dashboard.php:92
+msgid "My Profile"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3427 templates/dashboard.php:96
+msgid "My Account"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3436 templates/dashboard.php:95
+msgid "My Appointments"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3445 templates/dashboard.php:134
+msgid "Pending Approval"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3494
+msgid "Day"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3512
+#: classes/bup.complement.profile.class.php:3513
+#: classes/bup.complement.profile.class.php:3533
+#: classes/bup.complement.profile.class.php:3534
+#: classes/bup.complement.profile.class.php:3552
+#: classes/bup.complement.profile.class.php:3553
+#: classes/bup.complement.profile.class.php:3571
+#: classes/bup.complement.profile.class.php:3572
+#: classes/bup.complement.profile.class.php:3590
+#: classes/bup.complement.profile.class.php:3591
+#: classes/bup.complement.profile.class.php:3609
+#: classes/bup.complement.profile.class.php:3610
+#: classes/bup.complement.profile.class.php:3628
+#: classes/bup.complement.profile.class.php:3629
+msgid "OFF"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3519
+msgid "Monday"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3538
+msgid "Tuesday"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3557
+msgid "Wednesday"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3576
+msgid "Thursday"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3595
+msgid "Friday"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3614
+msgid "Saturday"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3633
+msgid "Sunday"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3676
+msgid "Amount:"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3678
+msgid "Transaction ID:"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3680
+msgid "Date:"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3687
+msgid "Status:"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3690
+msgid "Confirmed"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3737
+msgid "Price"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:3738
+msgid "Capacity"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4283
+msgid "Crop & Save"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4575
+#: classes/bup.complement.profile.class.php:6041
+msgid " ERROR! Password must be identical "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4581
+#: classes/bup.complement.profile.class.php:6047
+msgid " ERROR! Password should contain at least 7 alphanumeric characters "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4602
+msgid ""
+" Success!! The new password has been changed. Please click on the login link "
+"to get in your account.  "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4652
+msgid " Success!! Your Personal Details Were Updated  "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4684
+msgid " ERROR! Please type your new email "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4690
+msgid " ERROR! Please type a valid email address "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4709
+msgid " ERROR! You haven't changed your email. "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4718
+msgid " ERROR! The email is in use already "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4761
+msgid " Success!! Your email account has been changed to : "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4872
+msgid "Unread Messages"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4943
+#: classes/bup.complement.profile.class.php:5136
+msgid "<strong>ERROR:</strong> The username field is empty."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:4951
+msgid "<strong>ERROR:</strong> The password field is empty."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5023
+msgid "<strong>ERROR:</strong> Invalid Username was entered."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5026
+msgid "<strong>ERROR:</strong> Incorrect password was entered."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5030
+msgid "<strong>ERROR:</strong> Please provide Password."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5047
+#: classes/bup.complement.profile.class.php:5203
+msgid "<strong>ERROR:</strong> Your account is not active."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5097
+msgid " A reset link has been sent to the user. "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5158
+#: classes/bup.complement.profile.class.php:5181
+msgid "<strong>ERROR:</strong> Invalid Email or Username."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5243
+msgid " A reset link has been sent to your email. "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5800
+msgid "Login"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5826
+msgid "Login data"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5832
+#: classes/bup.complement.profile.class.php:5945
+msgid "Username or Email"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5838
+#: classes/bup.complement.profile.class.php:5960
+msgid "Type your Username or Email"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5838
+#: classes/bup.complement.profile.class.php:5853
+#: classes/bup.complement.profile.class.php:5960
+#: classes/bup.complement.profile.class.php:5977
+msgid " * This input is required!"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5847
+msgid "Password"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5853
+msgid "Type your Password"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5860
+#: classes/bup.complement.profile.class.php:5986
+msgid "Submit"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5868
+msgid "Please set a password reset page."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5872
+msgid "Forgot Password?"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5900
+msgid "Recover Password"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5935
+msgid "Type your new password"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5936
+msgid "Re-Type your password"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5950
+msgid "Recover your password"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5977
+msgid "Type your new password again"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5995
+msgid "Please set a login page."
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:5999
+msgid "Login to your account?"
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:6066
+msgid " Success!! The new password has been sent to "
+msgstr ""
+
+#: classes/bup.complement.profile.class.php:6072
+msgid " ERROR! Invalid reset link "
+msgstr ""
+
+#: templates/dashboard.php:71
+msgid "Client"
+msgstr ""
+
+#: templates/dashboard.php:89
+msgid "Main"
+msgstr ""
+
+#: templates/dashboard.php:101
+msgid "Logout"
+msgstr ""
+
+#: templates/dashboard.php:120
+msgid "Tomorrow"
+msgstr ""
+
+#: templates/dashboard.php:121
+msgid "This Week"
+msgstr ""
+
+#: templates/dashboard.php:156 templates/dashboard.php:273
+#: templates/dashboard.php:389 templates/dashboard.php:858
+msgid "Location"
+msgstr ""
+
+#: templates/dashboard.php:163 templates/dashboard.php:280
+#: templates/dashboard.php:396 templates/dashboard.php:864
+msgid "Service"
+msgstr ""
+
+#: templates/dashboard.php:164 templates/dashboard.php:281
+#: templates/dashboard.php:397 templates/dashboard.php:865
+msgid "At"
+msgstr ""
+
+#: templates/dashboard.php:241
+msgid "There are no pending approval appointments yet."
+msgstr ""
+
+#: templates/dashboard.php:252
+msgid "Today Approved Appointments"
+msgstr ""
+
+#: templates/dashboard.php:359 templates/dashboard.php:472
+msgid "There are no approved appointments yet."
+msgstr ""
+
+#: templates/dashboard.php:368
+msgid "This Week Approved Appointments"
+msgstr ""
+
+#: templates/dashboard.php:488
+msgid "Appointment Details"
+msgstr ""
+
+#: templates/dashboard.php:547
+msgid "'s Picture"
+msgstr ""
+
+#: templates/dashboard.php:586
+msgid "Google Calendar"
+msgstr ""
+
+#: templates/dashboard.php:603
+msgid "Personal Details"
+msgstr ""
+
+#: templates/dashboard.php:613
+msgid "Your Display Name"
+msgstr ""
+
+#: templates/dashboard.php:616
+msgid "Your Address"
+msgstr ""
+
+#: templates/dashboard.php:619
+msgid "Your City"
+msgstr ""
+
+#: templates/dashboard.php:622
+msgid "Your Country"
+msgstr ""
+
+#: templates/dashboard.php:625
+msgid "Summary"
+msgstr ""
+
+#: templates/dashboard.php:628
+msgid "Description"
+msgstr ""
+
+#: templates/dashboard.php:635
+msgid "UPDATE INFORMATION"
+msgstr ""
+
+#: templates/dashboard.php:643
+msgid "Update your Password"
+msgstr ""
+
+#: templates/dashboard.php:649
+msgid "Type your New Password"
+msgstr ""
+
+#: templates/dashboard.php:652
+msgid "Re-type your New Password"
+msgstr ""
+
+#: templates/dashboard.php:657
+msgid "RESET PASSWORD"
+msgstr ""
+
+#: templates/dashboard.php:667
+msgid "Update Your Email"
+msgstr ""
+
+#: templates/dashboard.php:672
+msgid "Type your New Email"
+msgstr ""
+
+#: templates/dashboard.php:677
+msgid "CHANGE EMAIL"
+msgstr ""
+
+#: templates/dashboard.php:734
+msgid "All My Appointments"
+msgstr ""
+
+#: templates/dashboard.php:744
+msgid "All Months"
+msgstr ""
+
+#: templates/dashboard.php:758
+msgid "All Days"
+msgstr ""
+
+#: templates/dashboard.php:772
+msgid "All Years"
+msgstr ""
+
+#: templates/dashboard.php:804
+msgid "All Status"
+msgstr ""
+
+#: templates/dashboard.php:815 templates/dashboard.php:816
+#: templates/dashboard.php:817 templates/dashboard.php:818
+#: templates/dashboard.php:819
+msgid "Per Page"
+msgstr ""
+
+#: templates/dashboard.php:823
+msgid "Filter"
+msgstr ""
+
+#: templates/dashboard.php:913
+msgid "See Details"
+msgstr ""
+
+#: templates/dashboard.php:943
+msgid "There are no appointments yet."
+msgstr ""
+
+#: templates/dashboard.php:967
+msgid "Appointment Status"
+msgstr ""
+
+#: templates/edit_appointment.php:31
+msgid "Created on : "
+msgstr ""
+
+#: templates/edit_appointment.php:31
+msgid "Appointment Date: "
+msgstr ""
+
+#: templates/edit_appointment.php:31
+msgid "at "
+msgstr ""
+
+#: templates/edit_appointment.php:40
+msgid "Select Service"
+msgstr ""
+
+#: templates/edit_appointment.php:47
+msgid "On or After"
+msgstr ""
+
+#: templates/edit_appointment.php:74
+msgid "Cancel Appointment"
+msgstr ""
+
+#: templates/edit_appointment.php:91
+msgid "Reschedule Appointment"
+msgstr ""
+
+#: templates/edit_appointment.php:97
+msgid "Check Availability"
+msgstr ""
+
+#: templates/edit_appointment.php:111
+msgid "Availability"
+msgstr ""
+
+#: templates/edit_appointment.php:115
+msgid ""
+"Please click on the Check Availability to display the available time slots."
+msgstr ""
+
+#: templates/edit_appointment.php:121
+msgid "Send Notification To Client"
+msgstr ""
+
+#: templates/edit_appointment.php:127
+msgid "Confirm Reschedule "
+msgstr ""
+
+#: templates/edit_appointment.php:151
+msgid "Update Info"
+msgstr ""
+
+#: templates/profile.php:43
+msgid "Hi"
+msgstr ""
+
+#: templates/profile.php:43
+msgid " I'm "
+msgstr ""
+
+#: templates/profile.php:82 templates/profile2.php:71
+msgid "Overview: "
+msgstr ""
+
+#: templates/profile.php:82 templates/profile.php:90 templates/profile.php:99
+#: templates/profile.php:112
+msgid "Close "
+msgstr ""
+
+#: templates/profile.php:90
+msgid "Schedule: "
+msgstr ""
+
+#: templates/profile.php:99
+msgid "Location: "
+msgstr ""
+
+#: templates/profile.php:112 templates/profile2.php:76
+msgid "Services: "
+msgstr ""
+
+#: templates/profile.php:129 templates/profile2.php:118
+msgid "Make an Appointment: "
+msgstr ""
+
+#: templates/profile2.php:91
+msgid "My Services: "
+msgstr ""
+
+#: templates/profile2.php:104
+msgid "My Schedule: "
+msgstr ""

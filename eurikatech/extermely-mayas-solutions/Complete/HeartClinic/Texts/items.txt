@@ -1,0 +1,204 @@
+struct Ico
+{
+private Int32 cost,totalCost;
+private Int16 num;
+private Doctor drIco;
+
+public Int32 Cost
+{
+get {return cost;}
+}
+
+public Int32 TotalCost
+{
+get {return totalCost;}
+}
+
+public Int16 Num
+{
+get {return num;}
+}
+
+public Doctor DrIco
+{
+get {return drIco;}
+}
+
+public void SetIco(Doctor doctor,Int32 icoCost,Int16 icoNum)
+{
+cost=icoCost;
+num=icoNum;
+totalCost=cost*num;
+drIco=doctor;
+}
+
+public void Clear()
+{
+cost=0;
+num=0;
+totalCost=0;
+drIco=null;
+}
+
+public override String ToString()
+{
+return drIco.Name;
+}
+}
+
+struct Dasam
+{
+private Int32 cost;
+private String name,size;
+
+public Int32 Cost
+{
+get {return cost;}
+}
+
+public String Name
+{
+get{return name;}
+}
+
+public String Size
+{
+get{return size;}
+}
+
+public void SetDasam(String dasamType,String dasamSize,Int32 dasamCost)
+{
+name=CheckString(dasamType,20);
+size=CheckString(dasamSize,20);
+cost=dasamCost;
+}
+
+public void Clear()
+{
+name="";
+size="";
+cost=0;
+}
+
+public override String ToString()
+{
+return name + " - " + size + " - ( " + cost + " ) .";
+}
+}
+
+struct Help
+{
+private String name,bookNum;
+private Int32 cost;
+private DateTime bookDate;
+
+public String Name
+{
+get {return name;}
+}
+
+public String BookNum
+{
+get {return bookNum;}
+}
+
+public Int32 Cost
+{
+get {return cost;}
+}
+
+public DateTime BookDate
+{
+get {return bookDate;}
+}
+
+public void SetHelp(String companyName,String bookNumber,Int32 helpAmount,DateTime dateOfBook)
+{
+name=CheckString(companyName,100);
+bookNum=CheckString(bookNumber,50);
+cost=helpAmount;
+bookDate=dateOfBook;
+}
+
+public void Clear()
+{
+name="";
+bookNum="";
+cost=0;
+bookDate=null;
+}
+
+public override String ToString()
+{
+return name + " , " / " + bookNum + " / , ( " + cost + " ) .";
+}
+}
+
+struct Sleep
+{
+private Int32 costCare,totalCostCare,costSweet,totalCostSweet,totalCost;
+private Int16 numCare,numSweet;
+
+public Int32 CostCare
+{
+get {return costCare;}
+}
+
+public Int32 TotalCostCare
+{
+get {return totalCostCare;}
+} 
+
+public Int32 CostSweet
+{
+get {return costSweet;}
+}
+
+public Int32 TotalCostSweet
+{
+get {return totalCostSweet;}
+}
+
+public Int32 TotalCost
+{
+get {return totalCost;}
+}
+
+public Int16 NumCare
+{
+get {return numCare;}
+}
+
+public Int16 NumSweet
+{
+get {return numSweet;}
+}
+
+public void SetSleep(Int32 roomCareCost,Int16 roomCareNumber,Int32 roomSweetCost,Int16 roomSweetNumber)
+{
+costCare=roomCareCost;
+numCare=roomCareNumber;
+totalCostCare=costCare*numCare;
+
+costSweet=roomSweetCost;
+numSweet=roomSweetNumber;
+totalCostSweet=costSweet*numSweet;
+
+totalCost=totalCostSweet + totalCostCare;
+}
+
+public void Clear()
+{
+costCare=0;numCare=0;totalCostCare=0;
+costSweet=0;numSweet=0;totalCostSweet=0;
+totalCost=0;
+}
+}
+
+
+
+
+
+
+
+

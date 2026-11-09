@@ -1,0 +1,31 @@
+﻿<Application x:Class="AutoShipmaster.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="frmLogin.xaml">
+    <Application.Resources>
+        <LinearGradientBrush x:Key="background">
+            <GradientStop Offset="0" Color="Silver"/>
+            <GradientStop Offset="1" Color="Black"/>
+        </LinearGradientBrush>
+        <RadialGradientBrush x:Key="captions">
+            <GradientStop Offset="0" Color="LightBlue"/>
+            <GradientStop Offset="1" Color="Coral"/>
+        </RadialGradientBrush>
+        <LinearGradientBrush x:Key="textBoxes">
+            <GradientStop Offset="0" Color="Pink"/>
+            <GradientStop Offset="1" Color="Yellow"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="texts">
+            <GradientStop Offset="0" Color="Blue"/>
+            <GradientStop Offset="1" Color="Navy"/>
+        </LinearGradientBrush>
+        <RadialGradientBrush x:Key="buttons">
+            <GradientStop Offset="0" Color="Black"/>
+            <GradientStop Offset="1" Color="Silver"/>
+        </RadialGradientBrush>
+        <LinearGradientBrush x:Key="textBlockes">
+            <GradientStop Offset="0" Color="Orange"/>
+            <GradientStop Offset="1" Color="Yellow"/>
+        </LinearGradientBrush>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Maniyat.InformationControlCollection">
+    <Position X="6" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAACAAABAAAAAAAAAABCAAAAABAAAA=</HashCode>
+      <FileName>Collections.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.Information">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <Members>
+      <Field Name="ADD_TEXT" Hidden="true" />
+      <Field Name="ADD_TOOLTIP" Hidden="true" />
+      <Field Name="BROWSE_TEXT" Hidden="true" />
+      <Field Name="CHECKBOXS_TEXT" Hidden="true" />
+      <Field Name="CLEAR_TEXT" Hidden="true" />
+      <Field Name="CLEAR_TOOLTIP" Hidden="true" />
+      <Field Name="COMMANDS_REGION_WIDTH" Hidden="true" />
+      <Field Name="DELETE_TEXT" Hidden="true" />
+      <Field Name="DELETE_TOOLTIP" Hidden="true" />
+      <Field Name="EDIT_TEXT" Hidden="true" />
+      <Field Name="EDIT_TOOLTIP" Hidden="true" />
+      <Field Name="TEXTS_REGION_WIDTH" Hidden="true" />
+      <Field Name="TITLES_REGION_WIDTH" Hidden="true" />
+      <Field Name="UPDATE_TEXT" Hidden="true" />
+      <Field Name="UPDATE_TOOLTIP" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>hICECKwMkCgqIAAIBIAAGChIAQKxBAEBAAwkAAABJAA=</HashCode>
+      <FileName>Information.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.InformationControl">
+    <Position X="3.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>BBACQAAAAmAgAABAIDAAQAQgAAAFAAABAQAgIQQAAAE=</HashCode>
+      <FileName>InformationControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Maniyat.IInformation">
+    <Position X="6" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Information.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Maniyat.ControlType">
+    <Position X="8.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAQAAAAAAAAAAACAAAAAAABQAAABACAIAAgA=</HashCode>
+      <FileName>InformationControl.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

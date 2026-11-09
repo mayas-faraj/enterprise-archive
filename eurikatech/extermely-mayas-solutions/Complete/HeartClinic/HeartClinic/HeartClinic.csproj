@@ -1,0 +1,153 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2FADD46B-1894-4B1D-B73B-3BFA78D61B89}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HeartClinic</RootNamespace>
+    <AssemblyName>HeartClinic</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataBase.cs" />
+    <Compile Include="Exception.cs" />
+    <Compile Include="FrmDoctors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDoctors.Designer.cs">
+      <DependentUpon>FrmDoctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGives.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGives.Designer.cs">
+      <DependentUpon>FrmGives.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHalls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHalls.Designer.cs">
+      <DependentUpon>FrmHalls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmItems.Designer.cs">
+      <DependentUpon>FrmItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOperation.Designer.cs">
+      <DependentUpon>FrmOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOperationShort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOperationShort.Designer.cs">
+      <DependentUpon>FrmOperationShort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSicks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSicks.Designer.cs">
+      <DependentUpon>FrmSicks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="operation.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmDoctors.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGives.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmGives.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHalls.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmHalls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmItems.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOperation.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOperationShort.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmOperationShort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSicks.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmSicks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

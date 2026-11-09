@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Maniyat.DurationDivides">
+    <Position X="6.75" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAACAAAAAAAACAAAAAAAAAAABAAAAAAAAACIA=</HashCode>
+      <FileName>DurationDivides.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.Element">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BQAACEAAIAoTEAAAAgIAAEAIAVABAAFAAIIAAIUAABA=</HashCode>
+      <FileName>Elements.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Maniyat.TextElement">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAAAgAAAAICQAAAAkAAAAAAAAAIAAAACAAAAAA=</HashCode>
+      <FileName>Elements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.ImageElement">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAYAQAACAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Elements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.Presentation" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>Ih0hAIABKqAGADAAjAAAAAQCOCCVNEBAIQAkAEGGDZg=</HashCode>
+      <FileName>Presentation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Maniyat.Slide" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAABAIAAQACAAEABA=</HashCode>
+      <FileName>Slides.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.235" Collapsed="true" />
+  </Class>
+  <Class Name="Maniyat.SlideCollection" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAACAAABAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Slides.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.252" Collapsed="true" />
+  </Class>
+  <Interface Name="Maniyat.IPresentation">
+    <Position X="6.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AgAgAAAAKCAAABAABAAAAAAAAAAAAEAAIQAAAAAABAA=</HashCode>
+      <FileName>Presentation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Maniyat.TransitionEffect" Collapsed="true">
+    <Position X="4.75" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAQAAAAAAAAAAAAACAAAAAAgAAAAAEAAIA=</HashCode>
+      <FileName>Enumeration.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Maniyat.ConstantEffect" Collapsed="true">
+    <Position X="4.75" Y="6.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAIAAQAAAAAAAAAAAAACAAAAAAgAAAAAEAAIA=</HashCode>
+      <FileName>Enumeration.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Maniyat.TimerPhase" Collapsed="true">
+    <Position X="6.75" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAQAAAAAAAAYAAAEAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Enumeration.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

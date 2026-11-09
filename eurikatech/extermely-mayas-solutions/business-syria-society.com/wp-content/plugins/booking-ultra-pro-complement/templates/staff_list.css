@@ -1,0 +1,283 @@
+/* ------------------------------------------------------------------------- *
+
+ *  Users Directory V3
+
+/* ------------------------------------------------------------------------- */
+.bup-directory3{
+
+	margin:10px auto 10px auto; padding:20px 0px 10px 0px;	
+	width:100%;	
+}
+
+.bup-directory3 ul{
+
+	width:100%;
+	padding-left:5px;
+	text-align:center;
+	margin:10px 0px 10px 0px;
+}
+
+
+
+.bup-directory3 .bup-my-thumb{	
+
+	margin-left:1em;
+
+}
+
+
+
+.bup-directory3 .bup-desc-info{
+
+	text-align:center;
+
+}
+
+.bup-directory3  .bup-my-thumb img{
+	
+
+	border-radius: 50%;
+	max-width:none;
+}
+
+
+
+.bup-directory3 ul .bup-my-thumb a{
+
+	
+
+	background-color: #fff;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    margin: -45px 2px 0 -3px;
+
+    padding: 4px;
+
+    position: relative;
+
+    vertical-align: bottom;
+
+    z-index: 1;
+
+	height:auto; width:auto;
+
+}
+
+
+.bup-directory3 ul li{
+
+	
+
+	width:22% ;
+
+	text-align:center;
+
+	border:solid 1px #F2F2F2;
+
+	height:auto !important;
+
+	display:inline-block;
+
+	vertical-align:top;
+
+	margin:10px 1% 20px 1%;
+
+	padding:5px;	
+
+	min-height:230px !important;
+
+	height:auto !important;
+
+	
+
+	background-color: #fff;
+
+    border-radius: 5px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+}
+
+.bup-directory3 p.bup-user-name{
+	font-size:17px !important;
+
+	text-align:center;	
+
+}
+
+.bup-directory3 a{
+	
+	text-decoration:none;
+	color:#666
+
+}
+
+.bup-directory3 a:hover{
+	
+	text-decoration:none;
+	color: #333
+
+}
+
+
+
+.bup-directory3 .bup-profile-card-bg-profile {
+
+    background-position: 0 50%;
+    background-size: 100% auto;
+    border-bottom: 1px solid #e1e8ed;
+    border-radius: 4px 4px 0 0;
+    display: block;
+
+    height: 95px;
+
+}
+
+/* ------------------------------------------------------------------------- *
+
+ *  Responsive Style
+
+/* ------------------------------------------------------------------------- */
+
+/************************************************************************************
+
+MEDIA QUERIES
+
+*************************************************************************************/
+
+
+
+/* Large screens */
+
+@media only screen and (min-width : 1680px) {
+
+
+
+}
+
+
+
+/* Tablet Landscape */
+
+ @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+
+
+}
+
+
+
+
+
+
+
+/* for 980px or less */
+
+@media screen and (max-width: 1000px) {
+	
+
+}
+
+
+/* Smaller than 960px */
+
+@media only screen and (max-width: 959px) {
+
+}
+
+
+
+/* MAX 800px */
+
+
+
+@media only screen and (max-width: 800px){
+	
+
+
+}
+
+
+
+/* for 750px or less */
+
+@media only screen and (max-width: 750px) {
+	
+
+}
+
+@media only screen and (max-width: 620px) {
+	
+	
+
+
+}
+
+/*  GO FULL WIDTH AT LESS THAN 580 PIXELS */
+
+@media only screen and (max-width: 580px) {
+	
+
+
+}
+
+
+@media only screen and (max-width: 460px) {
+	
+
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	
+
+
+
+}
+
+
+
+/* MAX 1440px */
+
+
+
+@media only screen and (max-width: 1440px){
+
+
+
+
+}
+
+
+
+
+
+/* MAX 1024px */
+
+
+
+@media only screen and (max-width: 1024px){
+
+
+
+}
+
+
+/* MAX 360px */
+
+
+
+@media only screen and (max-width: 320px){
+
+
+		
+
+}
+

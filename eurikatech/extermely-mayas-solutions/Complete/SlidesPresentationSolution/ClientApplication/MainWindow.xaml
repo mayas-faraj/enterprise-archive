@@ -1,0 +1,27 @@
+﻿<Window x:Class="ClientApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid Name="main" Background="blue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ContentControl Margin="30" Name="content"/>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Name="txTimer" Grid.Column="0" Text="not started" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" MouseUp="txTimer_MouseUp" Margin="0,10,0,0" />
+            <Button Name="btnStart" Grid.Column="1" Content="Start" Margin="10" Click="btnStart_Click" />
+            <Button Name="btnPause" Grid.Column="2" Content="Pause" Margin="10" Click="btnPause_Click" />
+            <Button Name="btnStop" Grid.Column="3" Content="End" Margin="10" Click="btnStop_Click" />
+            
+        </Grid>
+    </Grid>
+</Window>

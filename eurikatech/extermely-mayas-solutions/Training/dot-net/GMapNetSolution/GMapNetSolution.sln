@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMapNet", "GMapNet\GMapNet.csproj", "{2422AA47-55D1-4541-A729-3E1C5D60AA5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingMap", "BingMap\BingMap.csproj", "{9E071560-CD36-4487-8E30-E54DC7CA3104}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2422AA47-55D1-4541-A729-3E1C5D60AA5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2422AA47-55D1-4541-A729-3E1C5D60AA5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2422AA47-55D1-4541-A729-3E1C5D60AA5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2422AA47-55D1-4541-A729-3E1C5D60AA5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E071560-CD36-4487-8E30-E54DC7CA3104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E071560-CD36-4487-8E30-E54DC7CA3104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E071560-CD36-4487-8E30-E54DC7CA3104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E071560-CD36-4487-8E30-E54DC7CA3104}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

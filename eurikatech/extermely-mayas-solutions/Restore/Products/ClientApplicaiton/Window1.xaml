@@ -1,0 +1,13 @@
+﻿<Window x:Class="ClientApplicaiton.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="450" Width="900" Closed="Window_Closed">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Name="scrollViewer1" Grid.Column="0" Background="gray"/>
+        <ScrollViewer Name="scrollViewer2" Grid.Column="1" Background="Silver"/>
+    </Grid>
+</Window>

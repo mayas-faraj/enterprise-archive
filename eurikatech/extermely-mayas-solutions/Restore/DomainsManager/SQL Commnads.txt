@@ -1,0 +1,77 @@
+USE master;
+
+CREATE DATABASE DomainDatabse 
+ON
+(
+NAME=DomainDatabase,
+FILENAME='E:\Database\DomainDatabase.mdf',
+SIZE=40 MB,
+FILEGROWTH=10 MB
+)
+LOG ON
+(
+NAME=DomainDatabase_Log,
+FILENAME='E:\Database\DomainDatabase.ldf',
+SIZE=5 MB,
+FILEGROWTH=2 MB
+);
+
+use domainDatabase;
+
+CREATE TABLE tUsers
+(
+Id INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+UserName NVARCHAR (50) UNIQUE NOT NULL,
+UserPassword NVARCHAR(50),
+IconPath NVARCHAR (100),
+Settings NVARCHAR (500)
+);
+
+CREATE TABLE tStates
+(
+id SMALLINT PRIMARY KEY NOT NULL IDENTITY (1,1),
+Name NVARCHAR (50) UNIQUE NOT NULL,
+Common NVARCHAR (500),
+Color INT
+);
+
+CREATE TABLE tDomains
+(
+id INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+Name NVARCHAR (50) UNIQUE NOT NULL,
+Common NVARCHAR (500),
+IconPath NVARCHAR (100),
+UserId INT NOT NULL REFERENCES tUsers(id),
+VisibleToAll BIT DEFAULT 'false'
+);
+
+CREATE TABLE tProjects
+(
+Id INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+Name NVARCHAR (50) UNIQUE NOT NULL,
+DomainId INT NOT NULL REFERENCES tDomains(id),
+StateId SMALLINT NOT NULL REFERENCES tStates(id),
+UserId INT NOT NULL REFERENCES tUsers(id),
+VisibleToAll BIT DEFAULT 'false',
+Common NVARCHAR (500),
+StartDate DateTime NOT NULL,
+EndDate DateTime Not Null,
+IconPath NVARCHAR (100)
+);
+
+CREATE TABLE tItems
+(
+Id INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+Name NVARCHAR (50) UNIQUE NOT NULL,
+ProjectId INT NOT NULL REFERENCES tProjects(id),
+Common NVARCHAR (500),
+IconPath NVARCHAR (100),
+FilePath NVARCHAR (500) NOT NULL
+);
+
+CREATE TABLE tTimes
+(
+ProjectId INT NOT NULL REFERENCES tProjects (id),
+Period DateTime NOT NULL,
+Common NVARCHAR (150)
+);

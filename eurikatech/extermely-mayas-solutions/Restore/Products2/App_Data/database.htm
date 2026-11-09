@@ -1,0 +1,41 @@
+<html>
+<head><title>Products Site Database Analysis</title></head>
+<body bgcolor="silver">
+<font fact="impact" size="+4" color="red"><center>Storage SQL Commands</center></font>
+<hr size="2" color="red"/><br/><br/>
+<pre>
+CREATE TABLE products
+(
+id INT PRIMARY KEY IDENTITY(100,5),
+name NVARCHAR(200) NOT NULL UNIQUE,
+brief NVARCHAR(500),
+startDate DATETIME default getDate(),
+endDate DATETIME default null,
+visible BIT DEFAULT true,
+price FLOAT DEFAULT -1,
+details NTEXT
+);
+
+CREATE TABLE messages
+(
+id INT PRIMARY KEY IDENTITY(100,5),
+name NVARCHAR(200) NOT NULL,
+email VARCHAR(200),
+phone VARCHAR(100),
+mobile VARCHAR(100),
+address NVARCHAR(300),
+date DATETIME DEFAULT getDate(),
+subject NVARCHAR(300) NOT NULL,
+message NTEXT
+);
+
+CREATE TABLE notProgs
+(
+id INT PRIMARY KEY IDENTITY(100,5),
+name NVARCHAR(200) UNIQUE NOT NULL,
+tone NVARCHAR(200) NOT NULL
+);
+
+</pre>
+</body>
+</html>

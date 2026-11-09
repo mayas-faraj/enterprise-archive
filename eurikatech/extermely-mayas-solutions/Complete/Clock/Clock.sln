@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clock", "Clock\Clock.csproj", "{8B5E8607-5485-4A6D-9F8A-37B1B5576FCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApplication", "ClientApplication\ClientApplication.csproj", "{BC485D97-8371-47FD-B46C-9105DA381F56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B5E8607-5485-4A6D-9F8A-37B1B5576FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5E8607-5485-4A6D-9F8A-37B1B5576FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5E8607-5485-4A6D-9F8A-37B1B5576FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5E8607-5485-4A6D-9F8A-37B1B5576FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC485D97-8371-47FD-B46C-9105DA381F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC485D97-8371-47FD-B46C-9105DA381F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC485D97-8371-47FD-B46C-9105DA381F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC485D97-8371-47FD-B46C-9105DA381F56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

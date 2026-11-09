@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Maniyat.CheckSystem" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>CheckSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.InformationControlCollection" Collapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAACAAABAAAAAAAAAAACAAAAABAAAA=</HashCode>
+      <FileName>Collections.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.IInformationCollection" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAABACAAABAAAAAAAAAAACAAAAABEAAA=</HashCode>
+      <FileName>Collections.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.Information" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iIKEAKoAgiAwAgIICAAAADBKAACSACEggEIiUABDIIA=</HashCode>
+      <FileName>Information.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.InformationInput" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIEAAAAAAAAAABgAABAYAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Information.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.InformationOutput" Collapsed="true">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAACAAAAAAAAAAAAAEAAAABAA=</HashCode>
+      <FileName>Information.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.InformationControl" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAIiAgAgAAICAAAAQgAAAFAAEAAQABIQQAAAE=</HashCode>
+      <FileName>InformationControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.ControlRelation" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAQABAAEBAAAAAQAAAAAAgAAAAIAAAAAAAA=</HashCode>
+      <FileName>InformationControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.ItemStyle" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAIIAAACCAAAAABAAAAEAAAgBIAAIAQ=</HashCode>
+      <FileName>ItemStyle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.Card" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAgAAAAAAIAAQABAQEAAQEAACAAAAAAAAAAAA=</HashCode>
+      <FileName>MultiInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.MultiInformations" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAACAAAAAgAAAQAAAACAACAAAAAgAAAAAI=</HashCode>
+      <FileName>MultiInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.MultiInformationsCard" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIIIGCSgCBAGCIAABBCAAQMQAAWCACgAAAAIAAQAAI=</HashCode>
+      <FileName>MultiInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.MultiInformationsList" Collapsed="true">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAASBAAAAAAAAAAEAEYAAAAGQAAABEAkAAAQAAI=</HashCode>
+      <FileName>MultiInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.MultiInformationsEdit" Collapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAACAAAAAAAAAAAAAAQAAAACAAIAAEAAAABAACI=</HashCode>
+      <FileName>MultiInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maniyat.MultiInformationsGrid" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAECAACAAAAAAQAAAAABAQAAAASAAAgAAAABAAAAAI=</HashCode>
+      <FileName>MultiInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Maniyat.IInformation" Collapsed="true">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Information.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Maniyat.ControlType" Collapsed="true">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAQAAAAAAAAAAACAAAAAAABQAAABAiAIAAgA=</HashCode>
+      <FileName>InformationControl.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

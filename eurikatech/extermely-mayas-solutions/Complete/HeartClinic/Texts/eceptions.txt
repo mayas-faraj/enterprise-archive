@@ -1,0 +1,8 @@
+using System;
+
+public class PercentOutOfRangeException : Exception
+{
+public PercentOutOfRangeException() : base("The Percent Value must between 0 and 100")
+{
+}
+}

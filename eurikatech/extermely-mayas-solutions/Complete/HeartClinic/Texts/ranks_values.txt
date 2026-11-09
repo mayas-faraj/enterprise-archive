@@ -1,0 +1,14 @@
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('Ã—«Õ',70,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('œ. „Œœ—',70,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('„”«⁄œ 1',10,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('„”«⁄œ 2',5,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('›Ì“Ì«∆Ì ⁄',5,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('„„—÷… ⁄',3,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('ÿ»Ì» «·⁄‰«Ì…',10,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('›‰Ì  ŒœÌ—',3,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('≈ÌﬂÊ „·Ê‰',40,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('√ÌﬂÊ1',40,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('„Œœ—1',30,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('›‰Ì „Œ»— Ê √‘⁄…',8,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('›Ì“Ì«∆Ì «·⁄‰«Ì…',5,0);
+INSERT INTO ranks (name,rankPercent,tax) VALUES ('„„—÷«  «·⁄‰«Ì…',5,0);

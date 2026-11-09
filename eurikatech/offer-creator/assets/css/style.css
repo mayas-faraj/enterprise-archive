@@ -1,0 +1,104 @@
+header, footer {
+	text-align: center;
+	font-family: arial, sans-serif;
+}
+
+header hr {
+	width: 50%;
+}
+
+body > div > * {
+	display: inline-block;
+}
+
+body > div > table {
+}	
+
+
+aside {
+	background-color: #333;
+	border: 2px dashed #eee;
+	padding: 10px;
+	margin-left: 10px;
+	width: 1240px;
+	height: 1704px;
+}
+
+#presentation {
+	border-spacing: 5px;
+}
+
+#presentation input[type=button],
+#presentation select,
+#presentation textarea {
+	width: 100%;
+}
+
+#presentation input[type=text],
+#presentation tr.indent input {
+
+	width: calc(100% - 20px);
+}
+
+.indent > td:first-of-child > * {
+	margin-left: 20px;
+}
+
+#stages {
+	border: 2px solid #000;
+	border-collapse: collapse;
+}
+
+#stages th,
+#stages td {
+	padding: 5px;
+	border: 1px solid #000;
+}
+
+#stages thead {
+	background-color: #ddd;
+}
+
+#stages tbody {
+	background-color: #eee;
+}
+
+footer {
+	margin-top: 20px;
+	text-align: center;
+	background-color: #ddd;
+	padding: 5px 0;
+}
+
+.hidden {
+	display: none;
+}
+
+.btn-primary {
+	background-color: #333;
+	color: #fff;
+	padding: 5px;
+}
+
+#blankRow td {
+	text-align: center;
+}
+
+aside img {
+	display: block;
+	margin: 0 auto;
+}
+
+aside table {
+	width: 80%;
+	margin-left: 10%;
+	text-align: center;
+	border-spacing: 5px;
+	border-collapse: collapse;
+}
+
+aside td,
+aside th {
+	border-bottom: 1px solid #000;
+	padding: 15px 0;
+}

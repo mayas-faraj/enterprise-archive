@@ -1,0 +1,62 @@
+﻿<Window x:Class="Purveyance.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525"
+        FontFamily="Times New Roman" FlowDirection="RightToLeft"
+        WindowState="Maximized" Closing="Window_Closing_1" 
+        >
+    <Border CornerRadius="{StaticResource ResourceKey=corners}" BorderBrush="{StaticResource ResourceKey=borders}" BorderThickness="{StaticResource ResourceKey=borderThickness}" Background="{StaticResource ResourceKey=backgrounds}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.ColumnSpan="4" Text="القائمة الرئيسية" Margin="{StaticResource ResourceKey=margin}" TextAlignment="Center" FontSize="{StaticResource ResourceKey=headerFontSize}" Foreground="{StaticResource ResourceKey=headerTexts}" FontWeight="Bold">
+                <TextBlock.Effect>
+                    <DropShadowEffect />
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <Button Name="btnPurveyance" Grid.Row="2" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=buttonTexts}" Click="btnPurveyance_Click">
+                <StackPanel>
+                    <TextBlock Text="ادارة الدفعات" FontSize="20" Margin="{StaticResource ResourceKey=margin}" FontWeight="Bold" TextAlignment="Center"/>
+                    <Image Source="pack://application:,,,/images/ark2.png" Width="100"/>
+                </StackPanel>
+            </Button>
+
+            <Button Name="btnSearch" Grid.Row="2" Grid.Column="2" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=buttonTexts}" Click="btnSearch_Click">
+                <StackPanel>
+                    <TextBlock Text="عرض أجمالي" FontSize="20" Margin="{StaticResource ResourceKey=margin}" FontWeight="Bold" TextAlignment="Center"/>
+                    <Image Source="images/d3A big pack search.png" Width="100"/>
+                </StackPanel>
+            </Button>
+
+            <Button Name="btnMoney" Grid.Row="2" Grid.Column="3" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=buttonTexts}" Click="btnMoney_Click">
+                <StackPanel>
+                    <TextBlock Text="الرصيد" FontSize="20" Margin="{StaticResource ResourceKey=margin}" FontWeight="Bold" TextAlignment="Center"/>
+                    <Image Source="images/EMOTICON MONEY.png" Width="100"/>
+                </StackPanel>
+            </Button>
+
+            <Button Name="btnMaterials" Grid.Row="2" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=buttonTexts}" Click="btnMaterials_Click">
+                <StackPanel>
+                    <TextBlock Text="ادارة المواد" FontSize="20" Margin="{StaticResource ResourceKey=margin}" FontWeight="Bold" TextAlignment="Center"/>
+                    <Image Source="pack://application:,,,/images/ark.png" Width="100"/>
+                </StackPanel>
+            </Button>
+            
+            <Button Name="btnExit" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=buttonTexts}" Content="خروج" Click="btnExit_Click"/>
+            <Button Name="btnAbout" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="{StaticResource ResourceKey=margin}" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=buttonTexts}" Content="حول البرنامج" Click="btnAbout_Click"/>
+        </Grid>
+    </Border>
+</Window>

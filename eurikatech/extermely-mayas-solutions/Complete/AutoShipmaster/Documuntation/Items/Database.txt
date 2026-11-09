@@ -1,0 +1,47 @@
+CREATE TABLE users
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(40) UNIQUE NOT NULL,
+password NVARCHAR(40) NOT NULL
+);
+
+CREATE TABLE commands
+(
+id INT UNIQUE NOT NULL,
+name NVARCHAR(40) UNIQUE NOT NULL
+);
+
+CREATE TABLE options
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(40) UNIQUE NOT NULL,
+mapPath NVARCHAR(400),
+mapScale float DEFAULT 1,
+width float DEFAULT 100 CHECK (width>0),
+height float DEFAULT 100 CHECK (height>0),
+pointColor INT DEFAULT 0
+);
+
+CREATE TABLE Operations
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(40) UNIQUE NOT NULL,
+comment NVARCHAR(400),
+currentAngle float DEFAULT 0,
+currentDistance float DEFAULT 0,
+currentVelocity float DEFAULT 1,
+userId INT FOREIGN KEY REFERENCES users(id),
+optionId INT FOREIGN KEY REFERENCES options(id),
+commandId INT FOREIGN KEY REFERENCES commands(id)
+);
+
+CREATE TABLE orders
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+operationId INT FOREIGN KEY REFERENCES operations(id),
+x float DEFAULT 0,
+y float DEFAULT 0,
+velocity float DEFAULT 1 CHECK (velocity>=0),
+serial  INT NOT NULL,
+CONSTRAINT uniqueOperationOrder UNIQUE (operationId,serial)
+);

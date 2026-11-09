@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconExtractor", "IconExtractor\IconExtractor.csproj", "{EAF3737C-89DC-4586-865B-811A870543F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testEmbeebExe", "testEmbeebExe\testEmbeebExe.csproj", "{65296884-0A19-49BC-95A9-2A33F9B47AB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "totallyTest", "totallyTest\totallyTest.csproj", "{EDF97B1A-47C6-49A4-90E6-99F317328D9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAF3737C-89DC-4586-865B-811A870543F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAF3737C-89DC-4586-865B-811A870543F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAF3737C-89DC-4586-865B-811A870543F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAF3737C-89DC-4586-865B-811A870543F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65296884-0A19-49BC-95A9-2A33F9B47AB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65296884-0A19-49BC-95A9-2A33F9B47AB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65296884-0A19-49BC-95A9-2A33F9B47AB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65296884-0A19-49BC-95A9-2A33F9B47AB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF97B1A-47C6-49A4-90E6-99F317328D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF97B1A-47C6-49A4-90E6-99F317328D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF97B1A-47C6-49A4-90E6-99F317328D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF97B1A-47C6-49A4-90E6-99F317328D9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

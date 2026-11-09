@@ -1,0 +1,40 @@
+﻿<Window x:Class="EncryptionAssistance.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Main Window" Height="600" Width="500"
+        WindowStyle="ThreeDBorderWindow"
+        Background="{StaticResource ResourceKey=background}"
+        WindowStartupLocation="CenterScreen" Icon="/EncryptionAssistance;component/Golden%20Wallpaper%20%28359%29.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.ColumnSpan="5" Margin="5" TextAlignment="Center" FontFamily="Impact" FontSize="25" FontWeight="DemiBold" Text="Maniat Encryption Systems" Foreground="{StaticResource ResourceKey=texts}"/>
+        
+        <TextBox Name="txInput" Grid.ColumnSpan="5" Grid.Row="1" Margin="5" Background="{StaticResource ResourceKey=textBoxes}" Foreground="{StaticResource ResourceKey=texts}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+
+        <Button Name="btnOpen" Grid.Row="2" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=buttons}" Content="Open File" Click="btnOpen_Click" />
+        <Button Name="btnSort" Grid.Row="2" Grid.Column="1" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=buttons}" Content="Sort Content" Click="btnSort_Click" />
+        <Button Name="btnEncrypt" Grid.Row="2" Grid.Column="2" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=buttons}" Content="Encrypt Content" Click="btnEncrypt_Click" />
+        
+        <ComboBox Name="cbEncSystems" Grid.Row="2" Grid.Column="3" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=buttons}"/>
+        <ComboBox Name="cbCodeSystems" Grid.Row="2" Grid.Column="4" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=buttons}"/>
+
+        <TextBox Name="txOutput" Grid.ColumnSpan="5" Grid.Row="3" Margin="5" Background="{StaticResource ResourceKey=textBoxes}" Foreground="{StaticResource ResourceKey=texts}" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+
+        <Button Name="btnClear" Grid.Row="5" Grid.ColumnSpan="3" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=buttons}" Content="Clear All" Click="btnClear_Click" />
+        <Button Name="btnSave" Grid.Row="5" Margin="5" Grid.Column="3" Grid.ColumnSpan="2" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=buttons}" Content="Save File" Click="btnSave_Click" />
+    </Grid>
+</Window>

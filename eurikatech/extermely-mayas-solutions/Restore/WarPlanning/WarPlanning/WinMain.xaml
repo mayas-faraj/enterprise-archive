@@ -1,0 +1,103 @@
+﻿<Window x:Class="WarPlanning.WinMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Operations" Height="600" Width="800" WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource ResourceKey=background}"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.ColumnSpan="5" Text="War Planning" TextAlignment="Center" FontSize="36" FontWeight="ExtraBold" Margin="5" Foreground="{StaticResource ResourceKey=texts}"/>
+
+
+        <ScrollViewer Background="{StaticResource ResourceKey=progressBars}" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="2" Margin="5">
+            <Canvas Name="canvas" Cursor="Hand" MouseDown="Canvas_MouseDown">
+            </Canvas>
+        </ScrollViewer>
+
+        <Button Grid.Row="1" Content="Map" Name="btnMap" Margin="5" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnMap_Click" />
+        
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Margin="5" Name="btnNone" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" ToolTip="Add Soldier" Click="btnNone_Click">
+                <Image Source="/WarPlanning;component/Images/green-flag.ico"/>
+            </Button>
+
+            <Button Grid.Row="1" Margin="5" Name="btnSoldier" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" ToolTip="Add Soldier" Click="btnSoldier_Click">
+                <Image Source="/WarPlanning;component/Images/soldier.png"/>
+            </Button>
+            <Button Grid.Row="2" Margin="5" Name="btnTruck" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" ToolTip="Add Truck" Click="btnTruck_Click">
+                <Image Source="/WarPlanning;component/Images/truck.png"/>
+            </Button>
+            <Button Grid.Row="3" Margin="5" Name="btnTransporter" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" ToolTip="Add Transporter" Click="btnTransporter_Click">
+                <Image Source="/WarPlanning;component/Images/armoredVechile.png"/>
+            </Button>
+            <Button Grid.Row="4" Margin="5" Name="btnTank" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" ToolTip="Add Tank" Click="btnTank_Click">
+                <Image Source="/WarPlanning;component/Images/tank.png"/>
+            </Button>
+            <Button Grid.Row="5" Margin="5" Name="btnMissile" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" ToolTip="Add Missile" Click="btnMissile_Click">
+                <Image Source="/WarPlanning;component/Images/missiles.png"/>
+            </Button>           
+        </Grid>
+
+        <Button Grid.Row="3" Grid.RowSpan="6" Content="Simulation" Name="btnSimulation" Margin="5" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnSimulation_Click" />
+        <ProgressBar Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Name="progressBar" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=progressBars}"/>
+        
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="X" Margin="5" Foreground="{StaticResource ResourceKey=texts}"/>
+        <TextBox Grid.Row="4" Grid.Column="2"  Name="txX" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" IsReadOnly="True"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="Y" Margin="5" Foreground="{StaticResource ResourceKey=texts}"/>
+        <TextBox Grid.Row="5" Grid.Column="2"  Name="txY" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" IsReadOnly="True" />
+
+        <TextBlock Grid.Row="6" Grid.Column="1" Text="Correlation" Margin="5" Foreground="{StaticResource ResourceKey=texts}"/>
+        <TextBox Grid.Row="6" Grid.Column="2"  Name="txCorrelation" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" IsReadOnly="True" />
+
+        <TextBlock Grid.Row="7" Grid.Column="1" Text="Coherent" Margin="5" Foreground="{StaticResource ResourceKey=texts}"/>
+        <TextBox Grid.Row="7" Grid.Column="2"  Name="txCoherent" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" IsReadOnly="True" />
+
+
+        <TextBlock Grid.Row="4" Grid.Column="3" Text="Ranging" Margin="5" Foreground="{StaticResource ResourceKey=texts}"/>
+        <TextBox Grid.Row="4" Grid.Column="4"  Name="txRanging" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" IsReadOnly="True" />
+
+        <TextBlock Grid.Row="5" Grid.Column="3" Text="Detectable" Margin="5" Foreground="{StaticResource ResourceKey=texts}"/>
+        <TextBox Grid.Row="5" Grid.Column="4"  Name="txDetectable" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" IsReadOnly="True" />
+
+        <TextBlock Grid.Row="6" Grid.Column="3" Text="Validity %" Margin="5" Foreground="{StaticResource ResourceKey=texts}"/>
+        <TextBox Grid.Row="6" Grid.Column="4"  Name="txValidity" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" IsReadOnly="True" />
+
+        <TextBlock Grid.Row="7" Grid.Column="3" Text="Covering" Margin="5" Foreground="{StaticResource ResourceKey=texts}"/>
+        <TextBox Grid.Row="7" Grid.Column="4"  Name="txCovering" Margin="5" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" IsReadOnly="True" />
+
+        <Button Grid.Row="8" Grid.Column="1" Content="Connect" Name="btnConnect" Margin="5" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnConnect_Click" />
+        <Button Grid.Row="8" Grid.Column="2" Content="Math" Name="btnMath" Margin="5" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}"/>
+        <Button Grid.Row="8" Grid.Column="3" Content="Clear" Name="btnClear" Margin="5" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnClear_Click" />
+        <Button Grid.Row="8" Grid.Column="4" Content="Exit" Name="btnExit" Margin="5" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=texts}" Click="btnExit_Click" />
+        
+    </Grid>
+</Window>

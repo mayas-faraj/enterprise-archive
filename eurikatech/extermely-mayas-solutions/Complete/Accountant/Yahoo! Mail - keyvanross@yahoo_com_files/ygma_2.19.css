@@ -1,0 +1,156 @@
+#ygma {
+	FONT: x-small arial,helvetica,clean,sans-serif
+}
+#ygma DIV {
+	CLEAR: none
+}
+#ygma STRONG {
+	FONT-WEIGHT: bold
+}
+#ygma INPUT {
+	FONT: 99% arial,helvetica,clean,sans-serif
+}
+#ygmatop {
+	FONT: 77% verdana
+}
+#ygmabot {
+	FONT: 77% verdana
+}
+#ygma {
+	MARGIN: 0px auto; ZOOM: 1; POSITION: relative; TEXT-ALIGN: left
+}
+#ygma:unknown {
+	CLEAR: both; DISPLAY: block; FONT-SIZE: 0px; VISIBILITY: hidden; LINE-HEIGHT: 0px; HEIGHT: 0px; content: "."
+}
+#ygmatop:unknown {
+	CLEAR: both; DISPLAY: block; FONT-SIZE: 0px; VISIBILITY: hidden; LINE-HEIGHT: 0px; HEIGHT: 0px; content: "."
+}
+#ygmabot:unknown {
+	CLEAR: both; DISPLAY: block; FONT-SIZE: 0px; VISIBILITY: hidden; LINE-HEIGHT: 0px; HEIGHT: 0px; content: "."
+}
+#ygma  {
+	LINE-HEIGHT: 1.22em
+}
+#ygma EM {
+	FONT-STYLE: normal
+}
+#ygmalogo IMG {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#ygma UL {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#ygma LI {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#ygma FORM {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#ygma FIELDSET {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#ygma LEGEND {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#ygma UL LI {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+#ygma OL LI {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+#ygma LEGEND {
+	DISPLAY: none
+}
+#ygmains1 {
+	MIN-HEIGHT: 50px; FLOAT: right; HEIGHT: 50px
+}
+#ygmains1 IMG {
+	FLOAT: none
+}
+#ygma FIELDSET {
+	FLOAT: none
+}
+#ygmains2 {
+	FLOAT: right; MARGIN-RIGHT: 10px
+}
+#ygmains3 {
+	FLOAT: right; MARGIN-LEFT: 10px
+}
+#ygmacx {
+	FLOAT: left; WIDTH: 100%
+}
+#ygmatop {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: #efefef; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #dedede 1px solid; ZOOM: 1
+}
+#ygnav {
+	LIST-STYLE-TYPE: none
+}
+#ygmahelp {
+	LIST-STYLE-TYPE: none
+}
+#ygnav LI {
+	DISPLAY: inline; MARGIN-RIGHT: 7px; ZOOM: 1; LIST-STYLE-TYPE: none
+}
+#ygmahelp LI {
+	DISPLAY: inline; MARGIN-RIGHT: 7px; ZOOM: 1; LIST-STYLE-TYPE: none
+}
+#ygma #ygnav {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 4px; FLOAT: left; PADDING-BOTTOM: 0px; FONT: 100% arial; PADDING-TOP: 6px
+}
+#ygma #ygnav A {
+	COLOR: #666
+}
+#ygma #ygmalogin {
+	FONT-SIZE: 122%
+}
+#ygma FORM {
+	PADDING-RIGHT: 5px; FLOAT: right; MARGIN: 1px 0px 0px; TEXT-ALIGN: right
+}
+#ygma LABEL {
+	MARGIN: 0px; FONT: bold 100% verdana; COLOR: #666; POSITION: relative; TOP: -2px
+}
+#ygma .ygbt {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; BACKGROUND: #ddd; PADDING-BOTTOM: 0px; FONT: bold 100% verdana; OVERFLOW: visible; CURSOR: hand; COLOR: #000; PADDING-TOP: 0px
+}
+#ygma #ygsp {
+	MARGIN: 0px 3px; FONT: 107% arial; WIDTH: 45%
+}
+#ygmahelp {
+	FONT: 100% verdana
+}
+#ygmahelp LI {
+	MARGIN-RIGHT: 4px
+}
+#ygmahelp LI.yglast {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#ygmabot {
+	PADDING-RIGHT: 0px; BORDER-TOP: #b3b3b3 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 8px; PADDING-TOP: 5px; ZOOM: 1
+}
+#ygmalogo {
+	FLOAT: left
+}
+#ygmauser {
+	FLOAT: left
+}
+#ygma #ygmalogo {
+	MARGIN: 0px 0px 0px 5px
+}
+#ygmauser {
+	FONT: 100% verdana; MARGIN-LEFT: 20px
+}
+#ygmahelp {
+	FLOAT: right
+}
+#ygmagreeting {
+	DISPLAY: block
+}
+#ygmalogin {
+	DISPLAY: block
+}
+#ygmamyyhpff {
+	DISPLAY: none
+}
+#ygma .yzq_x {
+	WIDTH: 0px; HEIGHT: 0px
+}

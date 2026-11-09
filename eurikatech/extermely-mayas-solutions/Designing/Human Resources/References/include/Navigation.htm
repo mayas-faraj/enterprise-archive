@@ -1,0 +1,46 @@
+<script language="Javascript">
+
+function empno(aspfile) {
+
+var mempno="";
+mempno=window.prompt("Enter the Employee No"," ");
+if (mempno!=0 && mempno!=null) window.navigate(aspfile+mempno);
+
+}
+
+</script>
+
+<table WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="4" height="0%" BGCOLOR="#FFCCCC" bordercolor="#660000">
+  <tr> 
+    <td WIDTH="8%" HEIGHT="23"> 
+      <div ALIGN="CENTER"><font FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="1"><a href="/hris/employeeprofile/employeeprofile.asp">Profile 
+        </a></font></div>
+    </td>
+    <td WIDTH="12%" HEIGHT="23"> 
+      <div ALIGN="CENTER"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="Javascript:empno('/hris/workhistory/workhistory.asp?empno=')">Work 
+        History </a></font></div>
+    </td>
+    <td WIDTH="13%" HEIGHT="23"> 
+      <div ALIGN="CENTER"><font FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="1"><a href="Javascript:empno('/hris/remuneration/remuneration.asp?empno=')">Remuneration 
+        </a> </font></div>
+    </td>
+    <td WIDTH="10%" HEIGHT="23"> 
+      <div ALIGN="CENTER"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="Javascript:empno('/hris/education/education.asp?empno=')">Education</a></font></div>
+    </td>
+    <td WIDTH="10%" HEIGHT="23"> 
+      <div align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="Javascript:empno('/hris/separation/separation.asp?empno=')">Separation</a></font></div>
+    </td>
+    <td WIDTH="10%" HEIGHT="23"> 
+      <div ALIGN="CENTER"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="/hris/dictionaries/dictionaries.asp">Dictionaries</a></font></div>
+    </td>
+    <td WIDTH="11%" HEIGHT="23"> 
+      <div align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="/hris/report/reports.asp">Reports</a></font></div>
+    </td>
+    <td WIDTH="12%" HEIGHT="23"> 
+      <div align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Utilities</font></div>
+    </td>
+    <td WIDTH="14%" HEIGHT="23"> 
+      <div align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><a href="/hris/index.asp">Home</a></font></div>
+    </td>
+  </tr>
+</table> 

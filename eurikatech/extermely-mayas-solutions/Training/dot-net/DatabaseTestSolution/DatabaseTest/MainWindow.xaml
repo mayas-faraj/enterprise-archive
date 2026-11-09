@@ -1,0 +1,41 @@
+﻿<Window x:Class="DatabaseTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid Loaded="Grid_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Column="0" Grid.Row="0" Margin="5" Text="Param1" VerticalAlignment="Center"/>
+        <TextBox Name="tx1" Grid.Row="0" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" Margin="5" Text="Param2" VerticalAlignment="Center"/>
+        <TextBox Name="tx2" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" Margin="5" Text="Param3" VerticalAlignment="Center"/>
+        <TextBox Name="tx3" Grid.Row="2" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="3" Margin="5" Text="Param4" VerticalAlignment="Center"/>
+        <TextBox Name="tx4" Grid.Row="3" Grid.Column="1" Margin="5"/>
+        
+        <ListBox Name="list" Grid.Row="0" Grid.Column="2" Grid.RowSpan="4" Margin="5" SelectionChanged="list_SelectionChanged" />
+
+        <DataGrid Name="dataGrid" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" />
+        
+        <Button Name="btnRun" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Content="Run" Click="btnRun_Click" />
+        <Button Name="btnOther" Grid.Row="5" Grid.Column="2" Margin="5" Content="Other" Click="btnOther_Click" />
+    </Grid>
+</Window>
+
+    

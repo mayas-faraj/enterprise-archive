@@ -1,0 +1,26 @@
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR BGCOLOR="#660000" VALIGN="top"> 
+    <TD HEIGHT="21" WIDTH="45%"> 
+      <DIV ALIGN="right"><font face="Verdana, Arial, Helvetica, sans-serif"><b><font color="#ffffff" face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><img height=46 src="/hris/images/hrislogo.gif" width=420 ></b></font></b></font><FONT COLOR="#ffffff" FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"></FONT></DIV>
+    </TD>
+    <TD HEIGHT="21" WIDTH="55%"> 
+      <DIV ALIGN="right"><FONT COLOR="#ffffff" FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="1"><B><%Response.Write formatdatetime(date(),1)%></B></FONT></DIV>
+    </TD>
+  </TR></TABLE>
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR BGCOLOR="#000066">
+    <TD HEIGHT="15" WIDTH="45%" bgcolor="#660000"><FONT FACE="Verdana, Arial, Helvetica, sans-serif"><B> 
+      </B> </FONT> </TD>
+    <TD HEIGHT="15" VALIGN="bottom" COLSPAN="2" bgcolor="#660000"> 
+      <DIV ALIGN="right"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="1" COLOR="#ffffff"><B>Total Active Users :-<%Response.Write Application("activeusers")%></B></FONT></DIV>
+    </TD></TR>
+  <TR BGCOLOR="660000"> 
+    <TD HEIGHT="12" WIDTH="45%"><FONT FACE="Verdana, Arial, Helvetica, sans-serif"><B><FONT SIZE="2" COLOR="#ffffff">Welcome 
+      :-</FONT><font color="#ffffff" face="Verdana, Arial, Helvetica, sans-serif" size="2"></font><FONT SIZE="2" COLOR="#ffffff"> 
+      <%Response.Write session("username")%> </FONT></B></FONT></TD>
+    <TD HEIGHT="12" VALIGN="bottom" WIDTH="47%">&nbsp;</TD>
+    <TD HEIGHT="12" VALIGN="center" WIDTH="8%" ALIGN="right"> 
+      <DIV ALIGN="right"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="1"><A href="/hris/signout.asp">Sign 
+        Out</A> </FONT></B></DIV>
+    </TD></TR></TABLE>
+

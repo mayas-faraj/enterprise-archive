@@ -1,0 +1,53 @@
+CREATE TABLE profiles
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(200) UNIQUE NOT NULL,
+language NVARCHAR(2),
+path NVARCHAR(300)
+);
+
+CREATE TABLE sites
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+profileId INT REFERENCES profiles(id),
+name NVARCHAR(200),
+longitude REAL  DEFAULT 0,
+latitude REAL  DEFAULT 0,
+zoom REAL  DEFAULT 1,
+motionVelocity INT DEFAULT 0,
+motionAccelerate INT DEFAULT 0,
+sweepStartAngle FLOAT DEFAULT 0,
+sweepEndAngle FLOAT DEFAULT 0,
+sweepVelocityAngle FLOAT DEFAULT 0,
+sweepAttunationAngle FLOAT DEFAULT 0,
+image NVARCHAR(300)
+);
+
+CREATE TABLE images
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+profileId INT REFERENCES profiles(id),
+path NVARCHAR(300) NOT NULL,
+width REAL  DEFAULT 0,
+height REAL  DEFAULT 0
+);
+
+CREATE TABLE pointers
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+profileId INT REFERENCES profiles(id),
+color1 BIGINT DEFAULT 0,
+color2 BIGINT DEFAULT 0,
+bodythikness REAL  DEFAULT 1,
+headthikness REAL  DEFAULT 1,
+headheight REAL DEFAULT 1
+);
+
+CREATE TABLE circles
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+profileId INT  REFERENCES profiles(id),
+color1 BIGINT DEFAULT 0,
+color2 BIGINT DEFAULT 0,
+thikness REAL  DEFAULT 1
+);

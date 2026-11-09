@@ -1,0 +1,81 @@
+﻿<Window x:Class="AutoShipmaster.frmOperation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="{StaticResource ResourceKey=background}"
+        FlowDirection="RightToLeft"
+        Title="الرحلة" Height="480" Width="640" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" Foreground="{StaticResource ResourceKey=captions}" Text="الرحلات" TextAlignment="Center" FontSize="35" FontWeight="Bold"/>
+        <Image Name="iconFlag" Visibility="Hidden" Source="/AutoShipmaster;component/bin/Debug/Items/Dad_flag.gif" />
+        <Image Name="iconHome" Visibility="Hidden" Source="/AutoShipmaster;component/bin/Debug/Items/home2.gif" />
+        
+        <TextBlock Grid.Column="2" Grid.Row="1" Foreground="{StaticResource ResourceKey=textBlockes}" Text="الخرائط" Margin="5" TextAlignment="Center"/>
+        <ListBox Grid.Column="2" Grid.Row="2" Grid.RowSpan="5" Name="lsMaps" Background="{StaticResource ResourceKey=textBoxes}" Foreground="{StaticResource ResourceKey=texts}" Margin="5" SelectionChanged="lsMaps_SelectionChanged" />
+            
+        <TextBlock Grid.Column="0" Grid.Row="1" Foreground="{StaticResource ResourceKey=textBlockes}" Text="أسم الرحلة" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Name="txName" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" Margin="2"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" Foreground="{StaticResource ResourceKey=textBlockes}" Text="وصف الرحلة" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Name="txComments" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" Margin="2"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="3" Margin="5" Background="{StaticResource ResourceKey=background}">
+            <Button Name="btnFlag" Background="{StaticResource ResourceKey=buttons}" ToolTip="إضافة نقطة" Margin="20,10,20,10" Height="35" Click="btnFlag_Click">
+                <Image Margin="5" Source="/AutoShipmaster;component/bin/Debug/Items/flag.gif" />
+            </Button>
+            <Button Name="btnDelFlag" Background="{StaticResource ResourceKey=buttons}" ToolTip="حذف نقطة" Margin="20,10,20,10" Height="35" Click="btnDelFlag_Click">
+                <Image Margin="5" Source="/AutoShipmaster;component/bin/Debug/Items/remove-flag.gif"/>
+            </Button>
+            <Button Name="btnHome" Background="{StaticResource ResourceKey=buttons}" ToolTip="إضافة نقطة البداية" Margin="20,10,20,5" Height="35" Click="btnHome_Click">
+                <Image Margin="5" Source="/AutoShipmaster;component/bin/Debug/Items/home.gif" />
+            </Button>
+        </StackPanel>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" Foreground="{StaticResource ResourceKey=textBlockes}" Text="السرعة" Margin="5"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="5" Foreground="{StaticResource ResourceKey=textBlockes}" Text="التقرير" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Name="txOrders" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" Margin="5" VerticalScrollBarVisibility="Visible"/>
+        
+        <Grid Grid.Column="1" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Slider Grid.Column="0" Name="sliderVelocity" SmallChange="0.1" TickFrequency=".1"  TickPlacement="Both" Maximum="1" IsSnapToTickEnabled="True" Value="1" />
+            <TextBlock Grid.Column="1" Foreground="{StaticResource ResourceKey=textBlockes}" Text="{Binding ElementName=sliderVelocity,Path=Value}" Margin="5" TextAlignment="Center"/>
+        </Grid>
+         
+        <Border Grid.Column="1" Grid.Row="3" Margin="5" BorderBrush="{StaticResource ResourceKey=textBoxes}" Background="{StaticResource ResourceKey=texts}" BorderThickness="3" CornerRadius="10">
+            <ScrollViewer Name="scrollImage" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Canvas Name="canvas" MouseDown="canvas_MouseDown" FlowDirection="LeftToRight"/>
+            </ScrollViewer>
+        </Border>
+        
+        <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Name="btnSave" Foreground="{StaticResource ResourceKey=textBlockes}" Background="{StaticResource ResourceKey=buttons}" Margin="2" Content="حفظ" Click="btnSave_Click" />
+            <Button Grid.Column="1" Name="btnBack" Foreground="{StaticResource ResourceKey=textBlockes}" Background="{StaticResource ResourceKey=buttons}" Margin="2" Content="عودة" Click="btnBack_Click" />
+        </Grid>
+    </Grid>
+</Window>
+
+    

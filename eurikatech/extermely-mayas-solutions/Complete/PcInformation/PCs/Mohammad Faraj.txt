@@ -1,0 +1,55 @@
+---- Processor ------
+Intel(R) Core(TM) i3 CPU       M 350  @ 2.27GHz
+x64 Family 6 Model 37 Stepping 2
+BFEBFBFF00020652
+GenuineIntel
+256
+
+----- Hard Disks -------
+** HDD : \\.\PHYSICALDRIVE0 **
+WDC WD2500BEKT-60A25T1
+250056737280
+(„Õ—ﬂ«  «·√ﬁ—«’ «·ﬁÌ«”Ì…)
+
+** HDD : \\.\PHYSICALDRIVE1 **
+JetFlash Transcend 4GB USB Device
+4013936640
+(„Õ—ﬂ«  «·√ﬁ—«’ «·ﬁÌ«”Ì…)
+
+
+----- Physics Memories -------
+** Memo : Physical Memory **
+BANK 0
+2147483648
+Samsung
+64F768CB
+
+----- Vedio Controller ------
+Intel(R) HD Graphics
+Intel(R) HD Graphics
+PCI\VEN_8086&DEV_0046&SUBSYS_1439103C&REV_02\3&11583659&0&10
+Intel(R) HD Graphics (Core i3)
+766435328
+
+----- Sound Device ------
+’Ê  «·‘«‘… „‰ Intel(R)˝˝
+’Ê  «·‘«‘… „‰ Intel(R)˝˝
+HDAUDIO\FUNC_01&VEN_8086&DEV_2804&SUBSYS_80860101&REV_1000\4&37536F62&0&0301
+Intel(R) Corporation
+
+----- Mother Board ------
+Base Board
+Base Board
+4CZ02332PQ
+Hewlett-Packard
+1439
+
+----- B I O S ------
+Default System BIOS
+HPQOEM - 1
+4CZ02332PQ
+Hewlett-Packard
+
+
+============================
+Mayas and ayed

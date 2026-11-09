@@ -1,0 +1,64 @@
+﻿<Window x:Class="AutoShipmaster.frmOperations"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="{StaticResource ResourceKey=background}"
+        FlowDirection="RightToLeft"
+        Title="إدارة الرحلات" Height="480" Width="640" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image Name="iconFlag" Visibility="Hidden" Source="/AutoShipmaster;component/bin/Debug/Items/Dad_flag.gif" />
+        <Image Name="iconHome" Visibility="Hidden" Source="/AutoShipmaster;component/bin/Debug/Items/home2.gif" />
+
+        <TextBlock Grid.ColumnSpan="5" Grid.Row="0" Foreground="{StaticResource ResourceKey=captions}" Text="إدارة الرحلات" TextAlignment="Center" FontSize="35" FontWeight="Bold"/>
+        <ListBox Grid.Column="4" Grid.Row="1" Grid.RowSpan="5" Name="lsOperations" Margin="10" Background="{StaticResource ResourceKey=textBoxes}" Foreground="{StaticResource ResourceKey=texts}" SelectionChanged="lsOperations_SelectionChanged" />
+
+        <Border Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Margin="10" BorderBrush="{StaticResource ResourceKey=textBoxes}" Background="{StaticResource ResourceKey=texts}" BorderThickness="3" CornerRadius="10">
+            <ScrollViewer Name="scrollImage" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Canvas Name="canvas" FlowDirection="LeftToRight"/>
+            </ScrollViewer>
+        </Border>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="الأسم" Margin="10" Foreground="{StaticResource ResourceKey=textBlockes}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Name="txName" Margin="6" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+        <TextBlock Grid.Column="2" Grid.Row="2" Text="المستخدم" Margin="10" Foreground="{StaticResource ResourceKey=textBlockes}"/>
+        <TextBox Grid.Column="3" Grid.Row="2" Name="txUser" Margin="6" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="وصف" Margin="10" Foreground="{StaticResource ResourceKey=textBlockes}"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" Name="txComment" Margin="6" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="X" Margin="10" Foreground="{StaticResource ResourceKey=textBlockes}"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Name="txX" Margin="6" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" Text="0" />
+
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="Y" Margin="10" Foreground="{StaticResource ResourceKey=textBlockes}"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Name="txY" Margin="6" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" Text="0" />
+
+        <TextBlock Grid.Column="2" Grid.Row="4" Text="الطويلة" Margin="10" Foreground="{StaticResource ResourceKey=textBlockes}"/>
+        <TextBox Grid.Column="3" Grid.Row="4" Name="txRadious" Margin="6" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" Text="0" />
+
+        <TextBlock Grid.Column="2" Grid.Row="5" Text="الزاوية" Margin="10" Foreground="{StaticResource ResourceKey=textBlockes}"/>
+        <TextBox Grid.Column="3" Grid.Row="5" Name="txTheta" Margin="6" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" Text="0" />
+
+        <Button Grid.Column="0" Grid.Row="6" Margin="6" Name="txRun" Content="تشغيل" Foreground="{StaticResource ResourceKey=textBlockes}" Background="{StaticResource ResourceKey=buttons}" Click="txRun_Click" />
+        <Button Grid.Column="1" Grid.Row="6" Margin="6" Name="txPause" Content="إيقاف" Foreground="{StaticResource ResourceKey=textBlockes}" Background="{StaticResource ResourceKey=buttons}" Click="txPause_Click" />
+        <Button Grid.Column="2" Grid.Row="6" Margin="6" Name="txStop" Content="وقوف" Foreground="{StaticResource ResourceKey=textBlockes}" Background="{StaticResource ResourceKey=buttons}" Click="txStop_Click" />
+        <Button Grid.Column="3" Grid.Row="6" Margin="6" Name="txBack" Content="عودة" Foreground="{StaticResource ResourceKey=textBlockes}" Background="{StaticResource ResourceKey=buttons}" Click="txBack_Click" />
+        <Button Grid.Column="4" Grid.Row="6" Margin="6" Name="txDelete" Content="حذف" Foreground="{StaticResource ResourceKey=textBlockes}" Background="{StaticResource ResourceKey=buttons}" Click="txDelete_Click" />
+    </Grid>
+</Window>

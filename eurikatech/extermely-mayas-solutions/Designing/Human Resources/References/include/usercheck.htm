@@ -1,0 +1,8 @@
+<%
+
+if len(trim(session("username")))=0 then
+	session.Abandon
+	Response.Redirect "/hris/invalidlogin.htm"
+end if
+
+%>

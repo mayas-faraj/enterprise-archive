@@ -1,0 +1,15 @@
+INSERT INTO doctors (name,rankId) values ('„Õ„Êœ œ—œ—Ì',3);
+INSERT INTO doctors (name,rankId) values ('ÿ·«· «·”⁄œÌ',4);
+INSERT INTO doctors (name,rankId) values ('‰«’— Ê«’·',5);
+INSERT INTO doctors (name,rankId) values ('€«“Ì „Ê”Ï',6);
+INSERT INTO doctors (name,rankId) values ('—Ã» «·ŒÿÌ»',6);
+INSERT INTO doctors (name,rankId) values ('—œÌ‰… ’«·Õ',7);
+INSERT INTO doctors (name,rankId) values ('„Õ„Êœ ﬂ‰Ã',7);
+INSERT INTO doctors (name,rankId) values ('Ê”Ì„ «·”ﬂ—Ì',8);
+INSERT INTO doctors (name,rankId) values ('⁄»œ «·—Õ„‰ €“«·',9);
+INSERT INTO doctors (name,rankId) values ('€Ìœ«¡ Ê›«∆Ì',10);
+INSERT INTO doctors (name,rankId) values ('—‰« «·ÌÊ”›',11);
+INSERT INTO doctors (name,rankId) values ('„Õ„Êœ œ—œ—Ì',12);
+INSERT INTO doctors (name,rankId) values ('0',13);
+INSERT INTO doctors (name,rankId) values ('0',14);
+INSERT INTO doctors (name,rankId) values ('0',15);

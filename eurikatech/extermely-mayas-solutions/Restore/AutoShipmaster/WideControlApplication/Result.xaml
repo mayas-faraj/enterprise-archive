@@ -1,0 +1,17 @@
+﻿<Window x:Class="WideControlApplication.Result"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Result" Height="300" Width="300">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Offset="0" Color="Silver"/>
+                <GradientStop Offset="1" Color="Black"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <WebBrowser Name="webBrowser" Visibility="Hidden"></WebBrowser>
+        <DocumentViewer Name="documentViewer" Margin="10">
+            
+        </DocumentViewer>
+    </Grid>
+</Window>

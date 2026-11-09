@@ -1,0 +1,69 @@
+CREATE TABLE notProgs
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(100) NOT NULL UNIQUE,
+tone NVARCHAR(100) NOT NULL
+);
+
+CREATE TABLE replays
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+notProgId INT FOREIGN KEY REFERENCES notProgs(id),
+email VARCHAR(50) NOT NULL,
+cc VARCHAR(50);
+subject NVARCHAR(200) DEFAULT 'no subject',
+sendDate DATETIME DEFAULT getDate(),
+message NTEXT
+);
+
+CREATE TABLE groups
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+parentId INT DEFAULT -1,
+name NVARCHAR(100) NOT NULL,
+image NVARCHAR(200),
+comment NVARCHAR(1000),
+addDate DATETIME DEFAULT getDate(),
+isHide BIT DEFAULT 0,
+CONSTRAINT uniqueGourp UNIQUE(name,parentId)
+);
+
+CREATE TABLE products
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+parentId INT DEFAULT -1,
+name NVARCHAR(100) NOT NULL,
+image NVARCHAR(200),
+comment NVARCHAR(1000),
+details NTEXT,
+useDateRange BIT DEFAULT 0,
+addDate DATETIME DEFAULT getDate(),
+validDate DATETIME,
+expireDate DATETIME,
+price NVARCHAR(100),
+isHide BIT DEFAULT 0,
+CONSTRAINT uniqueProduct UNIQUE(name,parentId)
+);
+
+CREATE TABLE messages
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+senderName NVARCHAR(100),
+senderPhone NVARCHAR(100),
+senderAddress NVARCHAR(100),
+senderEmail VARCHAR(50),
+subject NVARCHAR(200) DEFAULT 'no subject',
+sendDate DATETIME DEFAULT getDate(),
+groupId INT DEFAULT -1,
+productId INT DEFAULT -1,
+message NTEXT,
+isRead BIT DEFAULT 0,
+isHide BIT DEFAULT 0
+);
+
+CREATE TABLE tones
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(100) NOT NULL UNIQUE,
+tone NVARCHAR(100) NOT NULL
+);

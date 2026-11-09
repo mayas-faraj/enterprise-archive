@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="HomeWork">
+</Property><Property Name="Solution File" Value="E:\C#.Net\Training\HomeWork\HomeWork.sln">
+</Property><Property Name="User Options File" Value="E:\C#.Net\Training\HomeWork\HomeWork.suo">
+</Property><Property Name="Date" Value="Saturday, November 20, 2010">
+</Property><Property Name="Time" Value="8:37 AM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="HomeWork.sln" Description="File successfully backed up as E:\C#.Net\Training\HomeWork\Backup\HomeWork.sln">
+</Event><Event ErrorLevel="0" Project="" Source="HomeWork.suo" Description="File successfully backed up as E:\C#.Net\Training\HomeWork\Backup\HomeWork.suo">
+</Event><Event ErrorLevel="0" Project="HomeWork" Source="HomeWork\HomeWork.csproj" Description="Project file successfully backed up as E:\C#.Net\Training\HomeWork\Backup\HomeWork\HomeWork.csproj">
+</Event><Event ErrorLevel="0" Project="HomeWork" Source="HomeWork\Program.cs" Description="File successfully backed up as E:\C#.Net\Training\HomeWork\Backup\HomeWork\Program.cs">
+</Event><Event ErrorLevel="0" Project="HomeWork" Source="HomeWork\Properties\AssemblyInfo.cs" Description="File successfully backed up as E:\C#.Net\Training\HomeWork\Backup\HomeWork\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="HomeWork" Source="HomeWork\HomeWork.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="HomeWork" Source="HomeWork\HomeWork.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="HomeWork.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="HomeWork.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="HomeWork" Source="HomeWork\HomeWork.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

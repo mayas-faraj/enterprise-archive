@@ -1,0 +1,44 @@
+﻿.bannerPage
+{
+	background-color:#B4CCFA;
+}
+
+.bannerHeadText
+{
+	font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	font-size:x-large;
+	font-weight:bold;
+	color:#000066;
+}
+
+.bannerSubText
+{
+	font-family:"Times New Roman", Times, serif;
+	font-size:medium;
+	font-weight:bold;
+	color:#0000FF;
+}
+
+.bannerText
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:small;
+	color:#000080;
+
+}
+
+.bannerTable
+{
+	width:100%;
+	background-color:transparent;
+	border-width:0px 0px 0px 0px;
+	border-collapse:collapse;
+}
+
+.bannerImageCell
+{
+    width:250px;
+    height:200px;
+    padding:0px 0px 0px 0px;
+}
+

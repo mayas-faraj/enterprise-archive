@@ -1,0 +1,68 @@
+﻿<Window x:Class="AutoShipmaster.frmMaps"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="{StaticResource ResourceKey=background}"
+        FlowDirection="RightToLeft" MinWidth="480" MinHeight="480"
+        Title="الخرائط" Height="480" Width="640" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" Foreground="{StaticResource ResourceKey=captions}" Text="الخرائط" TextAlignment="Center" FontSize="35" FontWeight="Bold"/>
+        
+        <ListBox Grid.Column="2" Grid.Row="1" Grid.RowSpan="8" Name="lsMaps" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" Margin="10" SelectionChanged="lsMaps_SelectionChanged" />
+
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="10" BorderBrush="{StaticResource ResourceKey=textBoxes}" Background="{StaticResource ResourceKey=texts}" BorderThickness="3" CornerRadius="10">
+            <Image Name="imgMap" Stretch="Fill"/>
+        </Border>
+        
+        <TextBlock Grid.Column="0" Grid.Row="2" Margin="4" Foreground="{StaticResource ResourceKey=textBlockes}" Text="مسار الخريطة"/>
+        <Button Grid.Column="1" Grid.Row="2" Name="btnLocation" Margin="4" Foreground="{StaticResource ResourceKey=textBlockes}" Background="{StaticResource ResourceKey=buttons}" Content=". . ." Click="btnLocation_Click" />
+
+        <TextBlock Grid.Column="0" Grid.Row="3" Margin="4" Foreground="{StaticResource ResourceKey=textBlockes}" Text="أسم الخريطة"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Name="txName" Margin="4" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+        
+        <TextBlock Grid.Column="0" Grid.Row="4" Margin="4" Foreground="{StaticResource ResourceKey=textBlockes}" Text="الطول (بيكسل)"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Name="txHeight"  Margin="4" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" KeyDown="txNumeric_KeyDown" Text="500" />
+
+        <TextBlock Grid.Column="0" Grid.Row="5" Margin="4" Foreground="{StaticResource ResourceKey=textBlockes}" Text="العرض (بيكسل)"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Name="txWidth" Margin="4" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" KeyDown="txNumeric_KeyDown" Text="500" />
+
+        <TextBlock Grid.Column="0" Grid.Row="6" Margin="4" Foreground="{StaticResource ResourceKey=textBlockes}" Text="مقياس الرسم"/>
+        <TextBox Grid.Column="1" Grid.Row="6" Name="txScale" Margin="4" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" KeyDown="txNumeric_KeyDown" Text="150" />
+
+        <TextBlock Grid.Column="0" Grid.Row="7" Margin="4" Foreground="{StaticResource ResourceKey=textBlockes}" Text="لون المسار"/>
+        <Button Grid.Column="1" Grid.Row="7" Name="btnColor" Margin="4" Foreground="{StaticResource ResourceKey=textBoxes}" Background="Blue" Content=". . ." Click="btnColor_Click" />
+
+        <Grid Grid.ColumnSpan="2" Grid.Row="8" Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Name="btnNew" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=textBoxes}" Margin="1" Content="جديد" Click="btnNew_Click" />
+            <Button Grid.Column="1" Name="btnAdd" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=textBoxes}" Margin="1" Content="إضافة" Click="btnAdd_Click" />
+            <Button Grid.Column="2" Name="btnEdit" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=textBoxes}" Margin="1" Content="تعديل" Click="btnEdit_Click" />
+            <Button Grid.Column="3" Name="btnDelete" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=textBoxes}" Margin="1" Content="حذف" Click="btnDelete_Click" />
+            <Button Grid.Column="4" Name="btnBack" Background="{StaticResource ResourceKey=buttons}" Foreground="{StaticResource ResourceKey=textBoxes}" Margin="1" Content="عودة" Click="btnBack_Click" />
+        </Grid>
+
+    </Grid>
+</Window>

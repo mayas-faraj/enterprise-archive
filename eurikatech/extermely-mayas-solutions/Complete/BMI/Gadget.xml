@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<gadget>
+	<name>Body Weight Index</name>
+	<version>1.0.0.0</version>
+	<namespace>DangerousProgrammer</namespace>
+	<author name="Mayas Faraj">
+		<logo width="35" height="50" src="imgs\logo.jpg"/>
+		<info url="bestuniqueguy@yahoo.com" />
+	</author>
+	<description>calculate BMI (Body Weight Index) and IBW (Ideal Body Weight)</description>
+	<icons>
+	<icon height="48" width="48" src="imgs\icon.ico" />
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="HTML" apiVersion="1.0.0" src="Gadget.htm" />
+			<permissions>Full</permissions>
+			<platform minPlatformVersion="1.0" />
+		</host>
+	</hosts>
+</gadget>

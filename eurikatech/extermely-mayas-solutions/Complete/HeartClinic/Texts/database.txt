@@ -1,0 +1,197 @@
+USE Master;
+
+CREATE DATABASE SQLHeartDB
+ON (NAME=SQLHeartDB,FILENAME='',SIZE=500MB,FILEGROWTH=100MB)
+LOG ON (NAME=LogHeartDB,FILENAME='',SIZE=100MB,FILEGROWTH=10MB);
+
+==================================================================================
+USE SQLHeartDB;
+
+CREATE TABLE jobs
+(
+id TINYINT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(20) NOT NULL UNIQUE ,
+sold TINYINT DEFAULT 0 CHECK ( sold>=0 AND sold <=100)
+);
+
+CREATE TABLE sicks
+(
+id BIGINT PRIMARY KEY IDENTITY (100,1) ,
+name NVARCHAR(60) NOT NULL UNIQUE   ,
+jobId TINYINT NOT NULL FOREIGN KEY REFERENCES jobs(id)
+);
+
+CREATE TABLE clinics
+(
+id TINYINT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(20) NOT NULL UNIQUE
+);
+
+CREATE TABLE checks
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(60) NOT NULL UNIQUE,
+cost INT DEFAULT 0
+);
+
+CREATE TABLE midicits
+(
+id INT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(60) NOT NULL UNIQUE,
+cost INT DEFAULT 0
+);
+
+CREATE TABLE sleeps
+(
+id SMALLINT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(50) NOT NULL UNIQUE,
+cost INT DEFAULT 0
+);
+
+CREATE TABLE enters
+(
+id SMALLINT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(60) NOT NULL UNIQUE
+);
+
+CREATE TABLE halls
+(
+id TINYINT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(50) NOT NULL UNIQUE,
+cost INT DEFAULT 0
+);
+
+CREATE TABLE operations
+(
+id BIGINT PRIMARY KEY,
+clinicId TINYINT FOREIGN KEY REFERENCES clinics(id),
+sickId BIGINT FOREIGN KEY REFERENCES sicks(id),
+hallId TINYINT FOREIGN KEY REFERENCES halls(id),
+name NVARCHAR(150),
+description NVARCHAR(200),
+dateEnter SMALLDATETIME,
+dateExit SMALLDATETIME,
+dateOperation SMALLDATETIME NOT NULL,
+datePay SMALLDATETIME,
+paymentNum BIGINT,
+enterId SMALLINT FOREIGN KEY REFERENCES enters(id)
+);
+
+CREATE TABLE operationCosts
+(
+operationId BIGINT FOREIGN KEY REFERENCES operations(id),
+operationCost INT DEFAULT 0,
+discusCost INT DEFAULT 0,
+careCost INT DEFAULT 0,
+icoCost INT DEFAULT 0,
+vectorCost INT DEFAULT 0,
+icoPenjCost INT DEFAULT 0,
+heartDiagramCost INT DEFAULT 0,
+icoNum SMALLINT DEFAULT 1,
+vectorNum SMALLINT DEFAULT 1,
+icoPenjNum SMALLINT DEFAULT 1,
+heartDiagramNum SMALLINT DEFAULT 1,
+oxiderBigCost INT DEFAULT 0,
+oxiderSmallCost INT DEFAULT 0,
+balonCost INT DEFAULT 0,
+balonNum SMALLINT DEFAULT 1
+);
+
+CREATE TABLE operationChecks
+(
+operationId BIGINT FOREIGN KEY REFERENCES operations(id),
+checkId INT FOREIGN KEY REFERENCES checks(id),
+num SMALLINT DEFAULT 1
+);
+
+CREATE TABLE operationMedicits
+(
+operationId BIGINT FOREIGN KEY REFERENCES operations(id),
+checkId INT FOREIGN KEY REFERENCES midicits(id),
+num SMALLINT DEFAULT 1
+);
+
+CREATE TABLE dasams
+(
+id TINYINT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(20) NOT NULL UNIQUE
+);
+
+CREATE TABLE operationDasams
+(
+operationId BIGINT FOREIGN KEY REFERENCES operations(id),
+dasamId TINYINT FOREIGN KEY REFERENCES dasams(id),
+name NVARCHAR(20),
+size NVARCHAR(20),
+cost INT DEFAULT 0
+);
+
+CREATE TABLE helps
+(
+id SMALLINT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE operationHelps
+(
+operationId BIGINT FOREIGN KEY REFERENCES operations(id),
+helpId SMALLINT FOREIGN KEY REFERENCES helps(id),
+name NVARCHAR(100),
+bookNum NVARCHAR(50),
+bookDate SMALLDATETIME,
+SOLD INT DEFAULT 0
+);
+
+CREATE TABLE operationSleeps
+(
+operationId BIGINT FOREIGN KEY REFERENCES operations(id),
+sleepId SMALLINT FOREIGN KEY REFERENCES sleeps(id),
+num SMALLINT DEFAULT 1
+);
+
+CREATE TABLE operationFriendSleeps
+(
+operationId BIGINT FOREIGN KEY REFERENCES operations(id),
+sleepId SMALLINT FOREIGN KEY REFERENCES sleeps(id),
+name NVARCHAR(50),
+num SMALLINT DEFAULT 1
+);
+
+CREATE TABLE ranks
+(
+id SMALLINT PRIMARY KEY IDENTITY(1,1),
+name NVARCHAR(50) NOT NULL UNIQUE,
+rankPercent TINYINT CHECK(rankPercent>=0 AND rankPercent<=100),
+tax TINYINT CHECK(tax>=0 AND tax<=100),
+);
+
+CREATE TABLE doctors
+(
+id SMALLINT PRIMARY KEY IDENTITY(1,1),
+rankId SMALLINT FOREIGN KEY REFERENCES ranks(id),
+name NVARCHAR(60) NOT NULL UNIQUE
+);
+
+CREATE TABLE operationGives
+(
+operationId BIGINT FOREIGN KEY REFERENCES operations(id),
+doctorId SMALLINT FOREIGN KEY REFERENCES doctors(id),
+cost INT NOT NULL
+);
+
+=========================================================================================
+USE Master;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

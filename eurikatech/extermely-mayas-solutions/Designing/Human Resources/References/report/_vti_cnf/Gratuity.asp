@@ -1,0 +1,20 @@
+vti_encoding:SR|utf8-nl
+vti_author:SR|RAHIM\\Administrator
+vti_modifiedby:SR|RAHIM\\Administrator
+vti_timecreated:TR|05 Sep 2001 06:36:09 -0000
+vti_timelastmodified:TR|13 Sep 2001 05:21:14 -0000
+vti_filesize:IR|3725
+vti_title:SR|EOBI Report
+vti_metatags:VR|GENERATOR Microsoft\\ Visual\\ Studio\\ 6.0
+vti_generator:SR|Microsoft Visual Studio 6.0
+vti_extenderversion:SR|4.0.2.4426
+vti_backlinkinfo:VX|
+vti_nexttolasttimemodified:TR|05 Sep 2001 06:36:29 -0000
+vti_cacheddtm:TX|13 Sep 2001 05:21:14 -0000
+vti_cachedlinkinfo:VX|
+vti_cachedsvcrellinks:VX|
+vti_cachedtitle:SR|EOBI Report
+vti_cachedbodystyle:SR|<BODY leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+vti_cachedhasbots:BR|false
+vti_cachedhastheme:BR|false
+vti_cachedhasborder:BR|false

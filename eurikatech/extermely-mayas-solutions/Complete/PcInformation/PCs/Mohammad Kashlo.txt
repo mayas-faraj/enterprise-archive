@@ -1,0 +1,61 @@
+----- Processor ------
+Intel(R) Core(TM)2 Duo CPU     T6600  @ 2.20GHz
+x64 Family 6 Model 23 Stepping 10
+BFEBFBFF0001067A
+GenuineIntel
+2048
+
+----- Hard Disks -------
+** HDD : \\.\PHYSICALDRIVE0 **
+SAMSUNG HM500JI
+500105249280
+(محركات الأقراص القياسية)
+
+** HDD : \\.\PHYSICALDRIVE1 **
+JetFlash Transcend 4GB USB Device
+4013936640
+(محركات الأقراص القياسية)
+
+
+----- Physics Memories -------
+** Memo : Physical Memory **
+BANK 0
+1073741824
+80CE
+87891EE9
+** Memo : Physical Memory **
+BANK 2
+2147483648
+80CE
+6345A13D
+
+----- Vedio Controller ------
+ATI Mobility Radeon HD 4530 
+ATI Mobility Radeon HD 4530 
+PCI\VEN_1002&DEV_9553&SUBSYS_3628103C&REV_00\4&58D67EE&0&0008
+ATI display adapter (0x9553)
+536870912
+
+----- Sound Device ------
+IDT High Definition Audio CODEC
+IDT High Definition Audio CODEC
+HDAUDIO\FUNC_01&VEN_111D&DEV_7603&SUBSYS_103C3628&REV_1002\4&36141A95&0&0001
+IDT
+
+----- Mother Board ------
+Base Board
+Base Board
+CNF9377WL7
+Quanta
+3628
+
+----- B I O S ------
+Default System BIOS
+ACRSYS - 1
+CNF9377WL7
+Hewlett-Packard
+
+
+============================
+12/06/2011 01:06:33
+Mayas and ayed

@@ -1,0 +1,30 @@
+namespace Math
+{
+    internal class Program
+    {
+        static System.Double Sqrt(System.Double x)
+{
+const System.Double im=0.00001d;
+System.Double res=x/4;
+
+while(System.Math.Abs((x*x)-res)>im)
+{
+res += (x/res);
+}
+return res;
+}
+
+        static void Main()
+        {
+            System.Double inp;
+            System.Console.WriteLine("Enter x to calculate SQRT value");
+            inp = System.Convert.ToDouble(System.Console.ReadLine());
+
+            if (inp < 0)
+                System.Console.WriteLine("No SQRL for negative");
+            else
+                System.Console.WriteLine(Sqrt(inp));
+
+        }
+    }
+}

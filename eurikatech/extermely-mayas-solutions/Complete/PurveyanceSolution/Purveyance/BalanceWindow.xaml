@@ -1,0 +1,131 @@
+﻿<Window x:Class="Purveyance.BalanceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Balance Window" Height="600" Width="640"
+        FlowDirection="RightToLeft" WindowState="Maximized"
+        >
+    <Border CornerRadius="{StaticResource ResourceKey=corners}" BorderBrush="{StaticResource ResourceKey=borders}" BorderThickness="{StaticResource ResourceKey=borderThickness}" Background="{StaticResource ResourceKey=backgrounds}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.ColumnSpan="2" Text="الرصيد" Margin="{StaticResource ResourceKey=margin}" TextAlignment="Center" FontSize="{StaticResource ResourceKey=headerFontSize}" Foreground="{StaticResource ResourceKey=headerTexts}" FontWeight="Bold">
+                <TextBlock.Effect>
+                    <DropShadowEffect />
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="المادة" />
+            <ComboBox Name="lsMaterials" Grid.Row="1" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="تحديد فترة" />
+            <RadioButton GroupName="Period" Name="rbAll" Grid.Row="2" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=texts}" FontSize="{StaticResource ResourceKey=fontSize}" Background="{StaticResource ResourceKey=textBoxes}" IsChecked="True" Content="كل الفترة الزمنية"/>
+            
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                <RadioButton GroupName="Period" Name="rbFrom" Grid.Row="2" Grid.Column="1" Background="{StaticResource ResourceKey=textBoxes}" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=texts}" FontSize="{StaticResource ResourceKey=fontSize}" Content="من"/>
+                <DatePicker  Name="dpFrom" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" Text="تاريخ البداية"/>
+                <TextBlock Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="الى" />
+                <DatePicker Name="dpTo" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}" Text="تاريخ النهاية"/>
+            </StackPanel>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="بحث" />
+            <TextBox Name="txWords" Grid.Row="4" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+            <Grid Grid.Row="5" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                    
+                <Button Grid.Column="0" Grid.Row="0" Name="btnMath" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=buttons}" Background="{StaticResource ResourceKey=buttonTexts}" HorizontalAlignment="Right" Click="btnMath_Click">
+                    <Image Width="50" Source="images/lassists.png"/>
+                </Button>
+                <Button Grid.Column="1" Grid.Row="0" Name="btnCalculator" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=buttons}" Background="{StaticResource ResourceKey=buttonTexts}" HorizontalAlignment="Left" Click="btnCalculator_Click">
+                    <Image Width="50" Source="images/CMS-Indemnity-OD-B-calc.png"/>
+                </Button>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" HorizontalAlignment="Center" FontWeight="Bold"  Text="الوارد" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" HorizontalAlignment="Center" FontWeight="Bold"  Text="الصادر" />
+
+                <Grid Grid.Row="2" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="الكمية المستلمة" />
+                    <TextBox Name="txAmountIn" Grid.Row="0" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="المبلغ الصادر" />
+                    <TextBox Name="txBuyPrice" Grid.Row="1" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="تكاليف المواصلات" />
+                    <TextBox Name="txTransportCostIn" Grid.Row="2" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="تكاليف مختلفة" />
+                    <TextBox Name="txOtherCostIn" Grid.Row="3" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" HorizontalAlignment="Center" Text="الأرباح" />
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="الكمية الموزعة" />
+                    <TextBox Name="txAmountOut" Grid.Row="0" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="المبلغ الوارد" />
+                    <TextBox Name="txSellPrice" Grid.Row="1" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="تكاليف المواصلات" />
+                    <TextBox Name="txTransportCostOut" Grid.Row="2" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}"  Text="تكاليف مختلفة" />
+                    <TextBox Name="txOtherCostOut" Grid.Row="3" Grid.Column="1" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+
+                    <TextBox Name="txBalance" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="{StaticResource ResourceKey=margin}" FontSize="{StaticResource ResourceKey=fontSize}" Foreground="{StaticResource ResourceKey=texts}" Background="{StaticResource ResourceKey=textBoxes}"/>
+                </Grid>
+
+                <Button Grid.Column="0" Grid.Row="7" Name="btnBack" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=buttons}" Background="{StaticResource ResourceKey=buttonTexts}" Content="عودة" Click="btnBack_Click"/>
+                <Button Grid.Column="1" Grid.Row="7" Name="btnExit" Margin="{StaticResource ResourceKey=margin}" Foreground="{StaticResource ResourceKey=buttons}" Background="{StaticResource ResourceKey=buttonTexts}" Content="خروج" Click="btnExit_Click"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

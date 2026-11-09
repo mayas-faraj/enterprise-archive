@@ -1,0 +1,58 @@
+﻿<Window x:Class="AutoShipmaster.frmMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="{StaticResource ResourceKey=background}"
+        FlowDirection="RightToLeft"
+        Title="الصفحة الرئيسية" Height="480" Width="640">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" Text="الصفحة الرئيسية" Foreground="{StaticResource ResourceKey=captions}" TextAlignment="Center" FontSize="34" FontWeight="Bold"/>
+        
+        <Button Grid.Column="0" Grid.Row="1" Name="btnMaps" Background="{StaticResource ResourceKey=buttons}" Margin="35,10,35,10" Click="btnMaps_Click">
+            <StackPanel>
+                <TextBlock Foreground="{StaticResource ResourceKey=textBlockes}" Text="خرائط" TextAlignment="Center"/>
+                <Image Source="/AutoShipmaster;component/bin/Debug/Items/200801025_1.jpg" Stretch="Fill" Margin="5" Height="100" />
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="1" Name="btnOperation" Background="{StaticResource ResourceKey=buttons}" Margin="35,10,35,10" Click="btnOperation_Click">
+            <StackPanel>
+                <TextBlock Foreground="{StaticResource ResourceKey=textBlockes}" Text="رحلات" TextAlignment="Center"/>
+                <Image Source="/AutoShipmaster;component/bin/Debug/Items/EarthClock.jpg" Stretch="Fill" Margin="5" Height="100" />
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="2" Name="btnUsers" Background="{StaticResource ResourceKey=buttons}" Margin="35,10,35,10" Click="btnUsers_Click">
+            <StackPanel>
+                <TextBlock Foreground="{StaticResource ResourceKey=textBlockes}" Text="مستخدمون" TextAlignment="Center"/>
+                <Image Source="/AutoShipmaster;component/bin/Debug/Items/images.jpg" Stretch="Fill" Margin="5" Height="100" />
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="1" Name="btnOperations" Background="{StaticResource ResourceKey=buttons}" Margin="35,10,35,10" Click="btnOperations_Click">
+            <StackPanel>
+                <TextBlock Foreground="{StaticResource ResourceKey=textBlockes}" Text="إدارة الرحلات" TextAlignment="Center"/>
+                <Image Source="/AutoShipmaster;component/bin/Debug/Items/internet_connection.png" Stretch="Fill" Margin="5" Height="100" />
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="2" Name="btnAbout" Background="{StaticResource ResourceKey=buttons}" Margin="35,10,35,10" Click="btnAbout_Click">
+            <StackPanel>
+                <TextBlock Foreground="{StaticResource ResourceKey=textBlockes}" Text="عن المشروع" TextAlignment="Center"/>
+                <Image Source="/AutoShipmaster;component/bin/Debug/Items/steamer_256.png" Stretch="Fill" Margin="5" Height="100" />
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="2" Name="btnExit" Background="{StaticResource ResourceKey=buttons}" Margin="35,10,35,10" Click="btnExit_Click">
+            <StackPanel>
+                <TextBlock Foreground="{StaticResource ResourceKey=textBlockes}" Text="خروج" TextAlignment="Center"/>
+                <Image Source="/AutoShipmaster;component/bin/Debug/Items/exit.ico" Stretch="Fill" Margin="5" Height="100" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

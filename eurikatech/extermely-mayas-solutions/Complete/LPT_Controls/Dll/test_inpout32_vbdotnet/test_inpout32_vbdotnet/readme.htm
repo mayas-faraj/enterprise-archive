@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1 class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif">Documentation 
+  for Test_InpOut32_vbdotnet.zip</font></h1>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p></font><font face="Verdana, Arial, Helvetica, sans-serif">This 
+  zip file contains a Visual Basic .NET project for basic testing of inpout32.dll, 
+  which enables applications to read and write to I/O ports<o:p>.</o:p></font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p>by 
+  Jan Axelson<o:p><br>
+  </o:p>jan@Lvr.com<o:p><br>
+  </o:p><a href="http://www.Lvr.com/">www.Lvr.com<o:p></o:p></a></font><a href="http://www.Lvr.com/"><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p></font></a><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p></font></p>
+<h2 class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif">Important 
+  Information and Cautions</font></h2>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p></font><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p></font><font face="Verdana, Arial, Helvetica, sans-serif"><o:p>This 
+  program requires an inpout32 DLL. You can use either my original version, which 
+  works only on Windows 95/98/ME, or the version from LOGIX4U, which works on 
+  Windows 95/98/NT/ME/2000/XP. Both are available from:</o:p></font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><o:p> 
+  <a href="http://www.lvr.com/parport.htm#Programming">http://www.lvr.com/parport.htm#Programming</a></o:p></font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"> Inpout32 
+  was developed to allow access to parallel ports and other ports on custom hardware, 
+  but you can use it to attempt to access any hardware that is mapped as an I/O 
+  port.</font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif">Use the 
+  DLL at your own risk. Writing to hardware port addresses can result in system 
+  crashes, loss of data, and in some cases, even permanent hardware damage.</font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"> For 
+  the latest parallel-port programming and interfacing information and tools, 
+  visit Parallel Port Central at: <o:p></o:p></font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><a href="http://www.Lvr.com/partport.htm">www.Lvr.com/partport.htm<o:p></o:p></a><o:p></o:p></font></p>
+<h2 class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><o:p>Running 
+  the Application</o:p></font></h2>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p></font><font face="Verdana, Arial, Helvetica, sans-serif">To 
+  run the test program: <o:p></o:p></font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif">1. Obtain 
+  inpout32.dll as described above and copy the file to your Windows system directory 
+  (usually \Windows\system32). <o:p></o:p></font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif">2. In 
+  the Visual Studio environment, open the project test_InpOut32.vbproj.<o:p></o:p></font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif">3. In 
+  the Test_InpOut32_Load subroutine, set PortAddress equal to the port address 
+  you want to test. <o:p></o:p></font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif">4</font><font face="Verdana, Arial, Helvetica, sans-serif">. 
+  Run the application. Clicking the command button causes the program to write 
+  a value to the port, read the port, and display the result. The value increments 
+  with each click, resetting to 0 at 255.<o:p></o:p></font></p>
+<h2 class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p></font><font face="Verdana, Arial, Helvetica, sans-serif">How 
+  to Use inpout32.dll in Your Programs</font><font face="Verdana, Arial, Helvetica, sans-serif"><o:p>&nbsp;</o:p></font></h2>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><o:p>1</o:p></font><font face="Verdana, Arial, Helvetica, sans-serif">. 
+  Add inpout32_declarations.bas to your Visual Basic .NET project. <o:p></o:p></font></p>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><o:p>2</o:p></font><font face="Verdana, Arial, Helvetica, sans-serif">. 
+  Use this syntax to write to a port: <o:p></o:p></font></p>
+<blockquote> 
+  <p><font face="Verdana, Arial, Helvetica, sans-serif">Out PortAddress, ValueToWrite 
+    <o:p></o:p></font></p>
+</blockquote>
+<p><font face="Verdana, Arial, Helvetica, sans-serif"><o:p>Ex</o:p></font><font face="Verdana, Arial, Helvetica, sans-serif">amples:<o:p></o:p></font></p>
+<blockquote>
+  <p><font face="Verdana, Arial, Helvetica, sans-serif">Out &amp;h378s, &amp;h55s 
+    <o:p></o:p></font></p>
+  <p><font face="Verdana, Arial, Helvetica, sans-serif"><o:p>Out 888s, 85s</o:p></font></p>
+</blockquote>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p></font><font face="Verdana, Arial, Helvetica, sans-serif"><span style='mso-spacerun:yes'></span>Use 
+  this syntax to read a port: <o:p></o:p></font></p>
+<blockquote>
+  <p><font face="Verdana, Arial, Helvetica, sans-serif">ValueRead = Inp(PortAddress) 
+    <o:p></o:p><o:p></o:p></font></p>
+</blockquote>
+<p><font face="Verdana, Arial, Helvetica, sans-serif">Examples:</font></p>
+<blockquote>
+  <p><font face="Verdana, Arial, Helvetica, sans-serif"><span style='mso-spacerun:yes'>Dim 
+    </span>ValueRead as Short</font></p>
+</blockquote>
+<blockquote> 
+  <p><font face="Verdana, Arial, Helvetica, sans-serif"> </font><font face="Verdana, Arial, Helvetica, sans-serif"> 
+    <o:p></o:p></font><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p></font><font face="Verdana, Arial, Helvetica, sans-serif"><span style='mso-spacerun:yes'> 
+    </span> ValueRead = Inp(&amp;h3BCs) <o:p></o:p></font></p>
+  <p><font face="Verdana, Arial, Helvetica, sans-serif"><o:p></o:p>ValueRead = 
+    Inp(956s) <o:p></o:p></font></p>
+</blockquote>
+<p class=MsoPlainText><font face="Verdana, Arial, Helvetica, sans-serif"><span style='mso-spacerun:yes'> </span><o:p></o:p></font></p>
+<p class=MsoPlainText>&nbsp;</p>
+</body>
+</html>
