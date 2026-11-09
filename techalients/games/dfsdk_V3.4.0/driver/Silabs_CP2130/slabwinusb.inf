@@ -1,0 +1,115 @@
+; Silabs WinUSB Driver
+; * CP2130 USB to SPI Bridge
+; Copyright (c) 2013, Silicon Laboratories
+
+[Version]
+Signature = "$Windows NT$"
+Class = SlabUsbDriverClass
+ClassGuid = {6f4faa60-0d3a-40c5-88e7-01187cf6d377}
+Provider = %ProviderName%
+DriverVer = 08/12/2013,1.0.0.0
+CatalogFile = slabwinusb.cat
+
+; ================== Class section ==================
+
+[ClassInstall32]
+AddReg=SlabUsbDriverClass_AddReg
+
+[SlabUsbDriverClass_AddReg]
+HKR,,,,%ClassName%
+HKR,,Icon,,-20
+
+; ========== Manufacturer/Models sections ===========
+
+[Manufacturer]
+%ProviderName% = WinUSB,NTx86,NTamd64,NTia64
+
+[WinUSB.NTx86]
+%USB\VID_10C4&PID_87A0.DeviceDesc% =CP2130_Install, USB\VID_10C4&PID_87A0
+
+[WinUSB.NTamd64]
+%USB\VID_10C4&PID_87A0.DeviceDesc% =CP2130_Install, USB\VID_10C4&PID_87A0
+
+[WinUSB.NTia64]
+%USB\VID_10C4&PID_87A0.DeviceDesc% =CP2130_Install, USB\VID_10C4&PID_87A0
+
+; =================== CP2130 Installation ===================
+
+[CP2130_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+[CP2130_Install.Services]
+Include=winusb.inf
+AddService = WinUSB,0x00000002,CP2130_ServiceInstall
+
+[CP2130_ServiceInstall]
+DisplayName     = %CP2130_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+;Needs=WINUSB.NT.Services
+
+[CP2130_Install.Wdf]
+KmdfService=WINUSB, WinUSB_Install
+
+[CP2130_Install.HW]
+AddReg=CP2130_AddReg
+
+[CP2130_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{F81D8403-3C27-45FF-98B7-3D00F19169CE}"
+HKR,,"SystemWakeEnabled",0x00010001,1
+HKR,,"DeviceIdleEnabled",0x00010001,1
+HKR,,"DefaultIdleState", 0x00010001,1
+HKR,,"DefaultIdleTimeout",0x00010001,10000
+HKR,,"UserSetDeviceIdleEnabled",0x00010001,1
+HKR,,"DeviceIdleIgnoreWakeEnable", 0x00010001,1
+HKR,,"DeviceSelectiveSuspended", 0x00010001,1
+
+[CP2130_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+; =================== Generic WinUSB Installation ===================
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.9
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallers_CopyFiles]
+WdfCoInstaller01009.dll
+WinUSBCoInstaller2.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+; ================= Source Media Section =====================
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\x86
+2 = %DISK_NAME%,,,\amd64
+3 = %DISK_NAME%,,,\ia64
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller2.dll=1
+WdfCoInstaller01009.dll=1
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller2.dll=2
+WdfCoInstaller01009.dll=2
+
+[SourceDisksFiles.ia64]
+WinUSBCoInstaller2.dll=3
+WdfCoInstaller01009.dll=3
+
+; =================== Strings ===================
+
+[Strings]
+ProviderName="Silicon Labs"
+USB\VID_10C4&PID_87A0.DeviceDesc="Silicon Labs CP2130 USB to SPI Bridge"
+CP2130_SvcDesc="Silicon Labs CP2130 USB to SPI Bridge"
+DISK_NAME="Silicon Labs WinUSB Driver Installation Disk"
+ClassName="Silicon Labs USB Devices"

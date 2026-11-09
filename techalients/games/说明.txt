@@ -1,0 +1,5 @@
+﻿SDK同时支持云智和诺瓦，云智需要安装驱动 Silabs_CP2130(Drive for Ydea).zip
+
+dfsdk_Vx.x.x：SDK可运行例子。
+dfsdk_Src_Vx.x.x：SDK开发包。
+
