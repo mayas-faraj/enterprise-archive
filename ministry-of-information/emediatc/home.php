@@ -1,0 +1,1 @@
+<?php ($Cat_Kind == "1")?include("page_title.php"):include("page_text.php");?>

@@ -1,0 +1,444 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/style.css" media="style, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+@import "_colors";
+@import "_vars";
+
+html {
+	direction: rtl;
+	font-family: "Lateef", cursive;;
+	size: calc(10px + .6vw);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Almarai", sans-serif;
+}
+
+#top-header {
+	#logo-header {
+		display: flex;
+		flex-flow: row nowrap;
+		height: $header-height;
+	}
+
+	.svg-header {
+		background-color: $primary;
+		background-image: url("/assets/imgs/shapes-header-bg.svg");
+		background-repeat: repeat;
+		flex-grow: 1;
+		text-align: center;
+		font-size: 2.5rem;
+		line-height: 8rem;
+		color: $secondary;
+	}
+
+	.svg-curve-header {
+		background-image: url("/assets/imgs/header-edge.svg");
+		flex-basis: 51px;
+	}
+
+	.logo-header {
+		@include transform(scale(1.08));
+	}
+
+		
+	.svg-header + .svg-curve-header  {
+		@include transform(scaleX(-1));
+	}
+
+	nav {
+		display: block;
+		margin-top: 10px;
+
+		ul {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			height: 35px;
+			background-color: $primary;
+
+			li {
+				flex-grow: 1;
+				text-align: center;
+				border-left: 2px solid $secondary;
+			}
+
+			a {
+				color: $secondary;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+#main-section {
+	max-width: 1200px;
+	margin: 25px auto 50px;
+
+	header {
+		text-align: center;
+		padding: 20px;
+
+		h2 {
+			font-size: 2em;
+			color: $primary;
+			text-decoration: underline;
+		}
+
+		strong {
+			font-size: 1.3em;
+			color: $accent;
+		}
+	}
+
+	.send-form {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 5vw;
+		
+
+		> * {
+			flex-basis: 300px;
+			flex-grow: 1;
+			margin: 0 auto;
+		}
+	}
+
+	@media (min-width: 900px) {
+	}
+
+	@media (max-width: px) {
+	}
+
+	#main-slider {
+		display: inline-block;
+		width: calc(100% - #{$breaking-news-width + 25px});
+		height: $slider-height;
+
+		.swiper-slide  {
+			border-radius: 30px 0;
+			.overlay {
+				position: absolute;
+				background-image: url("/assets/imgs/slider-background.svg");
+				background-size: contain;
+				background-repeat: no-repeat;
+				width: 100%;
+				height: 100%;
+				border-radius: 30px 0;
+			}
+
+			img {
+				width: 100%;
+				height: $slider-height;
+				object-fit: cover;
+				border-radius: 30px 0;
+			}
+		}
+
+		.swiper-slide p {
+			position: absolute;
+			width: 20%;
+			left: 20px;
+			top: 20px;
+			font-size: 2em;
+			color: $secondary;
+			@include text-shadow(1px 1px 4px #000);
+			text-align: right;
+		}
+
+	}
+
+	#extra-sidebar {
+		display: inline-block;
+		width: $breaking-news-width;
+		vertical-align: top;
+		padding-right: 20px;
+	}
+
+	#video-viewer {
+		iframe {
+			width: 100%;
+			margin-top: 30px;
+			border-radius: 30px;
+			height: $breaking-news-height;
+		}
+	}
+
+	#breaking-slider {
+		height: $breaking-news-height;
+
+		.swiper-slide {
+			text-align: center;
+			@include box-shadow(5px 5px 40px #333 inset);
+			background-color: $secondary;
+			border-radius: 30px;
+
+			&:nth-child(odd) .card-title {
+				background-color: $primary;
+				border-color: $primary;
+			}
+			&:nth-child(even) .card-title {
+				background-color: $accent;
+				border-color: $accent;
+			}
+
+			.card-title {
+				font-size: 1.5em;
+				color: $secondary;
+				padding-top: 30px;
+				border-bottom: 60px solid;
+				border-radius: 0 0 50% 50%;
+			}
+
+
+			.card-content {
+				p {
+					margin: auto;
+					padding: 20px;
+					font-size: 1.8em;
+				}
+			}
+		}
+	}
+
+}
+
+#news-section {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 25px;
+	margin-bottom: 50px;
+
+	.more-news {
+		background-color: $accent;
+		a {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+			height: 70px;
+			color: $accent-secondary;
+			text-decoration: none;
+
+			&:hover {
+				background-color: darken($accent, 10%);
+			}
+		
+			img {
+				flex-basis: 70px;
+				width: 70px;
+				object-fit: cover;
+				margin: 10px;
+				border-right: 4px solid $primary;
+			}
+
+			p {
+				align-self: center;
+			}
+		}
+	}
+}
+
+	
+#online-section {
+	background-image: url(/assets/imgs/world-map-white.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#online-section, #news-section {
+	display: flex;
+	flex-flow: row wrap;
+	justify-items: spece-around;
+	align-items: center;
+	gap: 1vw;
+
+	.online-block, .news-block {
+		position: relative;
+		flex-basis: 300px;
+		flex-grow: 1;
+		overflow: hidden;
+		border-left: 10px solid $primary;
+
+
+		h2 {
+			position: absolute;
+			right: -23px;
+			top: -23px;
+			background: $primary;
+			color: $secondary;
+			padding: 30px;
+			border-radius: 0 70%;
+		}
+
+		h3 {
+			background-color: $accent;
+			color: $accent-secondary;
+			padding: 10px;
+			margin-top: -5px;
+			text-align: center;
+			padding-bottom: 25px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: darken($accent, 10%);
+			}
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.online-block::before {
+		display: block;
+		position: absolute;
+		content: "";
+		top: 10px;
+		left: 10px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: #00c100;
+		@include box-shadow(0 0 6px #65ff65);
+	}
+
+}
+
+#category-section {
+	max-width: 1200px;
+	margin: 25px auto 50px;
+
+	.main-articles {
+		display: flex;
+		flex-flow: column wrap;
+		height: 400px;
+		gap: 1vw;
+
+		.article:first-child {
+			flex-basis: 100%;
+		}
+
+		.article:nth-child(n+2) {
+			flex-basis: 50%;
+		}
+	}
+
+	.article {
+		padding: 5px;
+		img {
+			width: 100%;
+		}
+
+		a {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
+
+.divider {
+	width: 100%;
+	height: 20px;
+	background-image: url(/assets/imgs/divider.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 30px 0;
+}
+
+footer {
+	display: flex;
+	flex-flow: row wrap;
+	align-content: end;
+	gap: 5vw;
+	height: 500px;
+	background-color: $accent;
+	background-image: url(/assets/imgs/footer-background.svg);
+	background-repeat: repeat-x;
+	background-size: contain;
+	color: $accent-secondary;
+
+	> div {
+		margin: auto;
+		flex-basis: 200px;
+		flex-grow: 1;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 1.2em;
+		text-decoration: underline;
+		margin-bottom: 10px;
+	}
+
+	.logo-footer {
+		height: 200px;
+		padding: 20px;
+		@include filter(grayscale(1) brightness(2) contrast(.6));
+	}
+
+	#footer-list li,
+	#footer-link li {
+		list-style: none;
+
+		a {
+			color: $accent-secondary;
+			text-decoration: none;
+		}
+	}
+
+	#footer-list {
+		display: flex;
+		flex-direction: column;
+
+		ul {
+			margin: 0 auto;
+		}
+	}
+
+	#footer-link {
+		text-align: center;
+		li {
+			display: inline;
+			margin-left: 20px;
+		}
+	}
+}
+
+.swiper-button-next, .swiper-button-prev {
+	color: $accent;
+}
+
+.swiper-pagination-bullet-active {
+	background: $accent;
+}
+
+.small-input {
+	width: 40%;
+}
+
+.wide-input {
+	width: 85%;
+}
+
+.input {
+	padding: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    margin: 4px;
+    border: 2px solid $primary;
+}
+
+.button {
+	color: $secondary;
+	background-color: $primary;
+}

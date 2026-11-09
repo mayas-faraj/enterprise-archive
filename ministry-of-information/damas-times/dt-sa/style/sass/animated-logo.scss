@@ -1,0 +1,21 @@
+@import "compass/css3";
+
+@keyframes glow {
+	from {
+		filter: drop-shadow(2px 4px 30px red);
+	}
+
+	to {
+		filter: drop-shadow(2px 4px 10px red);
+	}
+}
+
+.glowing-img {
+	text-align: center;
+	padding: 50px 0;
+
+	img {
+		@include animation(2s ease 0s glow infinite alternate);
+	}
+}
+
